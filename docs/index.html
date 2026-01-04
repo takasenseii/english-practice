@@ -681,8 +681,14 @@ function checkOne(card) {
   const item = currentItems[idx];
   const resultEl = card.querySelector(".result");
   const input = card.querySelector('input[type="text"]');
-  const student = normalize(input.value);
-  const answer = normalize(item.answer);
+let student = normalize(input.value);
+let answer = normalize(item.answer);
+
+// Articles: normalise strictly to a / an
+if (topicSelect.value.startsWith("Articles")) {
+  student = student.replace(/[^a-z]/g, "");
+  answer  = answer.replace(/[^a-z]/g, "");
+}
 
   if (!student) {
     card.dataset.correct = "0";
