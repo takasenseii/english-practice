@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>A vs An Practice</title>
+  <style>
+    body { font-family: system-ui, Arial, sans-serif; max-width: 900px; margin: 32px auto; padding: 0 16px; }
+    h1 { font-size: 1.6rem; margin-bottom: 0.25rem; }
+    .controls { display: flex; gap: 10px; flex-wrap: wrap; margin: 16px 0; }
+    button { padding: 10px 14px; border: 1px solid #bbb; border-radius: 8px; background: #fff; cursor: pointer; }
+    button:hover { background: #f5f5f5; }
+    .item { padding: 12px 12px; border: 1px solid #e3e3e3; border-radius: 10px; margin: 10px 0; }
+    .gap { display: inline-block; min-width: 2.5em; text-align: center; border-bottom: 2px solid #333; padding: 0 4px; }
+    .answer { margin-left: 10px; font-weight: 700; display: none; }
+    .meta { color: #555; font-size: 0.95rem; }
+  </style>
+</head>
+<body>
+  <h1>A vs An (Articles)</h1>
+  <div class="meta">Click “New set” to get 10 new random sentences. “Show answers” reveals the correct articles.</div>
+
+  <div class="controls">
+    <button id="newSetBtn" type="button">New set (10)</button>
+    <button id="showBtn" type="button">Show answers</button>
+    <button id="hideBtn" type="button">Hide answers</button>
+  </div>
+
+  <div id="list"></div>
+
+  <script>
+    // You can add more items at any time.
+    // Format: { sentence: "I saw ___ elephant at the zoo.", answer: "an" }
+    const BANK = [
+      { sentence: "She wants to buy ___ umbrella.", answer: "an" },
+      { sentence: "He is ___ honest person.", answer: "an" },
+      { sentence: "I need ___ new notebook for class.", answer: "a" },
+      { sentence: "They adopted ___ dog from the shelter.", answer: "a" },
+      { sentence: "We booked ___ hotel near the station.", answer: "a" },
+      { sentence: "It was ___ unusual idea, but it worked.", answer: "an" },
+      { sentence: "He ate ___ apple after lunch.", answer: "an" },
+      { sentence: "She bought ___ pair of shoes online.", answer: "a" },
+      { sentence: "It takes ___ hour to get there by bus.", answer: "an" },
+      { sentence: "He is ___ university student.", answer: "a" }, // "you-ni..." sound
+      { sentence: "They live in ___ old house by the river.", answer: "an" },
+      { sentence: "I saw ___ movie yesterday.", answer: "a" },
+      { sentence: "She gave me ___ explanation.", answer: "an" },
+      { sentence: "We need ___ bigger table.", answer: "a" },
+      { sentence: "He found ___ antique lamp at the market.", answer: "an" },
+      { sentence: "I have ___ headache.", answer: "a" },
+      { sentence: "She is ___ engineer.", answer: "an" },
+      { sentence: "He made ___ mistake on the test.", answer: "a" },
+      { sentence: "That is ___ excellent question.", answer: "an" },
+      { sentence: "Please bring ___ USB cable.", answer: "a" } // "you-es-bee" sound
+    ];
+
+    const N = 10;
+    const listEl = document.getElementById("list");
+    const newSetBtn = document.getElementById("newSetBtn");
+    const showBtn = document.getElementById("showBtn");
+    const hideBtn = document.getElementById("hideBtn");
+
+    function shuffle(array) {
+      const a = array.slice();
+      for (let i = a.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [a[i], a[j]] = [a[j], a[i]];
+      }
+      return a;
+    }
+
+    function renderSet() {
+      listEl.innerHTML = "";
+      const picked = shuffle(BANK).slice(0, Math.min(N, BANK.length));
+
+      picked.forEach((item, idx) => {
+        const row = document.createElement("div");
+        row.className = "item";
+
+        row.innerHTML = `
+          <div>
+            <strong>${idx + 1}.</strong>
+            ${item.sentence.replace("___", `<span class="gap">___</span>`)}
+            <span class="answer">(${item.answer})</span>
+          </div>
+        `;
+        listEl.appendChild(row);
+      });
+
+      hideAnswers();
+    }
+
+    function showAnswers() {
+      document.querySelectorAll(".answer").forEach(el => el.style.display = "inline");
+    }
+
+    function hideAnswers() {
+      document.querySelectorAll(".answer").forEach(el => el.style.display = "none");
+    }
+
+    newSetBtn.addEventListener("click", renderSet);
+    showBtn.addEventListener("click", showAnswers);
+    hideBtn.addEventListener("click", hideAnswers);
+
+    renderSet();
+  </script>
+</body>
+</html>
