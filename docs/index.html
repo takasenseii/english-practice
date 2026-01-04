@@ -225,19 +225,121 @@ const A_AN_TEMPLATES = [
   "She wants to become ___ {noun}.",
   "He found ___ {noun} on the floor.",
   "They discussed ___ {noun} in class.",
-  "I watched ___ {noun} last night."
+  "I watched ___ {noun} last night.",
+
+  "This is ___ {noun} I like.",
+  "That sounds like ___ {noun}.",
+  "It was ___ {noun} I didn’t expect.",
+  "She mentioned ___ {noun} in her email.",
+  "He works as ___ {noun}.",
+  "They are looking for ___ {noun}.",
+  "I have never seen ___ {noun} before.",
+  "We need ___ {noun} right now.",
+  "She explained ___ {noun} clearly.",
+  "He described ___ {noun} in detail.",
+
+  "It turned into ___ {noun} very quickly.",
+  "That would be ___ {noun} to remember.",
+  "This could be ___ {noun} for you.",
+  "She reacted like ___ {noun}.",
+  "He asked for ___ {noun} politely.",
+  "They faced ___ {noun} at work.",
+  "I was surprised by ___ {noun}.",
+  "We considered ___ {noun} carefully.",
+  "She gave ___ {noun} as an example.",
+  "He ended up with ___ {noun}.",
+
+  "There was ___ {noun} in the room.",
+  "I noticed ___ {noun} immediately.",
+  "She pointed out ___ {noun}.",
+  "They complained about ___ {noun}.",
+  "He focused on ___ {noun}.",
+  "We talked about ___ {noun} later.",
+  "She responded with ___ {noun}.",
+  "I remember ___ {noun} clearly.",
+  "They discovered ___ {noun} by chance.",
+  "He dealt with ___ {noun} calmly.",
+
+  "She was worried about ___ {noun}.",
+  "I learned about ___ {noun} today.",
+  "They prepared ___ {noun} in advance.",
+  "He made ___ {noun} sound easy.",
+  "We solved ___ {noun} together.",
+  "She expected ___ {noun} to happen.",
+  "I came across ___ {noun} online.",
+  "They treated it like ___ {noun}."
 ];
+
+  const A_AN_TEMPLATES_INITIAL = [
+  // simple noun
+  "___ {noun} was left on the table.",
+  "___ {noun} is missing.",
+  "___ {noun} arrived this morning.",
+  "___ {noun} caused a problem.",
+  "___ {noun} appeared suddenly.",
+  "___ {noun} surprised everyone.",
+  "___ {noun} was discussed in class.",
+  "___ {noun} made the news.",
+  "___ {noun} is required for the task.",
+  "___ {noun} changed everything.",
+
+  // adjective + noun
+  "___ unusual {noun} happened yesterday.",
+  "___ interesting {noun} came up in class.",
+  "___ important {noun} was mentioned.",
+  "___ unexpected {noun} caused confusion.",
+  "___ excellent {noun} solved the issue.",
+  "___ urgent {noun} needs attention.",
+  "___ old {noun} was found.",
+  "___ honest {noun} can be helpful.",
+  "___ early {noun} made a difference.",
+  "___ simple {noun} worked well.",
+
+  // slightly richer contexts
+  "___ {noun} from the report was surprising.",
+  "___ {noun} in the email was unclear.",
+  "___ {noun} at the meeting stood out.",
+  "___ {noun} on the desk belongs to me.",
+  "___ {noun} in the story was memorable.",
+  "___ {noun} for the project is needed.",
+  "___ {noun} during the lesson caused laughter.",
+  "___ {noun} on the screen caught attention.",
+  "___ {noun} in the test was difficult.",
+  "___ {noun} at the start matters most."
+];
+
+  const A_AN_ADJECTIVES = [
+  "unusual","interesting","important","unexpected","excellent","urgent",
+  "honest","early","simple","old","advanced","international","academic",
+  "official","emergency","expensive","easy","innovative","ordinary",
+  "obvious","useful","unique","European","young","yearly","local",
+  "modern","practical","real","valuable"
+];
+
 function pickNounWithAnswer() {
   const pickAn = Math.random() < 0.5;
   if (pickAn) return { noun: rand(AN_WORDS), article: "an" };
   return { noun: rand(A_WORDS), article: "a" };
 }
-function generateArticlesAAn(n=10) {
+function generateArticlesAAn(n = 10) {
   const out = [];
   for (let i = 0; i < n; i++) {
-    const t = rand(A_AN_TEMPLATES);
+    const useInitial = Math.random() < 0.3; // adjust ratio as needed
+    const templates = useInitial ? A_AN_TEMPLATES_INITIAL : A_AN_TEMPLATES;
+
+    let t = rand(templates);
     const picked = pickNounWithAnswer();
-    out.push({ prompt: t.replace("{noun}", picked.noun), answer: picked.article });
+
+    // optional adjective injection
+    if (t.includes("{noun}") && Math.random() < 0.4 && !picked.noun.includes(" ")) {
+      const adj = rand(A_AN_ADJECTIVES);
+      t = t.replace("{noun}", `${adj} ${picked.noun}`);
+    }
+
+    out.push({
+      prompt: t.replace("{noun}", picked.noun),
+      answer: picked.article
+    });
   }
   return out;
 }
