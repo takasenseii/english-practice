@@ -1,54 +1,68 @@
-<!-- index.html -->
+<!-- Home + Router (drop into your index.html) -->
 <nav id="menu"></nav>
 <main id="view"></main>
 
 <script>
-const exercises = [
-  { id: "a-an", label: "A vs An", render: renderAAn },
-  { id: "sva",  label: "Subject–Verb Agreement", render: renderSVA },
+/* ---------- Exercise registry (everything is routed by id) ---------- */
+const menuSections = [
+  {
+    title: "Exercises",
+    items: [
+      { id: "grammar",  label: "Grammar exercises",      render: renderGrammar },
+      { id: "spelling", label: "Spelling exercises",     render: renderSpelling },
+    ]
+  }
 ];
 
+/* ---------- Home page ---------- */
 function renderMenu() {
   const menu = document.getElementById("menu");
   const view = document.getElementById("view");
+
   menu.innerHTML = `
-    <h2>Choose exercise</h2>
-    <ul>
-      ${exercises.map(e => `<li><a href="#/${e.id}">${e.label}</a></li>`).join("")}
-    </ul>
+    <h2>Choose</h2>
+    ${menuSections.map(section => `
+      <h3>${section.title}</h3>
+      <ul>
+        ${section.items.map(item =>
+          `<li><a href="#/${item.id}">${item.label}</a></li>`
+        ).join("")}
+      </ul>
+    `).join("")}
   `;
-  view.innerHTML = `<p>Select an exercise above.</p>`;
+
+  view.innerHTML = `<p>Select an exercise.</p>`;
 }
 
+/* ---------- Router ---------- */
 function router() {
-  const hash = location.hash || "#/";
-  const route = hash.replace("#/", "");
-  const match = exercises.find(e => e.id === route);
+  const route = (location.hash || "#/").replace("#/", "");
 
   if (!route) return renderMenu();
-  if (!match) return renderMenu();
 
-  // Clear menu area or keep it—your choice:
+  const item =
+    menuSections.flatMap(s => s.items).find(i => i.id === route);
+
+  if (!item) return renderMenu();
+
+  // Top nav while inside an exercise
   document.getElementById("menu").innerHTML = `
     <button id="backBtn">← Back to menu</button>
   `;
   document.getElementById("backBtn").onclick = () => { location.hash = "#/"; };
 
-  // IMPORTANT: calling render creates fresh state each time you route
-  match.render(document.getElementById("view"));
+  // Render the selected exercise (fresh init each time)
+  item.render(document.getElementById("view"));
 }
 
 window.addEventListener("hashchange", router);
 window.addEventListener("load", router);
 
-// --- Exercise renders (stubs) ---
+/* ---------- Exercise render functions (replace with your real ones) ---------- */
 function renderAAn(root) {
   root.innerHTML = `<h2>A vs An</h2><div id="exercise"></div>`;
-  // initAAn(); // call your existing generator/init here
+  // initAAn();
 }
 
 function renderSVA(root) {
-  root.innerHTML = `<h2>SVA</h2><div id="exercise"></div>`;
-  // initSVA(); // call your existing generator/init here
-}
-</script>
+  root.inne
