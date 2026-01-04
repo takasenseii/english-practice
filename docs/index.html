@@ -593,10 +593,7 @@ function generateSVA(n = 10) {
 
   for (let i = 0; i < n; i++) {
     const v = rand(SVA_VERBS);
-
-    // subject selection (teacher verbs handled earlier if you keep that logic)
-    const subjectPool = [...SVA_SUBJECTS.general, ...SVA_SUBJECTS.thirdOnly];
-    const s = rand(subjectPool);
+    const s = rand(SVA_SUBJECTS);
 
     const complement = rand(SVA_COMPLEMENTS[v.base]);
     const correct = s.third ? v.third : v.base;
