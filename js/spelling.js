@@ -332,12 +332,7 @@ refreshVoicesBtn.addEventListener("click", () => {
 });
 
 /* voices load can be async in some browsers */
-if (window.speechSynthesis) {
-  loadVoices();
-  window.speechSynthesis.onvoiceschanged = () => loadVoices();
-}
 
-updateCount();
 </script>
 </body>
 </html>
