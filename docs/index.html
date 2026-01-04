@@ -4,7 +4,6 @@
   <meta charset="utf-8" />
   <title>English Practice</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-
   <style>
     body {
       font-family: system-ui, Arial, sans-serif;
@@ -12,134 +11,111 @@
       margin: 24px auto;
       padding: 0 16px;
     }
-
     nav { margin-bottom: 16px; }
     ul { padding-left: 18px; }
     li { margin: 6px 0; }
-
-    button {
-      padding: 8px 12px;
-      font-size: 1rem;
-      cursor: pointer;
-    }
+    button { padding: 8px 12px; font-size: 1rem; cursor: pointer; }
+    a { text-decoration: none; }
+    a:hover { text-decoration: underline; }
   </style>
 </head>
 
 <body>
+  <nav id="menu"></nav>
+  <main id="view"></main>
 
-<nav id="menu"></nav>
-<main id="view"></main>
+  <!-- Load mounted exercise code FIRST -->
+  <script src="./js/grammar.js"></script>
+  <script src="./js/spelling.js"></script>
 
-<script>
-/* =========================================================
-   MENU + ROUTER
-   ========================================================= */
+  <script>
+    /* =========================================================
+       MENU + ROUTER
+       ========================================================= */
 
-const menuSections = [
-  {
-    title: "Exercises",
-    items: [
-      { id: "grammar",  label: "Grammar exercises",  render: renderGrammar },
-      { id: "spelling", label: "Spelling exercises", render: renderSpelling }
-    ]
-  }
-];
+    const menuSections = [
+      {
+        title: "Exercises",
+        items: [
+          { id: "grammar",  label: "Grammar exercises",  render: renderGrammar },
+          { id: "spelling", label: "Spelling exercises", render: renderSpelling }
+        ]
+      }
+    ];
 
-function renderMenu() {
-  const menu = document.getElementById("menu");
-  const view = document.getElementById("view");
+    let currentUnmount = null;
 
-  menu.innerHTML = `
-    <h2>Choose</h2>
-    ${menuSections.map(section => `
-      <h3>${section.title}</h3>
-      <ul>
-        ${section.items.map(item =>
-          `<li><a href="#/${item.id}">${item.label}</a></li>`
-        ).join("")}
-      </ul>
-    `).join("")}
-  `;
+    function renderMenu() {
+      // unmount current exercise when returning home
+      if (typeof currentUnmount === "function") {
+        currentUnmount();
+        currentUnmount = null;
+      }
 
-  view.innerHTML = `<p>Select an exercise.</p>`;
-}
+      const menu = document.getElementById("menu");
+      const view = document.getElementById("view");
 
-function router() {
-  const route = (location.hash || "#/").replace("#/", "");
+      menu.innerHTML = `
+        <h2>Choose</h2>
+        ${menuSections.map(section => `
+          <h3>${section.title}</h3>
+          <ul>
+            ${section.items.map(item =>
+              `<li><a href="#/${item.id}">${item.label}</a></li>`
+            ).join("")}
+          </ul>
+        `).join("")}
+      `;
 
-  if (!route) return renderMenu();
+      view.innerHTML = `<p>Select an exercise.</p>`;
+    }
 
-  const item =
-    menuSections.flatMap(s => s.items).find(i => i.id === route);
+    function router() {
+      const route = (location.hash || "#/").replace("#/", "");
 
-  if (!item) return renderMenu();
+      if (!route) return renderMenu();
 
-  document.getElementById("menu").innerHTML =
-    `<button id="backBtn">← Back to menu</button>`;
+      const item = menuSections.flatMap(s => s.items).find(i => i.id === route);
+      if (!item) return renderMenu();
 
-  document.getElementById("backBtn").onclick = () => {
-    location.hash = "#/";
-  };
+      document.getElementById("menu").innerHTML =
+        `<button id="backBtn">← Back to menu</button>`;
 
-  item.render(document.getElementById("view"));
-}
+      document.getElementById("backBtn").onclick = () => { location.hash = "#/"; };
 
-window.addEventListener("load", router);
-window.addEventListener("hashchange", router);
+      item.render(document.getElementById("view"));
+    }
 
+    window.addEventListener("load", router);
+    window.addEventListener("hashchange", router);
 
-/* =========================================================
-   MOUNTED EXERCISES
-   ========================================================= */
+    /* =========================================================
+       MOUNTED EXERCISES
+       ========================================================= */
 
-/* ---------- GRAMMAR (MOUNT VERSION) ---------- */
-function renderGrammar(root) {
-  root.innerHTML = `
-    <h2>Grammar exercises</h2>
+    function renderGrammar(root) {
+      if (typeof currentUnmount === "function") {
+        currentUnmount();
+        currentUnmount = null;
+      }
+      if (typeof window.mountGrammar !== "function") {
+        root.innerHTML = "<p>mountGrammar is not loaded. Check ./js/grammar.js</p>";
+        return;
+      }
+      currentUnmount = window.mountGrammar(root) || null;
+    }
 
-    <div class="row">
-      <label for="topicSelect"><strong>Topic:</strong></label>
-      <select id="topicSelect"></select>
-
-      <button id="newSetBtn">New set (10)</button>
-      <button id="checkAllBtn">Check all</button>
-      <button id="showAnswersBtn">Show answers</button>
-      <button id="hideAnswersBtn">Hide answers</button>
-
-      <button id="explainBtn">Explain</button>
-      <button id="feedbackBtn">Feedback</button>
-
-      <span class="score" id="scoreBox"></span>
-    </div>
-
-    <div id="explainBox" class="card" style="display:none"></div>
-    <div id="feedbackBox" class="card" style="display:none"></div>
-    <div id="list"></div>
-  `;
-
-  /* 🔑 THIS replaces the old boot section */
-  initTopics();
-  renderSet();
-}
-
-/* ---------- SPELLING (stub, same idea) ---------- */
-function renderSpelling(root) {
-  root.innerHTML = `
-    <h2>Spelling exercises</h2>
-    <p>Spelling app goes here.</p>
-  `;
-  // initSpelling();
-}
-</script>
-
-<!--
-IMPORTANT:
-All grammar JS (initTopics, renderSet, generators, etc.)
-must be loaded BEFORE this script.
-Either:
-- paste it above, or
-- load it via <script src="grammar.js"></script>
--->
-
+    function renderSpelling(root) {
+      if (typeof currentUnmount === "function") {
+        currentUnmount();
+        currentUnmount = null;
+      }
+      if (typeof window.mountSpelling !== "function") {
+        root.innerHTML = "<p>mountSpelling is not loaded. Check ./js/spelling.js</p>";
+        return;
+      }
+      currentUnmount = window.mountSpelling(root) || null;
+    }
+  </script>
 </body>
 </html>
