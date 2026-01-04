@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>English Practice</title>
+  <style>
+    body { font-family: system-ui, Arial, sans-serif; max-width: 980px; margin: 28px auto; padding: 0 16px; }
+    h1 { font-size: 1.6rem; margin: 0 0 6px; }
+    .meta { color:#555; margin: 0 0 14px; }
+    .row { display:flex; gap:10px; flex-wrap:wrap; align-items:center; margin: 14px 0; }
+    select, button, input[type="text"] { font-size: 1rem; }
+    select { padding: 8px 10px; border:1px solid #bbb; border-radius:8px; background:#fff; }
+    button { padding: 9px 12px; border:1px solid #bbb; border-radius:8px; background:#fff; cursor:pointer; }
+    button:hover { background:#f5f5f5; }
+    .card { border:1px solid #e2e2e2; border-radius:12px; padding: 12px; margin: 10px 0; }
+    .q { line-height: 1.5; }
+    .gap { display:inline-block; min-width: 3.4em; text-align:center; border-bottom:2px solid #222; padding: 0 4px; }
+    .ctrls { margin-top: 10px; display:flex; gap:10px; flex-wrap:wrap; align-items:center; }
+    .ctrls input[type="text"] { padding: 8px 10px; border:1px solid #bbb; border-radius:8px; width: 140px; }
+    .choices { display:flex; gap:8px; flex-wrap:wrap; }
+    .pill { border:1px solid #bbb; border-radius:999px; padding: 6px 10px; background:#fff; cursor:pointer; }
+    .pill:hover { background:#f5f5f5; }
+    .pill.selected { border-color:#222; font-weight:700; }
+    .result { font-weight:700; margin-left: 6px; }
+    .result.ok { color: #0a6; }
+    .result.bad { color: #c22; }
+    .answer { display:none; color:#222; margin-left: 8px; font-weight:700; }
+    .score { font-weight:700; }
+    .small { color:#666; font-size: 0.95rem; }
+    .footer { margin-top: 18px; color:#666; font-size: 0.95rem; }
+    code { background:#f4f4f4; padding:2px 5px; border-radius:6px; }
+  </style>
+</head>
+<body>
+  <h1>English Practice</h1>
+  <p class="meta">Choose a topic → generate 10 random items → students answer → automatic checking.</p>
+
+  <div class="row">
+    <label for="topicSelect"><strong>Topic:</strong></label>
+    <select id="topicSelect"></select>
+    <button id="newSetBtn" type="button">New set (10)</button>
+    <button id="checkAllBtn" type="button">Check all</button>
+    <button id="showAnswersBtn" type="button">Show answers</button>
+    <button id="hideAnswersBtn" type="button">Hide answers</button>
+    <span class="score" id="scoreBox"></span>
+  </div>
+
+  <div id="list"></div>
+
+  <div class="footer">
+    Teacher note: to add your own content, edit the <code>TOPICS</code> object in the code.
+  </div>
+
+<script>
+/**
+ * TEMPLATE OVERVIEW
+ * - Add any grammar/vocab point as a "topic" with an item bank.
+ * - Item types supported:
+ *   1) "input"   : student types the answer (good for articles, verb forms, prepositions)
+ *   2) "choice"  : student clicks an option (good for quick checks, less typing)
+ *
+ * Each item uses:
+ * - prompt: sentence/text containing ___ where the gap is
+ * - answer: string OR array of acceptable answers
+ * - choices: (only for type "choice") array of options
+ * - note: optional feedback note shown after check (e.g., pronunciation / rule reminder)
+ */
+
+const TOPICS = {
+  "Articles: a vs an": {
+    instructions: "Type a or an.",
+    items: [
+      { type:"input", prompt:"She wants to buy ___ umbrella.", answer:"an" },
+      { type:"input", prompt:"He is ___ honest person.", answer:"an" },
+      { type:"input", prompt:"I need ___ new notebook for class.", answer:"a" },
+      { type:"input", prompt:"It takes ___ hour to get there by bus.", answer:"an" },
+      { type:"input", prompt:"He is ___ university student.", answer:"a", note:"‘university’ starts with /juː/ (a consonant sound)." },
+      { type:"input", prompt:"Please bring ___ USB cable.", answer:"a", note:"‘USB’ starts with /juː/." },
+      { type:"input", prompt:"They live in ___ old house by the river.", answer:"an" },
+      { type:"input", prompt:"That is ___ excellent question.", answer:"an" },
+      { type:"input", prompt:"I have ___ headache.", answer:"a" },
+      { type:"input", prompt:"She is ___ engineer.", answer:"an" },
+      { type:"input", prompt:"We booked ___ hotel near the station.", answer:"a" },
+      { type:"input", prompt:"It was ___ unusual idea, but it worked.", answer:"an" },
+    ]
+  },
+
+  "Past tense: regular verbs (-ed)": {
+    instructions: "Type the past tense form.",
+    items: [
+      { type:"input", prompt:"Yesterday, I ___ (watch) a documentary.", answer:["watched"] },
+      { type:"input", prompt:"She ___ (visit) her grandmother last weekend.", answer:["visited"] },
+      { type:"input", prompt:"We ___ (finish) the homework before dinner.", answer:["finished"] },
+      { type:"input", prompt:"They ___ (play) football after school.", answer:["played"] },
+      { type:"input", prompt:"He ___ (study) for the test all evening.", answer:["studied"] },
+      { type:"input", prompt:"I ___ (stop) at the shop on the way home.", answer:["stopped"] },
+      { type:"input", prompt:"She ___ (plan) the trip carefully.", answer:["planned"] },
+      { type:"input", prompt:"We ___ (carry) the boxes upstairs.", answer:["carried"] },
+      { type:"input", prompt:"He ___ (decide) to take the bus.", answer:["decided"] },
+      { type:"input", prompt:"They ___ (arrive) late because of traffic.", answer:["arrived"] },
+      // Tip: include spelling patterns you teach (y→ied, doubling, etc.)
+    ]
+  },
+
+  "Prepositions: in / on / at (time)": {
+    instructions: "Choose the correct preposition.",
+    items: [
+      { type:"choice", prompt:"My birthday is ___ July.", answer:"in", choices:["in","on","at"] },
+      { type:"choice", prompt:"The lesson starts ___ 9:00.", answer:"at", choices:["in","on","at"] },
+      { type:"choice", prompt:"We have PE ___ Mondays.", answer:"on", choices:["in","on","at"] },
+      { type:"choice", prompt:"I usually study ___ the evening.", answer:"in", choices:["in","on","at"] },
+      { type:"choice", prompt:"They met ___ the weekend.", answer:"at", choices:["in","on","at"], note:"BrE often uses ‘at the weekend’; AmE often ‘on the weekend’." },
+      { type:"choice", prompt:"We will travel ___ Christmas.", answer:"at", choices:["in","on","at"] },
+      { type:"choice", prompt:"The exam is ___ Friday.", answer:"on", choices:["in","on","at"] },
+      { type:"choice", prompt:"I wake up early ___ the morning.", answer:"in", choices:["in","on","at"] },
+      { type:"choice", prompt:"The meeting is ___ noon.", answer:"at", choices:["in","on","at"] },
+      { type:"choice", prompt:"School begins ___ August.", answer:"in", choices:["in","on","at"] },
+    ]
+  },
+};
+
+// ---------- App logic (no need to edit below unless you want extra features) ----------
+
+const N = 10;
+
+const topicSelect = document.getElementById("topicSelect");
+const listEl = document.getElementById("list");
+const newSetBtn = document.getElementById("newSetBtn");
+const checkAllBtn = document.getElementById("checkAllBtn");
+const showAnswersBtn = document.getElementById("showAnswersBtn");
+const hideAnswersBtn = document.getElementById("hideAnswersBtn");
+const scoreBox = document.getElementById("scoreBox");
+
+let currentItems = [];
+
+function normalize(s) {
+  return String(s).trim().toLowerCase().replace(/\s+/g, " ");
+}
+
+function shuffle(arr) {
+  const a = arr.slice();
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+function getTopicKey() {
+  return topicSelect.value;
+}
+
+function acceptableAnswers(answer) {
+  return Array.isArray(answer) ? answer : [answer];
+}
+
+function renderSet() {
+  const topicKey = getTopicKey();
+  const topic = TOPICS[topicKey];
+
+  const picked = shuffle(topic.items).slice(0, Math.min(N, topic.items.length));
+  currentItems = picked;
+
+  listEl.innerHTML = "";
+  scoreBox.textContent = "";
+
+  const instr = document.createElement("div");
+  instr.className = "card";
+  instr.innerHTML = `<div class="q"><strong>Instructions:</strong> ${topic.instructions}</div>`;
+  listEl.appendChild(instr);
+
+  picked.forEach((item, idx) => {
+    const card = document.createElement("div");
+    card.className = "card";
+    card.dataset.index = String(idx);
+
+    const promptHtml = item.prompt.includes("___")
+      ? item.prompt.replace("___", `<span class="gap">___</span>`)
+      : item.prompt;
+
+    card.innerHTML = `
+      <div class="q"><strong>${idx + 1}.</strong> ${promptHtml}
+        <span class="answer">Answer: <span class="ansText"></span></span>
+      </div>
+      <div class="ctrls"></div>
+      <div class="small note"></div>
+    `;
+
+    const ctrls = card.querySelector(".ctrls");
+    const ansText = card.querySelector(".ansText");
+    const noteEl = card.querySelector(".note");
+
+    ansText.textContent = acceptableAnswers(item.answer).join(" / ");
+    noteEl.textContent = item.note ? item.note : "";
+
+    if (item.type === "input") {
+      ctrls.innerHTML = `
+        <input type="text" aria-label="Your answer" placeholder="Type here" />
+        <button type="button" class="checkBtn">Check</button>
+        <span class="result"></span>
+      `;
+    } else if (item.type === "choice") {
+      const choiceWrap = document.createElement("div");
+      choiceWrap.className = "choices";
+      item.choices.forEach(ch => {
+        const b = document.createElement("button");
+        b.type = "button";
+        b.className = "pill";
+        b.textContent = ch;
+        b.addEventListener("click", () => {
+          choiceWrap.querySelectorAll(".pill").forEach(x => x.classList.remove("selected"));
+          b.classList.add("selected");
+          card.dataset.student = ch;
+        });
+        choiceWrap.appendChild(b);
+      });
+
+      const checkBtn = document.createElement("button");
+      checkBtn.type = "button";
+      checkBtn.className = "checkBtn";
+      checkBtn.textContent = "Check";
+
+      const result = document.createElement("span");
+      result.className = "result";
+
+      ctrls.appendChild(choiceWrap);
+      ctrls.appendChild(checkBtn);
+      ctrls.appendChild(result);
+    } else {
+      ctrls.innerHTML = `<span class="small">Unsupported item type.</span>`;
+    }
+
+    listEl.appendChild(card);
+  });
+
+  // Attach per-card check handlers
+  document.querySelectorAll(".checkBtn").forEach(btn => {
+    btn.addEventListener("click", (e) => {
+      const card = e.target.closest(".card");
+      checkOne(card);
+      updateScore();
+    });
+  });
+
+  hideAnswers();
+}
+
+function getStudentAnswer(card, item) {
+  if (item.type === "input") {
+    const input = card.querySelector('input[type="text"]');
+    return input ? input.value : "";
+  }
+  if (item.type === "choice") {
+    return card.dataset.student || "";
+  }
+  return "";
+}
+
+function checkOne(card) {
+  const idx = Number(card.dataset.index);
+  const item = currentItems[idx];
+  const resultEl = card.querySelector(".result");
+
+  const studentRaw = getStudentAnswer(card, item);
+  const student = normalize(studentRaw);
+
+  const answers = acceptableAnswers(item.answer).map(normalize);
+  const ok = answers.includes(student);
+
+  card.dataset.correct = ok ? "1" : "0";
+
+  if (!student) {
+    resultEl.textContent = "Enter/select an answer first.";
+    resultEl.className = "result bad";
+    return;
+  }
+
+  resultEl.textContent = ok ? "Correct" : "Incorrect";
+  resultEl.className = "result " + (ok ? "ok" : "bad");
+}
+
+function checkAll() {
+  document.querySelectorAll(".card[data-index]").forEach(card => checkOne(card));
+  updateScore();
+}
+
+function updateScore() {
+  const cards = Array.from(document.querySelectorAll(".card[data-index]"));
+  const attempted = cards.filter(c => c.querySelector(".result")?.textContent && c.querySelector(".result")?.textContent !== "");
+  const correct = cards.filter(c => c.dataset.correct === "1");
+  if (attempted.length === 0) {
+    scoreBox.textContent = "";
+    return;
+  }
+  scoreBox.textContent = `Score: ${correct.length}/${cards.length}`;
+}
+
+function showAnswers() {
+  document.querySelectorAll(".answer").forEach(el => el.style.display = "inline");
+}
+
+function hideAnswers() {
+  document.querySelectorAll(".answer").forEach(el => el.style.display = "none");
+}
+
+function initTopics() {
+  Object.keys(TOPICS).forEach((k) => {
+    const opt = document.createElement("option");
+    opt.value = k;
+    opt.textContent = k;
+    topicSelect.appendChild(opt);
+  });
+  topicSelect.selectedIndex = 0;
+}
+
+newSetBtn.addEventListener("click", renderSet);
+checkAllBtn.addEventListener("click", checkAll);
+showAnswersBtn.addEventListener("click", showAnswers);
+hideAnswersBtn.addEventListener("click", hideAnswers);
+topicSelect.addEventListener("change", renderSet);
+
+initTopics();
+renderSet();
+</script>
+</body>
+</html>
