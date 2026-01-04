@@ -46,32 +46,102 @@
     <button id="showAnswersBtn" type="button">Show answers</button>
     <button id="hideAnswersBtn" type="button">Hide answers</button>
 
+    <button id="explainBtn" type="button">Explain</button>
+    <button id="feedbackBtn" type="button">Feedback</button>
+
     <span class="score" id="scoreBox"></span>
   </div>
-
+  <div id="explainBox" class="card" style="display:none"></div>
+  <div id="feedbackBox" class="card" style="display:none"></div>
   <div id="list"></div>
 
 <script>
+/* ======================
+   Global mistake tracking
+   ====================== */
+let stats = {
+  totalChecked: 0,
+  wrongByTopic: {},   // topic name -> count
+  wrongByPair: {},    // "student->correct" -> count
+  wrongItems: []      // store recent mistakes
+};
+
 /* ---------------- TEACHER CONFIG: topics ---------------- */
 const TOPICS = {
   "Articles: a vs an – infinite": {
     instructions: "Type a or an.",
-    generator: { type: "articles_a_an", count: 10 }
+    generator: { type: "articles_a_an", count: 10 },
+    explain: `
+      <strong>A vs An</strong><br><br>
+
+      Use <strong>a</strong> before a <em>consonant sound</em>:<br>
+      a book • a university • a USB cable • a European city<br><br>
+
+      Use <strong>an</strong> before a <em>vowel sound</em>:<br>
+      an apple • an hour • an MRI scan • an honest person<br><br>
+
+      <strong>Important:</strong> Decide by the <em>sound</em>, not the first letter.<br>
+      “u” and “eu” often sound like /juː/ → <strong>a</strong>.
+    `
   },
 
   "Prepositions: in / on / at (time) – infinite": {
-    instructions: "Type in / on / at.",
-    generator: { type: "prepositions_time", count: 10 }
+    instructions: "Type in, on, or at.",
+    generator: { type: "prepositions_time", count: 10 },
+    explain: `
+      <strong>In / On / At (time)</strong><br><br>
+
+      Use <strong>at</strong> for precise times:<br>
+      at 5 pm • at noon • at midnight<br><br>
+
+      Use <strong>on</strong> for days and dates:<br>
+      on Monday • on 5 May • on the 12th<br><br>
+
+      Use <strong>in</strong> for months, years, and longer periods:<br>
+      in June • in 2024 • in the morning<br><br>
+
+      <strong>Common mistakes:</strong><br>
+      • in 7 o’clock (should be <strong>at</strong>)<br>
+      • at Monday (should be <strong>on</strong>)<br>
+    `
   },
 
   "Present perfect vs past simple – infinite": {
-    instructions: "Type the correct form. Examples: “have eaten” / “has eaten” / “went” / “did”.",
-    generator: { type: "pp_vs_ps", count: 10 }
+    instructions: "Type the correct form. Examples: “have eaten / has eaten / went / did”.",
+    generator: { type: "pp_vs_ps", count: 10 },
+    explain: `
+      <strong>Present perfect vs Past simple</strong><br><br>
+
+      <strong>Present perfect</strong> (have/has + past participle) links the past to <em>now</em>.<br>
+      Use it with: already, just, yet, ever/never, so far, today, this week, recently.<br>
+      Examples: I <strong>have finished</strong> already. • She <strong>has never been</strong> to London.<br><br>
+
+      <strong>Past simple</strong> is for a <em>finished</em> time in the past.<br>
+      Use it with: yesterday, last week, two days ago, in 2020, when I was younger.<br>
+      Examples: I <strong>went</strong> yesterday. • They <strong>met</strong> in 2019.<br><br>
+
+      <strong>Rule:</strong> If the time is finished → use <strong>past simple</strong>.
+    `
   },
 
   "Subject–verb agreement – infinite": {
-    instructions: "Type the correct verb form (present simple). Examples: “go/goes”, “do/does”, “have/has”.",
-    generator: { type: "sva_present", count: 10 }
+    instructions: "Type the correct verb form (present simple). Example: go/goes, do/does, have/has.",
+    generator: { type: "sva_present", count: 10 },
+    explain: `
+      <strong>Subject–verb agreement (present simple)</strong><br><br>
+
+      <strong>I / you / we / they</strong> + base verb:<br>
+      I work • you play • we go • they study<br><br>
+
+      <strong>He / she / it</strong> + verb + <strong>-s</strong> (or spelling change):<br>
+      he works • she plays • it goes • he studies • she watches<br><br>
+
+      <strong>Special verbs:</strong><br>
+      do → <strong>does</strong> • have → <strong>has</strong><br><br>
+
+      <strong>Common error:</strong> forgetting the <strong>-s</strong> with he/she/it.<br>
+      Quick check: If you can replace the subject with “he” → the verb usually needs <strong>-s</strong>.
+    `
   }
 };
 
@@ -84,6 +154,11 @@ const checkAllBtn = document.getElementById("checkAllBtn");
 const showAnswersBtn = document.getElementById("showAnswersBtn");
 const hideAnswersBtn = document.getElementById("hideAnswersBtn");
 const scoreBox = document.getElementById("scoreBox");
+
+const explainBtn = document.getElementById("explainBtn");
+const feedbackBtn = document.getElementById("feedbackBtn");
+const explainBox = document.getElementById("explainBox");
+const feedbackBox = document.getElementById("feedbackBox");
 
 let currentItems = [];
 
@@ -175,7 +250,7 @@ function generatePrepositionsTime(n=10) {
     () => ({ text: `We met ___ ${rand(HOLIDAYS)}.`, answer: "at" }),
     () => ({ text: `The train leaves ___ ${rand(["noon","midnight"])}.`, answer: "at" }),
 
-    () => ({ text: `I relax ___ the weekend.`, answer: "at" }) // BrE; accept as exercise
+    () => ({ text: `I relax ___ the weekend.`, answer: "at" }) // BrE
   ];
 
   const out = [];
@@ -253,7 +328,6 @@ const SVA_SUBJECTS = [
   { subj:"The teacher", third:true },
   { subj:"The students", third:false }
 ];
-
 const SVA_VERBS = [
   { base:"go", third:"goes" },
   { base:"do", third:"does" },
@@ -267,12 +341,10 @@ const SVA_VERBS = [
   { base:"fix", third:"fixes" },
   { base:"carry", third:"carries" }
 ];
-
 const SVA_ADVERBS = ["often","usually","sometimes","rarely","never","every day","after school","on weekends"];
 const SVA_OBJECTS = [
   "English","football","video games","homework","in the library","in the gym","at home","in class","with friends"
 ];
-
 function generateSVA(n=10) {
   const out = [];
   for (let i = 0; i < n; i++) {
@@ -281,8 +353,6 @@ function generateSVA(n=10) {
     const adv = rand(SVA_ADVERBS);
     const obj = rand(SVA_OBJECTS);
     const correct = s.third ? v.third : v.base;
-
-    // Put the gap on the verb itself
     const prompt = `${s.subj} ___ ${adv} ${obj}. (${v.base})`;
     out.push({ prompt, answer: correct });
   }
@@ -291,6 +361,7 @@ function generateSVA(n=10) {
 
 /* ---------------- render / check ---------------- */
 function initTopics() {
+  topicSelect.innerHTML = "";
   Object.keys(TOPICS).forEach(k => {
     const opt = document.createElement("option");
     opt.value = k;
@@ -305,24 +376,25 @@ function pickItemsForTopic(topic) {
   if (topic.generator?.type === "articles_a_an") return generateArticlesAAn(topic.generator.count || N);
   if (topic.generator?.type === "pp_vs_ps") return generatePPvsPS(topic.generator.count || N);
   if (topic.generator?.type === "sva_present") return generateSVA(topic.generator.count || N);
-  // fallback (for fixed banks if you add later)
   return shuffle(topic.items || []).slice(0, Math.min(N, (topic.items || []).length));
 }
 
 function renderSet() {
   const topic = TOPICS[topicSelect.value];
-  const picked = pickItemsForTopic(topic);
-  currentItems = picked;
+  currentItems = pickItemsForTopic(topic);
 
   listEl.innerHTML = "";
   scoreBox.textContent = "";
+  explainBox.style.display = "none";
+  feedbackBox.style.display = "none";
 
   const instr = document.createElement("div");
   instr.className = "card";
-  instr.innerHTML = `<div class="q"><strong>Instructions:</strong> ${topic.instructions}</div>`;
+  const instrText = topic.instructions || "Type the missing word(s).";
+  instr.innerHTML = `<div class="q"><strong>Instructions:</strong> ${instrText}</div>`;
   listEl.appendChild(instr);
 
-  picked.forEach((item, idx) => {
+  currentItems.forEach((item, idx) => {
     const card = document.createElement("div");
     card.className = "card";
     card.dataset.index = String(idx);
@@ -375,6 +447,20 @@ function checkOne(card) {
   }
 
   const ok = (student === answer);
+
+  // mistake tracking
+  const topicKey = topicSelect.value;
+  stats.totalChecked++;
+  if (!stats.wrongByTopic[topicKey]) stats.wrongByTopic[topicKey] = 0;
+
+  if (!ok) {
+    stats.wrongByTopic[topicKey]++;
+    const pairKey = `${student || "(blank)"}->${answer}`;
+    stats.wrongByPair[pairKey] = (stats.wrongByPair[pairKey] || 0) + 1;
+    stats.wrongItems.push({ topic: topicKey, prompt: item.prompt, student, answer });
+    if (stats.wrongItems.length > 50) stats.wrongItems.shift();
+  }
+
   card.dataset.correct = ok ? "1" : "0";
   resultEl.textContent = ok ? "Correct" : "Incorrect";
   resultEl.className = "result " + (ok ? "ok" : "bad");
@@ -396,12 +482,65 @@ function updateScore() {
 function showAnswers() { document.querySelectorAll(".answer").forEach(el => el.style.display = "inline"); }
 function hideAnswers() { document.querySelectorAll(".answer").forEach(el => el.style.display = "none"); }
 
+/* ---------------- explain / feedback ---------------- */
+function showExplain() {
+  const topic = TOPICS[topicSelect.value];
+  const html = topic.explain || "<strong>No explanation for this topic yet.</strong>";
+  explainBox.innerHTML = html;
+  explainBox.style.display = "block";
+  feedbackBox.style.display = "none";
+}
+
+function showFeedback() {
+  feedbackBox.style.display = "block";
+  explainBox.style.display = "none";
+
+  if (stats.totalChecked === 0) {
+    feedbackBox.innerHTML = "<strong>No feedback yet.</strong><br>Check a few answers first.";
+    return;
+  }
+
+  // Top topic
+  const topicEntries = Object.entries(stats.wrongByTopic).sort((a,b) => b[1]-a[1]);
+  const topTopic = topicEntries[0]?.[0];
+  const topTopicCount = topicEntries[0]?.[1] ?? 0;
+
+  // Top pairs
+  const pairEntries = Object.entries(stats.wrongByPair).sort((a,b) => b[1]-a[1]).slice(0, 5);
+
+  let html = `<strong>Feedback (based on your mistakes)</strong><br><br>`;
+  html += `Checked: <strong>${stats.totalChecked}</strong><br><br>`;
+
+  if (topTopic) {
+    html += `Most difficult topic so far: <strong>${topTopic}</strong> (${topTopicCount} wrong)<br><br>`;
+  }
+
+  if (pairEntries.length) {
+    html += `<strong>Most common wrong answers:</strong><br>`;
+    html += `<ol>`;
+    pairEntries.forEach(([k, n]) => {
+      const [given, correct] = k.split("->");
+      html += `<li><code>${given}</code> → <code>${correct}</code> (${n})</li>`;
+    });
+    html += `</ol>`;
+  } else {
+    html += `No wrong answers recorded yet.`;
+  }
+
+  feedbackBox.innerHTML = html;
+}
+
+/* ---------------- events ---------------- */
 newSetBtn.addEventListener("click", renderSet);
 checkAllBtn.addEventListener("click", checkAll);
 showAnswersBtn.addEventListener("click", showAnswers);
 hideAnswersBtn.addEventListener("click", hideAnswers);
 topicSelect.addEventListener("change", renderSet);
 
+explainBtn.addEventListener("click", showExplain);
+feedbackBtn.addEventListener("click", showFeedback);
+
+/* ---------------- boot ---------------- */
 initTopics();
 renderSet();
 </script>
