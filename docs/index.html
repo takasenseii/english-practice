@@ -418,7 +418,7 @@ function generateSVA(n = 10) {
     const correct = s.third ? v.third : v.base;
 
     // Prompt uses the base verb in parentheses as the hint
-    const prompt = `${s.subj} ___ ${adv} ${complement}. (${v.base})`;
+    const prompt = `${s.subj} ${adv} ___ ${complement}. (${v.base})`;
     out.push({ prompt, answer: correct });
   }
   return out;
