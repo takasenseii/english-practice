@@ -182,15 +182,39 @@ function normalizeSpaces(s){ return String(s).trim().replace(/\s+/g," "); }
 /* A / AN generator (curated for sound-based accuracy) */
 const AN_WORDS = [
   "apple","orange","egg","idea","example","engineer","artist","actor",
-  "umbrella","email","answer","invoice",
-  "hour","honest person","heir",
-  "MBA student","FBI agent","MRI scan","S.O.S. message"
+  "umbrella","email","answer","invoice","essay","exercise","argument",
+  "ice cream","airport","island","event","experiment","opportunity",
+  "objective","issue","error","accident","adult","animal","editor",
+  "author","intern","enemy","image","option","outcome","interest",
+  "effect","energy","emotion","episode","estimate","exception",
+  "hour","honest person","honour","honest mistake","honourable act",
+  "heir","heiress","herb","hourglass","honesty",
+  "MBA student","FBI agent","CIA officer","MRI scan","X-ray",
+  "SOS message","NSA report","EU agreement","AI system","RNA molecule",
+  "LCD screen","LED display","API call","SQL error","URL address",
+  "online order","unexpected result","important issue","early start",
+  "old habit","open discussion","interesting idea","urgent email",
+  "empty box","easy question","official answer","excellent result",
+  "unusual case","international agreement","advanced level","academic article"
 ];
+
 const A_WORDS = [
   "book","car","dog","house","table","computer","phone","teacher",
+  "student","chair","window","garden","picture","lesson","problem",
+  "bike","bag","pen","map","job","team","project","report","meeting",
+  "decision","hotel","haircut","homework","school","game","movie",
+  "story","plan","goal","rule","test","task","skill","habit","career",
   "university student","uniform","European city","one-time offer",
-  "USB cable","UFO story","user account"
+  "user account","USB cable","UFO story","UK company","unit test",
+  "useful skill","unique opportunity","usual problem","young person",
+  "yearly report","youth club","yellow card","yoga class","yard sale",
+  "historic building","historical event","heavy bag","high score",
+  "hard test","helpful teacher","local shop","long journey",
+  "modern house","new rule","normal day","practical solution",
+  "real problem","simple answer","strong opinion","technical issue",
+  "valuable lesson","weekly meeting","wrong answer","working solution"
 ];
+
 const A_AN_TEMPLATES = [
   "I need ___ {noun} for class.",
   "She bought ___ {noun} yesterday.",
