@@ -495,7 +495,51 @@ const SVA_VERBS = [
   { base:"carry", third:"carries" }
 ];
 
-const SVA_ADVERBS = ["often","usually","sometimes","rarely","never","every day","after school","on weekends"];
+const SVA_FREQ_ADVERBS = [
+  "always",
+  "usually",
+  "often",
+  "sometimes",
+  "rarely",
+  "never",
+  "normally",
+  "generally",
+  "frequently",
+  "occasionally",
+  "regularly",
+  "hardly ever",
+  "almost always",
+  "almost never",
+  "often enough",
+  "once in a while",
+  "every now and then",
+  "most of the time",
+  "from time to time",
+  "on occasion"
+];
+
+  const SVA_TIME_PHRASES = [
+  "after school",
+  "on weekends",
+  "every day",
+  "in the morning",
+  "in the afternoon",
+  "in the evening",
+  "at night",
+  "at home",
+  "in class",
+  "in the library",
+  "in the gym",
+  "at school",
+  "during lessons",
+  "after work",
+  "before class",
+  "on weekdays",
+  "on Mondays",
+  "after lunch",
+  "in the afternoon",
+  "at the weekend"
+];
 
 const SVA_COMPLEMENTS = {
   go: [
@@ -533,22 +577,30 @@ const SVA_COMPLEMENTS = {
   ]
 };
 
-function rand(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
-
 function generateSVA(n = 10) {
   const out = [];
+
   for (let i = 0; i < n; i++) {
-    const s = rand(SVA_SUBJECTS);
     const v = rand(SVA_VERBS);
-    const adv = rand(SVA_ADVERBS);
+
+    // subject selection (teacher verbs handled earlier if you keep that logic)
+    const subjectPool = [...SVA_SUBJECTS.general, ...SVA_SUBJECTS.thirdOnly];
+    const s = rand(subjectPool);
 
     const complement = rand(SVA_COMPLEMENTS[v.base]);
     const correct = s.third ? v.third : v.base;
 
-    // Prompt uses the base verb in parentheses as the hint
-    const prompt = `${s.subj} ${adv} ___ ${complement}. (${v.base})`;
+    const useFreq = Math.random() < 0.5;
+    const freq = rand(SVA_FREQ_ADVERBS);
+    const time = rand(SVA_TIME_PHRASES);
+
+    const prompt = useFreq
+      ? `${s.subj} ${freq} ___ ${complement}. (${v.base})`
+      : `${s.subj} ___ ${complement} ${time}. (${v.base})`;
+
     out.push({ prompt, answer: correct });
   }
+
   return out;
 }
 
