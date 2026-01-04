@@ -104,21 +104,69 @@ const TOPICS = {
     ]
   },
 
-  "Prepositions: in / on / at (time)": {
-    instructions: "Choose the correct preposition.",
-    items: [
-      { type:"choice", prompt:"My birthday is ___ July.", answer:"in", choices:["in","on","at"] },
-      { type:"choice", prompt:"The lesson starts ___ 9:00.", answer:"at", choices:["in","on","at"] },
-      { type:"choice", prompt:"We have PE ___ Mondays.", answer:"on", choices:["in","on","at"] },
-      { type:"choice", prompt:"I usually study ___ the evening.", answer:"in", choices:["in","on","at"] },
-      { type:"choice", prompt:"They met ___ the weekend.", answer:"at", choices:["in","on","at"], note:"BrE often uses ‘at the weekend’; AmE often ‘on the weekend’." },
-      { type:"choice", prompt:"We will travel ___ Christmas.", answer:"at", choices:["in","on","at"] },
-      { type:"choice", prompt:"The exam is ___ Friday.", answer:"on", choices:["in","on","at"] },
-      { type:"choice", prompt:"I wake up early ___ the morning.", answer:"in", choices:["in","on","at"] },
-      { type:"choice", prompt:"The meeting is ___ noon.", answer:"at", choices:["in","on","at"] },
-      { type:"choice", prompt:"School begins ___ August.", answer:"in", choices:["in","on","at"] },
-    ]
-  },
+"Prepositions: in / on / at (time) – infinite": {
+  instructions: "Type: in / on / at.",
+  generator: { type: "prepositions_time", count: 10 }
+},
+function rand(arr) {
+  return arr[Math.floor(Math.random() * arr.length)];
+}
+
+function pad2(n){ return String(n).padStart(2,"0"); }
+
+function randomClockTime() {
+  const h = rand([1,2,3,4,5,6,7,8,9,10,11,12]);
+  const m = rand([0,5,10,15,20,25,30,35,40,45,50,55]);
+  return `${h}:${pad2(m)}`;
+}
+
+function randomDate() {
+  const day = rand([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28]);
+  return `${day}${rand(["st","nd","rd","th"])}`;
+}
+
+const MONTHS = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+const WEEKDAYS = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"];
+const TIMES_OF_DAY = ["the morning","the afternoon","the evening"];
+const HOLIDAYS = ["Christmas","Easter","New Year’s Eve","New Year’s Day","Halloween"];
+const PARTS = ["the weekend","the start of the lesson","lunchtime","noon","midnight","sunrise","sunset"];
+
+function generatePrepositionsTime(n=10) {
+  // Each frame returns: { text, answer }
+  const frames = [
+    // IN: months/years/parts of day
+    () => ({ text: `My birthday is ___ ${rand(MONTHS)}.`, answer: "in" }),
+    () => ({ text: `School starts ___ ${rand(MONTHS)}.`, answer: "in" }),
+    () => ({ text: `We usually study ___ ${rand(TIMES_OF_DAY)}.`, answer: "in" }),
+    () => ({ text: `It gets dark early ___ ${rand(["winter","autumn"])}.`, answer: "in" }),
+    () => ({ text: `I started learning English ___ ${rand(["2018","2019","2020","2021","2022","2023","2024","2025"])}.`, answer: "in" }),
+
+    // ON: days/dates
+    () => ({ text: `We have PE ___ ${rand(WEEKDAYS)}.`, answer: "on" }),
+    () => ({ text: `The test is ___ ${rand(WEEKDAYS)}.`, answer: "on" }),
+    () => ({ text: `My friend is visiting ___ ${rand(["Friday","Saturday","Sunday"])}.`, answer: "on" }),
+    () => ({ text: `The meeting is ___ the ${randomDate()}.`, answer: "on" }),
+    () => ({ text: `We have a quiz ___ ${rand(["Monday morning","Tuesday afternoon","Thursday evening"])}.`, answer: "on" }),
+
+    // AT: clock times + fixed points
+    () => ({ text: `The lesson starts ___ ${randomClockTime()}.`, answer: "at" }),
+    () => ({ text: `Please call me ___ ${randomClockTime()}.`, answer: "at" }),
+    () => ({ text: `We met ___ ${rand(HOLIDAYS)}.`, answer: "at" }),
+    () => ({ text: `The train leaves ___ ${rand(["noon","midnight"])}.`, answer: "at" }),
+    () => ({ text: `I usually eat ___ ${rand(PARTS)}.`, answer: "at" }),
+
+    // Weekend variant note (optional): BrE vs AmE
+    () => ({ text: `I relax ___ the weekend.`, answer: "at" }),
+  ];
+
+  const out = [];
+  for (let i = 0; i < n; i++) {
+    const q = rand(frames)();
+    out.push({ prompt: q.text, answer: q.answer });
+  }
+  return out;
+}
+
 };
 
 // ---------- App logic (no need to edit below unless you want extra features) ----------
@@ -160,7 +208,13 @@ function renderSet() {
   const topicKey = getTopicKey();
   const topic = TOPICS[topicKey];
 
-  const picked = shuffle(topic.items).slice(0, Math.min(N, topic.items.length));
+let picked;
+if (topic.generator && topic.generator.type === "prepositions_time") {
+  picked = generatePrepositionsTime(topic.generator.count || N);
+} else {
+  picked = shuffle(topic.items).slice(0, Math.min(N, topic.items.length));
+}
+
   currentItems = picked;
 
   listEl.innerHTML = "";
