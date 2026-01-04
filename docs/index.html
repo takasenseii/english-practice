@@ -684,10 +684,27 @@ function checkOne(card) {
 let student = normalize(input.value);
 let answer = normalize(item.answer);
 
-// Articles: normalise strictly to a / an
+// Articles: parse article robustly (fixes RNA / SQL / LCD issues)
+function parseArticle(raw) {
+  const cleaned = String(raw)
+    .normalize("NFKD")
+    .toLowerCase()
+    .replace(/[^a-z]/g, "");
+
+  if (cleaned === "a" || cleaned === "an") return cleaned;
+  return "";
+}
+
 if (topicSelect.value.startsWith("Articles")) {
-  student = student.replace(/[^a-z]/g, "");
-  answer  = answer.replace(/[^a-z]/g, "");
+  student = parseArticle(input.value);
+  answer  = parseArticle(item.answer);
+
+  if (!student) {
+    card.dataset.correct = "0";
+    resultEl.textContent = 'Type only "a" or "an".';
+    resultEl.className = "result bad";
+    return;
+  }
 }
 
   if (!student) {
