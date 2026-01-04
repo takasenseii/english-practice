@@ -182,15 +182,19 @@ function startsWithVowelSound(word) {
   const w = String(word).toLowerCase();
 
   // silent h -> vowel sound
-  const silentH = ["honest","honour","honorable","honourable","hour","heir","heiress","herb"];
-  if (silentH.some(x => w.startsWith(x))) return true;
+  if (/^(honest|honour|honorable|honourable|hour|heir|heiress|herb)\b/.test(w)) return true;
 
-  // vowel letters
+  // acronyms/initialisms said by letter: vowel-sound letter names
+  // A, E, F, H, I, L, M, N, O, R, S, X
+  if (/^(a|e|f|h|i|l|m|n|o|r|s|x)\b/.test(w)) return true;
+
+  // normal vowel start
   if (/^[aeiou]/.test(w)) return true;
 
-  // common "you"/"w" sound cases -> consonant sound => "a"
-  if (/^(uni([^a-z]|$)|use([^a-z]|$)|user([^a-z]|$)|ufo([^a-z]|$)|uk([^a-z]|$)|eu)/.test(w)) return false;
+  // "you" sound (consonant) cases -> "a"
+  if (/^(eu|u(?![aeiou])|uni|use|user|ufo|uk|usb|euro|european)\b/.test(w)) return false;
 
+  // default consonant
   return false;
 }
 
@@ -342,33 +346,40 @@ function pickNounWithAnswer() {
   if (pickAn) return { noun: rand(AN_WORDS), article: "an" };
   return { noun: rand(A_WORDS), article: "a" };
 }
-function generateArticlesAAn(n = 10) {
+
+  function generateArticlesAAn(n = 10) {
   const out = [];
+
   for (let i = 0; i < n; i++) {
     const useInitial = Math.random() < 0.3;
     const templates = useInitial ? A_AN_TEMPLATES_INITIAL : A_AN_TEMPLATES;
 
     let t = rand(templates);
-    const picked = pickNounWithAnswer();
+    const picked = pickNounWithAnswer(); // { noun, article } from your two lists
 
-    // optional adjective injection
+    let injectedAdj = null;
+
+    // optional adjective injection (only for single-word nouns)
     if (t.includes("{noun}") && Math.random() < 0.4 && !picked.noun.includes(" ")) {
-      const adj = rand(A_AN_ADJECTIVES);
-      t = t.replace("{noun}", `${adj} ${picked.noun}`);
+      injectedAdj = rand(A_AN_ADJECTIVES);
+      t = t.replace("{noun}", `${injectedAdj} {noun}`);
     }
 
     const prompt = t.replace("{noun}", picked.noun);
 
-    // Decide article from the *first word after the blank* (handles adjectives like "honest")
-    const afterBlank = prompt.split("___")[1] || "";
-    const firstWord = afterBlank.trim().split(/\s+/)[0] || picked.noun.split(/\s+/)[0];
-    const answer = startsWithVowelSound(firstWord) ? "an" : "a";
+    // Default: use the list-based article
+    let answer = picked.article;
+
+    // Only override when an adjective was injected
+    if (injectedAdj) {
+      answer = startsWithVowelSound(injectedAdj) ? "an" : "a";
+    }
 
     out.push({ prompt, answer });
   }
+
   return out;
 }
-
 
 /* Prepositions time generator */
 const MONTHS = ["January","February","March","April","May","June","July","August","September","October","November","December"];
