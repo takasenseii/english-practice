@@ -716,6 +716,12 @@ if (topicSelect.value.startsWith("Articles")) {
 
   const ok = (student === answer);
 
+  if (!ok && topicSelect.value.startsWith("Articles")) {
+  resultEl.textContent = `Incorrect (you: "${student}" expected: "${answer}")`;
+  resultEl.className = "result bad";
+  return;
+}
+
   // mistake tracking
   const topicKey = topicSelect.value;
   stats.totalChecked++;
