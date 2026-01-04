@@ -1,0 +1,409 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>English Practice</title>
+  <style>
+    body { font-family: system-ui, Arial, sans-serif; max-width: 980px; margin: 28px auto; padding: 0 16px; }
+    h1 { font-size: 1.6rem; margin: 0 0 6px; }
+    .meta { color:#555; margin: 0 0 14px; }
+    .nav { margin: 10px 0 14px; }
+    .nav a { margin-right: 12px; }
+    .row { display:flex; gap:10px; flex-wrap:wrap; align-items:center; margin: 14px 0; }
+    select, button, input[type="text"] { font-size: 1rem; }
+    select { padding: 8px 10px; border:1px solid #bbb; border-radius:8px; background:#fff; }
+    button { padding: 9px 12px; border:1px solid #bbb; border-radius:8px; background:#fff; cursor:pointer; }
+    button:hover { background:#f5f5f5; }
+    .card { border:1px solid #e2e2e2; border-radius:12px; padding: 12px; margin: 10px 0; }
+    .q { line-height: 1.5; }
+    .gap { display:inline-block; min-width: 3.4em; text-align:center; border-bottom:2px solid #222; padding: 0 4px; }
+    .ctrls { margin-top: 10px; display:flex; gap:10px; flex-wrap:wrap; align-items:center; }
+    .ctrls input[type="text"] { padding: 8px 10px; border:1px solid #bbb; border-radius:8px; width: 190px; }
+    .result { font-weight:700; margin-left: 6px; }
+    .result.ok { color: #0a6; }
+    .result.bad { color: #c22; }
+    .answer { display:none; color:#222; margin-left: 8px; font-weight:700; }
+    .score { font-weight:700; }
+    .small { color:#666; font-size: 0.95rem; }
+    code { background:#f4f4f4; padding:2px 5px; border-radius:6px; }
+  </style>
+</head>
+<body>
+  <h1>English Practice</h1>
+  <p class="meta">Choose a topic → generate 10 random items → type answers → check → score.</p>
+
+  <div class="nav">
+    <a href="./spelling.html">Spelling practice</a>
+  </div>
+
+  <div class="row">
+    <label for="topicSelect"><strong>Topic:</strong></label>
+    <select id="topicSelect"></select>
+
+    <button id="newSetBtn" type="button">New set (10)</button>
+    <button id="checkAllBtn" type="button">Check all</button>
+    <button id="showAnswersBtn" type="button">Show answers</button>
+    <button id="hideAnswersBtn" type="button">Hide answers</button>
+
+    <span class="score" id="scoreBox"></span>
+  </div>
+
+  <div id="list"></div>
+
+<script>
+/* ---------------- TEACHER CONFIG: topics ---------------- */
+const TOPICS = {
+  "Articles: a vs an – infinite": {
+    instructions: "Type a or an.",
+    generator: { type: "articles_a_an", count: 10 }
+  },
+
+  "Prepositions: in / on / at (time) – infinite": {
+    instructions: "Type in / on / at.",
+    generator: { type: "prepositions_time", count: 10 }
+  },
+
+  "Present perfect vs past simple – infinite": {
+    instructions: "Type the correct form. Examples: “have eaten” / “has eaten” / “went” / “did”.",
+    generator: { type: "pp_vs_ps", count: 10 }
+  },
+
+  "Subject–verb agreement – infinite": {
+    instructions: "Type the correct verb form (present simple). Examples: “go/goes”, “do/does”, “have/has”.",
+    generator: { type: "sva_present", count: 10 }
+  }
+};
+
+/* ---------------- app logic ---------------- */
+const N = 10;
+const topicSelect = document.getElementById("topicSelect");
+const listEl = document.getElementById("list");
+const newSetBtn = document.getElementById("newSetBtn");
+const checkAllBtn = document.getElementById("checkAllBtn");
+const showAnswersBtn = document.getElementById("showAnswersBtn");
+const hideAnswersBtn = document.getElementById("hideAnswersBtn");
+const scoreBox = document.getElementById("scoreBox");
+
+let currentItems = [];
+
+function normalize(s) {
+  return String(s).trim().toLowerCase().replace(/\s+/g, " ");
+}
+function shuffle(arr) {
+  const a = arr.slice();
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+/* ---------------- generators ---------------- */
+function rand(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
+function pad2(n){ return String(n).padStart(2,"0"); }
+function normalizeSpaces(s){ return String(s).trim().replace(/\s+/g," "); }
+
+/* A / AN generator (curated for sound-based accuracy) */
+const AN_WORDS = [
+  "apple","orange","egg","idea","example","engineer","artist","actor",
+  "umbrella","email","answer","invoice",
+  "hour","honest person","heir",
+  "MBA student","FBI agent","MRI scan","S.O.S. message"
+];
+const A_WORDS = [
+  "book","car","dog","house","table","computer","phone","teacher",
+  "university student","uniform","European city","one-time offer",
+  "USB cable","UFO story","user account"
+];
+const A_AN_TEMPLATES = [
+  "I need ___ {noun} for class.",
+  "She bought ___ {noun} yesterday.",
+  "He is ___ {noun}.",
+  "They saw ___ {noun} at the station.",
+  "We heard ___ {noun} in the meeting.",
+  "I ordered ___ {noun} online.",
+  "She wants to become ___ {noun}.",
+  "He found ___ {noun} on the floor.",
+  "They discussed ___ {noun} in class.",
+  "I watched ___ {noun} last night."
+];
+function pickNounWithAnswer() {
+  const pickAn = Math.random() < 0.5;
+  if (pickAn) return { noun: rand(AN_WORDS), article: "an" };
+  return { noun: rand(A_WORDS), article: "a" };
+}
+function generateArticlesAAn(n=10) {
+  const out = [];
+  for (let i = 0; i < n; i++) {
+    const t = rand(A_AN_TEMPLATES);
+    const picked = pickNounWithAnswer();
+    out.push({ prompt: t.replace("{noun}", picked.noun), answer: picked.article });
+  }
+  return out;
+}
+
+/* Prepositions time generator */
+const MONTHS = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+const WEEKDAYS = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"];
+const TIMES_OF_DAY = ["the morning","the afternoon","the evening"];
+const HOLIDAYS = ["Christmas","Easter","New Year’s Eve","New Year’s Day","Halloween"];
+function randomClockTime() {
+  const h = rand([1,2,3,4,5,6,7,8,9,10,11,12]);
+  const m = rand([0,5,10,15,20,25,30,35,40,45,50,55]);
+  return `${h}:${pad2(m)}`;
+}
+function randomDate() {
+  const day = rand([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28]);
+  const suf = (day % 10 === 1 && day !== 11) ? "st" : (day % 10 === 2 && day !== 12) ? "nd" : (day % 10 === 3 && day !== 13) ? "rd" : "th";
+  return `${day}${suf}`;
+}
+function generatePrepositionsTime(n=10) {
+  const frames = [
+    () => ({ text: `My birthday is ___ ${rand(MONTHS)}.`, answer: "in" }),
+    () => ({ text: `School starts ___ ${rand(MONTHS)}.`, answer: "in" }),
+    () => ({ text: `We usually study ___ ${rand(TIMES_OF_DAY)}.`, answer: "in" }),
+    () => ({ text: `I started learning English ___ ${rand(["2018","2019","2020","2021","2022","2023","2024","2025","2026"])}.`, answer: "in" }),
+
+    () => ({ text: `We have PE ___ ${rand(WEEKDAYS)}.`, answer: "on" }),
+    () => ({ text: `The test is ___ ${rand(WEEKDAYS)}.`, answer: "on" }),
+    () => ({ text: `The deadline is ___ the ${randomDate()}.`, answer: "on" }),
+    () => ({ text: `We have a quiz ___ ${rand(["Monday morning","Tuesday afternoon","Thursday evening"])}.`, answer: "on" }),
+
+    () => ({ text: `The lesson starts ___ ${randomClockTime()}.`, answer: "at" }),
+    () => ({ text: `Please call me ___ ${randomClockTime()}.`, answer: "at" }),
+    () => ({ text: `We met ___ ${rand(HOLIDAYS)}.`, answer: "at" }),
+    () => ({ text: `The train leaves ___ ${rand(["noon","midnight"])}.`, answer: "at" }),
+
+    () => ({ text: `I relax ___ the weekend.`, answer: "at" }) // BrE; accept as exercise
+  ];
+
+  const out = [];
+  for (let i = 0; i < n; i++) {
+    const q = rand(frames)();
+    out.push({ prompt: q.text, answer: q.answer });
+  }
+  return out;
+}
+
+/* Present perfect vs past simple generator */
+const VERBS = [
+  { base:"go", ps:"went", pp:"gone" },
+  { base:"see", ps:"saw", pp:"seen" },
+  { base:"eat", ps:"ate", pp:"eaten" },
+  { base:"do", ps:"did", pp:"done" },
+  { base:"write", ps:"wrote", pp:"written" },
+  { base:"take", ps:"took", pp:"taken" },
+  { base:"buy", ps:"bought", pp:"bought" },
+  { base:"make", ps:"made", pp:"made" },
+  { base:"choose", ps:"chose", pp:"chosen" },
+  { base:"break", ps:"broke", pp:"broken" },
+  { base:"meet", ps:"met", pp:"met" },
+  { base:"read", ps:"read", pp:"read" }
+];
+const SUBJECTS = [
+  { s:"I", have:"have" }, { s:"You", have:"have" }, { s:"We", have:"have" }, { s:"They", have:"have" },
+  { s:"He", have:"has" }, { s:"She", have:"has" }
+];
+const PP_MARKERS = ["already","just","recently","so far","today","this week","this month","in my life","yet","ever","never"];
+const PS_MARKERS = ["yesterday","last week","last month","last year","two days ago","three weeks ago","in 2018","in 2020","when I was younger","during the holiday"];
+function generatePPvsPS(n=10) {
+  const out = [];
+  for (let i = 0; i < n; i++) {
+    const subj = rand(SUBJECTS);
+    const v = rand(VERBS);
+    const usePP = Math.random() < 0.5;
+
+    if (usePP) {
+      const marker = rand(PP_MARKERS);
+      const frameType = rand(["statement","negative","question"]);
+      if (frameType === "question") {
+        const aux = subj.have.charAt(0).toUpperCase() + subj.have.slice(1); // Have/Has
+        out.push({ prompt: `___ ${subj.s} ever (${v.base}) ${marker}?`, answer: aux });
+      } else if (frameType === "negative") {
+        out.push({ prompt: `${subj.s} ___ not (${v.base}) ${marker}.`, answer: `${subj.have} ${v.pp}` });
+      } else {
+        out.push({ prompt: `${subj.s} ___ (${v.base}) ${marker}.`, answer: `${subj.have} ${v.pp}` });
+      }
+    } else {
+      const marker = rand(PS_MARKERS);
+      const frameType = rand(["statement","negative","question"]);
+      if (frameType === "question") {
+        out.push({ prompt: `___ ${subj.s} (${v.base}) it ${marker}?`, answer: "Did" });
+      } else if (frameType === "negative") {
+        out.push({ prompt: `${subj.s} ___ not (${v.base}) ${marker}.`, answer: v.ps });
+      } else {
+        out.push({ prompt: `${subj.s} ___ (${v.base}) ${marker}.`, answer: v.ps });
+      }
+    }
+  }
+  return out.map(x => ({ prompt: normalizeSpaces(x.prompt), answer: normalizeSpaces(x.answer) }));
+}
+
+/* Subject–verb agreement generator (present simple) */
+const SVA_SUBJECTS = [
+  { subj:"I", third:false },
+  { subj:"You", third:false },
+  { subj:"We", third:false },
+  { subj:"They", third:false },
+  { subj:"He", third:true },
+  { subj:"She", third:true },
+  { subj:"It", third:true },
+  { subj:"My friends", third:false },
+  { subj:"The teacher", third:true },
+  { subj:"The students", third:false }
+];
+
+const SVA_VERBS = [
+  { base:"go", third:"goes" },
+  { base:"do", third:"does" },
+  { base:"have", third:"has" },
+  { base:"watch", third:"watches" },
+  { base:"study", third:"studies" },
+  { base:"play", third:"plays" },
+  { base:"work", third:"works" },
+  { base:"try", third:"tries" },
+  { base:"teach", third:"teaches" },
+  { base:"fix", third:"fixes" },
+  { base:"carry", third:"carries" }
+];
+
+const SVA_ADVERBS = ["often","usually","sometimes","rarely","never","every day","after school","on weekends"];
+const SVA_OBJECTS = [
+  "English","football","video games","homework","in the library","in the gym","at home","in class","with friends"
+];
+
+function generateSVA(n=10) {
+  const out = [];
+  for (let i = 0; i < n; i++) {
+    const s = rand(SVA_SUBJECTS);
+    const v = rand(SVA_VERBS);
+    const adv = rand(SVA_ADVERBS);
+    const obj = rand(SVA_OBJECTS);
+    const correct = s.third ? v.third : v.base;
+
+    // Put the gap on the verb itself
+    const prompt = `${s.subj} ___ ${adv} ${obj}. (${v.base})`;
+    out.push({ prompt, answer: correct });
+  }
+  return out;
+}
+
+/* ---------------- render / check ---------------- */
+function initTopics() {
+  Object.keys(TOPICS).forEach(k => {
+    const opt = document.createElement("option");
+    opt.value = k;
+    opt.textContent = k;
+    topicSelect.appendChild(opt);
+  });
+  topicSelect.selectedIndex = 0;
+}
+
+function pickItemsForTopic(topic) {
+  if (topic.generator?.type === "prepositions_time") return generatePrepositionsTime(topic.generator.count || N);
+  if (topic.generator?.type === "articles_a_an") return generateArticlesAAn(topic.generator.count || N);
+  if (topic.generator?.type === "pp_vs_ps") return generatePPvsPS(topic.generator.count || N);
+  if (topic.generator?.type === "sva_present") return generateSVA(topic.generator.count || N);
+  // fallback (for fixed banks if you add later)
+  return shuffle(topic.items || []).slice(0, Math.min(N, (topic.items || []).length));
+}
+
+function renderSet() {
+  const topic = TOPICS[topicSelect.value];
+  const picked = pickItemsForTopic(topic);
+  currentItems = picked;
+
+  listEl.innerHTML = "";
+  scoreBox.textContent = "";
+
+  const instr = document.createElement("div");
+  instr.className = "card";
+  instr.innerHTML = `<div class="q"><strong>Instructions:</strong> ${topic.instructions}</div>`;
+  listEl.appendChild(instr);
+
+  picked.forEach((item, idx) => {
+    const card = document.createElement("div");
+    card.className = "card";
+    card.dataset.index = String(idx);
+    card.dataset.correct = "";
+
+    const promptHtml = item.prompt.includes("___")
+      ? item.prompt.replace("___", `<span class="gap">___</span>`)
+      : item.prompt;
+
+    card.innerHTML = `
+      <div class="q">
+        <strong>${idx + 1}.</strong> ${promptHtml}
+        <span class="answer">Answer: <span class="ansText"></span></span>
+      </div>
+      <div class="ctrls">
+        <input type="text" aria-label="Your answer" placeholder="Type here" autocomplete="off" spellcheck="false" />
+        <button type="button" class="checkBtn">Check</button>
+        <span class="result"></span>
+      </div>
+    `;
+
+    card.querySelector(".ansText").textContent = item.answer;
+    listEl.appendChild(card);
+  });
+
+  document.querySelectorAll(".checkBtn").forEach(btn => {
+    btn.addEventListener("click", (e) => {
+      const card = e.target.closest(".card");
+      checkOne(card);
+      updateScore();
+    });
+  });
+
+  hideAnswers();
+}
+
+function checkOne(card) {
+  const idx = Number(card.dataset.index);
+  const item = currentItems[idx];
+  const resultEl = card.querySelector(".result");
+  const input = card.querySelector('input[type="text"]');
+  const student = normalize(input.value);
+  const answer = normalize(item.answer);
+
+  if (!student) {
+    card.dataset.correct = "0";
+    resultEl.textContent = "Enter an answer first.";
+    resultEl.className = "result bad";
+    return;
+  }
+
+  const ok = (student === answer);
+  card.dataset.correct = ok ? "1" : "0";
+  resultEl.textContent = ok ? "Correct" : "Incorrect";
+  resultEl.className = "result " + (ok ? "ok" : "bad");
+}
+
+function checkAll() {
+  document.querySelectorAll(".card[data-index]").forEach(card => checkOne(card));
+  updateScore();
+}
+
+function updateScore() {
+  const cards = Array.from(document.querySelectorAll(".card[data-index]"));
+  const attempted = cards.filter(c => c.querySelector(".result")?.textContent);
+  if (attempted.length === 0) { scoreBox.textContent = ""; return; }
+  const correct = cards.filter(c => c.dataset.correct === "1").length;
+  scoreBox.textContent = `Score: ${correct}/${cards.length}`;
+}
+
+function showAnswers() { document.querySelectorAll(".answer").forEach(el => el.style.display = "inline"); }
+function hideAnswers() { document.querySelectorAll(".answer").forEach(el => el.style.display = "none"); }
+
+newSetBtn.addEventListener("click", renderSet);
+checkAllBtn.addEventListener("click", checkAll);
+showAnswersBtn.addEventListener("click", showAnswers);
+hideAnswersBtn.addEventListener("click", hideAnswers);
+topicSelect.addEventListener("change", renderSet);
+
+initTopics();
+renderSet();
+</script>
+</body>
+</html>
