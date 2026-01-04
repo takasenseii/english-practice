@@ -728,15 +728,30 @@ function showAnswers() { document.querySelectorAll(".answer").forEach(el => el.s
 function hideAnswers() { document.querySelectorAll(".answer").forEach(el => el.style.display = "none"); }
 
 /* ---------------- explain / feedback ---------------- */
-function showExplain() {
+function toggleExplain() {
+  const isOpen = explainBox.style.display === "block";
+
+  if (isOpen) {
+    explainBox.style.display = "none";
+    return;
+  }
+
   const topic = TOPICS[topicSelect.value];
   const html = topic.explain || "<strong>No explanation for this topic yet.</strong>";
   explainBox.innerHTML = html;
+
   explainBox.style.display = "block";
   feedbackBox.style.display = "none";
 }
 
-function showFeedback() {
+function toggleFeedback() {
+  const isOpen = feedbackBox.style.display === "block";
+
+  if (isOpen) {
+    feedbackBox.style.display = "none";
+    return;
+  }
+
   feedbackBox.style.display = "block";
   explainBox.style.display = "none";
 
@@ -745,13 +760,15 @@ function showFeedback() {
     return;
   }
 
-  // Top topic
-  const topicEntries = Object.entries(stats.wrongByTopic).sort((a,b) => b[1]-a[1]);
+  const topicEntries = Object.entries(stats.wrongByTopic)
+    .sort((a, b) => b[1] - a[1]);
+
   const topTopic = topicEntries[0]?.[0];
   const topTopicCount = topicEntries[0]?.[1] ?? 0;
 
-  // Top pairs
-  const pairEntries = Object.entries(stats.wrongByPair).sort((a,b) => b[1]-a[1]).slice(0, 5);
+  const pairEntries = Object.entries(stats.wrongByPair)
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, 5);
 
   let html = `<strong>Feedback (based on your mistakes)</strong><br><br>`;
   html += `Checked: <strong>${stats.totalChecked}</strong><br><br>`;
@@ -761,8 +778,7 @@ function showFeedback() {
   }
 
   if (pairEntries.length) {
-    html += `<strong>Most common wrong answers:</strong><br>`;
-    html += `<ol>`;
+    html += `<strong>Most common wrong answers:</strong><br><ol>`;
     pairEntries.forEach(([k, n]) => {
       const [given, correct] = k.split("->");
       html += `<li><code>${given}</code> → <code>${correct}</code> (${n})</li>`;
@@ -775,6 +791,7 @@ function showFeedback() {
   feedbackBox.innerHTML = html;
 }
 
+
 /* ---------------- events ---------------- */
 newSetBtn.addEventListener("click", renderSet);
 checkAllBtn.addEventListener("click", checkAll);
@@ -782,8 +799,8 @@ showAnswersBtn.addEventListener("click", showAnswers);
 hideAnswersBtn.addEventListener("click", hideAnswers);
 topicSelect.addEventListener("change", renderSet);
 
-explainBtn.addEventListener("click", showExplain);
-feedbackBtn.addEventListener("click", showFeedback);
+explainBtn.addEventListener("click", toggleExplain);
+feedbackBtn.addEventListener("click", toggleFeedback);
 
 /* ---------------- boot ---------------- */
 initTopics();
