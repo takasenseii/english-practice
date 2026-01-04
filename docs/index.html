@@ -178,6 +178,27 @@ function shuffle(arr) {
 function rand(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
 function pad2(n){ return String(n).padStart(2,"0"); }
 function normalizeSpaces(s){ return String(s).trim().replace(/\s+/g," "); }
+function startsWithVowelSound(word) {
+  const w = String(word).toLowerCase();
+
+  // silent h -> vowel sound
+  const silentH = ["honest","honour","honorable","honourable","hour","heir","heiress","herb"];
+  if (silentH.some(x => w.startsWith(x))) return true;
+
+  // vowel letters
+  if (/^[aeiou]/.test(w)) return true;
+
+  // common "you"/"w" sound cases -> consonant sound => "a"
+  if (/^(uni([^a-z]|$)|use([^a-z]|$)|user([^a-z]|$)|ufo([^a-z]|$)|uk([^a-z]|$)|eu)/.test(w)) return false;
+
+  return false;
+}
+
+function articleForPhrase(phrase) {
+  const firstWord = String(phrase).trim().split(/\s+/)[0];
+  return startsWithVowelSound(firstWord) ? "an" : "a";
+}
+
 
 /* A / AN generator (curated for sound-based accuracy) */
 const AN_WORDS = [
@@ -324,7 +345,7 @@ function pickNounWithAnswer() {
 function generateArticlesAAn(n = 10) {
   const out = [];
   for (let i = 0; i < n; i++) {
-    const useInitial = Math.random() < 0.3; // adjust ratio as needed
+    const useInitial = Math.random() < 0.3;
     const templates = useInitial ? A_AN_TEMPLATES_INITIAL : A_AN_TEMPLATES;
 
     let t = rand(templates);
@@ -336,13 +357,18 @@ function generateArticlesAAn(n = 10) {
       t = t.replace("{noun}", `${adj} ${picked.noun}`);
     }
 
-    out.push({
-      prompt: t.replace("{noun}", picked.noun),
-      answer: picked.article
-    });
+    const prompt = t.replace("{noun}", picked.noun);
+
+    // Decide article from the *first word after the blank* (handles adjectives like "honest")
+    const afterBlank = prompt.split("___")[1] || "";
+    const firstWord = afterBlank.trim().split(/\s+/)[0] || picked.noun.split(/\s+/)[0];
+    const answer = startsWithVowelSound(firstWord) ? "an" : "a";
+
+    out.push({ prompt, answer });
   }
   return out;
 }
+
 
 /* Prepositions time generator */
 const MONTHS = ["January","February","March","April","May","June","July","August","September","October","November","December"];
