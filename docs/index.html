@@ -328,6 +328,7 @@ const SVA_SUBJECTS = [
   { subj:"The teacher", third:true },
   { subj:"The students", third:false }
 ];
+
 const SVA_VERBS = [
   { base:"go", third:"goes" },
   { base:"do", third:"does" },
@@ -341,19 +342,59 @@ const SVA_VERBS = [
   { base:"fix", third:"fixes" },
   { base:"carry", third:"carries" }
 ];
+
 const SVA_ADVERBS = ["often","usually","sometimes","rarely","never","every day","after school","on weekends"];
-const SVA_OBJECTS = [
-  "English","football","video games","homework","in the library","in the gym","at home","in class","with friends"
-];
-function generateSVA(n=10) {
+
+const SVA_COMPLEMENTS = {
+  go: [
+    "to school", "to the gym", "to the library", "home after school", "to practice"
+  ],
+  do: [
+    "homework", "their homework", "the dishes", "a project", "exercise"
+  ],
+  have: [
+    "breakfast", "a test", "a lesson", "a lot of homework", "time"
+  ],
+  watch: [
+    "TV", "a film", "football", "videos", "the match"
+  ],
+  study: [
+    "English", "maths", "at home", "in the library", "after school"
+  ],
+  play: [
+    "football", "basketball", "video games", "tennis", "music"
+  ],
+  work: [
+    "at home", "in the library", "after school", "on weekends", "every day"
+  ],
+  try: [
+    "hard", "to improve", "again", "to help", "to learn"
+  ],
+  teach: [
+    "English", "maths", "PE", "the class", "students"
+  ],
+  fix: [
+    "bikes", "computers", "phones", "the problem", "things"
+  ],
+  carry: [
+    "a bag", "books", "a backpack", "a box", "shopping bags"
+  ]
+};
+
+function rand(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
+
+function generateSVA(n = 10) {
   const out = [];
   for (let i = 0; i < n; i++) {
     const s = rand(SVA_SUBJECTS);
     const v = rand(SVA_VERBS);
     const adv = rand(SVA_ADVERBS);
-    const obj = rand(SVA_OBJECTS);
+
+    const complement = rand(SVA_COMPLEMENTS[v.base]);
     const correct = s.third ? v.third : v.base;
-    const prompt = `${s.subj} ___ ${adv} ${obj}. (${v.base})`;
+
+    // Prompt uses the base verb in parentheses as the hint
+    const prompt = `${s.subj} ___ ${adv} ${complement}. (${v.base})`;
     out.push({ prompt, answer: correct });
   }
   return out;
