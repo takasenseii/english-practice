@@ -3,6 +3,10 @@
 
 function rand(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
 
+// Normalizers (needed for check icons)
+function normalizeSpaces(s) { return String(s).trim().replace(/\s+/g, " "); }
+function normalize(s) { return normalizeSpaces(s).toLowerCase(); }
+
 function startsWithVowelSound(word) {
   const w = String(word).toLowerCase();
 
@@ -122,14 +126,12 @@ function render(container) {
     listEl.innerHTML = items
       .map((it, idx) => `
         <div class="q" data-i="${idx}">
-          <div class="left">
-            <div class="prompt">
-              ${idx + 1}. ${it.prompt.replace("___", "<span class='gap'>___</span>")}
-            </div>
-            <div class="row">
-              <input data-i="${idx}" placeholder="a / an" />
-              <div class="ans" data-ans="${idx}"></div>
-            </div>
+          <div class="prompt">
+            ${idx + 1}. ${it.prompt.replace("___", "<span class='gap'>___</span>")}
+          </div>
+          <div class="row">
+            <input data-i="${idx}" placeholder="a / an" />
+            <div class="ans" data-ans="${idx}"></div>
           </div>
         </div>
       `)
@@ -143,42 +145,50 @@ function render(container) {
     draw();
   }
 
-function check() {
-  const inputs = Array.from(listEl.querySelectorAll("input[data-i]"));
-  let correct = 0;
-  let attempted = 0;
-
-  inputs.forEach(inp => {
-    const i = Number(inp.dataset.i);
-    const student = normalize(inp.value);
-    const qEl = inp.closest(".q");
-
-    // remove old mark
-    const old = qEl.querySelector(".mark");
+  function clearMarkForInput(inp) {
+    const row = inp.closest(".row") || inp.parentElement;
+    const old = row.querySelector(".mark");
     if (old) old.remove();
-
-    if (!student) return;
-
-    attempted++;
-
-    const isCorrect = student === normalize(items[i].answer);
-    if (isCorrect) correct++;
-
-    const mark = document.createElement("span");
-    mark.className = "mark " + (isCorrect ? "ok" : "bad");
-    mark.textContent = isCorrect ? "✔" : "✖";
-
-    inp.after(mark);
-  });
-
-  if (attempted === 0) {
-    resultEl.textContent = "Enter at least one answer.";
-    return;
   }
 
-  resultEl.textContent = `Score: ${correct}/${items.length}`;
-}
+  function setMark(inp, ok) {
+    clearMarkForInput(inp);
 
+    const mark = document.createElement("span");
+    mark.className = "mark " + (ok ? "ok" : "bad");
+    mark.textContent = ok ? "✔" : "✖";
+    inp.after(mark);
+  }
+
+  function check() {
+    const inputs = Array.from(listEl.querySelectorAll("input[data-i]"));
+    let correct = 0;
+    let attempted = 0;
+
+    inputs.forEach((inp) => {
+      const i = Number(inp.dataset.i);
+      const student = parseArticle(inp.value);
+
+      if (!student) {
+        clearMarkForInput(inp);
+        return;
+      }
+
+      attempted++;
+
+      const ok = normalize(student) === normalize(items[i].answer);
+      if (ok) correct++;
+
+      setMark(inp, ok);
+    });
+
+    if (attempted === 0) {
+      resultEl.textContent = "Enter at least one answer.";
+      return;
+    }
+
+    resultEl.textContent = `Score: ${correct}/${items.length}`;
+  }
 
   function showAnswers() {
     items.forEach((it, i) => {
