@@ -162,3 +162,21 @@ body{
   border-radius:8px;
   border:1px dashed var(--border);
 }
+
+/* Correct / incorrect icons */
+.mark{
+  margin-left:6px;
+  font-size:1.1rem;
+  font-weight:800;
+  line-height:1;
+}
+
+.mark.ok{
+  color: rgb(0,255,120);          /* green check */
+  text-shadow: 0 0 8px rgba(0,255,120,.5);
+}
+
+.mark.bad{
+  color: rgb(255,80,80);          /* red X */
+  text-shadow: 0 0 8px rgba(255,80,80,.5);
+}
