@@ -234,17 +234,20 @@ container.innerHTML = `
 
   let items = [];
 
-  function draw() {
-    listEl.innerHTML = items
-      .map((it, idx) => `
-        <div class="q">
+function draw() {
+  listEl.innerHTML = items
+    .map((it, idx) => `
+      <div class="q" data-i="${idx}">
+        <div class="left">
           <div class="prompt">${idx + 1}. ${it.prompt.replace("___", "<span class='gap'>___</span>")}</div>
-          <input data-i="${idx}" placeholder="a / an" />
+          <input data-i="${idx}" placeholder="Type here" />
         </div>
-      `)
-      .join("");
-    resultEl.textContent = "";
-  }
+        <div class="ans" data-ans="${idx}"></div>
+      </div>
+    `)
+    .join("");
+  resultEl.textContent = "";
+}
 
   function newSet() {
     const n = Math.max(1, Math.min(50, Number(nEl.value || 10)));
