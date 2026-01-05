@@ -1,5 +1,5 @@
-// avsan.js
-// Articles: a vs an — matches previous script (sound-based, adjective injection, expanded templates)
+// AvsAN.js
+// Articles: a vs an — standardized module: { id, title, generate, render }
 
 function rand(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
 
@@ -9,7 +9,7 @@ function startsWithVowelSound(word) {
   // silent h -> vowel sound
   if (/^(honest|honour|honorable|honourable|hour|heir|heiress|herb)\b/.test(w)) return true;
 
-  // acronyms/initialisms said by letter: vowel-sound letter names
+  // initialisms said by letter: vowel-sound letter names
   // A, E, F, H, I, L, M, N, O, R, S, X
   if (/^(a|e|f|h|i|l|m|n|o|r|s|x)\b/.test(w)) return true;
 
@@ -19,11 +19,9 @@ function startsWithVowelSound(word) {
   // "you" sound (consonant) cases -> "a"
   if (/^(eu|u(?![aeiou])|uni|use|user|ufo|uk|usb|euro|european)\b/.test(w)) return false;
 
-  // default consonant
   return false;
 }
 
-/* A / AN generator (curated for sound-based accuracy) */
 const AN_WORDS = [
   "apple","orange","egg","idea","example","engineer","artist","actor",
   "umbrella","email","answer","invoice","essay","exercise","argument",
@@ -175,7 +173,7 @@ function generateArticlesAAn(n = 10) {
 
     let injectedAdj = null;
 
-    // Inject adjective before *single-word* nouns
+    // Inject adjective before single-word nouns
     if (t.includes("{noun}") && Math.random() < 0.4 && !picked.noun.includes(" ")) {
       injectedAdj = rand(A_AN_ADJECTIVES);
       t = t.replace("{noun}", `${injectedAdj} {noun}`);
@@ -183,6 +181,7 @@ function generateArticlesAAn(n = 10) {
 
     const prompt = t.replace("{noun}", picked.noun);
 
+    // default based on noun list; override if adjective injected (sound-based)
     let answer = picked.article;
     if (injectedAdj) answer = startsWithVowelSound(injectedAdj) ? "an" : "a";
 
@@ -284,4 +283,11 @@ function render(container) {
   newSet();
 }
 
-export default { id: "avsan", title: "A vs An", render };
+export { generateArticlesAAn };
+
+export default {
+  id: "avsan",
+  title: "A vs An",
+  generate: generateArticlesAAn,
+  render,
+};
