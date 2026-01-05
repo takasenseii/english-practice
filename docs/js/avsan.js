@@ -10,9 +10,16 @@ function normalize(s) { return normalizeSpaces(s).toLowerCase(); }
 function startsWithVowelSound(word) {
   const w = String(word).toLowerCase();
 
+  // silent-h words → "an"
   if (/^(honest|honour|honorable|honourable|hour|heir|heiress|herb)\b/.test(w)) return true;
+
+  // letter names pronounced with initial vowel sound → "an" (F = "ef", M = "em", etc.)
   if (/^(a|e|f|h|i|l|m|n|o|r|s|x)\b/.test(w)) return true;
+
+  // normal vowel start → "an"
   if (/^[aeiou]/.test(w)) return true;
+
+  // "you" sound → "a"
   if (/^(eu|u(?![aeiou])|uni|use|user|ufo|uk|usb|euro|european)\b/.test(w)) return false;
 
   return false;
@@ -131,6 +138,7 @@ function render(container) {
           </div>
           <div class="row">
             <input data-i="${idx}" placeholder="a / an" />
+            <span class="mark" data-mark="${idx}"></span>
             <div class="ans" data-ans="${idx}"></div>
           </div>
         </div>
@@ -145,19 +153,18 @@ function render(container) {
     draw();
   }
 
-  function clearMarkForInput(inp) {
-    const row = inp.closest(".row") || inp.parentElement;
-    const old = row.querySelector(".mark");
-    if (old) old.remove();
+  function clearMark(i) {
+    const m = listEl.querySelector(`.mark[data-mark="${i}"]`);
+    if (!m) return;
+    m.className = "mark";
+    m.textContent = "";
   }
 
-  function setMark(inp, ok) {
-    clearMarkForInput(inp);
-
-    const mark = document.createElement("span");
-    mark.className = "mark " + (ok ? "ok" : "bad");
-    mark.textContent = ok ? "✔" : "✖";
-    inp.after(mark);
+  function setMark(i, ok) {
+    const m = listEl.querySelector(`.mark[data-mark="${i}"]`);
+    if (!m) return;
+    m.className = "mark " + (ok ? "ok" : "bad");
+    m.textContent = ok ? "✔" : "✖";
   }
 
   function check() {
@@ -170,7 +177,7 @@ function render(container) {
       const student = parseArticle(inp.value);
 
       if (!student) {
-        clearMarkForInput(inp);
+        clearMark(i);
         return;
       }
 
@@ -179,7 +186,7 @@ function render(container) {
       const ok = normalize(student) === normalize(items[i].answer);
       if (ok) correct++;
 
-      setMark(inp, ok);
+      setMark(i, ok);
     });
 
     if (attempted === 0) {
@@ -187,6 +194,7 @@ function render(container) {
       return;
     }
 
+    // Keep original scoring style (total questions as denominator)
     resultEl.textContent = `Score: ${correct}/${items.length}`;
   }
 
