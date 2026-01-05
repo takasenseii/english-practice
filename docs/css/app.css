@@ -86,61 +86,15 @@ body{
 }
 .backBtn:hover{ background: rgba(255,255,255,.10); }
 
-/* Exercise layout spacing */
-#list{
-  display:flex;
-  flex-direction:column;
-  gap:14px;
-  margin-top:12px;
-}
+/* ───────────────────────────── */
+/* Exercise UI (FINAL CLEAN SET) */
 
-.q{
-  padding:12px 0;
-  border-top:1px solid var(--border);
-}
-
-.q:first-child{
-  border-top:none;
-  padding-top:0;
-}
-
-.prompt{
-  margin:0 0 8px;
-  line-height:1.4;
-}
-
-.q input,
-.q select{
-  width:100%;
-  max-width:420px;
-  padding:10px 12px;
-  border-radius:12px;
-  border:1px solid var(--border);
-  background: rgba(255,255,255,.04);
-  color: var(--text);
-}
-
-.result{
-  margin-top:12px;
-  color: var(--muted);
-}
-
-.gap{
-  display:inline-block;
-  min-width:44px;
-  text-align:center;
-  padding:2px 6px;
-  border-radius:8px;
-  border:1px dashed var(--border);
-}
-
-/* Exercise UI */
 .row{
   display:flex;
   gap:10px;
   align-items:center;
   flex-wrap:wrap;
-  margin: 12px 0;
+  margin:12px 0;
 }
 
 .row label{
@@ -151,18 +105,21 @@ body{
 }
 
 .row input[type="number"]{
-  width: 90px;
+  width:90px;
 }
 
-/* Question list spacing */
+/* Question list */
 #list{
   display:flex;
   flex-direction:column;
   gap:14px;
-  margin: 12px 0;
+  margin:12px 0;
 }
 
 .q{
+  display:flex;
+  gap:12px;
+  align-items:flex-start;
   padding-top:12px;
   border-top:1px solid var(--border);
 }
@@ -172,12 +129,17 @@ body{
   padding-top:0;
 }
 
-.prompt{
-  margin: 0 0 8px;
-  line-height: 1.4;
+.q .left{
+  flex:1;
+  min-width:260px;
 }
 
-/* Inputs/selects inside questions */
+.prompt{
+  margin:0 0 8px;
+  line-height:1.4;
+}
+
+/* Inputs */
 .q input,
 .q select{
   padding:10px 12px;
@@ -185,11 +147,29 @@ body{
   border:1px solid var(--border);
   background: rgba(255,255,255,.04);
   color: var(--text);
-  outline: none;
+  outline:none;
 }
 
 .q input::placeholder{
   color: rgba(230,230,230,.45);
+}
+
+/* Answer display */
+.q .ans{
+  min-width:140px;
+  padding:10px 12px;
+  border-radius:12px;
+  border:1px solid rgba(0,255,120,.45);
+  background: rgba(0,255,120,.10);
+  color: rgb(0,255,120);
+  font-weight:700;
+  white-space:nowrap;
+  visibility:hidden;
+}
+
+.q.show-ans .ans{
+  visibility:visible;
+  box-shadow:0 0 12px rgba(0,255,120,.35);
 }
 
 .result{
@@ -204,34 +184,4 @@ body{
   padding:2px 6px;
   border-radius:8px;
   border:1px dashed var(--border);
-}
-
-/* Answer shown to the right */
-.q{
-  display:flex;
-  gap:12px;
-  align-items:flex-start;
-}
-
-.q .left{
-  flex: 1 1 auto;
-  min-width: 260px;
-}
-
-.q .ans{
-  flex: 0 0 auto;
-  min-width: 140px;
-  padding:10px 12px;
-  border-radius:12px;
-  border:1px solid rgba(0,255,120,.45);
-  background: rgba(0,255,120,.10);
-  color: rgb(0,255,120);
-  font-weight: 700;
-  letter-spacing: .2px;
-  white-space: nowrap;
-  visibility: hidden; /* hidden until Show answers */
-}
-
-.q.show-ans .ans{
-  visibility: visible;
 }
