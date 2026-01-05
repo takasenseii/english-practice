@@ -202,7 +202,8 @@ function parseArticle(raw) {
 }
 
 function render(container) {
-  container.innerHTML = `
+container.innerHTML = `
+  <div class="container">
     <div class="card">
       <h2>A vs An</h2>
       <p>Type <b>a</b> or <b>an</b>.</p>
@@ -215,6 +216,7 @@ function render(container) {
       </div>
 
       <div id="list"></div>
+
       <div class="row">
         <button id="check">Check</button>
         <button id="show">Show answers</button>
@@ -222,7 +224,9 @@ function render(container) {
 
       <div id="result" class="result"></div>
     </div>
-  `;
+  </div>
+`;
+
 
   const nEl = container.querySelector("#n");
   const listEl = container.querySelector("#list");
