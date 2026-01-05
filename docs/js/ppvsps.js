@@ -138,25 +138,42 @@ function render(container) {
     draw();
   }
 
-  function check() {
-    const inputs = Array.from(listEl.querySelectorAll("input[data-i]"));
-    let correct = 0;
-    let attempted = 0;
+function check() {
+  const inputs = Array.from(listEl.querySelectorAll("input[data-i]"));
+  let correct = 0;
+  let attempted = 0;
 
-    inputs.forEach(inp => {
-      const i = Number(inp.dataset.i);
-      const student = normalize(inp.value);
-      if (student) attempted++;
-      if (student && student === normalize(items[i].answer)) correct++;
-    });
+  inputs.forEach(inp => {
+    const i = Number(inp.dataset.i);
+    const student = normalize(inp.value);
+    const qEl = inp.closest(".q");
 
-    if (attempted === 0) {
-      resultEl.textContent = "Enter at least one answer.";
-      return;
-    }
+    // remove old mark
+    const old = qEl.querySelector(".mark");
+    if (old) old.remove();
 
-    resultEl.textContent = `Score: ${correct}/${items.length}`;
+    if (!student) return;
+
+    attempted++;
+
+    const isCorrect = student === normalize(items[i].answer);
+    if (isCorrect) correct++;
+
+    const mark = document.createElement("span");
+    mark.className = "mark " + (isCorrect ? "ok" : "bad");
+    mark.textContent = isCorrect ? "✔" : "✖";
+
+    inp.after(mark);
+  });
+
+  if (attempted === 0) {
+    resultEl.textContent = "Enter at least one answer.";
+    return;
   }
+
+  resultEl.textContent = `Score: ${correct}/${items.length}`;
+}
+
 
   function showAnswers() {
     items.forEach((it, i) => {
