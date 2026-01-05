@@ -275,13 +275,16 @@ function draw() {
     resultEl.textContent = `Score: ${correct}/${items.length}`;
   }
 
-  function showAnswers() {
-    Array.from(listEl.querySelectorAll("input[data-i]")).forEach((inp) => {
-      const i = Number(inp.dataset.i);
-      inp.value = items[i].answer;
-    });
-    resultEl.textContent = "Answers filled in.";
-  }
+function showAnswers() {
+  items.forEach((it, i) => {
+    const qEl = listEl.querySelector(`.q[data-i="${i}"]`);
+    const ansEl = listEl.querySelector(`.ans[data-ans="${i}"]`);
+    if (!qEl || !ansEl) return;
+    ansEl.textContent = it.answer;     // or it.correct if you want full form
+    qEl.classList.add("show-ans");
+  });
+  resultEl.textContent = "Answers shown.";
+}
 
   container.querySelector("#new").onclick = newSet;
   container.querySelector("#check").onclick = check;
