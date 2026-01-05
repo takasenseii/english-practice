@@ -1,4 +1,4 @@
-// PPvsPS.js
+// ppvsps.js
 // Present perfect vs past simple — standardized module: { id, title, generate, render }
 
 function rand(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
@@ -21,15 +21,28 @@ const VERBS = [
 ];
 
 const SUBJECTS = [
-  { s:"I", have:"have" }, { s:"You", have:"have" }, { s:"We", have:"have" }, { s:"They", have:"have" },
-  { s:"He", have:"has" }, { s:"She", have:"has" }
+  { s:"I", have:"have" },
+  { s:"You", have:"have" },
+  { s:"We", have:"have" },
+  { s:"They", have:"have" },
+  { s:"He", have:"has" },
+  { s:"She", have:"has" }
 ];
 
-const PP_MARKERS = ["already","just","recently","so far","today","this week","this month","in my life","yet","ever","never"];
-const PS_MARKERS = ["yesterday","last week","last month","last year","two days ago","three weeks ago","in 2018","in 2020","when I was younger","during the holiday"];
+const PP_MARKERS = [
+  "already","just","recently","so far","today",
+  "this week","this month","in my life","yet","ever","never"
+];
 
-function generatePPvsPS(n=10) {
+const PS_MARKERS = [
+  "yesterday","last week","last month","last year",
+  "two days ago","three weeks ago","in 2018","in 2020",
+  "when I was younger","during the holiday"
+];
+
+function generatePPvsPS(n = 10) {
   const out = [];
+
   for (let i = 0; i < n; i++) {
     const subj = rand(SUBJECTS);
     const v = rand(VERBS);
@@ -37,23 +50,23 @@ function generatePPvsPS(n=10) {
 
     if (usePP) {
       const marker = rand(PP_MARKERS);
-      const frameType = rand(["statement","negative","question"]);
+      const type = rand(["statement","negative","question"]);
 
-      if (frameType === "question") {
+      if (type === "question") {
         const aux = subj.have.charAt(0).toUpperCase() + subj.have.slice(1);
         out.push({ prompt: `___ ${subj.s} ever (${v.base}) ${marker}?`, answer: aux });
-      } else if (frameType === "negative") {
+      } else if (type === "negative") {
         out.push({ prompt: `${subj.s} ___ not (${v.base}) ${marker}.`, answer: `${subj.have} ${v.pp}` });
       } else {
         out.push({ prompt: `${subj.s} ___ (${v.base}) ${marker}.`, answer: `${subj.have} ${v.pp}` });
       }
     } else {
       const marker = rand(PS_MARKERS);
-      const frameType = rand(["statement","negative","question"]);
+      const type = rand(["statement","negative","question"]);
 
-      if (frameType === "question") {
+      if (type === "question") {
         out.push({ prompt: `___ ${subj.s} (${v.base}) it ${marker}?`, answer: "Did" });
-      } else if (frameType === "negative") {
+      } else if (type === "negative") {
         out.push({ prompt: `${subj.s} ___ not (${v.base}) ${marker}.`, answer: v.ps });
       } else {
         out.push({ prompt: `${subj.s} ___ (${v.base}) ${marker}.`, answer: v.ps });
@@ -61,29 +74,35 @@ function generatePPvsPS(n=10) {
     }
   }
 
-  return out.map(x => ({ prompt: normalizeSpaces(x.prompt), answer: normalizeSpaces(x.answer) }));
+  return out.map(x => ({
+    prompt: normalizeSpaces(x.prompt),
+    answer: normalizeSpaces(x.answer)
+  }));
 }
 
 function render(container) {
   container.innerHTML = `
-    <div class="card">
-      <h2>Present perfect vs Past simple</h2>
-      <p>Type the correct form (e.g., <b>have eaten</b>, <b>has eaten</b>, <b>went</b>, <b>Did</b>).</p>
+    <div class="container">
+      <div class="card">
+        <h2>Present perfect vs Past simple</h2>
+        <p>Type the correct form (e.g. <b>have eaten</b>, <b>has eaten</b>, <b>went</b>, <b>Did</b>).</p>
 
-      <div class="row">
-        <label>Questions:
-          <input id="n" type="number" min="1" max="50" value="10" />
-        </label>
-        <button id="new">New set</button>
+        <div class="row">
+          <label>Questions:
+            <input id="n" type="number" min="1" max="50" value="10" />
+          </label>
+          <button id="new">New set</button>
+        </div>
+
+        <div id="list"></div>
+
+        <div class="row">
+          <button id="check">Check</button>
+          <button id="show">Show answers</button>
+        </div>
+
+        <div id="result" class="result"></div>
       </div>
-
-      <div id="list"></div>
-      <div class="row">
-        <button id="check">Check</button>
-        <button id="show">Show answers</button>
-      </div>
-
-      <div id="result" class="result"></div>
     </div>
   `;
 
@@ -96,12 +115,20 @@ function render(container) {
   function draw() {
     listEl.innerHTML = items
       .map((it, idx) => `
-        <div class="q">
-          <div class="prompt">${idx + 1}. ${it.prompt.replace("___", "<span class='gap'>___</span>")}</div>
-          <input data-i="${idx}" placeholder="Type here" />
+        <div class="q" data-i="${idx}">
+          <div class="left">
+            <div class="prompt">
+              ${idx + 1}. ${it.prompt.replace("___", "<span class='gap'>___</span>")}
+            </div>
+            <div class="row">
+              <input data-i="${idx}" placeholder="Type here" />
+              <div class="ans" data-ans="${idx}"></div>
+            </div>
+          </div>
         </div>
       `)
       .join("");
+
     resultEl.textContent = "";
   }
 
@@ -116,11 +143,11 @@ function render(container) {
     let correct = 0;
     let attempted = 0;
 
-    inputs.forEach((inp) => {
+    inputs.forEach(inp => {
       const i = Number(inp.dataset.i);
-      const student = normalizeSpaces(inp.value);
-      if (normalize(student)) attempted++;
-      if (normalize(student) && normalize(student) === normalize(items[i].answer)) correct++;
+      const student = normalize(inp.value);
+      if (student) attempted++;
+      if (student && student === normalize(items[i].answer)) correct++;
     });
 
     if (attempted === 0) {
@@ -132,11 +159,16 @@ function render(container) {
   }
 
   function showAnswers() {
-    Array.from(listEl.querySelectorAll("input[data-i]")).forEach((inp) => {
-      const i = Number(inp.dataset.i);
-      inp.value = items[i].answer;
+    items.forEach((it, i) => {
+      const qEl = listEl.querySelector(`.q[data-i="${i}"]`);
+      const ansEl = listEl.querySelector(`.ans[data-ans="${i}"]`);
+      if (!qEl || !ansEl) return;
+
+      ansEl.textContent = it.answer;
+      qEl.classList.add("show-ans");
     });
-    resultEl.textContent = "Answers filled in.";
+
+    resultEl.textContent = "Answers shown.";
   }
 
   container.querySelector("#new").onclick = newSet;
@@ -152,5 +184,5 @@ export default {
   id: "ppvsps",
   title: "PP vs PS",
   generate: generatePPvsPS,
-  render,
+  render
 };
