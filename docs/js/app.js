@@ -24,18 +24,30 @@ function renderMenu() {
   const view = document.getElementById("view");
 
   menu.innerHTML = `
-    <h2>Choose</h2>
-    ${menuSections.map(section => `
-      <h3>${section.title}</h3>
-      <ul>
-        ${section.items.map(item =>
-          `<li><a href="#/${item.id}">${item.label}</a></li>`
-        ).join("")}
-      </ul>
-    `).join("")}
+    <div class="container">
+      <div class="topbar">
+        <div class="brand">English Practice</div>
+      </div>
+
+      <div class="grid">
+        <div class="card">
+          <div class="pill">Grammar</div>
+          <h3>Grammar exercises</h3>
+          <p>Articles, time prepositions, present perfect vs past simple, subject–verb agreement.</p>
+          <a class="btn" href="#/grammar">Open →</a>
+        </div>
+
+        <div class="card">
+          <div class="pill">Spelling</div>
+          <h3>Spelling exercises</h3>
+          <p>Save your own word list, practise with audio, check answers, track score.</p>
+          <a class="btn" href="#/spelling">Open →</a>
+        </div>
+      </div>
+    </div>
   `;
 
-  view.innerHTML = `<p>Select an exercise.</p>`;
+  view.innerHTML = "";
 }
 
 function router() {
