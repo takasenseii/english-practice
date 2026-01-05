@@ -1,12 +1,9 @@
-// timeprep.js
-// Prepositions: in / on / at (time) — matches previous script (random date/time/frames)
+// timePREP.js
+// Prepositions: in / on / at (time) — standardized module: { id, title, generate, render }
 
 function rand(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
 function pad2(n){ return String(n).padStart(2,"0"); }
-
-function normalize(s) {
-  return String(s).trim().toLowerCase().replace(/\s+/g, " ");
-}
+function normalize(s) { return String(s).trim().toLowerCase().replace(/\s+/g, " "); }
 
 const MONTHS = ["January","February","March","April","May","June","July","August","September","October","November","December"];
 const WEEKDAYS = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"];
@@ -138,4 +135,11 @@ function render(container) {
   newSet();
 }
 
-export default { id: "timeprep", title: "Time prepositions", render };
+export { generatePrepositionsTime };
+
+export default {
+  id: "timeprep",
+  title: "Time prepositions",
+  generate: generatePrepositionsTime,
+  render,
+};
