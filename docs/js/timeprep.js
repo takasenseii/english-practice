@@ -1,4 +1,4 @@
-// timePREP.js
+// timeprep.js
 // Prepositions: in / on / at (time) — standardized module: { id, title, generate, render }
 
 function rand(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
@@ -55,24 +55,27 @@ function generatePrepositionsTime(n=10) {
 
 function render(container) {
   container.innerHTML = `
-    <div class="card">
-      <h2>Time prepositions</h2>
-      <p>Type <b>in</b>, <b>on</b>, or <b>at</b>.</p>
+    <div class="container">
+      <div class="card">
+        <h2>Time prepositions</h2>
+        <p>Type <b>in</b>, <b>on</b>, or <b>at</b>.</p>
 
-      <div class="row">
-        <label>Questions:
-          <input id="n" type="number" min="1" max="50" value="10" />
-        </label>
-        <button id="new">New set</button>
+        <div class="row">
+          <label>Questions:
+            <input id="n" type="number" min="1" max="50" value="10" />
+          </label>
+          <button id="new">New set</button>
+        </div>
+
+        <div id="list"></div>
+
+        <div class="row">
+          <button id="check">Check</button>
+          <button id="show">Show answers</button>
+        </div>
+
+        <div id="result" class="result"></div>
       </div>
-
-      <div id="list"></div>
-      <div class="row">
-        <button id="check">Check</button>
-        <button id="show">Show answers</button>
-      </div>
-
-      <div id="result" class="result"></div>
     </div>
   `;
 
@@ -85,9 +88,14 @@ function render(container) {
   function draw() {
     listEl.innerHTML = items
       .map((it, idx) => `
-        <div class="q">
-          <div class="prompt">${idx + 1}. ${it.prompt.replace("___", "<span class='gap'>___</span>")}</div>
-          <input data-i="${idx}" placeholder="in / on / at" />
+        <div class="q" data-i="${idx}">
+          <div class="left">
+            <div class="prompt">${idx + 1}. ${it.prompt.replace("___", "<span class='gap'>___</span>")}</div>
+            <div class="row">
+              <input data-i="${idx}" placeholder="in / on / at" />
+              <div class="ans" data-ans="${idx}"></div>
+            </div>
+          </div>
         </div>
       `)
       .join("");
@@ -121,11 +129,16 @@ function render(container) {
   }
 
   function showAnswers() {
-    Array.from(listEl.querySelectorAll("input[data-i]")).forEach((inp) => {
-      const i = Number(inp.dataset.i);
-      inp.value = items[i].answer;
+    items.forEach((it, i) => {
+      const qEl = listEl.querySelector(`.q[data-i="${i}"]`);
+      const ansEl = listEl.querySelector(`.ans[data-ans="${i}"]`);
+      if (!qEl || !ansEl) return;
+
+      ansEl.textContent = it.answer;
+      qEl.classList.add("show-ans");
     });
-    resultEl.textContent = "Answers filled in.";
+
+    resultEl.textContent = "Answers shown.";
   }
 
   container.querySelector("#new").onclick = newSet;
