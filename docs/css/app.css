@@ -54,6 +54,7 @@ body{
 }
 
 .card h3{ margin:0 0 6px; }
+
 .card p{
   margin:0 0 12px;
   color:var(--muted);
@@ -121,11 +122,8 @@ body{
   margin:12px 0;
 }
 
-/* Question row */
+/* Each question block */
 .q{
-  display:flex;
-  gap:8px;
-  align-items:flex-start;
   padding-top:12px;
   border-top:1px solid var(--border);
 }
@@ -135,22 +133,73 @@ body{
   padding-top:0;
 }
 
-.q .left{
-  flex:1;
-  min-width:260px;
-}
-
+/* Prompt must be above the input row */
 .prompt{
+  display:block;
   margin:0 0 8px;
   line-height:1.4;
+}
+
+/* Keep input+answer together on ONE line, but below the prompt */
+.q .row{
+  margin:0;              /* override .row margin inside questions */
+  display:flex;
+  gap:8px;
+  align-items:center;
+  flex-wrap:nowrap;
 }
 
 /* Inputs */
 .q input,
 .q select{
   width:220px;
+  max-width:100%;
   padding:10px 12px;
   border-radius:12px;
   border:1px solid var(--border);
   background:rgba(255,255,255,.04);
-  color:var(--t
+  color:var(--text);
+  outline:none;
+}
+
+.q input::placeholder{
+  color:rgba(230,230,230,.45);
+}
+
+/* FORCE green answer styling + glow */
+.ans{
+  height:42px;
+  min-width:90px;
+  padding:0 12px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:12px;
+  border:1px solid rgba(0,255,120,.55);
+  background:rgba(0,255,120,.12);
+  color:rgb(0,255,120);
+  font-weight:700;
+  white-space:nowrap;
+  visibility:hidden;
+}
+
+.q.show-ans .ans{
+  visibility:visible;
+  box-shadow:0 0 14px rgba(0,255,120,.45);
+}
+
+/* Result text */
+.result{
+  margin-top:12px;
+  color:var(--muted);
+}
+
+/* Blank indicator */
+.gap{
+  display:inline-block;
+  min-width:44px;
+  text-align:center;
+  padding:2px 6px;
+  border-radius:8px;
+  border:1px dashed var(--border);
+}
