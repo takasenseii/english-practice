@@ -1,5 +1,5 @@
-// sva.js
-// Subject–verb agreement (present simple) — matches previous script (expanded adverbs/time phrases/complements)
+// SVA.js
+// Subject–verb agreement (present simple) — standardized module: { id, title, generate, render }
 
 function rand(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
 function normalize(s){ return String(s).trim().toLowerCase().replace(/\s+/g," "); }
@@ -163,4 +163,11 @@ function render(container) {
   newSet();
 }
 
-export default { id: "sva", title: "Subject–verb agreement", render };
+export { generateSVA };
+
+export default {
+  id: "sva",
+  title: "Subject–verb agreement",
+  generate: generateSVA,
+  render,
+};
