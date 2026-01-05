@@ -58,8 +58,11 @@ function router() {
   const item = menuSections.flatMap(s => s.items).find(i => i.id === route);
   if (!item) return renderMenu();
 
-  document.getElementById("menu").innerHTML =
-    `<button id="backBtn">← Back to menu</button>`;
+document.getElementById("menu").innerHTML = `
+  <div class="container">
+    <button class="backBtn" id="backBtn">← Back to menu</button>
+  </div>
+`;
 
   document.getElementById("backBtn").onclick = () => { location.hash = "#/"; };
 
