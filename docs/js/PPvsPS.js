@@ -1,5 +1,5 @@
-// ppvsps.js
-// Present perfect vs past simple — matches previous script (verb bank, markers, question/negative/statement frames)
+// PPvsPS.js
+// Present perfect vs past simple — standardized module: { id, title, generate, render }
 
 function rand(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
 function normalizeSpaces(s){ return String(s).trim().replace(/\s+/g," "); }
@@ -146,4 +146,11 @@ function render(container) {
   newSet();
 }
 
-export default { id: "ppvsps", title: "PP vs PS", render };
+export { generatePPvsPS };
+
+export default {
+  id: "ppvsps",
+  title: "PP vs PS",
+  generate: generatePPvsPS,
+  render,
+};
