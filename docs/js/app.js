@@ -26,7 +26,7 @@ function renderMenu() {
   menu.innerHTML = `
     <div class="container">
       <div class="topbar">
-        <div class="brand">English Practice</div>
+        <div class="brand">English Study Space Online</div>
       </div>
 
       <div class="grid">
