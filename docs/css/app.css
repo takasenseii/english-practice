@@ -205,3 +205,33 @@ body{
   border-radius:8px;
   border:1px dashed var(--border);
 }
+
+/* Answer shown to the right */
+.q{
+  display:flex;
+  gap:12px;
+  align-items:flex-start;
+}
+
+.q .left{
+  flex: 1 1 auto;
+  min-width: 260px;
+}
+
+.q .ans{
+  flex: 0 0 auto;
+  min-width: 140px;
+  padding:10px 12px;
+  border-radius:12px;
+  border:1px solid rgba(0,255,120,.45);
+  background: rgba(0,255,120,.10);
+  color: rgb(0,255,120);
+  font-weight: 700;
+  letter-spacing: .2px;
+  white-space: nowrap;
+  visibility: hidden; /* hidden until Show answers */
+}
+
+.q.show-ans .ans{
+  visibility: visible;
+}
