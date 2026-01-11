@@ -6,66 +6,63 @@ import sva from "./sva.js";
 // optional; modules are strict by default
 "use strict";
 
-// GLOBAL STATS (persisted in localStorage)
-const STATS_KEY = "english_study_space_global_stats_v1";
+// PER-EXERCISE STATS (persisted in localStorage)
+const STATS_KEY = "english_study_space_per_exercise_stats_v1";
 
-function loadGlobalStats() {
+function loadAllStats() {
   try {
     const raw = localStorage.getItem(STATS_KEY);
-    if (!raw) {
-      return { totalAttempts: 0, totalCorrect: 0 };
-    }
+    if (!raw) return {};
     const parsed = JSON.parse(raw);
-    if (
-      !parsed ||
-      typeof parsed.totalAttempts !== "number" ||
-      typeof parsed.totalCorrect !== "number"
-    ) {
-      return { totalAttempts: 0, totalCorrect: 0 };
-    }
-    return parsed;
+    return parsed && typeof parsed === "object" ? parsed : {};
   } catch (e) {
-    return { totalAttempts: 0, totalCorrect: 0 };
+    return {};
   }
 }
 
-function saveGlobalStats(stats) {
+function saveAllStats(allStats) {
   try {
-    localStorage.setItem(STATS_KEY, JSON.stringify(stats));
+    localStorage.setItem(STATS_KEY, JSON.stringify(allStats));
   } catch (e) {
-    // ignore write errors (private mode etc.)
+    // ignore
   }
 }
 
-// load once when the app starts
-const globalStats = loadGlobalStats();
+const allStats = loadAllStats();
 
-function getGlobalAccuracy() {
-  if (!globalStats.totalAttempts) return 0;
-  return Math.round(
-    (globalStats.totalCorrect / globalStats.totalAttempts) * 100
-  );
+function getExerciseStats(id) {
+  if (!allStats[id]) {
+    allStats[id] = { totalAttempts: 0, totalCorrect: 0 };
+  }
+  return allStats[id];
 }
 
-// make available to modules
-window.updateGlobalStatsUI = function () {
-  const text = globalStats.totalAttempts
-    ? `Overall accuracy: ${globalStats.totalCorrect}/${globalStats.totalAttempts} (${getGlobalAccuracy()}%)`
-    : `Overall accuracy: –`;
+function getExerciseAccuracy(st) {
+  if (!st.totalAttempts) return 0;
+  return Math.round((st.totalCorrect / st.totalAttempts) * 100);
+}
 
-  document.querySelectorAll(".global-stats").forEach((el) => {
-    el.textContent = text;
+// called by pages to refresh any .global-stats[data-ex="..."]
+window.updateGlobalStatsUI = function () {
+  document.querySelectorAll(".global-stats[data-ex]").forEach((el) => {
+    const id = el.dataset.ex;
+    const st = getExerciseStats(id);
+    const txt = st.totalAttempts
+      ? `Accuracy: ${st.totalCorrect}/${st.totalAttempts} (${getExerciseAccuracy(st)}%)`
+      : "Accuracy: –";
+    el.textContent = txt;
   });
 };
 
-window.recordExerciseResult = function (attempted, correct) {
-  if (!attempted) return;
-  globalStats.totalAttempts += attempted;
-  globalStats.totalCorrect += correct;
-  saveGlobalStats(globalStats);
+// called by exercises when user presses "Check"
+window.recordExerciseResult = function (exerciseId, attempted, correct) {
+  if (!exerciseId || !attempted) return;
+  const st = getExerciseStats(exerciseId);
+  st.totalAttempts += attempted;
+  st.totalCorrect += correct;
+  saveAllStats(allStats);
   window.updateGlobalStatsUI();
 };
-
 
 
 /* MENU + ROUTER */
@@ -103,10 +100,11 @@ menu.innerHTML = `
 
     <div class="grid">
       <div class="card">
-        <div class="pill">Grammar</div>
-        <h3>A vs An</h3>
-        <p>Choose the correct article.</p>
-        <a class="btn" href="#/avsan">Open →</a>
+      <div class="pill">Grammar</div>
+      <h3>A vs An</h3>
+      <p>Choose the correct article.</p>
+      <div class="global-stats" data-ex="avsan"></div>
+      <a class="btn" href="#/avsan">Open →</a>
       </div>
 
       <div class="card">
