@@ -1,8 +1,8 @@
 import avsan from "./avsan.js";
+import capital from "./capitalisation.js"; 
 import timeprep from "./timeprep.js";
 import ppvsps from "./ppvsps.js";
 import sva from "./sva.js";
-import capital from "./capitalisation.js"; 
 
 // optional; modules are strict by default
 "use strict";
