@@ -1,4 +1,4 @@
-// docs/js/capitalisation.js  (ES module)
+// docs/js/capitalisation.js  (ES module, visible input boxes)
 
 const CAPITAL_ITEMS = [
   {
@@ -60,11 +60,7 @@ function shuffle(arr) {
 }
 
 function generateCapital() {
-  // 10 questions per quiz
-  const src = CAPITAL_ITEMS.length >= QUESTIONS_PER_QUIZ
-    ? shuffle(CAPITAL_ITEMS).slice(0, QUESTIONS_PER_QUIZ)
-    : shuffle(CAPITAL_ITEMS);
-  return src;
+  return shuffle(CAPITAL_ITEMS).slice(0, QUESTIONS_PER_QUIZ);
 }
 
 function buildExercise(root) {
@@ -75,7 +71,7 @@ function buildExercise(root) {
   const container = document.createElement("div");
   container.className = "container";
 
-  // ── Intro / instructions card ─────────────────────────────
+  // ── Intro card with help toggle ──
   const introCard = document.createElement("div");
   introCard.className = "card";
   introCard.innerHTML = `
@@ -116,7 +112,7 @@ function buildExercise(root) {
   introCard.appendChild(helpBox);
   container.appendChild(introCard);
 
-  // ── Quiz card ─────────────────────────────────────────────
+  // ── Quiz card ──
   const quizCard = document.createElement("div");
   quizCard.className = "card";
 
@@ -141,12 +137,21 @@ function buildExercise(root) {
     const row = document.createElement("div");
     row.className = "row";
 
+    // Make the input VERY visible with inline styles
     const input = document.createElement("input");
     input.className = "ans";
     input.dataset.i = String(idx);
     input.placeholder = "Rewrite with correct capitalisation";
     input.autocomplete = "off";
     input.spellcheck = false;
+    input.style.width = "100%";
+    input.style.padding = "8px 10px";
+    input.style.borderRadius = "10px";
+    input.style.border = "1px solid var(--border)";
+    input.style.background = "rgba(255,255,255,.04)";
+    input.style.color = "var(--text)";
+    input.style.outline = "none";
+    input.style.marginRight = "8px";
 
     const mark = document.createElement("span");
     mark.className = "mark";
@@ -157,6 +162,7 @@ function buildExercise(root) {
     const exp = document.createElement("div");
     exp.className = "exp";
     exp.style.display = "none";
+    exp.style.marginTop = "4px";
     exp.textContent = item.explanation;
 
     qEl.appendChild(prompt);
@@ -193,7 +199,7 @@ function buildExercise(root) {
   container.appendChild(quizCard);
   root.appendChild(container);
 
-  // ── Logic ────────────────────────────────────────────────
+  // ── Logic ──
   function checkAll() {
     const qs = Array.from(listEl.querySelectorAll(".q"));
     let correct = 0;
