@@ -111,6 +111,7 @@ menu.innerHTML = `
         <div class="pill">Grammar</div>
         <h3>Time prepositions</h3>
         <p>In / on / at.</p>
+        <div class="global-stats" data-ex="timeprep"></div>
         <a class="btn" href="#/timeprep">Open →</a>
       </div>
 
@@ -118,6 +119,7 @@ menu.innerHTML = `
         <div class="pill">Grammar</div>
         <h3>PP vs PS</h3>
         <p>Present perfect vs past simple.</p>
+        <div class="global-stats" data-ex="ppvsps"></div>
         <a class="btn" href="#/ppvsps">Open →</a>
       </div>
 
@@ -125,6 +127,7 @@ menu.innerHTML = `
         <div class="pill">Grammar</div>
         <h3>Subject–verb agreement</h3>
         <p>Present simple verb forms.</p>
+        <div class="global-stats" data-ex="ppvsps"></div>
         <a class="btn" href="#/sva">Open →</a>
       </div>
 
@@ -132,14 +135,15 @@ menu.innerHTML = `
         <div class="pill">Spelling</div>
         <h3>Spelling exercises</h3>
         <p>Save your own word list, practise with audio, check answers, track score.</p>
+        <div class="global-stats" data-ex="ppvsps"></div>
         <a class="btn" href="#/spelling">Open →</a>
       </div>
     </div>
   </div>
 `;
 
-updateGlobalStatsUI();
-  view.innerHTML = "";
+if (typeof window.updateGlobalStatsUI === "function") {
+  window.updateGlobalStatsUI();
 }
 
 function router() {
