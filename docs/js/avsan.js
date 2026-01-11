@@ -202,6 +202,9 @@ function render(container) {
   const nEl = container.querySelector("#n");
   const listEl = container.querySelector("#list");
   const resultEl = container.querySelector("#result");
+  
+  // guard against double-recording
+  let counted = false;
 
   // explanation toggle
   const explainBtn = container.querySelector("#toggleExplain");
@@ -243,6 +246,7 @@ if (typeof window.updateGlobalStatsUI === "function") {
     const n = Math.max(1, Math.min(50, Number(nEl.value || 10)));
     items = generateArticlesAAn(n);
     draw();
+    counted = false;
   }
 
   function clearMark(i) {
@@ -288,10 +292,11 @@ if (typeof window.updateGlobalStatsUI === "function") {
 
     resultEl.textContent = `Score: ${correct}/${items.length}`;
   
-    // NEW: update global stats
-    if (typeof window.recordExerciseResult === "function") {
-      window.recordExerciseResult("avsan",attempted, correct);
-    }
+   // NEW: update global stats (only once per set)
+   if (!counted && typeof window.recordExerciseResult === "function") {
+     window.recordExerciseResult("avsan", attempted, correct);
+     counted = true;
+   }
   }
 
   function showAnswers() {
