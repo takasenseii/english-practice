@@ -82,6 +82,7 @@
     let voices = getVoicesSafe();
     let voicesChangedHandler = null;
     let countedThisQuiz = false;
+    let showingSavedWords = false;
 
     root.innerHTML = `
       <div class="container">
@@ -320,6 +321,7 @@ through"></textarea>
     }
 
     function updateScore() {
+      // No quiz yet
       if (!quizWords.length) {
         scoreBox.textContent = "";
         return;
@@ -328,22 +330,24 @@ through"></textarea>
       const qs = Array.from(listEl.querySelectorAll(".q"));
 
       // how many items have some attempt
-      const attemptedQs = qs.filter(q => q.querySelector("input")?.value?.trim());
+      const attemptedQs = qs.filter(q => {
+        const inp = q.querySelector("input[data-i]");
+        return inp && inp.value.trim();
+      });
       const attemptedCount = attemptedQs.length;
-      if (!attemptedCount) {
-        scoreBox.textContent = "";
-        return;
-      }
 
       const correct = qs.filter(q => q.dataset.correct === "1").length;
+
+      // Always show something once there is a quiz
       scoreBox.textContent = `Score: ${correct}/${quizWords.length}`;
 
       // record stats only once per quiz
-      if (!countedThisQuiz && typeof window.recordExerciseResult === "function") {
+      if (!countedThisQuiz && attemptedCount > 0 && typeof window.recordExerciseResult === "function") {
         window.recordExerciseResult("spelling", attemptedCount, correct);
         countedThisQuiz = true;
       }
     }
+
 
 
     // events
@@ -352,20 +356,43 @@ through"></textarea>
       if (!list.length) return;
       addWords(list);
       wordsInput.value = "";
-      renderSavedWords();
+      if (showingSavedWords) {
+        renderSavedWords();
+      }
     };
 
-    const onShow = () => renderSavedWords();
+
+    const onShow = () => {
+      if (!showingSavedWords) {
+        // show
+        renderSavedWords();
+        showingSavedWords = true;
+        showWordsBtn.textContent = "Hide saved words";
+      } else {
+        // hide
+        savedWordsArea.innerHTML = "";
+        showingSavedWords = false;
+        showWordsBtn.textContent = "Show saved words";
+      }
+    };
+
 
     const onClearAll = () => {
       if (!confirm("Clear all saved words?")) return;
       words = [];
       saveWordsToStorage(words);
-      renderSavedWords();
+
+      if (showingSavedWords) {
+        renderSavedWords();
+      } else {
+        savedWordsArea.innerHTML = "";
+      }
+
       updateCount();
       listEl.innerHTML = "";
       scoreBox.textContent = "";
     };
+
 
     const onNewQuiz = () => newQuiz();
     const onCheckAll = () => checkAll();
@@ -398,7 +425,9 @@ through"></textarea>
 
     updateCount();
     updateVoiceCount();
-    renderSavedWords();
+    savedWordsArea.innerHTML = "";           // start hidden so that words are not shown from start
+    showWordsBtn.textContent = "Show saved words";
+    showingSavedWords = false;
 
     // UPDATE GLOBAL STATS WHEN ENTERING THIS PAGE
     if (typeof window.updateGlobalStatsUI === "function") {
