@@ -60,7 +60,7 @@ const A_AN_ADJECTIVES = [
 ];
 
 function pickNounWithAnswer() {
-  // We keep the arrays only as *curated exceptions*; the raw article is not trusted
+  // We keep the arrays only as curated exceptions; the raw article is not trusted
   if (Math.random() < 0.5) {
     return { noun: rand(AN_WORDS), baseArticle: "an" };
   } else {
@@ -77,13 +77,13 @@ function generateArticlesAAn(n = 10) {
 
     let injectedAdj = null;
 
-    // Only inject an adjective into *single-word* base nouns
+    // Only inject an adjective into single-word base nouns
     if (!picked.noun.includes(" ") && Math.random() < 0.4) {
       injectedAdj = rand(A_AN_ADJECTIVES);
       t = t.replace("{noun}", `${injectedAdj} {noun}`);
     }
 
-    // Build the phrase that actually follows the blank
+    // Phrase actually following the blank
     const phrase = injectedAdj ? `${injectedAdj} ${picked.noun}` : picked.noun;
 
     const prompt = t.replace("{noun}", picked.noun);
@@ -91,10 +91,10 @@ function generateArticlesAAn(n = 10) {
     let answer;
 
     if (!injectedAdj && (AN_WORDS.includes(phrase) || A_WORDS.includes(phrase))) {
-      // For phrases exactly in our curated lists (e.g. "MBA student", "European city")
+      // Exact curated exception (e.g. "MBA student", "European city")
       answer = AN_WORDS.includes(phrase) ? "an" : "a";
     } else {
-      // General rule: decide by the *first word* actually spoken after the gap
+      // Decide by the first spoken word after the gap
       const firstWord = phrase.split(/\s+/)[0];
       answer = startsWithVowelSound(firstWord) ? "an" : "a";
     }
@@ -117,7 +117,19 @@ function render(container) {
         <h2>A vs An</h2>
         <p>Type <b>a</b> or <b>an</b>.</p>
 
-        <div class="row">
+        <button id="toggleExplain" class="explain-btn">Show explanation</button>
+        <div id="explainBox" class="explain-box" style="display:none; margin-top:8px; font-size:0.9rem;">
+          <p>We choose <b>a</b> or <b>an</b> by the <b>sound</b>, not only the letter:</p>
+          <ul>
+            <li><b>an</b> + vowel sound: <i>an apple, an engineer, an hour, an honest mistake</i></li>
+            <li><b>a</b> + consonant sound: <i>a book, a car, a user, a European city</i></li>
+            <li>Look at the <b>first word after the gap</b>: adjectives count.<br>
+                <i>an honest person, an unusual idea, a European teacher</i></li>
+            <li>Some special cases: <i>an MBA student, an FBI agent, a UK company, a UFO story</i></li>
+          </ul>
+        </div>
+
+        <div class="row" style="margin-top:12px;">
           <label>Questions:
             <input id="n" type="number" min="1" max="50" value="10" />
           </label>
@@ -139,6 +151,17 @@ function render(container) {
   const nEl = container.querySelector("#n");
   const listEl = container.querySelector("#list");
   const resultEl = container.querySelector("#result");
+
+  // explanation toggle
+  const explainBtn = container.querySelector("#toggleExplain");
+  const explainBox = container.querySelector("#explainBox");
+  let explainOpen = false;
+
+  explainBtn.onclick = () => {
+    explainOpen = !explainOpen;
+    explainBox.style.display = explainOpen ? "block" : "none";
+    explainBtn.textContent = explainOpen ? "Hide explanation" : "Show explanation";
+  };
 
   let items = [];
 
@@ -207,7 +230,6 @@ function render(container) {
       return;
     }
 
-    // Keep original scoring style (total questions as denominator)
     resultEl.textContent = `Score: ${correct}/${items.length}`;
   }
 
@@ -225,3 +247,16 @@ function render(container) {
 
   container.querySelector("#new").onclick = newSet;
   container.querySelector("#check").onclick = check;
+  container.querySelector("#show").onclick = showAnswers;
+
+  newSet();
+}
+
+export { generateArticlesAAn };
+
+export default {
+  id: "avsan",
+  title: "A vs An",
+  generate: generateArticlesAAn,
+  render
+};
