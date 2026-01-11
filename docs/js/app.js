@@ -2,6 +2,7 @@ import avsan from "./avsan.js";
 import timeprep from "./timeprep.js";
 import ppvsps from "./ppvsps.js";
 import sva from "./sva.js";
+import capital from "./capitalisation.js"; 
 
 // optional; modules are strict by default
 "use strict";
@@ -72,6 +73,7 @@ const menuSections = [
     title: "Exercises",
     items: [
       { id: "avsan",    label: "A vs An",                 render: renderAvsan },
+      { id: "capital", label: "Capitalisation",           render: renderCapital },
       { id: "timeprep", label: "Time prepositions",       render: renderTimeprep },
       { id: "ppvsps",   label: "PP vs PS",                render: renderPpvsps },
       { id: "sva",      label: "Subject–verb agreement",  render: renderSva },
@@ -106,6 +108,15 @@ menu.innerHTML = `
       <div class="global-stats" data-ex="avsan"></div>
       <a class="btn" href="#/avsan">Open →</a>
     </div>
+
+     <div class="card">
+       <div class="pill">Grammar</div>
+       <h3>Capitalisation</h3>
+       <p>Fix capital letters in sentences.</p>
+       <div class="global-stats" data-ex="capital"></div>
+       <a class="btn" href="#/capital">Open →</a>
+     </div>
+
 
       <div class="card">
         <div class="pill">Grammar</div>
@@ -191,6 +202,7 @@ function mountExercise(mod, root) {
 }
 
 function renderAvsan(root)    { mountExercise(avsan, root); }
+function renderCapital(root)  { mountExercise(capital, root); }
 function renderTimeprep(root) { mountExercise(timeprep, root); }
 function renderPpvsps(root)   { mountExercise(ppvsps, root); }
 function renderSva(root)      { mountExercise(sva, root); }
