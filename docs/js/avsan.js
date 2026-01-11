@@ -1,44 +1,58 @@
 // avsan.js
 // Articles: a vs an — standardized module: { id, title, generate, render }
 
-function rand(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
+function rand(arr) {
+  return arr[Math.floor(Math.random() * arr.length)];
+}
 
 // Normalizers (needed for check icons)
-function normalizeSpaces(s) { return String(s).trim().replace(/\s+/g, " "); }
-function normalize(s) { return normalizeSpaces(s).toLowerCase(); }
+function normalizeSpaces(s) {
+  return String(s).trim().replace(/\s+/g, " ");
+}
+function normalize(s) {
+  return normalizeSpaces(s).toLowerCase();
+}
 
 function startsWithVowelSound(word) {
   const w = String(word).toLowerCase().trim();
 
   // silent-h words → "an"
-  if (/^(honest|honour|honorable|honourable|hour|heir|heiress|herb)\b/.test(w)) return true;
+  if (/^(honest|honour|honorable|honourable|hour|heir|heiress|herb)\b/.test(w)) {
+    return true;
+  }
 
   // "you" sound → "a" (must be checked BEFORE generic vowel rule)
-  if (/^(eu|u(?![aeiou])|uni|use|user|ufo|uk|usb|euro|european)\b/.test(w)) return false;
+  if (/^(eu|u(?![aeiou])|uni|use|user|ufo|uk|usb|euro|european)\b/.test(w)) {
+    return false;
+  }
 
   // letter names pronounced with initial vowel sound → "an" (F = "ef", M = "em", etc.)
-  if (/^(a|e|f|h|i|l|m|n|o|r|s|x)\b/.test(w)) return true;
+  if (/^(a|e|f|h|i|l|m|n|o|r|s|x)\b/.test(w)) {
+    return true;
+  }
 
   // normal vowel start → "an"
-  if (/^[aeiou]/.test(w)) return true;
+  if (/^[aeiou]/.test(w)) {
+    return true;
+  }
 
   return false;
 }
 
 const AN_WORDS = [
-  "apple","orange","egg","idea","example","engineer","artist","actor",
-  "umbrella","email","answer","invoice","essay","exercise","argument",
-  "ice cream","airport","island","event","experiment","opportunity",
-  "hour","honest person","honour","honest mistake","honourable act",
-  "heir","heiress","herb","hourglass","honesty",
-  "MBA student","FBI agent","CIA officer","MRI scan","X-ray"
+  "apple", "orange", "egg", "idea", "example", "engineer", "artist", "actor",
+  "umbrella", "email", "answer", "invoice", "essay", "exercise", "argument",
+  "ice cream", "airport", "island", "event", "experiment", "opportunity",
+  "hour", "honest person", "honour", "honest mistake", "honourable act",
+  "heir", "heiress", "herb", "hourglass", "honesty",
+  "MBA student", "FBI agent", "CIA officer", "MRI scan", "X-ray"
 ];
 
 const A_WORDS = [
-  "book","car","dog","house","table","computer","phone","teacher",
-  "student","chair","window","garden","picture","lesson","problem",
-  "university student","uniform","European city","one-time offer",
-  "user account","USB cable","UFO story","UK company","unit test"
+  "book", "car", "dog", "house", "table", "computer", "phone", "teacher",
+  "student", "chair", "window", "garden", "picture", "lesson", "problem",
+  "university student", "uniform", "European city", "one-time offer",
+  "user account", "USB cable", "UFO story", "UK company", "unit test"
 ];
 
 const A_AN_TEMPLATES = [
@@ -55,16 +69,16 @@ const A_AN_TEMPLATES = [
 ];
 
 const A_AN_ADJECTIVES = [
-  "unusual","interesting","important","unexpected","excellent",
-  "urgent","honest","early","simple","old","advanced","European"
+  "unusual", "interesting", "important", "unexpected", "excellent",
+  "urgent", "honest", "early", "simple", "old", "advanced", "European"
 ];
 
 function pickNounWithAnswer() {
-  // We keep the arrays only as curated exceptions; the raw article is not trusted
+  // We use AN_WORDS / A_WORDS mainly as curated exception lists
   if (Math.random() < 0.5) {
-    return { noun: rand(AN_WORDS), baseArticle: "an" };
+    return { noun: rand(AN_WORDS) };
   } else {
-    return { noun: rand(A_WORDS), baseArticle: "a" };
+    return { noun: rand(A_WORDS) };
   }
 }
 
@@ -74,27 +88,30 @@ function generateArticlesAAn(n = 10) {
   for (let i = 0; i < n; i++) {
     let t = rand(A_AN_TEMPLATES);
     const picked = pickNounWithAnswer();
+    const baseNoun = picked.noun;
 
     let injectedAdj = null;
 
     // Only inject an adjective into single-word base nouns
-    if (!picked.noun.includes(" ") && Math.random() < 0.4) {
+    if (!baseNoun.includes(" ") && Math.random() < 0.4) {
       injectedAdj = rand(A_AN_ADJECTIVES);
       t = t.replace("{noun}", `${injectedAdj} {noun}`);
     }
 
-    // Phrase actually following the blank
-    const phrase = injectedAdj ? `${injectedAdj} ${picked.noun}` : picked.noun;
+    // Phrase that actually follows the blank
+    const phrase = injectedAdj ? `${injectedAdj} ${baseNoun}` : baseNoun;
 
-    const prompt = t.replace("{noun}", picked.noun);
+    const prompt = t.replace("{noun}", baseNoun);
 
     let answer;
 
-    if (!injectedAdj && (AN_WORDS.includes(phrase) || A_WORDS.includes(phrase))) {
-      // Exact curated exception (e.g. "MBA student", "European city")
-      answer = AN_WORDS.includes(phrase) ? "an" : "a";
+    // First, respect curated exceptions for multi-word phrases
+    if (AN_WORDS.includes(phrase)) {
+      answer = "an";
+    } else if (A_WORDS.includes(phrase)) {
+      answer = "a";
     } else {
-      // Decide by the first spoken word after the gap
+      // Otherwise: decide by the first spoken word after the gap
       const firstWord = phrase.split(/\s+/)[0];
       answer = startsWithVowelSound(firstWord) ? "an" : "a";
     }
