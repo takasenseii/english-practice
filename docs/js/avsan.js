@@ -8,19 +8,19 @@ function normalizeSpaces(s) { return String(s).trim().replace(/\s+/g, " "); }
 function normalize(s) { return normalizeSpaces(s).toLowerCase(); }
 
 function startsWithVowelSound(word) {
-  const w = String(word).toLowerCase();
+  const w = String(word).toLowerCase().trim();
 
   // silent-h words → "an"
   if (/^(honest|honour|honorable|honourable|hour|heir|heiress|herb)\b/.test(w)) return true;
+
+  // "you" sound → "a" (must be checked BEFORE generic vowel rule)
+  if (/^(eu|u(?![aeiou])|uni|use|user|ufo|uk|usb|euro|european)\b/.test(w)) return false;
 
   // letter names pronounced with initial vowel sound → "an" (F = "ef", M = "em", etc.)
   if (/^(a|e|f|h|i|l|m|n|o|r|s|x)\b/.test(w)) return true;
 
   // normal vowel start → "an"
   if (/^[aeiou]/.test(w)) return true;
-
-  // "you" sound → "a"
-  if (/^(eu|u(?![aeiou])|uni|use|user|ufo|uk|usb|euro|european)\b/.test(w)) return false;
 
   return false;
 }
@@ -60,9 +60,12 @@ const A_AN_ADJECTIVES = [
 ];
 
 function pickNounWithAnswer() {
-  return Math.random() < 0.5
-    ? { noun: rand(AN_WORDS), article: "an" }
-    : { noun: rand(A_WORDS), article: "a" };
+  // We keep the arrays only as *curated exceptions*; the raw article is not trusted
+  if (Math.random() < 0.5) {
+    return { noun: rand(AN_WORDS), baseArticle: "an" };
+  } else {
+    return { noun: rand(A_WORDS), baseArticle: "a" };
+  }
 }
 
 function generateArticlesAAn(n = 10) {
@@ -74,16 +77,26 @@ function generateArticlesAAn(n = 10) {
 
     let injectedAdj = null;
 
+    // Only inject an adjective into *single-word* base nouns
     if (!picked.noun.includes(" ") && Math.random() < 0.4) {
       injectedAdj = rand(A_AN_ADJECTIVES);
       t = t.replace("{noun}", `${injectedAdj} {noun}`);
     }
 
+    // Build the phrase that actually follows the blank
+    const phrase = injectedAdj ? `${injectedAdj} ${picked.noun}` : picked.noun;
+
     const prompt = t.replace("{noun}", picked.noun);
 
-    let answer = picked.article;
-    if (injectedAdj) {
-      answer = startsWithVowelSound(injectedAdj) ? "an" : "a";
+    let answer;
+
+    if (!injectedAdj && (AN_WORDS.includes(phrase) || A_WORDS.includes(phrase))) {
+      // For phrases exactly in our curated lists (e.g. "MBA student", "European city")
+      answer = AN_WORDS.includes(phrase) ? "an" : "a";
+    } else {
+      // General rule: decide by the *first word* actually spoken after the gap
+      const firstWord = phrase.split(/\s+/)[0];
+      answer = startsWithVowelSound(firstWord) ? "an" : "a";
     }
 
     out.push({ prompt, answer });
@@ -121,7 +134,7 @@ function render(container) {
         <div id="result" class="result"></div>
       </div>
     </div>
-  `;
+  ";
 
   const nEl = container.querySelector("#n");
   const listEl = container.querySelector("#list");
