@@ -194,3 +194,10 @@ body{
   display: block;   /* ensures centering behaves correctly */
   margin: 0 auto;   /* for safety */
 }
+
+/* ───────── Global stats spacing ───────── */
+
+.card .global-stats {
+  display:block;
+  margin:0 0 8px;   /* same vertical rhythm as <p> */
+}
