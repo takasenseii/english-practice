@@ -134,7 +134,7 @@ function render(container) {
         <div id="result" class="result"></div>
       </div>
     </div>
-  ";
+  `;
 
   const nEl = container.querySelector("#n");
   const listEl = container.querySelector("#list");
@@ -225,16 +225,3 @@ function render(container) {
 
   container.querySelector("#new").onclick = newSet;
   container.querySelector("#check").onclick = check;
-  container.querySelector("#show").onclick = showAnswers;
-
-  newSet();
-}
-
-export { generateArticlesAAn };
-
-export default {
-  id: "avsan",
-  title: "A vs An",
-  generate: generateArticlesAAn,
-  render
-};
