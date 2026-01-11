@@ -146,6 +146,11 @@ if (typeof window.updateGlobalStatsUI === "function") {
   window.updateGlobalStatsUI();
 }
 
+// clear the exercise view
+view.innerHTML = "";
+} // <--- this closes renderMenu() properly
+
+
 function router() {
   const route = (location.hash || "#/").replace("#/", "");
 
