@@ -165,7 +165,7 @@ function render(container) {
     <div class="container">
       <div class="card">
         <h2>A vs An</h2>
-        <div class="global-stats" style="font-size:0.85rem; opacity:0.8;"></div>
+        <div class="global-stats" data-ex="avsan" style="font-size:0.85rem; opacity:0.8;"></div>
         <p>Type <b>a</b> or <b>an</b>.</p>
 
         <button id="toggleExplain" class="explain-btn">Show explanation</button>
