@@ -81,6 +81,7 @@
     let quizWords = [];
     let voices = getVoicesSafe();
     let voicesChangedHandler = null;
+    let countedThisQuiz = false;
 
     root.innerHTML = `
       <div class="container">
@@ -276,6 +277,7 @@ through"></textarea>
       }
       quizWords = shuffle(words).slice(0, Math.min(10, words.length));
       renderQuiz();
+      countedThisQuiz = false;  // reset stats guard for new quiz
     }
 
     function checkOne(i) {
@@ -318,15 +320,31 @@ through"></textarea>
     }
 
     function updateScore() {
-      if (!quizWords.length) { scoreBox.textContent = ""; return; }
+      if (!quizWords.length) {
+        scoreBox.textContent = "";
+        return;
+      }
 
       const qs = Array.from(listEl.querySelectorAll(".q"));
-      const attempted = qs.filter(q => q.querySelector("input")?.value?.trim());
-      if (!attempted.length) { scoreBox.textContent = ""; return; }
+
+      // how many items have some attempt
+      const attemptedQs = qs.filter(q => q.querySelector("input")?.value?.trim());
+      const attemptedCount = attemptedQs.length;
+      if (!attemptedCount) {
+        scoreBox.textContent = "";
+        return;
+      }
 
       const correct = qs.filter(q => q.dataset.correct === "1").length;
       scoreBox.textContent = `Score: ${correct}/${quizWords.length}`;
+
+      // record stats only once per quiz
+      if (!countedThisQuiz && typeof window.recordExerciseResult === "function") {
+        window.recordExerciseResult("spelling", attemptedCount, correct);
+        countedThisQuiz = true;
+      }
     }
+
 
     // events
     const onSave = () => {
