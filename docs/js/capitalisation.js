@@ -1,4 +1,4 @@
-// docs/js/capitalisation.js  (ES module, fixed input visibility)
+// docs/js/capitalisation.js
 
 const CAPITAL_ITEMS = [
   {
@@ -65,6 +65,7 @@ function generateCapital() {
 
 function buildExercise(root) {
   const items = generateCapital();
+  let countedThisQuiz = false;     // <- prevents multiple stat counts
 
   root.innerHTML = "";
 
@@ -138,7 +139,7 @@ function buildExercise(root) {
     row.className = "row";
 
     const input = document.createElement("input");
-    input.className = "capital-input";          // NOT "ans"
+    input.className = "capital-input";        // note: not "ans"
     input.dataset.i = String(idx);
     input.placeholder = "Rewrite with correct capitalisation";
     input.autocomplete = "off";
@@ -175,7 +176,7 @@ function buildExercise(root) {
   const tryBtn = document.createElement("button");
   tryBtn.className = "btn";
   tryBtn.type = "button";
-  tryBtn.textContent = "Try again";
+  tryBtn.textContent = "New set";   // clearer label than “Try again”
 
   const expBtn = document.createElement("button");
   expBtn.className = "btn";
@@ -194,6 +195,7 @@ function buildExercise(root) {
   function checkAll() {
     const qs = Array.from(listEl.querySelectorAll(".q"));
     let correct = 0;
+    let attemptedCount = 0;
 
     qs.forEach((qEl, i) => {
       const input = qEl.querySelector(".capital-input");
@@ -210,6 +212,8 @@ function buildExercise(root) {
         qEl.dataset.correct = "";
         return;
       }
+
+      attemptedCount++;
 
       if (user === target) {
         mark.textContent = "✔";
@@ -228,8 +232,14 @@ function buildExercise(root) {
     const total = items.length;
     scoreBox.textContent = `Score: ${correct} / ${total}`;
 
-    if (typeof window.recordExerciseResult === "function") {
-      window.recordExerciseResult("capital", total, correct);
+    // log stats only once per quiz, like spelling.js
+    if (
+      typeof window.recordExerciseResult === "function" &&
+      !countedThisQuiz &&
+      attemptedCount > 0
+    ) {
+      window.recordExerciseResult("capital", attemptedCount, correct);
+      countedThisQuiz = true;
     }
   }
 
@@ -241,7 +251,7 @@ function buildExercise(root) {
   }
 
   function restart() {
-    buildExercise(root);
+    buildExercise(root);   // new set, resets countedThisQuiz
   }
 
   checkBtn.onclick = checkAll;
