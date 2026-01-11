@@ -89,36 +89,21 @@ const A_AN_TEMPLATES = [
 ];
 
 const A_AN_ADJECTIVES = [
-  "unusual",
-  "interesting",
-  "important",
-  "unexpected",
-  "excellent",
-  "urgent",
-  "honest",
-  "early",
-  "simple",
-  "old",
-  "advanced",
-  "European",
-  "innovative",
-  "original",
-  "academic",
-  "efficient",
-  "ordinary",
-  "expensive",
-  "affordable",
-  "outstanding",
-  "awkward",
-  "elegant",
-  "optimistic",
-  "impossible",
-  "emotional",
-  "iconic",
-  "artistic",
-  "urban",
-  "official",
-  "unprecedented"
+  // vowel-sound (30)
+  "amazing","ancient","angry","early","elegant","excellent",
+  "exclusive","important","interesting","odd","old","orange",
+  "ordinary","original","awkward","urban","urgent","unusual",
+  "unexpected","impossible","iconic","outstanding","optimistic",
+  "academic","artistic","emotional","efficient","innovative",
+  "awkward","exclusive","honest",
+
+  // consonant-sound (30)
+  "big","bold","brief","bright","classic","clever","cold",
+  "curious","dark","difficult","digital","friendly","funny",
+  "good","great","helpful","huge","large","local","modern",
+  "natural","quick","serious","small","strong","terrible",
+  "useful","young","classic","modern","unique","European",
+
 ];
 
 function pickNounWithAnswer() {
