@@ -65,12 +65,60 @@ const A_AN_TEMPLATES = [
   "That sounds like ___ {noun}.",
   "He works as ___ {noun}.",
   "There was ___ {noun} in the room.",
-  "She explained ___ {noun} clearly."
+  "She explained ___ {noun} clearly.",
+  "We found ___ {noun} in the drawer.",
+  "They discussed ___ {noun} at lunch.",
+  "She wrote about ___ {noun}.",
+  "He complained about ___ {noun}.",
+  "They needed ___ {noun} urgently.",
+  "I couldn't find ___ {noun} anywhere.",
+  "He pointed at ___ {noun}.",
+  "They were looking for ___ {noun}.",
+  "She received ___ {noun} this morning.",
+  "He delivered ___ {noun} yesterday.",
+  "They mentioned ___ {noun} in class.",
+  "We practiced with ___ {noun}.",
+  "She demonstrated ___ {noun} to the group.",
+  "He rented ___ {noun} for the weekend.",
+  "They prepared ___ {noun} in advance.",
+  "The teacher recommended ___ {noun}.",
+  "The guide showed us ___ {noun}.",
+  "They introduced ___ {noun} to the audience.",
+  "He sketched ___ {noun} on paper.",
+  "She highlighted ___ {noun} during the lecture."
 ];
 
 const A_AN_ADJECTIVES = [
-  "unusual", "interesting", "important", "unexpected", "excellent",
-  "urgent", "honest", "early", "simple", "old", "advanced", "European"
+  "unusual",
+  "interesting",
+  "important",
+  "unexpected",
+  "excellent",
+  "urgent",
+  "honest",
+  "early",
+  "simple",
+  "old",
+  "advanced",
+  "European",
+  "innovative",
+  "original",
+  "academic",
+  "efficient",
+  "ordinary",
+  "expensive",
+  "affordable",
+  "outstanding",
+  "awkward",
+  "elegant",
+  "optimistic",
+  "impossible",
+  "emotional",
+  "iconic",
+  "artistic",
+  "urban",
+  "official",
+  "unprecedented"
 ];
 
 function pickNounWithAnswer() {
@@ -252,10 +300,9 @@ function render(container) {
 
   function showAnswers() {
     items.forEach((it, i) => {
-      const qEl = listEl.querySelector(`.q[data-i="${i}"]`);
       const ansEl = listEl.querySelector(`.ans[data-ans="${i}"]`);
-      if (!qEl || !ansEl) return;
-
+      const qEl = listEl.querySelector(`.q[data-i="${i}"]`);
+      if (!ansEl || !qEl) return;
       ansEl.textContent = it.answer;
       qEl.classList.add("show-ans");
     });
@@ -267,7 +314,7 @@ function render(container) {
   container.querySelector("#show").onclick = showAnswers;
 
   newSet();
-}
+} // <--- closes render()
 
 export { generateArticlesAAn };
 
@@ -276,4 +323,4 @@ export default {
   title: "A vs An",
   generate: generateArticlesAAn,
   render
-};
+}; // <--- closes export object
