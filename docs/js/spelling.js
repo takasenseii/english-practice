@@ -400,6 +400,11 @@ through"></textarea>
     updateVoiceCount();
     renderSavedWords();
 
+    // UPDATE GLOBAL STATS WHEN ENTERING THIS PAGE
+    if (typeof window.updateGlobalStatsUI === "function") {
+      window.updateGlobalStatsUI();
+    }    
+
     // cleanup for router
     return function unmountSpelling() {
       saveWordsBtn.removeEventListener("click", onSave);
