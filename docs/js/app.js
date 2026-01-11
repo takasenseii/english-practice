@@ -6,6 +6,36 @@ import sva from "./sva.js";
 // optional; modules are strict by default
 "use strict";
 
+// GLOBAL STATS (per browser session)
+const globalStats = {
+  totalAttempts: 0,
+  totalCorrect: 0
+};
+
+function getGlobalAccuracy() {
+  if (!globalStats.totalAttempts) return 0;
+  return Math.round((globalStats.totalCorrect / globalStats.totalAttempts) * 100);
+}
+
+function updateGlobalStatsUI() {
+  const text = globalStats.totalAttempts
+    ? `Overall accuracy: ${globalStats.totalCorrect}/${globalStats.totalAttempts} (${getGlobalAccuracy()}%)`
+    : `Overall accuracy: –`;
+
+  document.querySelectorAll(".global-stats").forEach(el => {
+    el.textContent = text;
+  });
+}
+
+// function that exercises can call
+window.recordExerciseResult = function (attempted, correct) {
+  if (!attempted) return;
+  globalStats.totalAttempts += attempted;
+  globalStats.totalCorrect += correct;
+  updateGlobalStatsUI();
+};
+
+
 /* MENU + ROUTER */
 
 const menuSections = [
@@ -36,6 +66,7 @@ menu.innerHTML = `
   <div class="container">
     <div class="topbar">
       <div class="brand">English Study Space Online</div>
+      <div class="global-stats"></div>
     </div>
 
     <div class="grid">
@@ -77,7 +108,7 @@ menu.innerHTML = `
   </div>
 `;
 
-
+updateGlobalStatsUI();
   view.innerHTML = "";
 }
 
