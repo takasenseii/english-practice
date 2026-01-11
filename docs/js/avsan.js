@@ -180,6 +180,7 @@ function render(container) {
     <div class="container">
       <div class="card">
         <h2>A vs An</h2>
+        <div class="global-stats" style="font-size:0.85rem; opacity:0.8;"></div>
         <p>Type <b>a</b> or <b>an</b>.</p>
 
         <button id="toggleExplain" class="explain-btn">Show explanation</button>
@@ -227,6 +228,11 @@ function render(container) {
     explainBox.style.display = explainOpen ? "block" : "none";
     explainBtn.textContent = explainOpen ? "Hide explanation" : "Show explanation";
   };
+
+  // NEW — update stats display immediately on render
+if (typeof window.updateGlobalStatsUI === "function") {
+  window.updateGlobalStatsUI();
+}
 
   let items = [];
 
@@ -296,6 +302,11 @@ function render(container) {
     }
 
     resultEl.textContent = `Score: ${correct}/${items.length}`;
+  
+    // NEW: update global stats
+    if (typeof window.recordExerciseResult === "function") {
+      window.recordExerciseResult(attempted, correct);
+    }
   }
 
   function showAnswers() {
