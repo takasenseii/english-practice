@@ -290,7 +290,7 @@ if (typeof window.updateGlobalStatsUI === "function") {
   
     // NEW: update global stats
     if (typeof window.recordExerciseResult === "function") {
-      window.recordExerciseResult(attempted, correct);
+      window.recordExerciseResult("avsan",attempted, correct);
     }
   }
 
