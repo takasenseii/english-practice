@@ -110,6 +110,9 @@ function render(container) {
   const listEl = container.querySelector("#list");
   const resultEl = container.querySelector("#result");
 
+  // guard against double-recording
+  let counted = false;
+
   let items = [];
 
   function draw() {
@@ -136,6 +139,7 @@ function render(container) {
     const n = Math.max(1, Math.min(50, Number(nEl.value || 10)));
     items = generatePPvsPS(n);
     draw();
+    counted = false;   // reset on new questions
   }
 
 function check() {
@@ -172,8 +176,14 @@ function check() {
   }
 
   resultEl.textContent = `Score: ${correct}/${items.length}`;
-}
 
+  // update stats for PP vs PS (only once per set)
+  if (!counted && typeof window.recordExerciseResult === "function") {
+    window.recordExerciseResult("ppvsps", attempted, correct);
+    counted = true;
+  }
+}
+  
 
   function showAnswers() {
     items.forEach((it, i) => {
