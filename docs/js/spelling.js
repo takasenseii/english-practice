@@ -250,17 +250,17 @@ through"></textarea>
     function renderQuiz() {
       // Use the same structure as other exercises:
       // .q (block) -> .prompt (line) -> .row (input + ans + buttons)
-      listEl.innerHTML = quizWords.map((w, idx) => `
-        <div class="q" data-i="${idx}">
-          <div class="prompt">${idx + 1}. Listen and type the word.</div>
-          <div class="row">
-            <button class="btn speakBtn" type="button" data-i="${idx}">Speak</button>
-            <input data-i="${idx}" placeholder="Type the word" autocomplete="off" spellcheck="false" />
-            <div class="ans" data-ans="${idx}"></div>
-            <button class="btn checkBtn" type="button" data-i="${idx}">Check</button>
-          </div>
-        </div>
-      `).join("");
+listEl.innerHTML = quizWords.map((w, idx) => `
+  <div class="q" data-i="${idx}">
+    <div class="prompt">${idx + 1}. Listen and type the word.</div>
+    <div class="row">
+      <button class="btn speakBtn" type="button" data-i="${idx}">Speak</button>
+      <input data-i="${idx}" placeholder="Type the word" autocomplete="off" spellcheck="false" />
+      <div class="ans" data-ans="${idx}"></div>
+    </div>
+  </div>
+`).join("");
+
 
       scoreBox.textContent = "";
 
@@ -277,13 +277,7 @@ listEl.querySelectorAll(".speakBtn").forEach(btn => {
   });
 });
 
-      listEl.querySelectorAll(".checkBtn").forEach(btn => {
-        btn.addEventListener("click", () => {
-          const i = Number(btn.dataset.i);
-          checkOne(i);
-          updateScore();
-        });
-      });
+
     }
 
     function newQuiz() {
