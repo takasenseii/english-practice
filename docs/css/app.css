@@ -180,3 +180,18 @@ body{
   color: rgb(255,80,80);          /* red X */
   text-shadow: 0 0 8px rgba(255,80,80,.5);
 }
+
+/* ───────── Top bar / title ───────── */
+
+.topbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:16px;
+}
+
+.topbar .brand{
+  font-size:1.8rem;      /* bigger = looks like a header */
+  font-weight:700;
+  line-height:1.2;
+}
