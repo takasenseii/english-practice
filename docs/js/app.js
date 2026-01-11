@@ -127,7 +127,7 @@ menu.innerHTML = `
         <div class="pill">Grammar</div>
         <h3>Subject–verb agreement</h3>
         <p>Present simple verb forms.</p>
-        <div class="global-stats" data-ex="ppvsps"></div>
+        <div class="global-stats" data-ex="sva"></div>
         <a class="btn" href="#/sva">Open →</a>
       </div>
 
@@ -135,7 +135,7 @@ menu.innerHTML = `
         <div class="pill">Spelling</div>
         <h3>Spelling exercises</h3>
         <p>Save your own word list, practise with audio, check answers, track score.</p>
-        <div class="global-stats" data-ex="ppvsps"></div>
+        <div class="global-stats" data-ex="spelling"></div>
         <a class="btn" href="#/spelling">Open →</a>
       </div>
     </div>
@@ -149,16 +149,22 @@ if (typeof window.updateGlobalStatsUI === "function") {
 function router() {
   const route = (location.hash || "#/").replace("#/", "");
 
-  if (!route) return renderMenu();
+  if (!route) {
+    renderMenu();
+    return;
+  }
 
   const item = menuSections.flatMap(s => s.items).find(i => i.id === route);
-  if (!item) return renderMenu();
+  if (!item) {
+    renderMenu();
+    return;
+  }
 
-document.getElementById("menu").innerHTML = `
-  <div class="container">
-    <button class="backBtn" id="backBtn">← Back to menu</button>
-  </div>
-`;
+  document.getElementById("menu").innerHTML = `
+    <div class="container">
+      <button class="backBtn" id="backBtn">← Back to menu</button>
+    </div>
+  `;
 
   document.getElementById("backBtn").onclick = () => { location.hash = "#/"; };
 
