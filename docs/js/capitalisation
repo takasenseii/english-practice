@@ -1,172 +1,182 @@
-(function () {
-  "use strict";
+// capitalisation.js  (ES module)
 
-  const CAPITAL_ITEMS = [
-    {
-      text: "we visited london in april.",
-      corrected: "We visited London in April.",
-      explanation: "Capitalize the first letter of the sentence, proper nouns (London), and months (April)."
-    },
-    {
-      text: "my sister speaks spanish and german.",
-      corrected: "My sister speaks Spanish and German.",
-      explanation: "Capitalize the first letter of the sentence and languages (Spanish, German)."
-    },
-    {
-      text: "yesterday, president biden met with the prime minister.",
-      corrected: "Yesterday, President Biden met with the Prime Minister.",
-      explanation: "Capitalize sentence start and formal titles before names (President, Prime Minister)."
-    },
-    {
-      text: "on monday, we will celebrate christmas in sweden.",
-      corrected: "On Monday, we will celebrate Christmas in Sweden.",
-      explanation: "Capitalize days, holidays, and country names."
-    },
-    {
-      text: "he read 'harry potter' by j.k. rowling.",
-      corrected: "He read 'Harry Potter' by J.K. Rowling.",
-      explanation: "Capitalize titles and proper names."
-    },
-    {
-      text: "the un is based in new york city.",
-      corrected: "The UN is based in New York City.",
-      explanation: "Capitalize sentence start, acronyms (UN), and cities."
-    },
-    {
-      text: "we drove south until we reached the pacific ocean.",
-      corrected: "We drove south until we reached the Pacific Ocean.",
-      explanation: "Capitalize geographic names (Pacific Ocean)."
-    },
-    {
-      text: "every january, the university opens new courses.",
-      corrected: "Every January, the University opens new courses.",
-      explanation: "Capitalize months and institutions when used as proper names."
-    }
-  ];
-
-  function generateCapital(n = 10) {
-    return shuffle(CAPITAL_ITEMS).slice(0, n).map(x => ({
-      prompt: x.text,
-      corrected: x.corrected,
-      explanation: x.explanation
-    }));
+const CAPITAL_ITEMS = [
+  {
+    text: "we visited london in april.",
+    corrected: "We visited London in April.",
+    explanation: "Capitalize the first word, proper nouns (London) and months (April)."
+  },
+  {
+    text: "my sister speaks spanish and german.",
+    corrected: "My sister speaks Spanish and German.",
+    explanation: "Capitalize the first word and languages (Spanish, German)."
+  },
+  {
+    text: "yesterday, president biden met with the prime minister.",
+    corrected: "Yesterday, President Biden met with the Prime Minister.",
+    explanation: "Capitalize the first word and formal titles before names."
+  },
+  {
+    text: "on monday, we will celebrate christmas in sweden.",
+    corrected: "On Monday, we will celebrate Christmas in Sweden.",
+    explanation: "Capitalize days, holidays and country names."
+  },
+  {
+    text: "he read 'harry potter' by j.k. rowling.",
+    corrected: "He read 'Harry Potter' by J.K. Rowling.",
+    explanation: "Capitalize book titles and names."
+  },
+  {
+    text: "the un is based in new york city.",
+    corrected: "The UN is based in New York City.",
+    explanation: "Capitalize the first word, acronyms (UN) and cities."
+  },
+  {
+    text: "we drove south until we reached the pacific ocean.",
+    corrected: "We drove south until we reached the Pacific Ocean.",
+    explanation: "Capitalize geographic names (Pacific Ocean)."
+  },
+  {
+    text: "every january, the university opens new courses.",
+    corrected: "Every January, the University opens new courses.",
+    explanation: "Capitalize months and institutions when used as proper names."
   }
+];
 
-  function render(list, mount) {
-    mount.innerHTML = "";
+function shuffle(arr) {
+  return [...arr].sort(() => Math.random() - 0.5);
+}
 
-    const container = document.createElement("div");
-    container.className = "container";
+function generateCapital(n = 8) {
+  return shuffle(CAPITAL_ITEMS).slice(0, n);
+}
 
-    const scoreBox = document.createElement("div");
-    scoreBox.id = "scoreBox";
-    scoreBox.style.marginBottom = "12px";
-    container.appendChild(scoreBox);
+function buildExercise(root) {
+  const items = generateCapital();
 
-    const listEl = document.createElement("div");
-    listEl.id = "list";
-    container.appendChild(listEl);
+  root.innerHTML = "";
 
-    list.forEach((item, idx) => {
-      const card = document.createElement("div");
-      card.className = "card";
+  const container = document.createElement("div");
+  container.className = "container";
 
-      const row = document.createElement("div");
-      row.className = "row q";
+  const scoreBox = document.createElement("div");
+  scoreBox.className = "local-score";
+  scoreBox.style.marginBottom = "12px";
+  container.appendChild(scoreBox);
 
-      const p = document.createElement("div");
-      p.className = "prompt";
-      p.textContent = item.prompt;
+  const listEl = document.createElement("div");
+  listEl.id = "capital-list";
+  container.appendChild(listEl);
 
-      const ans = document.createElement("input");
-      ans.className = "ans";
-      ans.placeholder = "Correct capitalisation";
+  items.forEach((item) => {
+    const card = document.createElement("div");
+    card.className = "card";
 
-      const mark = document.createElement("span");
-      mark.className = "mark";
+    const row = document.createElement("div");
+    row.className = "row q";
 
-      row.appendChild(p);
-      row.appendChild(ans);
-      row.appendChild(mark);
-      card.appendChild(row);
+    const prompt = document.createElement("div");
+    prompt.className = "prompt";
+    prompt.textContent = item.text;
 
-      const exp = document.createElement("div");
-      exp.className = "exp";
-      exp.style.display = "none";
-      exp.textContent = item.explanation;
-      card.appendChild(exp);
+    const input = document.createElement("input");
+    input.className = "ans";
+    input.placeholder = "Write the sentence with correct capitalisation";
 
-      listEl.appendChild(card);
-    });
+    const mark = document.createElement("span");
+    mark.className = "mark";
 
-    const btnRow = document.createElement("div");
-    btnRow.style.marginTop = "12px";
+    row.appendChild(prompt);
+    row.appendChild(input);
+    row.appendChild(mark);
+    card.appendChild(row);
 
-    const checkBtn = document.createElement("button");
-    checkBtn.textContent = "Check answers";
-    checkBtn.onclick = () => checkAll(list, container);
+    const exp = document.createElement("div");
+    exp.className = "exp";
+    exp.style.display = "none";
+    exp.textContent = item.explanation;
+    card.appendChild(exp);
 
-    const tryBtn = document.createElement("button");
-    tryBtn.textContent = "Try again";
-    tryBtn.style.marginLeft = "10px";
-    tryBtn.onclick = () => window.mountCapital(mount);
+    listEl.appendChild(card);
+  });
 
-    const expBtn = document.createElement("button");
-    expBtn.textContent = "Show explanations";
-    expBtn.style.marginLeft = "10px";
-    expBtn.onclick = () => toggleExplanations(container, expBtn);
+  const btnRow = document.createElement("div");
+  btnRow.style.marginTop = "12px";
 
-    btnRow.appendChild(checkBtn);
-    btnRow.appendChild(tryBtn);
-    btnRow.appendChild(expBtn);
+  const checkBtn = document.createElement("button");
+  checkBtn.textContent = "Check answers";
 
-    container.appendChild(btnRow);
+  const tryBtn = document.createElement("button");
+  tryBtn.textContent = "Try again";
+  tryBtn.style.marginLeft = "10px";
 
-    mount.appendChild(container);
+  const expBtn = document.createElement("button");
+  expBtn.textContent = "Show explanations";
+  expBtn.style.marginLeft = "10px";
 
-    scoreBox.textContent = "";
-  }
+  btnRow.appendChild(checkBtn);
+  btnRow.appendChild(tryBtn);
+  btnRow.appendChild(expBtn);
+  container.appendChild(btnRow);
 
-  function checkAll(list, container) {
-    const rows = container.querySelectorAll(".card");
+  root.appendChild(container);
+
+  function checkAll() {
+    const cards = container.querySelectorAll(".card");
     let correct = 0;
-    let total = list.length;
+    const total = items.length;
 
-    rows.forEach((card, i) => {
-      const inp = card.querySelector(".ans");
+    cards.forEach((card, i) => {
+      const input = card.querySelector(".ans");
       const mark = card.querySelector(".mark");
       const exp = card.querySelector(".exp");
 
-      const user = String(inp.value).trim();
-      const target = list[i].corrected.trim();
+      const user = String(input.value).trim();
+      const target = items[i].corrected.trim();
+
+      if (!user) {
+        mark.textContent = "";
+        mark.className = "mark";
+        return;
+      }
 
       if (user === target) {
         mark.textContent = "✔";
         mark.className = "mark ok";
         correct++;
-        stats.add("capitalisation", true, target);
       } else {
         mark.textContent = "✖";
         mark.className = "mark bad";
-        stats.add("capitalisation", false, { prompt: list[i].prompt, correct: target, user });
         exp.style.display = "block";
       }
     });
 
-    const scoreBox = container.querySelector("#scoreBox");
     scoreBox.textContent = `Score: ${correct} / ${total}`;
+
+    if (typeof window.recordExerciseResult === "function") {
+      window.recordExerciseResult("capital", items.length, correct);
+    }
   }
 
-  function toggleExplanations(container, btn) {
+  function toggleExplanations() {
     const all = container.querySelectorAll(".exp");
-    let visible = [...all].some(e => e.style.display === "block");
-
-    all.forEach(e => e.style.display = visible ? "none" : "block");
-    btn.textContent = visible ? "Show explanations" : "Hide explanations";
+    const anyVisible = [...all].some((e) => e.style.display === "block");
+    all.forEach((e) => (e.style.display = anyVisible ? "none" : "block"));
+    expBtn.textContent = anyVisible ? "Show explanations" : "Hide explanations";
   }
 
-  window.mountCapital = function (mount) {
-    render(generateCapital(8), mount);
-  };
+  function restart() {
+    buildExercise(root);
+  }
 
-})();
+  checkBtn.onclick = checkAll;
+  expBtn.onclick = toggleExplanations;
+  tryBtn.onclick = restart;
+}
+
+export default {
+  id: "capital",
+  render(root) {
+    buildExercise(root);
+  }
+};
