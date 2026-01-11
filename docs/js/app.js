@@ -6,34 +6,66 @@ import sva from "./sva.js";
 // optional; modules are strict by default
 "use strict";
 
-// GLOBAL STATS (per browser session)
-const globalStats = {
-  totalAttempts: 0,
-  totalCorrect: 0
-};
+// GLOBAL STATS (persisted in localStorage)
+const STATS_KEY = "english_study_space_global_stats_v1";
+
+function loadGlobalStats() {
+  try {
+    const raw = localStorage.getItem(STATS_KEY);
+    if (!raw) {
+      return { totalAttempts: 0, totalCorrect: 0 };
+    }
+    const parsed = JSON.parse(raw);
+    if (
+      !parsed ||
+      typeof parsed.totalAttempts !== "number" ||
+      typeof parsed.totalCorrect !== "number"
+    ) {
+      return { totalAttempts: 0, totalCorrect: 0 };
+    }
+    return parsed;
+  } catch (e) {
+    return { totalAttempts: 0, totalCorrect: 0 };
+  }
+}
+
+function saveGlobalStats(stats) {
+  try {
+    localStorage.setItem(STATS_KEY, JSON.stringify(stats));
+  } catch (e) {
+    // ignore write errors (private mode etc.)
+  }
+}
+
+// load once when the app starts
+const globalStats = loadGlobalStats();
 
 function getGlobalAccuracy() {
   if (!globalStats.totalAttempts) return 0;
-  return Math.round((globalStats.totalCorrect / globalStats.totalAttempts) * 100);
+  return Math.round(
+    (globalStats.totalCorrect / globalStats.totalAttempts) * 100
+  );
 }
 
-function updateGlobalStatsUI() {
+// make available to modules
+window.updateGlobalStatsUI = function () {
   const text = globalStats.totalAttempts
     ? `Overall accuracy: ${globalStats.totalCorrect}/${globalStats.totalAttempts} (${getGlobalAccuracy()}%)`
     : `Overall accuracy: –`;
 
-  document.querySelectorAll(".global-stats").forEach(el => {
+  document.querySelectorAll(".global-stats").forEach((el) => {
     el.textContent = text;
   });
-}
+};
 
-// function that exercises can call
 window.recordExerciseResult = function (attempted, correct) {
   if (!attempted) return;
   globalStats.totalAttempts += attempted;
   globalStats.totalCorrect += correct;
-  updateGlobalStatsUI();
+  saveGlobalStats(globalStats);
+  window.updateGlobalStatsUI();
 };
+
 
 
 /* MENU + ROUTER */
