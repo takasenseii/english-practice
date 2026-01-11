@@ -105,7 +105,7 @@ menu.innerHTML = `
       <p>Choose the correct article.</p>
       <div class="global-stats" data-ex="avsan"></div>
       <a class="btn" href="#/avsan">Open →</a>
-      </div>
+    </div>
 
       <div class="card">
         <div class="pill">Grammar</div>
