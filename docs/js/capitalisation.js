@@ -1,4 +1,4 @@
-// docs/js/capitalisation.js  (ES module, visible input boxes)
+// docs/js/capitalisation.js  (ES module, fixed input visibility)
 
 const CAPITAL_ITEMS = [
   {
@@ -71,7 +71,7 @@ function buildExercise(root) {
   const container = document.createElement("div");
   container.className = "container";
 
-  // ── Intro card with help toggle ──
+  // Intro card
   const introCard = document.createElement("div");
   introCard.className = "card";
   introCard.innerHTML = `
@@ -112,7 +112,7 @@ function buildExercise(root) {
   introCard.appendChild(helpBox);
   container.appendChild(introCard);
 
-  // ── Quiz card ──
+  // Quiz card
   const quizCard = document.createElement("div");
   quizCard.className = "card";
 
@@ -137,21 +137,12 @@ function buildExercise(root) {
     const row = document.createElement("div");
     row.className = "row";
 
-    // Make the input VERY visible with inline styles
     const input = document.createElement("input");
-    input.className = "ans";
+    input.className = "capital-input";          // NOT "ans"
     input.dataset.i = String(idx);
     input.placeholder = "Rewrite with correct capitalisation";
     input.autocomplete = "off";
     input.spellcheck = false;
-    input.style.width = "100%";
-    input.style.padding = "8px 10px";
-    input.style.borderRadius = "10px";
-    input.style.border = "1px solid var(--border)";
-    input.style.background = "rgba(255,255,255,.04)";
-    input.style.color = "var(--text)";
-    input.style.outline = "none";
-    input.style.marginRight = "8px";
 
     const mark = document.createElement("span");
     mark.className = "mark";
@@ -199,13 +190,13 @@ function buildExercise(root) {
   container.appendChild(quizCard);
   root.appendChild(container);
 
-  // ── Logic ──
+  // Logic
   function checkAll() {
     const qs = Array.from(listEl.querySelectorAll(".q"));
     let correct = 0;
 
     qs.forEach((qEl, i) => {
-      const input = qEl.querySelector(".ans");
+      const input = qEl.querySelector(".capital-input");
       const mark = qEl.querySelector(".mark");
       const exp = qEl.querySelector(".exp");
       if (!input || !mark || !exp) return;
