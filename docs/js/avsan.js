@@ -191,7 +191,7 @@ function render(container) {
             <li><b>a</b> + consonant sound: <i>a book, a car, a user, a European city</i></li>
             <li>Look at the <b>first word after the gap</b>: adjectives count.<br>
                 <i>an honest person, an unusual idea, a European teacher</i></li>
-            <li>Some special cases: <i>an MBA student, an FBI agent, a UK company, a UFO story</i></li>
+            <li>Some special cases: <i>an MBA student, an FBI agent, a UK company, a UFO story (see how the M and F has the sound of 'e', while U sounds like 'j'</i></li>
           </ul>
         </div>
 
