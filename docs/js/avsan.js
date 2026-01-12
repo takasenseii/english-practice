@@ -45,14 +45,14 @@ const AN_WORDS = [
   "ice cream", "airport", "island", "event", "experiment", "opportunity",
   "hour", "honest person", "honour", "honest mistake", "honourable act",
   "heir", "heiress", "herb", "hourglass", "honesty",
-  "MBA student", "FBI agent", "CIA officer", "MRI scan", "X-ray"
+  "MBA student", "FBI agent", "MRI scan", "X-ray"
 ];
 
 const A_WORDS = [
   "book", "car", "dog", "house", "table", "computer", "phone", "teacher",
   "student", "chair", "window", "garden", "picture", "lesson", "problem",
   "university student", "uniform", "European city", "one-time offer",
-  "user account", "USB cable", "UFO story", "UK company", "unit test"
+  "user account", "USB cable", "UFO story", "UK company", "unit test", "CIA officer" 
 ];
 
 const A_AN_TEMPLATES = [
