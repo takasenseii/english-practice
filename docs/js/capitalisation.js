@@ -300,7 +300,8 @@ function renderCapitalisation(root) {
     root.innerHTML = "";
 
     const container = document.createElement("div");
-    container.className = "container";
+    container.className = "container sentence-exercise";
+
 
     // ── Top card like A vs An ───────────────────────────
     const introCard = document.createElement("div");
