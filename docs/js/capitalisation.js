@@ -48,6 +48,135 @@ const CAPITAL_ITEMS = [
   }
 ];
 
+// ---- random pools + helpers for dynamic sentences ----
+
+function rand(arr) {
+  return arr[Math.floor(Math.random() * arr.length)];
+}
+
+// Capitalise a single word
+function capWord(w) {
+  w = String(w);
+  if (!w) return w;
+  return w[0].toUpperCase() + w.slice(1);
+}
+
+// Capitalise each word in a title (simple version)
+function capTitle(str) {
+  return String(str)
+    .split(" ")
+    .map(capWord)
+    .join(" ");
+}
+
+const CAP_NAMES = ["alex","sara","michael","fatima","joel","anna","david","maria","li","mei","yuki","arjun","aisha","samuel","kwame","amina","diego","sofia","omar","hana","luca","noah","leila","yara","mohamed","chi","noura","raj","tariq","lina"];
+const CAP_CITIES = ["paris","london","stockholm","tokyo","nairobi","berlin","madrid","rome","cairo","lagos","addis ababa","helsinki","oslo","copenhagen","zurich","vienna","istanbul","dubai","mumbai","delhi","jakarta","seoul","beijing","shanghai","sydney","toronto","new york","mexico city","buenos aires","santiago"];
+const CAP_COUNTRIES = ["france","united kingdom","sweden","japan","kenya","germany","spain","italy","egypt","nigeria","ethiopia","finland","norway","denmark","switzerland","austria","turkiye","united arab emirates","india","china","south korea","indonesia","australia","canada","mexico","argentina","chile","brazil","south africa"]()_
+const CAP_LANGUAGES = ["english","swedish","french","german","spanish","portuguese","italian","russian","ukrainian","polish","turkish","arabic","persian","hebrew","amharic","somali","hausa","yoruba","zulu","afrikaans","hindi","urdu","bengali","tamil","japanese","korean","chinese","vietnamese","thai","indonesian"];
+const CAP_NATIONALITIES = ["french","british","swedish","japanese","kenyan","german","spanish","italian","egyptian","nigerian","ethiopian","finnish","norwegian","danish","swiss","austrian","turkish","emirati","indian","chinese","korean","indonesian","australian","canadian","mexican","argentinian","brazilian","south african","tanzanian","rwandan"];
+const CAP_WEEKDAYS = ["monday","tuesday","wednesday","thursday","friday","saturday","sunday"];
+const CAP_MONTHS = ["january","february","march","april","may","june","july","august","september","october","november","december"];
+const CAP_HOLIDAYS = ["christmas","easter","good friday","new year","hanukkah","yom kippur","passover","ramadan","eid al-fitr","eid al-adha","diwali","holi","vesak","lunar new year","chuseok","songkran","nowruz","thanksgiving","halloween","independence day","labor day","bastille day","midsummer","day of the dead","carnival","kwanzaa","purim","pongal","m]()_
+const CAP_BOOKS = ["harry potter","the hunger games","the fault in our stars","the outsiders","to kill a mockingbird","the great gatsby","animal farm","lord of the flies","the catcher in the rye","the hobbit","the lord of the rings","twilight","percy jackson","maze runner","divergent","romeo and juliet","hamlet","the diary of a young girl","the chronicles of narnia"];
+
+
+const CAP_ORGS = [
+  { shortLower: "un", shortUpper: "UN", city: "new york city" },
+  { shortLower: "eu", shortUpper: "EU", city: "brussels" },
+  { shortLower: "nato", shortUpper: "NATO", city: "brussels" }
+];
+
+const CAP_TITLES = ["president", "prime minister", "king", "queen", "professor"];
+
+// Each template returns { text, corrected } like CAPITAL_ITEMS
+// 1) Names + cities + months
+function capTemplateTravel() {
+  const name = rand(CAP_NAMES);
+  const city = rand(CAP_CITIES);
+  const month = rand(CAP_MONTHS);
+
+  const text = `${name} travelled to ${city} in ${month}.`;
+  const corrected = `${capWord(name)} travelled to ${capWord(city)} in ${capWord(month)}.`;
+
+  return { text, corrected };
+}
+
+// 2) Pronoun I + country + weekday
+function capTemplateITravel() {
+  const country = rand(CAP_COUNTRIES);
+  const weekday = rand(CAP_WEEKDAYS);
+
+  const text = `i will travel to ${country} next ${weekday}.`;
+  const corrected = `I will travel to ${capWord(country)} next ${capWord(weekday)}.`;
+
+  return { text, corrected };
+}
+
+// 3) Languages and nationalities
+function capTemplateLanguages() {
+  const lang1 = rand(CAP_LANGUAGES);
+  let lang2 = rand(CAP_LANGUAGES);
+  while (lang2 === lang1) lang2 = rand(CAP_LANGUAGES);
+
+  const text = `my sister speaks ${lang1} and ${lang2}.`;
+  const corrected = `My sister speaks ${capWord(lang1)} and ${capWord(lang2)}.`;
+
+  return { text, corrected };
+}
+
+// 4) Holidays + weekday + country
+function capTemplateHoliday() {
+  const holiday = rand(CAP_HOLIDAYS);
+  const weekday = rand(CAP_WEEKDAYS);
+  const country = rand(CAP_COUNTRIES);
+
+  const text = `on ${weekday}, we celebrate ${holiday} in ${country}.`;
+  const corrected = `On ${capWord(weekday)}, we celebrate ${capWord(holiday)} in ${capWord(country)}.`;
+
+  return { text, corrected };
+}
+
+// 5) Titles before names + countries
+function capTemplateTitle() {
+  const title = rand(CAP_TITLES);
+  const name = rand(CAP_NAMES);
+  const country = rand(CAP_COUNTRIES);
+
+  const text = `yesterday, ${title} ${name} visited ${country}.`;
+  const corrected = `Yesterday, ${capWord(title)} ${capWord(name)} visited ${capWord(country)}.`;
+
+  return { text, corrected };
+}
+
+// 6) Organisations like UN / EU / NATO + cities
+function capTemplateOrg() {
+  const org = rand(CAP_ORGS);
+  const text = `the ${org.shortLower} has its headquarters in ${org.city}.`;
+  const corrected = `The ${org.shortUpper} has its headquarters in ${capTitle(org.city)}.`;
+
+  return { text, corrected };
+}
+
+// 7) Book titles in quotation marks
+function capTemplateBook() {
+  const book = rand(CAP_BOOKS);
+  const text = `have you read "${book}"?`;
+  const corrected = `Have you read "${capTitle(book)}"?`;
+
+  return { text, corrected };
+}
+
+const CAPITAL_TEMPLATES = [
+  capTemplateTravel,
+  capTemplateITravel,
+  capTemplateLanguages,
+  capTemplateHoliday,
+  capTemplateTitle,
+  capTemplateOrg,
+  capTemplateBook
+];
+
+
 // ---- shared stats reading (same key as index.js) ----
 
 function loadAllStats() {
@@ -80,12 +209,29 @@ function shuffle(arr) {
 }
 
 function generateCapital(n) {
-  const src =
-    n <= CAPITAL_ITEMS.length
-      ? shuffle(CAPITAL_ITEMS).slice(0, n)
-      : shuffle(CAPITAL_ITEMS);
-  return src;
+  const out = [];
+
+  // Shuffle static items so they still appear, but in random order
+  const staticItems = shuffle(CAPITAL_ITEMS);
+  let staticIndex = 0;
+
+  while (out.length < n) {
+    const useStatic =
+      staticIndex < staticItems.length && Math.random() < 0.5;
+
+    if (useStatic) {
+      // Use one of the original fixed examples
+      out.push(staticItems[staticIndex++]);
+    } else {
+      // Use a dynamic template example
+      const tpl = rand(CAPITAL_TEMPLATES);
+      out.push(tpl());
+    }
+  }
+
+  return out;
 }
+
 
 // ---- main render ----
 
