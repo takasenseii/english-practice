@@ -406,7 +406,7 @@ function renderCapitalisation(root) {
       row.className = "row";
 
       const input = document.createElement("input");
-      input.className = "capital-input"; // not "ans"
+      input.className = "capital-input sentence-input";
       input.placeholder = "Rewrite with correct capitalisation";
       input.autocomplete = "off";
       input.spellcheck = false;
