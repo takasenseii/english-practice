@@ -67,7 +67,12 @@ function capTitle(str) {
     "a","an","the",
     "and","but","or","nor","for","so","yet",
     "at","by","in","of","on","to","up","via","per",
-    "as","from","into","onto","with","out","off"
+    "as","from","into","onto","with","over","out","off"
+  ]);
+
+  // acronyms we want fully uppercased in titles
+  const acronyms = new Set([
+    "un","eu","nato","usa","uk","uae","nasa","esa","who","imf","oecd","europa","unesco"
   ]);
 
   const words = String(str).split(" ");
@@ -75,19 +80,49 @@ function capTitle(str) {
 
   return words
     .map((w, i) => {
-      const lower = w.toLowerCase();
+      const isFirst = i === 0;
+      const isLast = i === last;
 
-      // first or last word always capitalised
-      if (i === 0 || i === last) return capWord(lower);
+      // Extract leading/trailing punctuation, keep core for logic
+      const match = w.match(/^([^A-Za-z0-9]*)([A-Za-z0-9\-]+)([^A-Za-z0-9]*)$/);
+      if (!match) {
+        // nothing special, just return as-is (numbers, symbols, etc.)
+        return w;
+      }
 
-      // small words remain lowercase
-      if (small.has(lower)) return lower;
+      const [, prefix, core, suffix] = match;
 
-      // otherwise normal title case
-      return capWord(lower);
+      // Handle hyphenated words inside the core
+      const parts = core.split("-");
+      const newParts = parts.map((part, partIndex) => {
+        const lower = part.toLowerCase();
+        const cleanForAcronym = lower.replace(/\./g, ""); // just in case
+
+        // Acronym? → all caps
+        if (acronyms.has(cleanForAcronym)) {
+          return part.toUpperCase();
+        }
+
+        // First/last *word* in the title: first segment always capitalised
+        if ((isFirst || isLast) && partIndex === 0) {
+          return capWord(lower);
+        }
+
+        // For hyphenated compounds, many styles also capitalise second part.
+        // To keep it simple: if it's a "small word", keep lowercase, else capitalise.
+        if (small.has(lower)) {
+          return lower;
+        }
+
+        return capWord(lower);
+      });
+
+      const newCore = newParts.join("-");
+      return prefix + newCore + suffix;
     })
     .join(" ");
 }
+
 
 const CAP_NAMES = ["alex","sara","michael","fatima","joel","anna","david","maria","li","mei","yuki","arjun","aisha","samuel","kwame","amina","diego","sofia","omar","hana","luca","noah","leila","yara","mohamed","chi","noura","raj","tariq","lina"];
 const CAP_CITIES = ["paris","london","stockholm","tokyo","nairobi","berlin","madrid","rome","cairo","lagos","addis ababa","helsinki","oslo","copenhagen","zurich","vienna","istanbul","dubai","mumbai","delhi","jakarta","seoul","beijing","shanghai","sydney","toronto","new york","mexico city","buenos aires","santiago"];
