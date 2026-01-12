@@ -119,6 +119,18 @@ body{
   outline:none;
 }
 
+/* ───────── Sentence Answer Module (Generic) ───────── */
+
+.sentence-exercise .sentence-input {
+  width:100%;
+  box-sizing:border-box;
+  font-size:15px;
+  padding:10px 12px;
+  line-height:1.3;
+  min-height:42px;     /* taller single-line */
+  resize:vertical;     /* allow user to expand for long sentences */
+}
+
 /* ───────── ANSWER BOX (FORCED) ───────── */
 
 .q .ans{
