@@ -61,11 +61,31 @@ function capWord(w) {
   return w[0].toUpperCase() + w.slice(1);
 }
 
-// Capitalise each word in a title (simple version)
+// Capitalise each word in a title unless it is an article or a preposition less than five letters
 function capTitle(str) {
-  return String(str)
-    .split(" ")
-    .map(capWord)
+  const small = new Set([
+    "a","an","the",
+    "and","but","or","nor","for","so","yet",
+    "at","by","in","of","on","to","up","via","per",
+    "as","from","into","onto","with","out","off"
+  ]);
+
+  const words = String(str).split(" ");
+  const last = words.length - 1;
+
+  return words
+    .map((w, i) => {
+      const lower = w.toLowerCase();
+
+      // first or last word always capitalised
+      if (i === 0 || i === last) return capWord(lower);
+
+      // small words remain lowercase
+      if (small.has(lower)) return lower;
+
+      // otherwise normal title case
+      return capWord(lower);
+    })
     .join(" ");
 }
 
