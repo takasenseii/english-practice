@@ -96,7 +96,7 @@ function renderMenu() {
 menu.innerHTML = `
   <div class="container">
     <div class="topbar">
-      <div class="brand">English Study Space Online</div>
+      <div class="brand">English Practice Space Online</div>
       <div class="global-stats"></div>
     </div>
 
