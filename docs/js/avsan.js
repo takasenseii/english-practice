@@ -21,10 +21,12 @@ function startsWithVowelSound(word) {
     return true;
   }
 
-  // "you" sound → "a" (must be checked BEFORE generic vowel rule)
-  if (/^(eu|u(?![aeiou])|uni|use|user|ufo|uk|usb|euro|european)\b/.test(w)) {
-    return false;
-  }
+// "you" / "yoo" sound → "a" (must be checked BEFORE generic vowel rule)
+// e.g. a university, a unique idea, a European city, a UK company, a UFO…
+if (/^(euro|european|uk|ufo|usb|user|use|usual|useful|university|unit|unique|unicorn)/.test(w)) {
+  return false;
+}
+
 
   // letter names pronounced with initial vowel sound → "an" (F = "ef", M = "em", etc.)
   if (/^(a|e|f|h|i|l|m|n|o|r|s|x)\b/.test(w)) {
