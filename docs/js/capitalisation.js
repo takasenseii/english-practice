@@ -151,10 +151,11 @@ function capTemplateTravel() {
   const month = rand(CAP_MONTHS);
 
   const text = `${name} travelled to ${city} in ${month}.`;
-  const corrected = `${capWord(name)} travelled to ${capWord(city)} in ${capWord(month)}.`;
+  const corrected = `${capWord(name)} travelled to ${capTitle(city)} in ${capWord(month)}.`;
 
   return { text, corrected };
 }
+
 
 // 2) Pronoun I + country + weekday
 function capTemplateITravel() {
@@ -182,14 +183,15 @@ function capTemplateLanguages() {
 // 4) Holidays + weekday + country
 function capTemplateHoliday() {
   const holiday = rand(CAP_HOLIDAYS);
-  const weekday = rand(CAP_WEEKDAYS);
+  const weekday = rand(C_WEEKDAYS);
   const country = rand(CAP_COUNTRIES);
 
   const text = `on ${weekday}, we celebrate ${holiday} in ${country}.`;
-  const corrected = `On ${capWord(weekday)}, we celebrate ${capWord(holiday)} in ${capWord(country)}.`;
+  const corrected = `On ${capWord(weekday)}, we celebrate ${capTitle(holiday)} in ${capTitle(country)}.`;
 
   return { text, corrected };
 }
+
 
 // 5) Titles before names + countries
 function capTemplateTitle() {
@@ -198,10 +200,11 @@ function capTemplateTitle() {
   const country = rand(CAP_COUNTRIES);
 
   const text = `yesterday, ${title} ${name} visited ${country}.`;
-  const corrected = `Yesterday, ${capWord(title)} ${capWord(name)} visited ${capWord(country)}.`;
+  const corrected = `Yesterday, ${capWord(title)} ${capWord(name)} visited ${capTitle(country)}.`;
 
   return { text, corrected };
 }
+
 
 // 6) Organisations like UN / EU / NATO + cities
 function capTemplateOrg() {
