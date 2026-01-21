@@ -123,6 +123,12 @@ function capTitle(str) {
     .join(" ");
 }
 
+function normalizeSentence(s) {
+  return String(s)
+    .replace(/\s+/g, " ")   // collapse multiple spaces
+    .trim();                // remove leading/trailing space
+}
+
 
 const CAP_NAMES = ["alex","sara","michael","fatima","joel","anna","david","maria","li","mei","yuki","arjun","aisha","samuel","kwame","amina","diego","sofia","omar","hana","luca","noah","leila","yara","mohamed","chi","noura","raj","tariq","lina"];
 const CAP_CITIES = ["paris","london","stockholm","tokyo","nairobi","berlin","madrid","rome","cairo","lagos","addis ababa","helsinki","oslo","copenhagen","zurich","vienna","istanbul","dubai","mumbai","delhi","jakarta","seoul","beijing","shanghai","sydney","toronto","new york","mexico city","buenos aires","santiago"];
@@ -482,7 +488,7 @@ function renderCapitalisation(root) {
 
         attempted++;
 
-        if (user === target) {
+        if (normalizeSentence(user) === normalizeSentence(target)) {
           mark.textContent = "✔";
           mark.className = "mark ok";
           qEl.dataset.correct = "1";
