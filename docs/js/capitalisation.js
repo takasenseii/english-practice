@@ -143,7 +143,7 @@ const CAP_RELIGIONS = ["christianity", "islam", "hinduism", "buddhism", "judaism
 
 const CAP_INSTITUTIONS = ["british museum", "national museum of kenya", "stockholm university", "university of tokyo", "harvard university", "university of nairobi"];
 
-const CAP_COMPANIES = ["google", "microsoft", "samsung", "spotify", "toyota", "netflix"];
+const CAP_COMPANIES = ["google", "microsoft", "samsung", "spotify", "toyota", "netflix", "apple", "volvo"];
 
 const CAP_FILMS = ["stranger things", "inception", "black panther", "frozen", "the avengers", "jurassic park"];
 
