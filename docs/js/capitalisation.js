@@ -183,7 +183,7 @@ function capTemplateLanguages() {
 // 4) Holidays + weekday + country
 function capTemplateHoliday() {
   const holiday = rand(CAP_HOLIDAYS);
-  const weekday = rand(C_WEEKDAYS);
+  const weekday = rand(CAP_WEEKDAYS);
   const country = rand(CAP_COUNTRIES);
 
   const text = `on ${weekday}, we celebrate ${holiday} in ${country}.`;
