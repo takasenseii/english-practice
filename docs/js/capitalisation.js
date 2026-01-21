@@ -139,6 +139,39 @@ const CAP_WEEKDAYS = ["monday","tuesday","wednesday","thursday","friday","saturd
 const CAP_MONTHS = ["january","february","march","april","may","june","july","august","september","october","november","december"];
 const CAP_HOLIDAYS = ["christmas","easter","good friday","new year","hanukkah","yom kippur","passover","ramadan","eid al-fitr","eid al-adha","diwali","holi","vesak","lunar new year","chuseok","songkran","nowruz","thanksgiving","halloween","independence day","labor day","bastille day","midsummer","day of the dead","carnival","kwanzaa","purim","pongal"];
 const CAP_BOOKS = ["harry potter","the hunger games","the fault in our stars","the outsiders","to kill a mockingbird","the great gatsby","animal farm","lord of the flies","the catcher in the rye","the hobbit","the lord of the rings","twilight","percy jackson","maze runner","divergent","romeo and juliet","hamlet","the diary of a young girl","the chronicles of narnia"];
+const CAP_RELIGIONS = ["christianity", "islam", "hinduism", "buddhism", "judaism", "sikhism"];
+
+const CAP_INSTITUTIONS = ["british museum", "national museum of kenya", "stockholm university", "university of tokyo", "harvard university", "university of nairobi"];
+
+const CAP_COMPANIES = ["google", "microsoft", "samsung", "spotify", "toyota", "netflix"];
+
+const CAP_FILMS = ["stranger things", "inception", "black panther", "frozen", "the avengers", "jurassic park"];
+
+const CAP_NEWSPAPERS = ["the new york times", "the guardian", "the washington post", "le monde", "der spiegel", "the times of india"];
+
+const CAP_STREETS = ["oxford street", "fifth avenue", "kungsgatan", "champs-elysees", "orchard road", "via del corso"];
+
+const CAP_ARTWORKS = ["mona lisa", "starry night", "the scream", "girl with a pearl earring", "guernica", "the persistence of memory"];
+
+const CAP_ARTISTS = ["leonardo da vinci", "vincent van gogh", "edvard munch", "johannes vermeer", "pablo picasso", "salvador dali"];
+
+const CAP_SPORT_TEAMS = [
+  { team: "manchester united", city: "manchester" },
+  { team: "liverpool", city: "liverpool" },
+  { team: "arsenal", city: "london" },
+  { team: "chelsea", city: "london" },
+  { team: "borussia dortmund", city: "dortmund" },
+  { team: "ac milan", city: "milan" }
+];
+
+const CAP_UNIVERSITIES = ["stockholm university", "harvard university", "university of tokyo", "university of nairobi", "university of sydney", "oxford university"];
+
+const CAP_EVENTS = [
+  { name: "world war ii", year: 1945 },
+  { name: "the french revolution", year: 1789 },
+  { name: "the fall of the berlin wall", year: 1989 },
+  { name: "the moon landing", year: 1969 }
+];
 
 
 const CAP_ORGS = [
@@ -230,6 +263,160 @@ function capTemplateBook() {
   return { text, corrected };
 }
 
+// 8) Nationality + country (person living abroad)
+function capTemplateNationalityLiving() {
+  const name = rand(CAP_NAMES);
+  const nationality = rand(CAP_NATIONALITIES);
+  const country = rand(CAP_COUNTRIES);
+
+  const text = `${name} is a ${nationality} student living in ${country}.`;
+  const corrected =
+    `${capWord(name)} is a ${capWord(nationality)} student living in ${capTitle(country)}.`;
+
+  return { text, corrected };
+}
+
+// 9) Religion + country
+function capTemplateReligionCountry() {
+  const religion = rand(CAP_RELIGIONS);
+  const country = rand(CAP_COUNTRIES);
+
+  const text = `${religion} is common in ${country}.`;
+  const corrected =
+    `${capWord(religion)} is common in ${capTitle(country)}.`;
+
+  return { text, corrected };
+}
+
+// 10) Institutions + cities
+function capTemplateInstitutionCity() {
+  const inst = rand(CAP_INSTITUTIONS);
+  const city = rand(CAP_CITIES);
+
+  const text = `the ${inst} is in ${city}.`;
+  const corrected =
+    `The ${capTitle(inst)} is in ${capTitle(city)}.`;
+
+  return { text, corrected };
+}
+
+// 11) Companies + cities
+function capTemplateCompanyCity() {
+  const company = rand(CAP_COMPANIES);
+  const city = rand(CAP_CITIES);
+
+  const text = `${company} has an office in ${city}.`;
+  const corrected =
+    `${capTitle(company)} has an office in ${capTitle(city)}.`;
+
+  return { text, corrected };
+}
+
+// 12) Film titles in quotation marks
+function capTemplateFilm() {
+  const film = rand(CAP_FILMS);
+
+  const text = `have you watched "${film}"?`;
+  const corrected =
+    `Have you watched "${capTitle(film)}"?`;
+
+  return { text, corrected };
+}
+
+// 13) Newspaper titles
+function capTemplateNewspaper() {
+  const paper = rand(CAP_NEWSPAPERS);
+
+  const text = `i read ${paper} yesterday.`;
+  const corrected =
+    `I read ${capTitle(paper)} yesterday.`;
+
+  return { text, corrected };
+}
+
+// 14) Historical events + year
+function capTemplateHistoricalEvent() {
+  const ev = rand(CAP_EVENTS);
+
+  const text = `${ev.name} ended in ${ev.year}.`;
+  const corrected =
+    `${capTitle(ev.name)} ended in ${ev.year}.`;
+
+  return { text, corrected };
+}
+
+// 15) Streets + cities
+function capTemplateStreetCity() {
+  const street = rand(CAP_STREETS);
+  const city = rand(CAP_CITIES);
+
+  const text = `we walked along ${street} in ${city}.`;
+  const corrected =
+    `We walked along ${capTitle(street)} in ${capTitle(city)}.`;
+
+  return { text, corrected };
+}
+
+// 16) Artworks + artists
+function capTemplateArtworkArtist() {
+  const artwork = rand(CAP_ARTWORKS);
+  const artist = rand(CAP_ARTISTS);
+
+  const text = `the ${artwork} was painted by ${artist}.`;
+  const corrected =
+    `The ${capTitle(artwork)} was painted by ${capTitle(artist)}.`;
+
+  return { text, corrected };
+}
+
+// 17) Sports teams + cities
+function capTemplateSportsTeamCity() {
+  const item = rand(CAP_SPORT_TEAMS);
+
+  const text = `${item.team} plays in ${item.city}.`;
+  const corrected =
+    `${capTitle(item.team)} plays in ${capTitle(item.city)}.`;
+
+  return { text, corrected };
+}
+
+// 18) Universities + countries
+function capTemplateUniversityCountry() {
+  const uni = rand(CAP_UNIVERSITIES);
+  const country = rand(CAP_COUNTRIES);
+
+  const text = `${uni} is in ${country}.`;
+  const corrected =
+    `${capTitle(uni)} is in ${capTitle(country)}.`;
+
+  return { text, corrected };
+}
+
+// 19) Month + city (conference)
+function capTemplateConferenceMonthCity() {
+  const month = rand(CAP_MONTHS);
+  const city = rand(CAP_CITIES);
+
+  const text = `in ${month}, there is a conference in ${city}.`;
+  const corrected =
+    `In ${capWord(month)}, there is a conference in ${capTitle(city)}.`;
+
+  return { text, corrected };
+}
+
+// 20) Email-style greeting
+function capTemplateEmailStart() {
+  const name = rand(CAP_NAMES);
+  const country = rand(CAP_COUNTRIES);
+
+  const text = `dear ${name}, welcome to ${country}.`;
+  const corrected =
+    `Dear ${capWord(name)}, welcome to ${capTitle(country)}.`;
+
+  return { text, corrected };
+}
+
+
 const CAPITAL_TEMPLATES = [
   capTemplateTravel,
   capTemplateITravel,
@@ -237,8 +424,22 @@ const CAPITAL_TEMPLATES = [
   capTemplateHoliday,
   capTemplateTitle,
   capTemplateOrg,
-  capTemplateBook
+  capTemplateBook,
+  capTemplateNationalityLiving,
+  capTemplateReligionCountry,
+  capTemplateInstitutionCity,
+  capTemplateCompanyCity,
+  capTemplateFilm,
+  capTemplateNewspaper,
+  capTemplateHistoricalEvent,
+  capTemplateStreetCity,
+  capTemplateArtworkArtist,
+  capTemplateSportsTeamCity,
+  capTemplateUniversityCountry,
+  capTemplateConferenceMonthCity,
+  capTemplateEmailStart
 ];
+
 
 
 // ---- shared stats reading (same key as index.js) ----
@@ -274,8 +475,8 @@ function shuffle(arr) {
 
 function generateCapital(n) {
   const out = [];
-  const used = new Set();
-  let guard = 0;
+  const used = new Set(); // track corrected sentences already used
+  let guard = 0;          // safety to avoid infinite loops
 
   while (out.length < n && guard < n * 20) {
     guard++;
@@ -284,7 +485,7 @@ function generateCapital(n) {
     const item = tpl();
 
     const key = item.corrected.trim().toLowerCase();
-    if (used.has(key)) continue;
+    if (used.has(key)) continue; // skip duplicates in this set
 
     used.add(key);
     out.push(item);
@@ -292,6 +493,7 @@ function generateCapital(n) {
 
   return out;
 }
+
 
 
 
