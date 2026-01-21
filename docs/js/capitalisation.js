@@ -268,27 +268,42 @@ function shuffle(arr) {
 
 function generateCapital(n) {
   const out = [];
+  const used = new Set(); // track corrected sentences already used
 
   // Shuffle static items so they still appear, but in random order
   const staticItems = shuffle(CAPITAL_ITEMS);
   let staticIndex = 0;
 
-  while (out.length < n) {
+  let guard = 0; // safety to avoid infinite loop if n is very large
+
+  while (out.length < n && guard < n * 10) {
+    guard++;
+
     const useStatic =
       staticIndex < staticItems.length && Math.random() < 0.5;
 
+    let item;
     if (useStatic) {
-      // Use one of the original fixed examples
-      out.push(staticItems[staticIndex++]);
+      item = staticItems[staticIndex++];
     } else {
-      // Use a dynamic template example
       const tpl = rand(CAPITAL_TEMPLATES);
-      out.push(tpl());
+      item = tpl();
     }
+
+    const key = item.corrected.trim().toLowerCase();
+
+    if (used.has(key)) {
+      // already used this example, skip and try again
+      continue;
+    }
+
+    used.add(key);
+    out.push(item);
   }
 
   return out;
 }
+
 
 
 // ---- main render ----
