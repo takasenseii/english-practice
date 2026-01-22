@@ -210,7 +210,7 @@ voices
     opt.textContent = `${v.name} (${v.lang})`;
     voiceSelect.appendChild(opt);
   });
-
+}
     
     function updateCount() {
       countBox.textContent = `Saved: ${words.length}`;
