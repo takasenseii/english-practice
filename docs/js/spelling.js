@@ -200,15 +200,16 @@ through"></textarea>
       autoOpt.value = "";
       autoOpt.textContent = "Auto (first English voice)";
       voiceSelect.appendChild(autoOpt);
-
-      // One option per available voice
-      voices.forEach(v => {
-        const opt = document.createElement("option");
-        opt.value = v.name;
-        opt.textContent = `${v.name} (${v.lang})`;
-        voiceSelect.appendChild(opt);
-      });
-    }
+      
+// One option per English voice only
+voices
+  .filter(v => /^en[-_]/i.test(v.lang))   // keep only english
+  .forEach(v => {
+    const opt = document.createElement("option");
+    opt.value = v.name;
+    opt.textContent = `${v.name} (${v.lang})`;
+    voiceSelect.appendChild(opt);
+  });
 
     
     function updateCount() {
