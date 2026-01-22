@@ -42,38 +42,42 @@
   }
 
   // ----- Speech synthesis -----
-  function getVoicesSafe() {
-    try {
-      return window.speechSynthesis ? window.speechSynthesis.getVoices() : [];
-    } catch {
-      return [];
-    }
+function getVoicesSafe() {
+  try {
+    return window.speechSynthesis ? window.speechSynthesis.getVoices() : [];
+  } catch {
+    return [];
+  }
+}
+
+function pickVoiceByName(voices, name) {
+  if (!voices.length) return null;
+
+  // If a specific name was chosen and exists, use it
+  if (name) {
+    const found = voices.find(v => v.name === name);
+    if (found) return found;
   }
 
-  function chooseVoice(voices, pref) {
-    if (!voices.length) return null;
+  // Fallback: first English voice, else first voice
+  return voices.find(v => /^en[-_]/i.test(v.lang)) || voices[0];
+}
 
-    if (pref === "en-GB") {
-      return voices.find(v => /en-GB/i.test(v.lang)) || voices.find(v => /en/i.test(v.lang)) || voices[0];
-    }
-    if (pref === "en-US") {
-      return voices.find(v => /en-US/i.test(v.lang)) || voices.find(v => /en/i.test(v.lang)) || voices[0];
-    }
-    return voices.find(v => /en/i.test(v.lang)) || voices[0];
-  }
-
-function speakWord(word, voicePref, voices, rate) {
+function speakWord(word, voices, voiceName, rate) {
   if (!window.speechSynthesis) {
     alert("Speech synthesis not available in this browser.");
     return;
   }
+
   const u = new SpeechSynthesisUtterance(word);
-  const v = chooseVoice(voices, voicePref);
+  const v = pickVoiceByName(voices, voiceName);
   if (v) u.voice = v;
-  u.rate = rate || 0.95;   // fallback normal
+
+  u.rate = rate || 0.95;
   window.speechSynthesis.cancel();
   window.speechSynthesis.speak(u);
 }
+
 
   // ----- Mount -----
   window.mountSpelling = function mountSpelling(root) {
@@ -93,14 +97,13 @@ function speakWord(word, voicePref, voices, rate) {
           </p>
 
 <div class="row">
-  <label style="color: var(--muted);">
-    Voice:
-    <select id="accentSelect">
-      <option value="auto">Auto</option>
-      <option value="en-GB">Prefer UK (en-GB)</option>
-      <option value="en-US">Prefer US (en-US)</option>
-    </select>
-  </label>
+<label style="color: var(--muted);">
+  Voice:
+  <select id="voiceSelect">
+    <option value="">Auto (first English voice)</option>
+  </select>
+</label>
+
 
   <label style="color: var(--muted);">
     Speed:
@@ -177,15 +180,37 @@ through"></textarea>
     const listEl = root.querySelector("#list");
     const scoreBox = root.querySelector("#scoreBox");
 
-    const accentSelect = root.querySelector("#accentSelect");
+    const voiceSelect = root.querySelector("#voiceSelect");
     const refreshVoicesBtn = root.querySelector("#refreshVoicesBtn");
     const voiceCount = root.querySelector("#voiceCount");
-    const speedSelect = root.querySelector("#speedSelect");   
+    const speedSelect = root.querySelector("#speedSelect");
+ 
 
     function updateVoiceCount() {
       voiceCount.textContent = voices.length ? `Voices: ${voices.length}` : "";
     }
 
+    function populateVoiceSelect() {
+      if (!voiceSelect) return;
+
+      voiceSelect.innerHTML = "";
+
+      // Default auto option
+      const autoOpt = document.createElement("option");
+      autoOpt.value = "";
+      autoOpt.textContent = "Auto (first English voice)";
+      voiceSelect.appendChild(autoOpt);
+
+      // One option per available voice
+      voices.forEach(v => {
+        const opt = document.createElement("option");
+        opt.value = v.name;
+        opt.textContent = `${v.name} (${v.lang})`;
+        voiceSelect.appendChild(opt);
+      });
+    }
+
+    
     function updateCount() {
       countBox.textContent = `Saved: ${words.length}`;
     }
@@ -268,14 +293,15 @@ listEl.innerHTML = quizWords.map((w, idx) => `
 listEl.querySelectorAll(".speakBtn").forEach(btn => {
   btn.addEventListener("click", () => {
     const i = Number(btn.dataset.i);
-    const pref = accentSelect.value;
+    const selectedVoiceName = voiceSelect ? voiceSelect.value : "";
 
     const speedChoice = speedSelect.value;   // "normal" or "slow"
     const rate = speedChoice === "slow" ? 0.6 : 0.85;
 
-    speakWord(quizWords[i], pref, voices, rate);
+    speakWord(quizWords[i], voices, selectedVoiceName, rate);
   });
 });
+
 
 
     }
@@ -407,11 +433,13 @@ listEl.querySelectorAll(".speakBtn").forEach(btn => {
     const onCheckAll = () => checkAll();
     const onShowAnswers = () => showAnswers();
 
-    const onRefreshVoices = () => {
-      voices = getVoicesSafe();
-      updateVoiceCount();
-      alert(`Voices loaded: ${voices.length}`);
-    };
+const onRefreshVoices = () => {
+  voices = getVoicesSafe();
+  updateVoiceCount();
+  populateVoiceSelect();
+  alert(`Voices loaded: ${voices.length}`);
+};
+
 
     saveWordsBtn.addEventListener("click", onSave);
     showWordsBtn.addEventListener("click", onShow);
@@ -424,16 +452,20 @@ listEl.querySelectorAll(".speakBtn").forEach(btn => {
     refreshVoicesBtn.addEventListener("click", onRefreshVoices);
 
     // init voices handler
-    if (window.speechSynthesis) {
-      voicesChangedHandler = () => {
-        voices = getVoicesSafe();
-        updateVoiceCount();
-      };
-      window.speechSynthesis.onvoiceschanged = voicesChangedHandler;
-    }
+if (window.speechSynthesis) {
+  voicesChangedHandler = () => {
+    voices = getVoicesSafe();
+    updateVoiceCount();
+    populateVoiceSelect();
+  };
+  window.speechSynthesis.onvoiceschanged = voicesChangedHandler;
+}
+
 
     updateCount();
     updateVoiceCount();
+    populateVoiceSelect();
+
     savedWordsArea.innerHTML = "";           // start hidden so that words are not shown from start
     showWordsBtn.textContent = "Show saved words";
     showingSavedWords = false;
