@@ -220,7 +220,7 @@ function render(root) {
       const name = `q_${qi}`;
       const opts = q.options.map((opt, oi) => {
         return `
-          <label class="ans" style="display:flex; gap:10px; align-items:flex-start; padding:8px 0;">
+          <label class="choice" style="display:flex; gap:10px; align-items:flex-start; padding:8px 0;">
             <input type="radio" name="${name}" value="${oi}" ${state.checked ? "disabled" : ""} />
             <span>${escapeHtml(opt)}</span>
             <span class="mark" data-mark="${qi}_${oi}" style="margin-left:auto;"></span>
@@ -228,15 +228,16 @@ function render(root) {
         `;
       }).join("");
 
-      return `
-        <div class="q" data-q="${qi}" style="padding:12px 0; border-top: 1px solid rgba(255,255,255,0.08);">
-          <div class="prompt" style="margin-bottom:8px;">
-            <div style="opacity:0.85; font-size: 13px; margin-bottom:6px;">${q.n}) Idiom: <strong>${escapeHtml(q.idiom)}</strong></div>
-            <div>${escapeHtml(q.sentence)}</div>
-          </div>
-          ${opts}
-        </div>
-      `;
+return `
+  <div class="q" data-q="${qi}" style="padding:12px 0; border-top: 1px solid rgba(255,255,255,0.08);">
+    <div class="prompt" style="margin-bottom:8px;">
+      <div style="opacity:0.85; font-size: 13px; margin-bottom:6px;">${q.n}) Idiom: <strong>${escapeHtml(q.idiom)}</strong></div>
+      <div>${escapeHtml(q.sentence)}</div>
+    </div>
+    <div class="choices">${opts}</div>
+  </div>
+`;
+
     }).join("");
 
     listEl.innerHTML = html;
