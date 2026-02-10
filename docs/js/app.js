@@ -4,6 +4,8 @@ import timeprep from "./timeprep.js";
 import ppvsps from "./ppvsps.js";
 import sva from "./sva.js";
 import idioms from "./idioms.js";
+import verbalphrases from "./verbalphrases.js";
+
 
 
 // optional; modules are strict by default
@@ -80,6 +82,7 @@ const menuSections = [
       { id: "ppvsps",   label: "PP vs PS",                render: renderPpvsps },
       { id: "sva",      label: "Subject–verb agreement",  render: renderSva },
       { id: "idioms", label: "Idioms", render: renderIdioms },
+      { id: "verbalphrases", label: "Verbal phrases", render: renderVerbalphrases },
       { id: "spelling", label: "Spelling exercises",      render: renderSpelling }
       
     ]
@@ -220,7 +223,7 @@ function renderTimeprep(root) { mountExercise(timeprep, root); }
 function renderPpvsps(root)   { mountExercise(ppvsps, root); }
 function renderSva(root)      { mountExercise(sva, root); }
 function renderIdioms(root) { mountExercise(idioms, root); }
-
+function renderVerbalphrases(root) { mountExercise(verbalphrases, root); }
 
 function renderSpelling(root) {
   if (typeof currentUnmount === "function") {
