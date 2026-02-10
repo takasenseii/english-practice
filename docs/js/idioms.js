@@ -1,6 +1,9 @@
 // idioms.js
 // Idioms exercise – 10 questions, 4 options each, mixed A1–C1
-// Module shape: { id, title, render }
+// Scoring rule:
+// - Attempts: counts how many questions were answered on each Check
+// - Correct: counts ONLY newly-correct answers per question within the current quiz
+//   (Example: 5/10, then +2/5 => total +7/15)
 
 "use strict";
 
@@ -58,7 +61,7 @@ const IDIOMS = [
   { idiom: "take it with a grain of salt", sentence: "Take his story with a grain of salt.", correct: "don’t fully believe it", wrong: ["repeat it to everyone", "write it down", "feel sorry for him"] },
   { idiom: "a blessing in disguise", sentence: "Losing that job was a blessing in disguise.", correct: "something bad that turns out good", wrong: ["a clear mistake", "a planned event", "a simple lie"] },
   { idiom: "break a leg", sentence: "Break a leg in your performance tonight!", correct: "good luck", wrong: ["be careful", "don’t go", "work harder"] },
-  { idiom: "cut corners", sentence: "They cut corners and the quality dropped.", correct: "do something cheaply/easily to save time or money", wrong: ["improve a process", "cancel a project", "share a secret"] },
+  { idiom: "cut corners", sentence: "They cut corners and the quality dropped.", correct: "do something cheaply to save time or money", wrong: ["improve a process", "cancel a project", "share a secret"] },
   { idiom: "keep your chin up", sentence: "Keep your chin up—you’ll do better next time.", correct: "stay positive", wrong: ["be silent", "leave early", "be more strict"] },
   { idiom: "in hot water", sentence: "He’s in hot water for missing the deadline.", correct: "in trouble", wrong: ["on vacation", "in love", "out of money"] },
   { idiom: "out of the blue", sentence: "Out of the blue, she called me after years.", correct: "suddenly, unexpectedly", wrong: ["after careful planning", "in the morning", "as a joke"] },
@@ -164,11 +167,9 @@ const IDIOMS = [
   { idiom: "make a comeback", sentence: "After the injury, she made a comeback.", correct: "return to success", wrong: ["move abroad", "quit forever", "lose interest"] }
 ];
 
-// A few longer idioms are included; for A1–A2 students, the answer options are still short.
-
 function buildQuestions(count) {
-  const picked = pickN(IDIOMS, count).map((it, idx) => {
-    const options = shuffle([it.correct, ...it.wrong]).map(x => String(x));
+  return pickN(IDIOMS, count).map((it, idx) => {
+    const options = shuffle([it.correct, ...it.wrong]).map(String);
     const correctIndex = options.indexOf(it.correct);
     return {
       n: idx + 1,
@@ -178,13 +179,14 @@ function buildQuestions(count) {
       correctIndex
     };
   });
-  return picked;
 }
 
 function render(root) {
   const state = {
     questions: buildQuestions(QUESTIONS_PER_QUIZ_DEFAULT),
-    checked: false
+    checked: false,
+    lastScoreText: "",
+    awardedCorrect: new Array(QUESTIONS_PER_QUIZ_DEFAULT).fill(false)
   };
 
   root.innerHTML = `
@@ -216,32 +218,37 @@ function render(root) {
   const newBtn = root.querySelector("#newBtn");
 
   function renderList() {
-    const html = state.questions.map((q, qi) => {
-      const name = `q_${qi}`;
-      const opts = q.options.map((opt, oi) => {
+    const html = state.questions
+      .map((q, qi) => {
+        const name = `q_${qi}`;
+        const opts = q.options
+          .map((opt, oi) => {
+            return `
+              <label class="choice" style="display:flex; gap:10px; align-items:flex-start; padding:8px 0;">
+                <input type="radio" name="${name}" value="${oi}" ${state.checked ? "disabled" : ""} />
+                <span>${escapeHtml(opt)}</span>
+                <span class="mark" data-mark="${qi}_${oi}" style="margin-left:auto;"></span>
+              </label>
+            `;
+          })
+          .join("");
+
         return `
-          <label class="choice" style="display:flex; gap:10px; align-items:flex-start; padding:8px 0;">
-            <input type="radio" name="${name}" value="${oi}" ${state.checked ? "disabled" : ""} />
-            <span>${escapeHtml(opt)}</span>
-            <span class="mark" data-mark="${qi}_${oi}" style="margin-left:auto;"></span>
-          </label>
+          <div class="q" data-q="${qi}" style="padding:12px 0; border-top: 1px solid rgba(255,255,255,0.08);">
+            <div class="prompt" style="margin-bottom:8px;">
+              <div style="opacity:0.85; font-size: 13px; margin-bottom:6px;">
+                ${q.n}) Idiom: <strong>${escapeHtml(q.idiom)}</strong>
+              </div>
+              <div>${escapeHtml(q.sentence)}</div>
+            </div>
+            <div class="choices">${opts}</div>
+          </div>
         `;
-      }).join("");
-
-return `
-  <div class="q" data-q="${qi}" style="padding:12px 0; border-top: 1px solid rgba(255,255,255,0.08);">
-    <div class="prompt" style="margin-bottom:8px;">
-      <div style="opacity:0.85; font-size: 13px; margin-bottom:6px;">${q.n}) Idiom: <strong>${escapeHtml(q.idiom)}</strong></div>
-      <div>${escapeHtml(q.sentence)}</div>
-    </div>
-    <div class="choices">${opts}</div>
-  </div>
-`;
-
-    }).join("");
+      })
+      .join("");
 
     listEl.innerHTML = html;
-    scoreEl.textContent = state.checked ? scoreEl.textContent : "";
+    scoreEl.textContent = state.checked ? state.lastScoreText : "";
   }
 
   function getUserAnswers() {
@@ -252,40 +259,62 @@ return `
   }
 
   function clearMarks() {
-    root.querySelectorAll(".mark").forEach(m => (m.textContent = ""));
+    root.querySelectorAll(".mark").forEach((m) => {
+      m.textContent = "";
+      m.style.color = "";
+      m.style.fontWeight = "";
+    });
   }
 
   function markResults() {
     clearMarks();
     const answers = getUserAnswers();
 
-    let attempted = 0;
-    let correct = 0;
+    let attemptedThisCheck = 0;
+    let newlyCorrectThisCheck = 0;
+
+    // for display only (current correct out of 10)
+    let correctNow = 0;
 
     state.questions.forEach((q, qi) => {
       const a = answers[qi];
-      if (a !== null) attempted++;
 
-      // mark all: user's choice + correct answer
+      if (a !== null) attemptedThisCheck++;
+
+      const isCorrect = a === q.correctIndex;
+      if (isCorrect) correctNow++;
+
+      // mark user's choice
       if (a !== null) {
         const markEl = root.querySelector(`[data-mark="${qi}_${a}"]`);
-        if (markEl) markEl.textContent = (a === q.correctIndex) ? "✔" : "✖";
+        if (markEl) {
+          markEl.textContent = isCorrect ? "✔" : "✖";
+          markEl.style.color = isCorrect ? "#3ddc84" : "#ff6b6b";
+          markEl.style.fontWeight = "700";
+        }
       }
+
+      // always show correct option
       const correctMarkEl = root.querySelector(`[data-mark="${qi}_${q.correctIndex}"]`);
       if (correctMarkEl && a !== q.correctIndex) {
-        // show correct with a subtle indicator if user was wrong or blank
         correctMarkEl.textContent = "✔";
+        correctMarkEl.style.color = "#3ddc84";
+        correctMarkEl.style.fontWeight = "700";
       }
 
-      if (a === q.correctIndex) correct++;
+      // stats: only newly-correct answers count as correct points (once per question)
+      if (isCorrect && !state.awardedCorrect[qi]) {
+        state.awardedCorrect[qi] = true;
+        newlyCorrectThisCheck++;
+      }
     });
 
-    scoreEl.textContent = attempted
-      ? `Score: ${correct}/${state.questions.length}`
-      : "Score: –";
+    state.lastScoreText = `Score: ${correctNow}/${state.questions.length}`;
+    scoreEl.textContent = state.lastScoreText;
 
-    if (typeof window.recordExerciseResult === "function") {
-      window.recordExerciseResult(EX_ID, attempted, correct);
+    // example: 5/10 then +2/5 => total 7/15
+    if (typeof window.recordExerciseResult === "function" && attemptedThisCheck > 0) {
+      window.recordExerciseResult(EX_ID, attemptedThisCheck, newlyCorrectThisCheck);
     }
   }
 
@@ -298,6 +327,8 @@ return `
   newBtn.addEventListener("click", () => {
     state.questions = buildQuestions(QUESTIONS_PER_QUIZ_DEFAULT);
     state.checked = false;
+    state.lastScoreText = "";
+    state.awardedCorrect = new Array(state.questions.length).fill(false);
     renderList();
     clearMarks();
   });
@@ -308,12 +339,7 @@ return `
     window.updateGlobalStatsUI();
   }
 
-  // unmount hook (optional)
   return function unmount() {};
 }
 
-export default {
-  id: EX_ID,
-  title: "Idioms",
-  render
-};
+export default { id: EX_ID, title: "Idioms", render };
