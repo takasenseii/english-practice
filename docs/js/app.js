@@ -157,6 +157,14 @@ menu.innerHTML = `
   <a class="btn" href="#/idioms">Open →</a>
 </div>
 
+<div class="card">
+  <div class="pill">Vocabulary</div>
+  <h3>Verbal phrases</h3>
+  <p>Choose the meaning of common verbal phrases.</p>
+  <div class="global-stats" data-ex="verbalphrases"></div>
+  <a class="btn" href="#/verbalphrases">Open →</a>
+</div>
+
 
       <div class="card">
         <div class="pill">Spelling</div>
