@@ -318,11 +318,12 @@ function render(root) {
     }
   }
 
-  checkBtn.addEventListener("click", () => {
-    state.checked = true;
-    renderList();
-    markResults();
-  });
+checkBtn.addEventListener("click", () => {
+  markResults();      // read answers while radios are still enabled
+  state.checked = true;
+  renderList();       // then disable inputs
+});
+
 
   newBtn.addEventListener("click", () => {
     state.questions = buildQuestions(QUESTIONS_PER_QUIZ_DEFAULT);
