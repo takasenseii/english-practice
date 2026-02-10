@@ -3,6 +3,8 @@ import capital from "./capitalisation.js";
 import timeprep from "./timeprep.js";
 import ppvsps from "./ppvsps.js";
 import sva from "./sva.js";
+import idioms from "./idioms.js";
+
 
 // optional; modules are strict by default
 "use strict";
@@ -77,7 +79,9 @@ const menuSections = [
       { id: "timeprep", label: "Time prepositions",       render: renderTimeprep },
       { id: "ppvsps",   label: "PP vs PS",                render: renderPpvsps },
       { id: "sva",      label: "Subject–verb agreement",  render: renderSva },
+      { id: "idioms", label: "Idioms", render: renderIdioms },
       { id: "spelling", label: "Spelling exercises",      render: renderSpelling }
+      
     ]
   }
 ];
@@ -141,6 +145,15 @@ menu.innerHTML = `
         <div class="global-stats" data-ex="sva"></div>
         <a class="btn" href="#/sva">Open →</a>
       </div>
+
+<div class="card">
+  <div class="pill">Vocabulary</div>
+  <h3>Idioms</h3>
+  <p>Choose the meaning of common idioms.</p>
+  <div class="global-stats" data-ex="idioms"></div>
+  <a class="btn" href="#/idioms">Open →</a>
+</div>
+
 
       <div class="card">
         <div class="pill">Spelling</div>
@@ -206,6 +219,8 @@ function renderCapital(root)  { mountExercise(capital, root); }
 function renderTimeprep(root) { mountExercise(timeprep, root); }
 function renderPpvsps(root)   { mountExercise(ppvsps, root); }
 function renderSva(root)      { mountExercise(sva, root); }
+function renderIdioms(root) { mountExercise(idioms, root); }
+
 
 function renderSpelling(root) {
   if (typeof currentUnmount === "function") {
