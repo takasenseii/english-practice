@@ -165,6 +165,55 @@ const IDIOMS = [
   { idiom: "keep the peace", sentence: "She tried to keep the peace in the group.", correct: "prevent conflict", wrong: ["start conflict", "win a debate", "avoid work"] },
   { idiom: "take someone’s word for it", sentence: "I’ll take your word for it.", correct: "believe you without proof", wrong: ["argue with you", "ignore you", "test you"] },
   { idiom: "make a comeback", sentence: "After the injury, she made a comeback.", correct: "return to success", wrong: ["move abroad", "quit forever", "lose interest"] }
+
+  { phrase: "a drop in the ocean", sentence: "The donation helped, but it was a drop in the ocean.", correct: "a very small amount compared to what is needed", wrong: ["a large contribution", "a risky decision", "a sudden change"] },
+{ phrase: "add insult to injury", sentence: "Losing the match and getting injured added insult to injury.", correct: "make a bad situation worse", wrong: ["solve a problem", "improve results", "apologise sincerely"] },
+{ phrase: "at a crossroads", sentence: "After graduation, she felt at a crossroads.", correct: "facing an important decision", wrong: ["feeling relaxed", "being late", "working too hard"] },
+{ phrase: "back to square one", sentence: "The plan failed, so we’re back to square one.", correct: "starting again from the beginning", wrong: ["almost finished", "slightly delayed", "nearly successful"] },
+{ phrase: "bite your tongue", sentence: "I wanted to respond, but I bit my tongue.", correct: "stop yourself from speaking", wrong: ["speak loudly", "change your opinion", "make a joke"] },
+{ phrase: "by the skin of your teeth", sentence: "He passed the exam by the skin of his teeth.", correct: "just barely", wrong: ["very easily", "with help", "by cheating"] },
+{ phrase: "cross your fingers", sentence: "Cross your fingers that everything works.", correct: "hope for good luck", wrong: ["give up", "prepare carefully", "stop trying"] },
+{ phrase: "cut to the bone", sentence: "The criticism cut to the bone.", correct: "hurt deeply", wrong: ["felt confusing", "was funny", "was ignored"] },
+{ phrase: "down to earth", sentence: "Despite her success, she’s very down to earth.", correct: "practical and realistic", wrong: ["arrogant", "confused", "unmotivated"] },
+{ phrase: "face the music", sentence: "He finally had to face the music.", correct: "accept the consequences", wrong: ["celebrate success", "avoid responsibility", "change the topic"] },
+
+{ phrase: "get a grip", sentence: "Get a grip and focus on the task.", correct: "control yourself", wrong: ["panic", "celebrate", "give up"] },
+{ phrase: "get the short end of the stick", sentence: "I always get the short end of the stick.", correct: "receive unfair treatment", wrong: ["win easily", "be lucky", "be praised"] },
+{ phrase: "go around in circles", sentence: "We’re going around in circles.", correct: "make no progress", wrong: ["finish quickly", "agree fully", "solve the issue"] },
+{ phrase: "have a bone to pick", sentence: "I have a bone to pick with you.", correct: "have something to complain about", wrong: ["want to help", "feel proud", "feel relaxed"] },
+{ phrase: "in the same breath", sentence: "He criticised the plan and praised it in the same breath.", correct: "at the same time", wrong: ["by accident", "after a delay", "in private"] },
+{ phrase: "jump on the bandwagon", sentence: "Everyone jumped on the bandwagon.", correct: "join something popular", wrong: ["reject an idea", "act alone", "stop suddenly"] },
+{ phrase: "keep your cool", sentence: "She kept her cool during the argument.", correct: "stay calm", wrong: ["get angry", "leave early", "lose focus"] },
+{ phrase: "leave no stone unturned", sentence: "We left no stone unturned.", correct: "searched everywhere", wrong: ["gave up early", "ignored details", "worked quickly"] },
+{ phrase: "make a mountain out of a molehill", sentence: "You’re making a mountain out of a molehill.", correct: "exaggerate a small problem", wrong: ["ignore a serious issue", "solve a problem", "explain clearly"] },
+{ phrase: "miss the boat", sentence: "If you wait too long, you’ll miss the boat.", correct: "lose an opportunity", wrong: ["arrive early", "get help", "change plans"] },
+
+{ phrase: "no strings attached", sentence: "The help came with no strings attached.", correct: "with no conditions", wrong: ["with many rules", "with payment", "with delays"] },
+{ phrase: "off the beaten path", sentence: "They chose a restaurant off the beaten path.", correct: "unusual or not popular", wrong: ["very expensive", "well-known", "dangerous"] },
+{ phrase: "on cloud nine", sentence: "She’s been on cloud nine all day.", correct: "extremely happy", wrong: ["very tired", "very nervous", "very angry"] },
+{ phrase: "on shaky ground", sentence: "His argument is on shaky ground.", correct: "not reliable", wrong: ["very strong", "well researched", "clearly proven"] },
+{ phrase: "out of your depth", sentence: "I’m out of my depth in this course.", correct: "in a situation too difficult for you", wrong: ["very confident", "very bored", "very experienced"] },
+{ phrase: "paint yourself into a corner", sentence: "He painted himself into a corner.", correct: "create a situation with no good options", wrong: ["solve a problem", "make progress", "get support"] },
+{ phrase: "read the room", sentence: "You need to read the room.", correct: "understand people’s reactions", wrong: ["read aloud", "follow rules", "ignore others"] },
+{ phrase: "ride it out", sentence: "We’ll ride it out and see what happens.", correct: "wait until a problem passes", wrong: ["give up immediately", "change plans", "panic"] },
+{ phrase: "rule the day", sentence: "Practical concerns ruled the day.", correct: "be the most important factor", wrong: ["be ignored", "cause confusion", "be temporary"] },
+{ phrase: "see the writing on the wall", sentence: "He saw the writing on the wall and resigned.", correct: "realise something bad is coming", wrong: ["misunderstand", "celebrate", "get promoted"] },
+
+{ phrase: "sit on the fence", sentence: "He’s sitting on the fence.", correct: "avoid making a decision", wrong: ["argue strongly", "agree fully", "take action"] },
+{ phrase: "sweep it under the rug", sentence: "They tried to sweep the issue under the rug.", correct: "hide a problem", wrong: ["solve a problem", "discuss openly", "celebrate"] },
+{ phrase: "take the bait", sentence: "Don’t take the bait.", correct: "react to provocation", wrong: ["ignore completely", "apologise", "change your mind"] },
+{ phrase: "the ballpark figure", sentence: "Can you give me a ballpark figure?", correct: "a rough estimate", wrong: ["exact number", "final decision", "legal limit"] },
+{ phrase: "throw caution to the wind", sentence: "She threw caution to the wind.", correct: "act without worrying about risks", wrong: ["plan carefully", "avoid action", "wait patiently"] },
+{ phrase: "toe the line", sentence: "Employees must toe the line.", correct: "follow rules", wrong: ["break rules", "negotiate", "lead a group"] },
+{ phrase: "under your belt", sentence: "He has several projects under his belt.", correct: "completed successfully", wrong: ["planned", "failed", "ignored"] },
+{ phrase: "walk on eggshells", sentence: "Everyone is walking on eggshells around her.", correct: "act very carefully", wrong: ["act confidently", "ignore feelings", "take risks"] },
+{ phrase: "wash your hands of", sentence: "He washed his hands of the matter.", correct: "refuse further responsibility", wrong: ["take charge", "invest more effort", "apologise"] },
+{ phrase: "wear many hats", sentence: "She wears many hats at work.", correct: "have many roles", wrong: ["change jobs", "avoid tasks", "work slowly"] },
+
+{ phrase: "when push comes to shove", sentence: "When push comes to shove, we’ll adapt.", correct: "when action is finally required", wrong: ["in theory", "by accident", "in secret"] },
+{ phrase: "with flying colours", sentence: "She passed with flying colours.", correct: "very successfully", wrong: ["barely", "by luck", "after failing"] },
+{ phrase: "your hands are tied", sentence: "My hands are tied.", correct: "unable to act due to limits", wrong: ["free to decide", "fully responsible", "very confused"] }
+
 ];
 
 function buildQuestions(count) {
