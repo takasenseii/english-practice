@@ -186,8 +186,10 @@ function render(root) {
     questions: buildQuestions(QUESTIONS_PER_QUIZ_DEFAULT),
     checked: false,
     lastScoreText: "",
-    awardedCorrect: new Array(QUESTIONS_PER_QUIZ_DEFAULT).fill(false)
+    awardedCorrect: new Array(QUESTIONS_PER_QUIZ_DEFAULT).fill(false),
+    lastAnswers: null   
   };
+
 
   root.innerHTML = `
     <div class="container">
@@ -266,9 +268,10 @@ function render(root) {
     });
   }
 
-  function markResults() {
-    clearMarks();
-    const answers = getUserAnswers();
+function markResults(answers) {
+  clearMarks();
+  const picked = Array.isArray(answers) ? answers : getUserAnswers();
+
 
     let attemptedThisCheck = 0;
     let newlyCorrectThisCheck = 0;
@@ -277,7 +280,7 @@ function render(root) {
     let correctNow = 0;
 
     state.questions.forEach((q, qi) => {
-      const a = answers[qi];
+      const a = picked[qi];
 
       if (a !== null) attemptedThisCheck++;
 
@@ -317,13 +320,13 @@ function render(root) {
       window.recordExerciseResult(EX_ID, attemptedThisCheck, newlyCorrectThisCheck);
     }
   }
-
+  
 checkBtn.addEventListener("click", () => {
-  markResults();      // read answers while radios are still enabled
+  state.lastAnswers = getUserAnswers(); // read while inputs are enabled
   state.checked = true;
-  renderList();       // then disable inputs
+  renderList();                         // rebuild + disable inputs
+  markResults(state.lastAnswers);       // apply marks on the new DOM
 });
-
 
   newBtn.addEventListener("click", () => {
     state.questions = buildQuestions(QUESTIONS_PER_QUIZ_DEFAULT);
