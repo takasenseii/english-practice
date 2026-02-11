@@ -187,7 +187,7 @@ const PHRASES = [
   { phrase: "set priorities", sentence: "We need to set priorities.", correct: "decide what is most important", wrong: ["avoid decisions", "copy", "deny"] },
   { phrase: "make a suggestion", sentence: "Can I make a suggestion?", correct: "propose an idea", wrong: ["refuse", "complain", "forget"] },
   { phrase: "take a suggestion", sentence: "I’ll take your suggestion.", correct: "accept", wrong: ["ignore", "deny", "delete"] },
-  { phrase: "reach a goal", sentence: "He reached his goal this month.", correct: "achieve", wrong: ["fail completely", "postpone", "forget"] }
+  { phrase: "reach a goal", sentence: "He reached his goal this month.", correct: "achieve", wrong: ["fail completely", "postpone", "forget"] },
 
   { phrase: "put up with", sentence: "I can’t put up with the noise anymore.", correct: "tolerate", wrong: ["increase", "forget", "measure"] },
 { phrase: "run out of", sentence: "We ran out of milk this morning.", correct: "have none left", wrong: ["buy extra", "spill", "hide"] },
