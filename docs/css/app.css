@@ -6,6 +6,15 @@
   --border:rgba(255,255,255,.10);
 }
 
+/* Highlight idiom / verbal phrase inside sentence */
+.hl-phrase{
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+  font-style: normal;
+}
+
 *{ box-sizing:border-box; }
 
 body{
