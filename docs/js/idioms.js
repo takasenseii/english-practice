@@ -164,7 +164,7 @@ const IDIOMS = [
   { idiom: "get your wires crossed", sentence: "We got our wires crossed about the time.", correct: "miscommunicate", wrong: ["agree perfectly", "cancel quickly", "forget a name"] },
   { idiom: "keep the peace", sentence: "She tried to keep the peace in the group.", correct: "prevent conflict", wrong: ["start conflict", "win a debate", "avoid work"] },
   { idiom: "take someone’s word for it", sentence: "I’ll take your word for it.", correct: "believe you without proof", wrong: ["argue with you", "ignore you", "test you"] },
-  { idiom: "make a comeback", sentence: "After the injury, she made a comeback.", correct: "return to success", wrong: ["move abroad", "quit forever", "lose interest"] }
+  { idiom: "make a comeback", sentence: "After the injury, she made a comeback.", correct: "return to success", wrong: ["move abroad", "quit forever", "lose interest"] },
 
   { phrase: "a drop in the ocean", sentence: "The donation helped, but it was a drop in the ocean.", correct: "a very small amount compared to what is needed", wrong: ["a large contribution", "a risky decision", "a sudden change"] },
 { phrase: "add insult to injury", sentence: "Losing the match and getting injured added insult to injury.", correct: "make a bad situation worse", wrong: ["solve a problem", "improve results", "apologise sincerely"] },
