@@ -28,6 +28,30 @@ function escapeHtml(s) {
     .replace(/'/g, "&#39;");
 }
 
+function escapeRegExp(s) {
+  return String(s).replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+// Highlights first occurrence of idiom in sentence
+function highlightTerm(sentence, term) {
+  const s = String(sentence);
+  const t = String(term).trim();
+  if (!t) return escapeHtml(s);
+
+  const re = new RegExp(`\\b${escapeRegExp(t)}\\b`, "i");
+  const m = s.match(re);
+  if (!m) return escapeHtml(s);
+
+  const start = m.index;
+  const end = start + m[0].length;
+
+  return (
+    escapeHtml(s.slice(0, start)) +
+    `<span class="hl-phrase">${escapeHtml(s.slice(start, end))}</span>` +
+    escapeHtml(s.slice(end))
+  );
+}
+
 function pickN(pool, n) {
   return shuffle(pool).slice(0, n);
 }
@@ -290,7 +314,7 @@ function render(root) {
               <div style="opacity:0.85; font-size: 13px; margin-bottom:6px;">
                 ${q.n}) Idiom: <strong>${escapeHtml(q.idiom)}</strong>
               </div>
-              <div>${escapeHtml(q.sentence)}</div>
+              <div>${highlightTerm(q.sentence, q.idiom)}</div>
             </div>
             <div class="choices">${opts}</div>
           </div>
