@@ -344,14 +344,14 @@ function render(root) {
   root.innerHTML = `
     <div class="container">
       <div class="topbar">
-        <div class="brand">Verbal phrases</div>
+        <div class="brand">Phrasal Verbs</div>
         <div class="global-stats" data-ex="${EX_ID}"></div>
       </div>
 
       <div class="card">
         <div class="pill">Vocabulary</div>
-        <h3>Verbal phrases (10 questions)</h3>
-        <p>Choose the best meaning of the verbal phrase in the sentence.</p>
+        <h3>Phrasal Verbs (10 questions)</h3>
+        <p>Choose the best meaning of the phrasal verb in the sentence.</p>
 
         <div class="row" style="gap:10px; flex-wrap:wrap; margin: 12px 0;">
           <button class="btn" id="newBtn">New quiz</button>
@@ -486,4 +486,4 @@ function render(root) {
   return function unmount() {};
 }
 
-export default { id: EX_ID, title: "Verbal phrases", render };
+export default { id: EX_ID, title: "Phrasal verbs", render };
