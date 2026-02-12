@@ -1,5 +1,5 @@
-// verbalphrases.js
-// Verbal phrases exercise – 10 questions, 4 options each, mixed A1–C1
+// phrasalverbs.js
+// Phrasal verb exercise – 10 questions, 4 options each, mixed A1–C1
 // Same behavior as idioms.js:
 // - Attempts: counts how many questions were answered on each Check
 // - Correct: counts ONLY newly-correct answers per question within the current quiz
@@ -7,7 +7,7 @@
 
 "use strict";
 
-const EX_ID = "verbalphrases";
+const EX_ID = "phrasalverbs";
 const QUESTIONS_PER_QUIZ_DEFAULT = 10;
 
 function shuffle(arr) {
@@ -56,7 +56,7 @@ function pickN(pool, n) {
   return shuffle(pool).slice(0, n);
 }
 
-// 100 common verbal phrases (collocations / phrasal verbs / academic phrases)
+// 200 common phrasal verbs (collocations / phrasal verbs / academic phrases)
 const PHRASES = [
   { phrase: "carry out", sentence: "The researchers carried out a study on sleep habits.", correct: "perform (a task or study)", wrong: ["cancel", "explain", "hide"] },
   { phrase: "break down", sentence: "The report breaks down the data into categories.", correct: "divide into smaller parts", wrong: ["increase quickly", "remove completely", "forget"] },
