@@ -4,7 +4,7 @@ import timeprep from "./timeprep.js";
 import ppvsps from "./ppvsps.js";
 import sva from "./sva.js";
 import idioms from "./idioms.js";
-import verbalphrases from "./verbalphrases.js";
+import phrasalverbs from "./phrasalverbs.js";
 
 
 
@@ -82,7 +82,7 @@ const menuSections = [
       { id: "ppvsps",   label: "PP vs PS",                render: renderPpvsps },
       { id: "sva",      label: "Subject–verb agreement",  render: renderSva },
       { id: "idioms", label: "Idioms", render: renderIdioms },
-      { id: "verbalphrases", label: "Verbal phrases", render: renderVerbalphrases },
+      { id: "phrasalverbs", label: "Phrasal verbs", render: renderPhrasalverbs },
       { id: "spelling", label: "Spelling exercises",      render: renderSpelling }
       
     ]
@@ -159,10 +159,10 @@ menu.innerHTML = `
 
 <div class="card">
   <div class="pill">Vocabulary</div>
-  <h3>Verbal phrases</h3>
-  <p>Choose the meaning of common verbal phrases.</p>
-  <div class="global-stats" data-ex="verbalphrases"></div>
-  <a class="btn" href="#/verbalphrases">Open →</a>
+  <h3>Phrasal Verbs</h3>
+  <p>Choose the meaning of common phrasal verbs.</p>
+  <div class="global-stats" data-ex="phrasalverbs"></div>
+  <a class="btn" href="#/phrasalverbs">Open →</a>
 </div>
 
 
@@ -231,7 +231,7 @@ function renderTimeprep(root) { mountExercise(timeprep, root); }
 function renderPpvsps(root)   { mountExercise(ppvsps, root); }
 function renderSva(root)      { mountExercise(sva, root); }
 function renderIdioms(root) { mountExercise(idioms, root); }
-function renderVerbalphrases(root) { mountExercise(verbalphrases, root); }
+function renderPhrasalverbs(root) { mountExercise(phrasalverbs, root); }
 
 function renderSpelling(root) {
   if (typeof currentUnmount === "function") {
