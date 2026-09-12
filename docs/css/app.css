@@ -246,6 +246,15 @@ body{
 .tutor-option { display:flex; align-items:center; gap:12px; padding:13px; border:1px solid var(--border); border-radius:12px; cursor:pointer; background:rgba(255,255,255,.025); }
 .tutor-option:hover { background:rgba(255,255,255,.065); }
 .tutor-option input { width:auto; }
+.matching-list, .ordering-list, .true-false-list { display:grid; gap:12px; margin:18px 0; }
+.matching-row { display:grid; grid-template-columns:minmax(120px, .45fr) 1fr; gap:14px; align-items:center; }
+.matching-row select, .ordering-row select { padding:10px 12px; border:1px solid var(--border); border-radius:10px; color:var(--text); background:var(--card); }
+.ordering-row { display:grid; grid-template-columns:70px 1fr; gap:12px; align-items:center; padding:10px 0; }
+.true-false-item { padding:14px; border:1px solid var(--border); border-radius:12px; }
+.true-false-item legend { padding:0 6px; line-height:1.45; font-weight:650; }
+.true-false-item > label { display:inline-flex; gap:6px; align-items:center; margin:10px 18px 10px 0; }
+.true-false-item input { width:auto; }
+.tf-correction { display:block; width:100%; padding:10px 12px; border:1px solid var(--border); border-radius:10px; resize:vertical; color:var(--text); background:rgba(255,255,255,.04); font:inherit; }
 .tutor-textarea { width:100%; padding:13px; border:1px solid var(--border); border-radius:12px; resize:vertical; color:var(--text); background:rgba(255,255,255,.04); font:inherit; line-height:1.5; }
 .word-count { text-align:right; margin-top:5px; font-size:.9rem; }
 .tutor-actions, .tutor-navigation { display:flex; gap:10px; margin-top:16px; }
@@ -263,4 +272,5 @@ body{
   .tutor-heading { display:block; }
   .level-picker { margin-top:14px; }
   .tutor-panel { padding:16px; }
+  .matching-row { grid-template-columns:1fr; gap:6px; }
 }
