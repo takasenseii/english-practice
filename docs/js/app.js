@@ -6,6 +6,7 @@ import sva from "./sva.js";
 import idioms from "./idioms.js";
 import phrasalverbs from "./phrasalverbs.js";
 import tutor from "./tutor.js";
+import { tutorMaterials } from "./tutor-materials.js";
 
 
 
@@ -75,125 +76,111 @@ window.recordExerciseResult = function (exerciseId, attempted, correct) {
 
 const menuSections = [
   {
-    title: "Exercises",
+    id: "grammar",
+    title: "Grammar",
+    description: "Practise grammar rules and sentence structure.",
     items: [
-      { id: "avsan",    label: "A vs An",                 render: renderAvsan },
-      { id: "capital", label: "Capitalisation",           render: renderCapital },
-      { id: "timeprep", label: "Time prepositions",       render: renderTimeprep },
-      { id: "ppvsps",   label: "PP vs PS",                render: renderPpvsps },
-      { id: "sva",      label: "Subject–verb agreement",  render: renderSva },
-      { id: "idioms", label: "Idioms", render: renderIdioms },
-      { id: "phrasalverbs", label: "Phrasal verbs", render: renderPhrasalverbs },
-      { id: "spelling", label: "Spelling exercises",      render: renderSpelling },
-      { id: "tutor", label: "AI Tutor",                  render: renderTutor }
-      
+      { id: "avsan", label: "A vs An", description: "Choose the correct article.", render: renderAvsan },
+      { id: "capital", label: "Capitalisation", description: "Fix capital letters in sentences.", render: renderCapital },
+      { id: "ppvsps", label: "Present Perfect vs Past Simple", description: "Choose the correct tense.", render: renderPpvsps },
+      { id: "sva", label: "Subject–Verb Agreement", description: "Practise present simple verb forms.", render: renderSva },
+      { id: "timeprep", label: "Time Prepositions", description: "Practise in, on and at.", render: renderTimeprep }
     ]
+  },
+  {
+    id: "vocabulary",
+    title: "Vocabulary",
+    description: "Build vocabulary with words, idioms and expressions.",
+    items: [
+      { id: "idioms", label: "Idioms", description: "Choose the meaning of common idioms.", render: renderIdioms },
+      { id: "phrasalverbs", label: "Phrasal Verbs", description: "Choose the meaning of common phrasal verbs.", render: renderPhrasalverbs }
+    ]
+  },
+  {
+    id: "spelling",
+    title: "Spelling",
+    description: "Practise spelling with personalised word lists.",
+    items: [
+      { id: "spelling-exercises", legacyId: "spelling", label: "Spelling Exercises", description: "Save a word list, practise with audio and track your score.", render: renderSpelling }
+    ]
+  },
+  {
+    id: "private-tutor",
+    title: "Private Tutor",
+    description: "Work actively with articles, videos and guided questions.",
+    items: tutorMaterials.map(material => ({
+      id: `tutor/${material.id}`,
+      label: material.title,
+      description: material.topic,
+      badge: material.mediaType === "youtube" ? "Video" : "Reading",
+      render: root => renderTutor(root, material.id)
+    }))
   }
 ];
 
 let currentUnmount = null;
 
-function renderMenu() {
+function clearMountedView() {
   if (typeof currentUnmount === "function") {
     currentUnmount();
     currentUnmount = null;
   }
-
-  const menu = document.getElementById("menu");
-  const view = document.getElementById("view");
-
-menu.innerHTML = `
-  <div class="container">
-    <div class="topbar">
-      <div class="brand">English Practice Space Online</div>
-      <div class="global-stats"></div>
-    </div>
-
-    <div class="grid">
-      <div class="card">
-      <div class="pill">Grammar</div>
-      <h3>A vs An</h3>
-      <p>Choose the correct article.</p>
-      <div class="global-stats" data-ex="avsan"></div>
-      <a class="btn" href="#/avsan">Open →</a>
-    </div>
-
-     <div class="card">
-       <div class="pill">Grammar</div>
-       <h3>Capitalisation</h3>
-       <p>Fix capital letters in sentences.</p>
-       <div class="global-stats" data-ex="capital"></div>
-       <a class="btn" href="#/capital">Open →</a>
-     </div>
-
-
-      <div class="card">
-        <div class="pill">Grammar</div>
-        <h3>Time prepositions</h3>
-        <p>In / on / at.</p>
-        <div class="global-stats" data-ex="timeprep"></div>
-        <a class="btn" href="#/timeprep">Open →</a>
-      </div>
-
-      <div class="card">
-        <div class="pill">Grammar</div>
-        <h3>PP vs PS</h3>
-        <p>Present perfect vs past simple.</p>
-        <div class="global-stats" data-ex="ppvsps"></div>
-        <a class="btn" href="#/ppvsps">Open →</a>
-      </div>
-
-      <div class="card">
-        <div class="pill">Grammar</div>
-        <h3>Subject–verb agreement</h3>
-        <p>Present simple verb forms.</p>
-        <div class="global-stats" data-ex="sva"></div>
-        <a class="btn" href="#/sva">Open →</a>
-      </div>
-
-<div class="card">
-  <div class="pill">Vocabulary</div>
-  <h3>Idioms</h3>
-  <p>Choose the meaning of common idioms.</p>
-  <div class="global-stats" data-ex="idioms"></div>
-  <a class="btn" href="#/idioms">Open →</a>
-</div>
-
-<div class="card">
-  <div class="pill">Vocabulary</div>
-  <h3>Phrasal Verbs</h3>
-  <p>Choose the meaning of common phrasal verbs.</p>
-  <div class="global-stats" data-ex="phrasalverbs"></div>
-  <a class="btn" href="#/phrasalverbs">Open →</a>
-</div>
-
-
-      <div class="card">
-        <div class="pill">Spelling</div>
-        <h3>Spelling exercises</h3>
-        <p>Save your own word list, practise with audio, check answers, track score.</p>
-        <div class="global-stats" data-ex="spelling"></div>
-        <a class="btn" href="#/spelling">Open →</a>
-      </div>
-
-      <div class="card tutor-card">
-        <div class="pill">Reading</div>
-        <h3>AI Tutor</h3>
-        <p>Work with vocabulary, comprehension and extended writing.</p>
-        <div class="global-stats">Civil rights prototype</div>
-        <a class="btn" href="#/tutor">Open →</a>
-      </div>
-    </div>
-  </div>
-`;
-
-if (typeof window.updateGlobalStatsUI === "function") {
-  window.updateGlobalStatsUI();
+  document.getElementById("view").innerHTML = "";
 }
 
-// clear the exercise view
-view.innerHTML = "";
-} // <--- this closes renderMenu() properly
+function renderMenu() {
+  clearMountedView();
+
+  const menu = document.getElementById("menu");
+  const sections = [...menuSections].sort((a, b) => a.title.localeCompare(b.title));
+
+  menu.innerHTML = `
+    <div class="container">
+      <div class="topbar">
+        <div class="brand">English Practice Space Online</div>
+        <p class="home-intro">What would you like to practise?</p>
+      </div>
+      <div class="grid category-grid">
+        ${sections.map(section => `
+          <div class="card category-card">
+            <div class="pill">Category</div>
+            <h2>${section.title}</h2>
+            <p>${section.description}</p>
+            <div class="category-count">${section.items.length} ${section.items.length === 1 ? "activity" : "activities"}</div>
+            <a class="btn" href="#/${section.id}">Choose →</a>
+          </div>`).join("")}
+      </div>
+    </div>`;
+}
+
+function renderCategory(section) {
+  clearMountedView();
+  const menu = document.getElementById("menu");
+  const items = [...section.items].sort((a, b) => a.label.localeCompare(b.label));
+
+  menu.innerHTML = `
+    <div class="container">
+      <button class="backBtn" id="backBtn">← All categories</button>
+      <div class="category-heading">
+        <div class="pill">${section.title}</div>
+        <h1>${section.title}</h1>
+        <p>${section.description}</p>
+      </div>
+      <div class="grid">
+        ${items.map(item => `
+          <div class="card">
+            <div class="pill">${item.badge || section.title}</div>
+            <h3>${item.label}</h3>
+            <p>${item.description}</p>
+            ${section.id !== "private-tutor" ? `<div class="global-stats" data-ex="${item.legacyId || item.id}"></div>` : ""}
+            <a class="btn" href="#/${item.id}">Open →</a>
+          </div>`).join("")}
+      </div>
+    </div>`;
+
+  document.getElementById("backBtn").onclick = () => { location.hash = "#/"; };
+  window.updateGlobalStatsUI();
+}
 
 
 function router() {
@@ -204,19 +191,28 @@ function router() {
     return;
   }
 
-  const item = menuSections.flatMap(s => s.items).find(i => i.id === route);
+  const section = menuSections.find(item => item.id === route);
+  if (section) {
+    renderCategory(section);
+    return;
+  }
+
+  const legacyItem = menuSections.flatMap(s => s.items).find(i => i.legacyId === route);
+  const item = menuSections.flatMap(s => s.items).find(i => i.id === route) || legacyItem;
   if (!item) {
     renderMenu();
     return;
   }
 
+  const parentSection = menuSections.find(sectionItem => sectionItem.items.includes(item));
+
   document.getElementById("menu").innerHTML = `
     <div class="container">
-      <button class="backBtn" id="backBtn">← Back to menu</button>
+      <button class="backBtn" id="backBtn">← Back to ${parentSection.title}</button>
     </div>
   `;
 
-  document.getElementById("backBtn").onclick = () => { location.hash = "#/"; };
+  document.getElementById("backBtn").onclick = () => { location.hash = `#/${parentSection.id}`; };
 
   item.render(document.getElementById("view"));
 }
@@ -242,7 +238,13 @@ function renderPpvsps(root)   { mountExercise(ppvsps, root); }
 function renderSva(root)      { mountExercise(sva, root); }
 function renderIdioms(root) { mountExercise(idioms, root); }
 function renderPhrasalverbs(root) { mountExercise(phrasalverbs, root); }
-function renderTutor(root) { mountExercise(tutor, root); }
+function renderTutor(root, materialId) {
+  if (typeof currentUnmount === "function") {
+    currentUnmount();
+    currentUnmount = null;
+  }
+  tutor.render(root, materialId);
+}
 
 function renderSpelling(root) {
   if (typeof currentUnmount === "function") {

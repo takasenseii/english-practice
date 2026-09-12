@@ -59,9 +59,9 @@ function shuffledOptions(activity, userId) {
   return options;
 }
 
-export default {
-  render(root) {
-    const material = tutorMaterials[0];
+const tutor = {
+  render(root, materialId) {
+    const material = tutorMaterials.find(item => item.id === materialId) || tutorMaterials[0];
     const user = getAnonymousUser();
     const allProgress = loadProgress();
     const saved = allProgress[user.id]?.[material.id] || {};
@@ -91,10 +91,18 @@ export default {
           <p class="tutor-muted">Your progress is saved on this device. A future version can connect it to your school Google account.</p>
         </section>
 
-        <details class="tutor-panel reading-panel" open>
-          <summary>Reading: ${material.title}</summary>
+        ${material.mediaType === "youtube" ? `
+          <section class="tutor-panel video-panel">
+            <div class="video-frame">
+              <iframe src="https://www.youtube-nocookie.com/embed/${material.videoId}" title="${material.title}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+            <p class="tutor-muted">First viewing: keep the transcript closed and listen for the main idea.</p>
+          </section>` : ""}
+
+        <details class="tutor-panel reading-panel" ${material.mediaType === "youtube" ? "" : "open"}>
+          <summary>${material.transcriptLabel || "Reading"}: ${material.title}</summary>
           <div class="reading-text">${material.text.map(paragraph => `<p>${paragraph}</p>`).join("")}</div>
-          <p class="source-line">Adapted from <a href="${material.source.url}" target="_blank" rel="noopener">${material.source.label}</a>.</p>
+          <p class="source-line">${material.mediaType === "youtube" ? "Transcript cleaned and punctuated from" : "Adapted from"} <a href="${material.source.url}" target="_blank" rel="noopener">${material.source.label}</a>.</p>
         </details>
 
         <section class="tutor-panel" aria-live="polite">
@@ -323,3 +331,5 @@ export default {
     renderQuestion();
   }
 };
+
+export default tutor;

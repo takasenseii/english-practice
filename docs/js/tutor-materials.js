@@ -196,5 +196,159 @@ export const tutorMaterials = [
         ]
       }
     ]
+  },
+  {
+    id: "entrepreneur-video-01",
+    title: "What Is an Entrepreneur?",
+    topic: "Entrepreneurship and personal qualities",
+    levels: ["B1", "B2"],
+    mediaType: "youtube",
+    videoId: "rRpMrAMesbA",
+    source: {
+      label: "GCFGlobal: What Is an Entrepreneur?",
+      url: "https://www.youtube.com/watch?v=rRpMrAMesbA"
+    },
+    introduction:
+      "Watch the video once without opening the transcript. Focus on the main idea. Then watch it again and listen for details.",
+    transcriptLabel: "Transcript support",
+    text: [
+      "What exactly is an entrepreneur? An entrepreneur is a person with an idea for a product or service. They decide to start a business which brings this idea to life.",
+      "Maybe they have always dreamed of opening their own boutique, or maybe they want to create an app which millions of people will use. The dream of an entrepreneur can be big or small, but most successful entrepreneurs share a number of characteristics. They are passionate, motivated, independent and creative.",
+      "Entrepreneurs love thinking outside the box. They are always looking to expand their knowledge, break out of their comfort zone and find new opportunities in the marketplace. They do not just accept things as they are.",
+      "They also believe that their ideas have value and that they have something special to bring to the table. So, what do you think? Could you be an entrepreneur?"
+    ],
+    activities: [
+      {
+        id: "ent-gist-1",
+        type: "multiple-choice",
+        category: "First viewing: main idea",
+        level: "B1",
+        prompt: "What is the main purpose of the video?",
+        options: [
+          "To explain what entrepreneurs do and describe common qualities they have",
+          "To teach viewers how to design a mobile app",
+          "To compare large companies with small boutiques",
+          "To warn viewers about the financial risks of business"
+        ],
+        answer: 0,
+        hint: "Think about what information appears throughout the whole video.",
+        explanation: "The video defines an entrepreneur and describes characteristics often shared by successful entrepreneurs."
+      },
+      {
+        id: "ent-vocab-1",
+        type: "matching",
+        category: "Vocabulary in context",
+        level: "B1",
+        prompt: "Match each expression from the video with its meaning.",
+        hint: "Think about how each expression is used in the transcript, not only its literal meaning.",
+        pairs: [
+          { term: "bring an idea to life", definition: "turn an idea into something real" },
+          { term: "boutique", definition: "a small shop, especially one selling fashionable goods" },
+          { term: "think outside the box", definition: "develop ideas in an original or unusual way" },
+          { term: "comfort zone", definition: "a familiar situation in which someone feels safe" },
+          { term: "marketplace", definition: "the commercial environment in which things are bought and sold" },
+          { term: "bring something to the table", definition: "offer a useful quality, skill or idea" }
+        ],
+        explanation: "Several expressions in the video are figurative and describe creativity, confidence and business activity."
+      },
+      {
+        id: "ent-detail-1",
+        type: "multiple-choice",
+        category: "Listening for detail",
+        level: "B1",
+        prompt: "Which four characteristics does the video explicitly mention?",
+        options: [
+          "Passionate, motivated, independent and creative",
+          "Patient, wealthy, competitive and careful",
+          "Experienced, educated, organised and famous",
+          "Confident, sociable, practical and generous"
+        ],
+        answer: 0,
+        hint: "Listen again to the section after the examples of a boutique and an app.",
+        explanation: "The speaker describes successful entrepreneurs as passionate, motivated, independent and creative."
+      },
+      {
+        id: "ent-tf-1",
+        type: "true-false",
+        category: "True or false",
+        level: "B1",
+        prompt: "Decide whether each statement agrees with the video. Correct the false statements.",
+        hint: "Pay attention to whether the speaker limits entrepreneurship to technology or large ambitions.",
+        statements: [
+          {
+            text: "An entrepreneur must create a product rather than a service.",
+            answer: false,
+            correction: "An entrepreneur can have an idea for either a product or a service."
+          },
+          {
+            text: "An entrepreneur's dream can be big or small.",
+            answer: true
+          },
+          {
+            text: "Entrepreneurs simply accept things as they are.",
+            answer: false,
+            correction: "Entrepreneurs do not simply accept things as they are; they look for knowledge and new opportunities."
+          }
+        ],
+        explanation: "The video gives a broad definition of entrepreneurship and emphasises active efforts to find or create opportunities."
+      },
+      {
+        id: "ent-short-1",
+        type: "short-answer",
+        category: "Evidence",
+        level: "B1",
+        prompt: "Give three actions from the video that show entrepreneurs are willing to develop and challenge themselves.",
+        hint: "Listen to the section beginning with ‘They are always looking to…’",
+        checklist: [
+          "I included three different actions.",
+          "My examples come directly from the video.",
+          "I answered in complete sentences."
+        ],
+        modelPoints: [
+          "They expand their knowledge.",
+          "They break out of their comfort zone.",
+          "They look for new opportunities in the marketplace.",
+          "They think outside the box rather than simply accepting things as they are."
+        ]
+      },
+      {
+        id: "ent-interpret-1",
+        type: "short-answer",
+        category: "Interpretation",
+        level: "B2",
+        prompt: "Does the video present entrepreneurship mainly as a profession or as a mindset? Explain your interpretation using details from the video.",
+        hint: "Compare the definition at the beginning with the personal qualities described later.",
+        checklist: [
+          "I gave a clear interpretation.",
+          "I supported it with at least two details.",
+          "I considered both business activity and personal qualities."
+        ],
+        modelPoints: [
+          "The opening definition connects entrepreneurship to starting a business.",
+          "Much of the video focuses on a mindset: creativity, motivation, independence and willingness to leave one's comfort zone.",
+          "A strong answer may argue that the video presents it as both a profession and a mindset."
+        ]
+      },
+      {
+        id: "ent-extended-1",
+        type: "extended-answer",
+        category: "Personal response",
+        level: "B1",
+        prompt: "Could you be an entrepreneur? Write 120–180 words. Refer to at least three characteristics or actions from the video and give concrete examples from your own experience or ideas.",
+        hint: "You do not have to answer yes. Explain which qualities fit you and which might be challenging.",
+        checklist: [
+          "I answered the main question clearly.",
+          "I referred to at least three ideas from the video.",
+          "I included concrete personal examples.",
+          "I organised my answer into paragraphs.",
+          "I wrote 120–180 words."
+        ],
+        modelPoints: [
+          "Connect personal qualities to the characteristics in the video.",
+          "Support claims with examples rather than only listing adjectives.",
+          "Recognise strengths as well as areas for development."
+        ]
+      }
+    ]
   }
 ];
