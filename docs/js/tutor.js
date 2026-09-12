@@ -66,7 +66,7 @@ const tutor = {
     const allProgress = loadProgress();
     const saved = allProgress[user.id]?.[material.id] || {};
     let level = saved.level || "B1";
-    let activities = material.activities.filter(item => item.level === "B1" || item.level === level);
+    let activities = material.activities.filter(item => item.level === "both" || item.level === level);
     let index = Math.min(saved.currentIndex || 0, Math.max(activities.length - 1, 0));
     let responses = saved.responses || {};
 
@@ -74,7 +74,6 @@ const tutor = {
       <div class="container tutor-shell">
         <header class="tutor-heading">
           <div>
-            <div class="pill tutor-pill">AI Tutor prototype</div>
             <h1>${material.title}</h1>
             <p class="tutor-muted">${material.topic}</p>
           </div>
@@ -322,7 +321,7 @@ const tutor = {
 
     levelSelect.onchange = () => {
       level = levelSelect.value;
-      activities = material.activities.filter(item => item.level === "B1" || item.level === level);
+      activities = material.activities.filter(item => item.level === "both" || item.level === level);
       index = 0;
       persist();
       renderQuestion();
