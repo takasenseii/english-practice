@@ -93,16 +93,17 @@ const tutor = {
         ${material.mediaType === "youtube" ? `
           <section class="tutor-panel video-panel">
             <div class="video-frame">
-              <iframe src="https://www.youtube-nocookie.com/embed/${material.videoId}" title="${material.title}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+              <iframe id="tutorVideo" src="https://www.youtube-nocookie.com/embed/${material.videoId}${material.videoSections ? `?start=${material.videoSections[0].start}&end=${material.videoSections[0].end}` : ""}" title="${material.title}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
             </div>
+            ${material.videoSections ? `<div class="video-sections">${material.videoSections.map((section, sectionIndex) => `<button class="btn video-section-btn ${sectionIndex === 0 ? "active" : ""}" data-video-section="${section.id}" data-start="${section.start}" data-end="${section.end}">${section.title}</button>`).join("")}</div>` : ""}
             <p class="tutor-muted">First viewing: keep the transcript closed and listen for the main idea.</p>
           </section>` : ""}
 
-        <details class="tutor-panel reading-panel" ${material.mediaType === "youtube" ? "" : "open"}>
+        ${material.hideTranscript ? "" : `<details class="tutor-panel reading-panel" ${material.mediaType === "youtube" ? "" : "open"}>
           <summary>${material.transcriptLabel || "Reading"}: ${material.title}</summary>
           <div class="reading-text">${material.text.map(paragraph => `<p>${paragraph}</p>`).join("")}</div>
           <p class="source-line">${material.mediaType === "youtube" ? "Transcript cleaned and punctuated from" : "Adapted from"} <a href="${material.source.url}" target="_blank" rel="noopener">${material.source.label}</a>.</p>
-        </details>
+        </details>`}
 
         <section class="tutor-panel" aria-live="polite">
           <div class="progress-row">
@@ -116,6 +117,19 @@ const tutor = {
     `;
 
     const levelSelect = root.querySelector("#tutorLevel");
+    const video = root.querySelector("#tutorVideo");
+
+    function openVideoSection(sectionId) {
+      if (!video || !material.videoSections) return;
+      const section = material.videoSections.find(item => item.id === sectionId);
+      if (!section) return;
+      video.src = `https://www.youtube-nocookie.com/embed/${material.videoId}?start=${section.start}&end=${section.end}&autoplay=1`;
+      root.querySelectorAll(".video-section-btn").forEach(button => button.classList.toggle("active", button.dataset.videoSection === sectionId));
+    }
+
+    root.querySelectorAll(".video-section-btn").forEach(button => {
+      button.onclick = () => openVideoSection(button.dataset.videoSection);
+    });
 
     function persist() {
       allProgress[user.id] ||= {};
@@ -154,6 +168,7 @@ const tutor = {
       }
 
       const activity = activities[index];
+      if (activity.sectionId) openVideoSection(activity.sectionId);
       const response = responses[activity.id] || {};
       const percent = Math.round(((index + 1) / activities.length) * 100);
       root.querySelector("#tutorCategory").textContent = activity.category;
