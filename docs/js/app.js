@@ -6,6 +6,8 @@ import sva from "./sva.js";
 import idioms from "./idioms.js";
 import phrasalverbs from "./phrasalverbs.js";
 import tutor from "./tutor.js";
+import writing from "./writing.js";
+import speaking from "./speaking.js";
 import { tutorMaterials } from "./tutor-materials.js";
 
 
@@ -102,6 +104,22 @@ const menuSections = [
     description: "Practise spelling with personalised word lists.",
     items: [
       { id: "spelling-exercises", legacyId: "spelling", label: "Spelling Exercises", description: "Save a word list, practise with audio and track your score.", render: renderSpelling }
+    ]
+  },
+  {
+    id: "writing",
+    title: "Writing",
+    description: "Plan, organise and develop structured texts.",
+    items: [
+      { id: "ibc-peel", label: "IBC and PEEL", description: "Structure complete texts and develop effective body paragraphs.", render: renderWriting }
+    ]
+  },
+  {
+    id: "speaking",
+    title: "Speaking",
+    description: "Organise and deliver clear oral presentations.",
+    items: [
+      { id: "oral-ibc", label: "IBC for Oral Presentations", description: "Plan an introduction, body and conclusion for a presentation.", render: renderSpeaking }
     ]
   },
   {
@@ -323,6 +341,8 @@ function renderPpvsps(root)   { mountExercise(ppvsps, root); }
 function renderSva(root)      { mountExercise(sva, root); }
 function renderIdioms(root) { mountExercise(idioms, root); }
 function renderPhrasalverbs(root) { mountExercise(phrasalverbs, root); }
+function renderWriting(root) { mountExercise(writing, root); }
+function renderSpeaking(root) { mountExercise(speaking, root); }
 function renderTutor(root, materialId) {
   if (typeof currentUnmount === "function") {
     currentUnmount();
