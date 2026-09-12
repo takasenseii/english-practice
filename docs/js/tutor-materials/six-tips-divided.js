@@ -28,7 +28,7 @@ const b2Choices = [
 ];
 
 const sixTips = {
-  id:"six-tips-01",courseId:"english-2",unitId:"entrepreneurship",unitTitle:"Entrepreneurship",title:"6 Tips on Being a Successful Entrepreneur",topic:"Six counterconventional entrepreneurial mindsets",levels:["B1","B2"],mediaType:"youtube",videoId:"eHJnEHyyN1Y",hideTranscript:true,
+  id:"six-tips-01",courseId:"english-2",unitId:"entrepreneurship",unitTitle:"Entrepreneurship",title:"6 Tips on Being a Successful Entrepreneur",topic:"Six counterconventional entrepreneurial mindsets",levels:["B1","B2"],mediaType:"youtube",videoId:"eHJnEHyyN1Y",durationMinutes:15,hideTranscript:true,
   source:{label:"TED: John Mullins — 6 Tips on Being a Successful Entrepreneur",url:"https://www.youtube.com/watch?v=eHJnEHyyN1Y"},
   introduction:"Watch the complete talk once for the main idea. Watch relevant parts again when answering detailed questions.",text:["The cleaned transcript was used to construct and verify the activities."],
   activities:[

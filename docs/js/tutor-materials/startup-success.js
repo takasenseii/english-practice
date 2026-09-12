@@ -28,7 +28,7 @@ const b2Choices = [
 ];
 
 const startupSuccess = {
-  id:"startup-success-01",courseId:"english-2",unitId:"entrepreneurship",unitTitle:"Entrepreneurship",title:"The Single Biggest Reason Why Start-ups Succeed",topic:"Bill Gross on timing and startup success",levels:["B1","B2"],mediaType:"youtube",videoId:"bNpx7gpSqbY",hideTranscript:true,
+  id:"startup-success-01",courseId:"english-2",unitId:"entrepreneurship",unitTitle:"Entrepreneurship",title:"The Single Biggest Reason Why Start-ups Succeed",topic:"Bill Gross on timing and startup success",levels:["B1","B2"],mediaType:"youtube",videoId:"bNpx7gpSqbY",durationMinutes:7,hideTranscript:true,
   source:{label:"TED: Bill Gross — The single biggest reason why start-ups succeed",url:"https://www.youtube.com/watch?v=bNpx7gpSqbY"},
   introduction:"Watch the complete talk once for its main argument. Watch again and take notes on the five factors, the ranking and the company examples.",text:["A cleaned transcript was used to construct and verify the activities."],
   activities:[
@@ -49,4 +49,3 @@ const startupSuccess = {
 };
 
 export default startupSuccess;
-

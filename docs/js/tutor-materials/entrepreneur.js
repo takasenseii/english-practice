@@ -34,7 +34,7 @@ const advancedVocabularyChoices = [
 ];
 
 const entrepreneur = {
-  id:"entrepreneur-video-01", courseId:"english-2", unitId:"entrepreneurship", unitTitle:"Entrepreneurship", title:"What Is an Entrepreneur?", topic:"Entrepreneurship and personal qualities", levels:["B1","B2"], mediaType:"youtube", videoId:"rRpMrAMesbA",
+  id:"entrepreneur-video-01", courseId:"english-2", unitId:"entrepreneurship", unitTitle:"Entrepreneurship", title:"What Is an Entrepreneur?", topic:"Entrepreneurship and personal qualities", levels:["B1","B2"], mediaType:"youtube", videoId:"rRpMrAMesbA", durationMinutes:1,
   source:{label:"GCFGlobal: What Is an Entrepreneur?",url:"https://www.youtube.com/watch?v=rRpMrAMesbA"},
   introduction:"Watch once without opening the transcript and focus on the main idea. Watch again for vocabulary and details.", transcriptLabel:"Transcript support",
   text:["What exactly is an entrepreneur? An entrepreneur is a person with an idea for a product or service. They decide to start a business which brings this idea to life.","Maybe they have always dreamed of opening their own boutique, or maybe they want to create an app which millions of people will use. The dream of an entrepreneur can be big or small, but most successful entrepreneurs share a number of characteristics. They are passionate, motivated, independent and creative.","Entrepreneurs love thinking outside the box. They are always looking to expand their knowledge, break out of their comfort zone and find new opportunities in the marketplace. They do not just accept things as they are.","They also believe that their ideas have value and that they have something special to bring to the table. So, what do you think? Could you be an entrepreneur?"],
