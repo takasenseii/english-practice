@@ -39,6 +39,23 @@ function wordCount(text) {
   return text.trim() ? text.trim().split(/\s+/).length : 0;
 }
 
+function formatQuestionPrompt(activity) {
+  const prompt = activity.prompt;
+  if (!activity.id.includes("-vocab-choice-")) return prompt;
+
+  const patterns = [
+    [/^(Which phrase is closest in meaning to )(.+?)(\?)$/, "$1“$2”$3"],
+    [/^(What does )(?!it mean\b|Lewis\b)(.+?)( mean| suggest| imply| emphasise| describe)(.*)$/, "$1“$2”$3$4"],
+    [/^(What nuance does )(.+?)( add.*)$/, "$1“$2”$3"],
+    [/^(Which interpretation best captures )(.+?)(\?)$/, "$1“$2”$3"]
+  ];
+
+  for (const [pattern, replacement] of patterns) {
+    if (pattern.test(prompt)) return prompt.replace(pattern, replacement);
+  }
+  return prompt;
+}
+
 function hashString(value) {
   let hash = 2166136261;
   for (let i = 0; i < value.length; i++) {
@@ -224,7 +241,7 @@ const tutor = {
       }
 
       root.querySelector("#tutorQuestion").innerHTML = `
-        <h2 class="question-title">${activity.prompt}</h2>
+        <h2 class="question-title">${formatQuestionPrompt(activity)}</h2>
         ${answerArea}
         <div class="tutor-actions">
           <button class="btn" id="tutorHint">Hint</button>
