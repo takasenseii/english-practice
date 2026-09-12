@@ -32,8 +32,27 @@ const vocabularyChoices = [
   mc("Which phrase is closest in meaning to lasting change?", ["Change that continues for a long time", "Change that happens accidentally", "Change affecting one person only", "Change that is quickly reversed"], 0, "Focus on the word lasting.", "Lasting change continues and has effects over time.")
 ];
 
+const advancedMatchingSets = [
+  [["act of protest","a deliberate action showing opposition"],["civil-rights work","organised activity intended to secure equal legal and social treatment"],["racial violence","violence directed at people because of race"],["gather information","systematically collect facts or evidence"],["challenge segregation","actively question or resist enforced separation"],["economic pressure","financial influence used to force or encourage change"]],
+  [["declining revenues","a continuing reduction in income"],["Supreme Court decision","a ruling made by the highest court in the country"],["desegregation","the process of ending enforced racial separation"],["serious consequences","important and potentially harmful results"],["individual action","something undertaken by one person"],["collective action","coordinated activity by a group pursuing a shared goal"]]
+].map(set => set.map(([term,definition]) => ({term,definition})));
+
+const advancedVocabularyChoices = [
+  mc("Which situation best illustrates resistance in the context of the text?",["Refusing to follow an unjust segregation rule","Learning the timetable for a bus route","Moving closer to a place of work","Accepting a decision without objection"],0,"Look for active opposition rather than a private opinion.","Resistance involves opposing or refusing to accept a rule, system or force."),
+  mc("In the text, what is implied by saying Parks's action was not simply a sudden decision?",["It developed from earlier experience and organised activism","It was planned entirely by the Supreme Court","It happened before she joined the NAACP","It had no connection to the later boycott"],0,"Relate the expression to the evidence in the next sentences.","The phrase rejects a spontaneous-only explanation and points towards sustained activism."),
+  mc("Which sentence uses nevertheless in the same way as the text?",["The campaign involved serious risks; nevertheless, she continued her work.","The campaign succeeded nevertheless the court.","Nevertheless means the campaign began in 1955.","She nevertheless because the buses lost money."],0,"Choose the sentence where it introduces an unexpected contrast.","Nevertheless links contrasting ideas and means despite what has just been stated."),
+  mc("What is the strongest paraphrase of ‘her arrest helped start the boycott’?",["Her arrest contributed to the beginning of the boycott.","Her arrest was the only cause of the boycott.","The boycott caused her earlier arrest.","Her arrest prevented the boycott from developing."],0,"Pay attention to helped rather than caused alone.","Contributed to preserves the idea that the arrest mattered without presenting it as the only cause."),
+  mc("What does faced suggest in ‘the bus system faced declining revenues’?",["The system had to deal with a serious financial problem.","The system physically turned towards its passengers.","The system accurately predicted its future income.","The system deliberately increased its revenue."],0,"The verb is figurative here.","To face a problem means to experience it and have to deal with it."),
+  mc("Which collocation from the text refers to change achieved by many people acting together?",["Collective action","Sudden decision","Individual passenger","Personal consequence"],0,"Collective contrasts with individual.","Collective action is coordinated action undertaken by a group."),
+  mc("What nuance does often add to ‘famous moments of protest are often supported by years of preparation’?",["This is presented as common but not universally true.","This is presented as impossible to challenge.","This happened only once in history.","The writer is uncertain whether preparation exists."],0,"Consider the difference between often and always.","Often expresses frequency while allowing exceptions."),
+  mc("Which interpretation best captures larger movement?",["A broad organised struggle involving many people and actions","A longer physical journey on public transport","A single decision made by one passenger","A court case with no public participation"],0,"Movement has a political and social meaning here.","A social movement is a broad collective effort to achieve change.")
+];
+
 const rosaParks = {
   id: "rosa-parks-01",
+  courseId: "english-2",
+  unitId: "civil-rights-movement",
+  unitTitle: "Civil Rights Movement",
   title: "Rosa Parks: More Than One Moment",
   topic: "Civil rights in the USA",
   levels: ["B1", "B2"],
@@ -47,7 +66,8 @@ const rosaParks = {
   ],
   activities: [
     { id:"rosa-gist", type:"multiple-choice", category:"Main purpose", level:"both", ...mc("What is the main purpose of the text?", ["To explain Parks's protest in the context of her earlier activism and a wider movement", "To describe how bus services operated in Detroit", "To argue that court decisions never create change", "To give instructions for organising a boycott"], 0, "Choose the answer that covers all four paragraphs.", "The text connects Parks's famous action with earlier activism, collective protest and lasting change.") },
-    ...vocabularyActivities("rosa", matchingSets, vocabularyChoices),
+    ...vocabularyActivities("rosa-b1", matchingSets, vocabularyChoices, "B1"),
+    ...vocabularyActivities("rosa-b2", advancedMatchingSets, advancedVocabularyChoices, "B2"),
     { id:"rosa-comp-1", type:"multiple-choice", category:"Detailed comprehension", level:"both", ...mc("What directly followed Parks's refusal to give up her seat?", ["She was arrested.", "She moved to Detroit.", "The Supreme Court met.", "She received an award."], 0, "Return to the first paragraph.", "Parks was arrested after refusing to give up her seat.") },
     { id:"rosa-comp-2", type:"multiple-choice", category:"Detailed comprehension", level:"both", ...mc("Which activity was part of Parks's earlier civil-rights work?", ["Gathering information about discrimination and racial violence", "Working as a Supreme Court judge", "Owning the Montgomery bus system", "Running for political office"], 0, "Look at the second paragraph.", "Parks gathered accounts from people affected by discrimination and racial violence.") },
     { id:"rosa-comp-3", type:"multiple-choice", category:"Detailed comprehension", level:"both", ...mc("Why did the bus system face declining revenues?", ["Thousands of passengers stopped using and paying for the buses.", "The city increased ticket prices.", "The Supreme Court stopped operating.", "Bus drivers moved to Detroit."], 0, "Think about what a boycott removes from a business.", "The boycott reduced the money received from passengers.") },
@@ -62,4 +82,3 @@ const rosaParks = {
 };
 
 export default rosaParks;
-
