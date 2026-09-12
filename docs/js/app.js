@@ -7,6 +7,7 @@ import idioms from "./idioms.js";
 import phrasalverbs from "./phrasalverbs.js";
 import tutor from "./tutor.js";
 import writing from "./writing.js";
+import ibc from "./ibc.js";
 import speaking from "./speaking.js";
 import { tutorMaterials } from "./tutor-materials.js";
 
@@ -111,7 +112,9 @@ const menuSections = [
     title: "Writing",
     description: "Plan, organise and develop structured texts.",
     items: [
-      { id: "ibc-peel", label: "IBC and PEEL", description: "Structure complete texts and develop effective body paragraphs.", render: renderWriting }
+      { id: "ibc", label: "IBC: Whole Essay", description: "Learn the introduction, body and conclusion; begin by writing an introduction.", render: renderIbc },
+      { id: "peel", label: "PEEL: Body Paragraphs", description: "Read complete model essays and practise building body paragraphs.", render: renderWriting },
+      { id: "improve-writing", label: "Improve Your Writing", description: "Coming next: evidence, punctuation, transitions and linking words.", render: renderWritingImprovement }
     ]
   },
   {
@@ -267,6 +270,11 @@ function renderTutorUnit(courseId, unitId) {
 function router() {
   const route = (location.hash || "#/").replace("#/", "");
 
+  if (route === "ibc-peel") {
+    location.replace("#/peel");
+    return;
+  }
+
   if (!route) {
     renderMenu();
     return;
@@ -342,6 +350,10 @@ function renderSva(root)      { mountExercise(sva, root); }
 function renderIdioms(root) { mountExercise(idioms, root); }
 function renderPhrasalverbs(root) { mountExercise(phrasalverbs, root); }
 function renderWriting(root) { mountExercise(writing, root); }
+function renderIbc(root) { mountExercise(ibc, root); }
+function renderWritingImprovement(root) {
+  root.innerHTML = `<div class="container learning-shell"><header class="learning-heading"><div><div class="pill">Writing</div><h1>Improve Your Writing</h1><p>Use this section once you can build an introduction and a body paragraph.</p></div></header><section class="learning-panel"><h2>What will we practise?</h2><ul><li>Making points specific and choosing useful examples or statistics.</li><li>Explaining how evidence supports a point.</li><li>Fixing run-on sentences and punctuation.</li><li>Using transitions and linking words where they clarify the connection.</li></ul><p class="learning-note">Exercises for these topics are coming next. For now, practise with the separate IBC and PEEL lessons.</p></section></div>`;
+}
 function renderSpeaking(root) { mountExercise(speaking, root); }
 function renderTutor(root, materialId) {
   if (typeof currentUnmount === "function") {
