@@ -217,6 +217,18 @@ function renderTutorUnit(courseId, unitId) {
   if (!resources.length) { renderTutorCourse(courseId); return; }
   const unitTitle = resources[0].unitTitle;
 
+  function resourceSizeLabel(material) {
+    if (material.mediaType === "youtube") {
+      return `Approx. ${material.durationMinutes} ${material.durationMinutes === 1 ? "minute" : "minutes"}`;
+    }
+    const words = (material.text || [])
+      .join(" ")
+      .trim()
+      .split(/\s+/)
+      .filter(Boolean).length;
+    return `${words} ${words === 1 ? "word" : "words"}`;
+  }
+
   document.getElementById("menu").innerHTML = `
     <div class="container">
       <button class="backBtn" id="backBtn">← Back to English ${courseId.replace("english-", "")}</button>
@@ -226,6 +238,7 @@ function renderTutorUnit(courseId, unitId) {
           <div class="pill">${material.mediaType === "youtube" ? "Video" : "Reading"}</div>
           <h3>${material.title}</h3>
           <p>${material.topic}</p>
+          <p><strong>${resourceSizeLabel(material)}</strong></p>
           <a class="btn" href="#/private-tutor/${courseId}/${unitId}/${material.id}">Open →</a>
         </div>`).join("")}</div>
     </div>`;
