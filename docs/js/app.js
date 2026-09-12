@@ -5,6 +5,7 @@ import ppvsps from "./ppvsps.js";
 import sva from "./sva.js";
 import idioms from "./idioms.js";
 import phrasalverbs from "./phrasalverbs.js";
+import tutor from "./tutor.js";
 
 
 
@@ -83,7 +84,8 @@ const menuSections = [
       { id: "sva",      label: "Subject–verb agreement",  render: renderSva },
       { id: "idioms", label: "Idioms", render: renderIdioms },
       { id: "phrasalverbs", label: "Phrasal verbs", render: renderPhrasalverbs },
-      { id: "spelling", label: "Spelling exercises",      render: renderSpelling }
+      { id: "spelling", label: "Spelling exercises",      render: renderSpelling },
+      { id: "tutor", label: "AI Tutor",                  render: renderTutor }
       
     ]
   }
@@ -173,6 +175,14 @@ menu.innerHTML = `
         <div class="global-stats" data-ex="spelling"></div>
         <a class="btn" href="#/spelling">Open →</a>
       </div>
+
+      <div class="card tutor-card">
+        <div class="pill">Reading</div>
+        <h3>AI Tutor</h3>
+        <p>Work with vocabulary, comprehension and extended writing.</p>
+        <div class="global-stats">Civil rights prototype</div>
+        <a class="btn" href="#/tutor">Open →</a>
+      </div>
     </div>
   </div>
 `;
@@ -232,6 +242,7 @@ function renderPpvsps(root)   { mountExercise(ppvsps, root); }
 function renderSva(root)      { mountExercise(sva, root); }
 function renderIdioms(root) { mountExercise(idioms, root); }
 function renderPhrasalverbs(root) { mountExercise(phrasalverbs, root); }
+function renderTutor(root) { mountExercise(tutor, root); }
 
 function renderSpelling(root) {
   if (typeof currentUnmount === "function") {
