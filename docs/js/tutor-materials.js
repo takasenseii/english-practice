@@ -13,10 +13,27 @@ export const tutorMaterials = [
     text: [
       "Rosa Parks is often remembered for one act of protest. On 1 December 1955, she refused to give up her seat to a white passenger on a segregated bus in Montgomery, Alabama. She was arrested. Her arrest helped start the Montgomery Bus Boycott, in which around 17,000 Black citizens refused to use the city's buses.",
       "However, Parks's action was not simply a sudden decision by a tired passenger. She had worked for the local NAACP for many years. She helped young people become involved in civil-rights work and gathered information from people who had experienced racial violence and discrimination. She had also challenged bus segregation before 1955.",
-      "The boycott lasted for more than a year. It placed economic pressure on the bus system and ended after a Supreme Court decision led to the desegregation of Montgomery's buses. Parks faced serious consequences: she lost her job, received death threats and eventually moved to Detroit. She nevertheless continued working for equality and helping other people.",
+      "The boycott lasted for more than a year. Because thousands of passengers stopped using and paying for the buses, the bus system faced declining revenues. This economic pressure, together with a Supreme Court decision, led to the desegregation of Montgomery's buses. Parks faced serious consequences: she lost her job, received death threats and eventually moved to Detroit. She nevertheless continued working for equality and helping other people.",
       "Her story shows how an individual action can become part of a much larger movement. It also demonstrates that famous moments of protest are often supported by years of preparation, organisation and collective action."
     ],
     activities: [
+      {
+        id: "vm1",
+        type: "matching",
+        category: "Vocabulary matching",
+        level: "B1",
+        prompt: "Match each word with the correct meaning.",
+        hint: "Use the surrounding sentences in the text. Look for examples of separation, protest and organised action.",
+        pairs: [
+          { term: "segregation", definition: "the enforced separation of different racial groups" },
+          { term: "equality", definition: "the state of having the same rights and opportunities" },
+          { term: "boycott", definition: "an organised refusal to buy or use something" },
+          { term: "resistance", definition: "opposition to a rule, system or force" },
+          { term: "discrimination", definition: "unfair treatment based on a person's group or identity" },
+          { term: "activist", definition: "a person who works to bring about political or social change" }
+        ],
+        explanation: "These six words are central to understanding both Rosa Parks's actions and the wider civil-rights movement."
+      },
       {
         id: "v1",
         type: "multiple-choice",
@@ -70,16 +87,56 @@ export const tutorMaterials = [
         type: "multiple-choice",
         category: "Cause and effect",
         level: "B1",
-        prompt: "How did the boycott put pressure on the bus system?",
+        prompt: "Why did the bus system face declining revenues during the boycott?",
         options: [
-          "It reduced the money earned from passengers.",
+          "Thousands of passengers stopped using and paying for the buses.",
           "It increased the price of buses.",
           "It stopped the Supreme Court from meeting.",
           "It made more people move to Detroit."
         ],
         answer: 0,
         hint: "Think about what happens when thousands of customers stop paying for a service.",
-        explanation: "With many Black citizens refusing to use the buses, the system lost passenger revenue."
+        explanation: "Thousands of passengers stopped using and paying for the buses, so the bus system received less money. Its revenues declined."
+      },
+      {
+        id: "o1",
+        type: "ordering",
+        category: "Chronology",
+        level: "B1",
+        prompt: "Put the events in chronological order, from 1 (first) to 4 (last).",
+        hint: "Parks's organised work began before the famous bus protest. The move to Detroit happened after the boycott.",
+        items: [
+          "Parks worked for the local NAACP.",
+          "Parks refused to give up her bus seat and was arrested.",
+          "The Montgomery Bus Boycott put pressure on the bus system.",
+          "Parks and her family moved to Detroit."
+        ],
+        explanation: "Parks's earlier activism came first, followed by her arrest, the boycott and her family's move to Detroit."
+      },
+      {
+        id: "tf1",
+        type: "true-false",
+        category: "True or false",
+        level: "B1",
+        prompt: "Decide whether each statement is true or false. Correct the false statements.",
+        hint: "Check the number of participants, Parks's earlier activism and the consequences she faced.",
+        statements: [
+          {
+            text: "Rosa Parks first became involved in civil-rights work after her arrest.",
+            answer: false,
+            correction: "Rosa Parks had been involved in civil-rights work for many years before her arrest."
+          },
+          {
+            text: "Around 17,000 Black citizens participated in the Montgomery Bus Boycott.",
+            answer: true
+          },
+          {
+            text: "Parks experienced no serious personal consequences after the boycott.",
+            answer: false,
+            correction: "Parks lost her job, received death threats and eventually moved to Detroit."
+          }
+        ],
+        explanation: "The text presents Parks as an experienced activist and also describes both collective participation and personal consequences."
       },
       {
         id: "s1",
@@ -141,4 +198,3 @@ export const tutorMaterials = [
     ]
   }
 ];
-
