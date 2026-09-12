@@ -3,5 +3,6 @@ import entrepreneur from "./tutor-materials/entrepreneur.js";
 import sixTipsDivided from "./tutor-materials/six-tips-divided.js";
 import startupSuccess from "./tutor-materials/startup-success.js";
 import benefitsOfFailure from "./tutor-materials/benefits-of-failure.js";
+import startupChallenges from "./tutor-materials/startup-challenges.js";
 
-export const tutorMaterials = [rosaParks, entrepreneur, sixTipsDivided, startupSuccess, benefitsOfFailure];
+export const tutorMaterials = [rosaParks, entrepreneur, sixTipsDivided, startupSuccess, benefitsOfFailure, startupChallenges];
