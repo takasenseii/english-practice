@@ -330,3 +330,4 @@ body{
   .tutor-panel { padding:16px; }
   .matching-row { grid-template-columns:1fr; gap:6px; }
 }
+.peel-order-exercise + .peel-order-exercise{border-top:1px solid var(--border);margin-top:1.5rem;padding-top:1.5rem}
