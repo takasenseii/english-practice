@@ -33,7 +33,7 @@ const b2Choices=[
 
 const muskFailures={
   id:"musk-failures-01",courseId:"english-2",unitId:"entrepreneurship",unitTitle:"Entrepreneurship",
-  title:"Elon Musk: Six Failures and Difficult Decisions",topic:"Adaptation, risk, persistence and responsibility",levels:["B1","B2"],mediaType:"reading",
+  title:"Elon Musk: Setbacks, Risks and Business Decisions",topic:"Adaptation, risk, persistence and responsibility",levels:["B1","B2"],mediaType:"reading",
   source:{label:"Pressfarm: The 12 Failures of Elon Musk and How He Overcame Them",url:"https://press.farm/the-failures-of-elon-musk-and-how-he-overcame-them/"},
   introduction:"Read the adapted text once for the main idea. Then decide whether each case demonstrates learning, risky persistence or unresolved responsibility.",
   text:[
