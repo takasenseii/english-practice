@@ -337,3 +337,6 @@ body{
 .ibc-jump button{border:1px solid var(--border);border-radius:10px;padding:10px 14px;background:rgba(255,255,255,.06);color:var(--text);cursor:pointer}
 .ibc-jump button:hover{background:rgba(255,255,255,.14)}
 .body-example{padding:12px 14px;border:1px solid var(--border);border-radius:10px;line-height:1.5}
+.ibc-set-buttons{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0}
+.ibc-set-buttons button{padding:8px 14px;border:1px solid var(--border);border-radius:10px;background:rgba(255,255,255,.06);color:var(--text);cursor:pointer}
+.ibc-set-buttons button.selected{background:#2769b5;border-color:#5599df;font-weight:700}
