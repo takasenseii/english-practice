@@ -12,8 +12,21 @@ export default speakingMaterial({
   note: "A presentation is not an essay read aloud. Sentences are usually shorter, and listeners need clearer verbal signposts.",
   signposts: [
     signpostGroup("I", ["Today I am going to talk about...", "My presentation has three main parts..."]),
-    signpostGroup("B", ["First, let us consider...", "For example,...", "This matters because...", "Moving on to my next point..."]),
-    signpostGroup("C", ["To sum up,...", "The main point I would like you to remember is...", "Thank you for listening."])
+    signpostGroup("B", ["First, let us consider...", "For example, ...", "This matters because...", "Moving on to my next point..."]),
+    signpostGroup("C", ["To sum up, ...", "The main point I would like you to remember is...", "Thank you for listening."])
+  ],
+  signpostUses: [
+    ["Introduce a point", "First, let's look at..."],
+    ["Add information", "Another reason is..."],
+    ["Give an example", "For example, ..."],
+    ["Show contrast", "On the other hand, ..."],
+    ["Move on", "Next, let's consider..."],
+    ["Conclude", "To sum up, ..."]
+  ],
+  signpostPractice: [
+    {before:"You have finished explaining preparation. Your next point is managing nerves.",options:["Next, let's look at ways to manage nerves.","In conclusion, preparation is important.","For example, preparation is important."],answer:0,reason:"Next signals a move to the next body point."},
+    {before:"You have said that a simple visual can help listeners. Now you want to mention a chart.",options:["On the other hand, a chart can help.","For example, a simple chart can show the main result.","To sum up, a chart can help."],answer:1,reason:"For example introduces a specific instance of the idea."},
+    {before:"You have explained all three strategies and are ready to finish.",options:["First, let us talk about preparation.","Additionally, there is another point.","To sum up, preparation, calm breathing and audience contact can help."],answer:2,reason:"To sum up signals the conclusion and returns to the main points."}
   ],
   weakOpening: "Hello. I have to do a presentation. My topic is countries. There are many things about them.",
   openingOptions: [
