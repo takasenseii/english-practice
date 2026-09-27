@@ -9,6 +9,7 @@ import tutor from "./tutor.js";
 import writing from "./writing.js";
 import ibc from "./ibc.js";
 import improveWriting from "./improve-writing.js";
+import transitions from "./transitions.js";
 import speaking from "./speaking.js";
 import { tutorMaterials } from "./tutor-materials.js";
 
@@ -115,7 +116,8 @@ const menuSections = [
     items: [
       { id: "ibc", label: "IBC: Whole Essay", description: "Practise introductions, body plans and conclusions at three levels.", render: renderIbc },
       { id: "peel", label: "PEEL: Body Paragraphs", description: "Read complete model essays and practise building body paragraphs.", render: renderWriting },
-      { id: "improve-writing", label: "Improve Your Writing", description: "Practise evidence, punctuation, transitions and linking words.", render: renderWritingImprovement }
+      { id: "improve-writing", label: "Improve Your Writing", description: "Practise evidence, punctuation, transitions and linking words.", render: renderWritingImprovement },
+      { id: "transitions", label: "Transitions and Linking Ideas", description: "Connect sentences and paragraphs with accurate transitions.", render: renderTransitions }
     ]
   },
   {
@@ -353,6 +355,7 @@ function renderPhrasalverbs(root) { mountExercise(phrasalverbs, root); }
 function renderWriting(root) { mountExercise(writing, root); }
 function renderIbc(root) { mountExercise(ibc, root); }
 function renderWritingImprovement(root) { mountExercise(improveWriting, root); }
+function renderTransitions(root) { mountExercise(transitions, root); }
 function renderSpeaking(root) { mountExercise(speaking, root); }
 function renderTutor(root, materialId) {
   if (typeof currentUnmount === "function") {
