@@ -11,9 +11,9 @@ export default speakingMaterial({
   ],
   note: "A presentation is not an essay read aloud. Sentences are usually shorter, and listeners need clearer verbal signposts.",
   signposts: [
-    signpostGroup("I", ["Today I am going to talk aboutâ€¦", "My presentation has three main partsâ€¦"]),
-    signpostGroup("B", ["First, let us considerâ€¦", "For example,â€¦", "This matters becauseâ€¦", "Moving on to my next pointâ€¦"]),
-    signpostGroup("C", ["To sum up,â€¦", "The main point I would like you to remember isâ€¦", "Thank you for listening."])
+    signpostGroup("I", ["Today I am going to talk about...", "My presentation has three main parts..."]),
+    signpostGroup("B", ["First, let us consider...", "For example,...", "This matters because...", "Moving on to my next point..."]),
+    signpostGroup("C", ["To sum up,...", "The main point I would like you to remember is...", "Thank you for listening."])
   ],
   weakOpening: "Hello. I have to do a presentation. My topic is countries. There are many things about them.",
   openingOptions: [
