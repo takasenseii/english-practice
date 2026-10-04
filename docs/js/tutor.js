@@ -104,6 +104,10 @@ const tutor = {
         <section class="tutor-panel">
           <h2>Before you begin</h2>
           <p>${material.introduction}</p>
+          ${material.vocabulary ? `<details><summary>Key vocabulary</summary><dl>${material.vocabulary.map(item => `<dt><strong>${escapeHtml(item.term)}</strong></dt><dd>${escapeHtml(item.definition)}</dd>`).join("")}</dl></details>` : ""}
+          ${material.sourceLead ? `<p class="source-line">${escapeHtml(material.sourceLead)} <a href="${escapeHtml(material.source.url)}" target="_blank" rel="noopener">${escapeHtml(material.source.label)}</a></p>` : ""}
+          ${material.additionalSources ? `<ul>${material.additionalSources.map(source => `<li><a href="${escapeHtml(source.url)}" target="_blank" rel="noopener">${escapeHtml(source.label)}</a></li>`).join("")}</ul>` : ""}
+
           <p class="tutor-muted">Your progress is saved on this device. A future version can connect it to your school Google account.</p>
         </section>
 
@@ -119,7 +123,7 @@ const tutor = {
         ${material.hideTranscript ? "" : `<details class="tutor-panel reading-panel" ${material.mediaType === "youtube" ? "" : "open"}>
           <summary>${material.transcriptLabel || "Reading"}: ${material.title}</summary>
           <div class="reading-text">${material.text.map(paragraph => `<p>${paragraph}</p>`).join("")}</div>
-          <p class="source-line">${material.mediaType === "youtube" ? "Transcript cleaned and punctuated from" : "Adapted from"} <a href="${material.source.url}" target="_blank" rel="noopener">${material.source.label}</a>.</p>
+          <p class="source-line">${material.sourceLead || (material.mediaType === "youtube" ? "Transcript cleaned and punctuated from" : "Adapted from")} <a href="${material.source.url}" target="_blank" rel="noopener">${material.source.label}</a>.</p>
         </details>`}
 
         <section class="tutor-panel" aria-live="polite">

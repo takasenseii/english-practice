@@ -249,6 +249,7 @@ function renderTutorUnit(courseId, unitId) {
 
   function resourceSizeLabel(material) {
     if (material.mediaType === "youtube") {
+      if (!Number.isFinite(material.durationMinutes) || material.durationMinutes <= 0) return "Video";
       return `Approx. ${material.durationMinutes} ${material.durationMinutes === 1 ? "minute" : "minutes"}`;
     }
     const words = (material.text || [])
@@ -256,7 +257,7 @@ function renderTutorUnit(courseId, unitId) {
       .trim()
       .split(/\s+/)
       .filter(Boolean).length;
-    return `${words} ${words === 1 ? "word" : "words"}`;
+    return `${words} ${words === 1 ? "word" : "words"}${material.sourceLead ? " of study notes + linked reading" : ""}`;
   }
 
   document.getElementById("menu").innerHTML = `
