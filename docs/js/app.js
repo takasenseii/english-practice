@@ -10,6 +10,7 @@ import writing from "./writing.js";
 import ibc from "./ibc.js";
 import improveWriting from "./improve-writing.js";
 import transitions from "./transitions.js";
+import referencing from "./referencing.js";
 import speaking from "./speaking.js";
 import { tutorMaterials } from "./tutor-materials.js";
 
@@ -117,6 +118,7 @@ const menuSections = [
       { id: "ibc", label: "IBC: Whole Essay", description: "Practise introductions, body plans and conclusions at three levels.", render: renderIbc },
       { id: "peel", label: "PEEL: Body Paragraphs", description: "Read complete model essays and practise building body paragraphs.", render: renderWriting },
       { id: "improve-writing", label: "Improve Your Writing", description: "Practise evidence, punctuation, transitions and linking words.", render: renderWritingImprovement },
+      { id: "referencing", label: "Referencing and Citations", description: "Practise Oxford, Harvard and APA citations and reference lists.", render: renderReferencing },
       { id: "transitions", label: "Transitions and Linking Ideas", description: "Connect sentences and paragraphs with accurate transitions.", render: renderTransitions }
     ]
   },
@@ -376,3 +378,5 @@ function renderSpelling(root) {
   }
   currentUnmount = window.mountSpelling(root) || null;
 }
+
+function renderReferencing(root) { mountExercise(referencing, root); }
