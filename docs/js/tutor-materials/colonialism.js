@@ -595,23 +595,6 @@ export const colonialismMaterials = [
         ]
       },
       {
-        "id": "colonialism-australia-discussion-2",
-        "level": "both",
-        "type": "short-answer",
-        "category": "Discuss and reflect",
-        "prompt": "Explain two possible effects of forcibly separating children from their families.",
-        "hint": "Give a clear answer, an example and a link to the source. Use phrases such as “According to the article…” or “The video suggests…”.",
-        "checklist": [
-          "Answer the question directly.",
-          "Support your response with a specific example from the material.",
-          "Distinguish historical evidence from your interpretation."
-        ],
-        "modelPoints": [
-          "Consider family relationships and cultural or language connections.",
-          "Refer to the resource respectfully and avoid inventing personal stories."
-        ]
-      },
-      {
         "id": "colonialism-australia-discussion-3",
         "level": "both",
         "type": "short-answer",
