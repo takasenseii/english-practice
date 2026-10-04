@@ -87,6 +87,11 @@ const tutor = {
     let index = Math.min(saved.currentIndex || 0, Math.max(activities.length - 1, 0));
     let responses = saved.responses || {};
 
+    const isVideo = material.mediaType === "youtube";
+    const hasSuppliedTranscript = Array.isArray(material.transcript) && material.transcript.length > 0;
+    const readingContent = hasSuppliedTranscript ? material.transcript : (material.text || []);
+    const readingLabel = isVideo ? (hasSuppliedTranscript ? "Transcript" : material.sourceLead ? "Study notes" : "Transcript") : (material.transcriptLabel || "Reading");
+
     root.innerHTML = `
       <div class="container tutor-shell">
         <header class="tutor-heading">
@@ -117,14 +122,18 @@ const tutor = {
               <iframe id="tutorVideo" src="https://www.youtube-nocookie.com/embed/${material.videoId}${material.videoSections ? `?start=${material.videoSections[0].start}&end=${material.videoSections[0].end}` : ""}" title="${material.title}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
             </div>
             ${material.videoSections ? `<div class="video-sections">${material.videoSections.map((section, sectionIndex) => `<button class="btn video-section-btn ${sectionIndex === 0 ? "active" : ""}" data-video-section="${section.id}" data-start="${section.start}" data-end="${section.end}">${section.title}</button>`).join("")}</div>` : ""}
-            <p class="tutor-muted">First viewing: keep the transcript closed and listen for the main idea.</p>
+            <p class="tutor-muted">${readingLabel === "Study notes" ? "Watch and listen for the main idea. The study notes below are an overview, not a transcript." : "Watch and listen for the main idea. Use the transcript button below when you need support."}</p>
           </section>` : ""}
 
-        ${material.hideTranscript ? "" : `<details class="tutor-panel reading-panel" ${material.mediaType === "youtube" ? "" : "open"}>
-          <summary>${material.transcriptLabel || "Reading"}: ${material.title}</summary>
-          <div class="reading-text">${material.text.map(paragraph => `<p>${paragraph}</p>`).join("")}</div>
-          <p class="source-line">${material.sourceLead || (material.mediaType === "youtube" ? "Transcript cleaned and punctuated from" : "Adapted from")} <a href="${material.source.url}" target="_blank" rel="noopener">${material.source.label}</a>.</p>
-        </details>`}
+        <section class="tutor-panel reading-panel">
+          <h2>${readingLabel}: ${material.title}</h2>
+          <button type="button" class="btn" id="tutorReadingToggle" aria-expanded="true" aria-controls="tutorReadingContent">Hide ${readingLabel.toLowerCase()}</button>
+          <div id="tutorReadingContent">
+            <div class="reading-text">${readingContent.length ? readingContent.map(paragraph => `<p>${paragraph}</p>`).join("") : "<p>No transcript has been supplied for this video yet.</p>"}</div>
+            <p class="source-line">${hasSuppliedTranscript ? "Transcript supplied for" : material.sourceLead || (isVideo ? "Transcript cleaned and punctuated from" : "Adapted from")} <a href="${material.source.url}" target="_blank" rel="noopener">${material.source.label}</a>.</p>
+          </div>
+        </section>
+
 
         <section class="tutor-panel" aria-live="polite">
           <div class="progress-row">
@@ -136,6 +145,14 @@ const tutor = {
         </section>
       </div>
     `;
+
+    const readingToggle = root.querySelector("#tutorReadingToggle");
+    readingToggle.onclick = () => {
+      const content = root.querySelector("#tutorReadingContent");
+      content.hidden = !content.hidden;
+      readingToggle.setAttribute("aria-expanded", String(!content.hidden));
+      readingToggle.textContent = `${content.hidden ? "Show" : "Hide"} ${readingLabel.toLowerCase()}`;
+    };
 
     const levelSelect = root.querySelector("#tutorLevel");
     const video = root.querySelector("#tutorVideo");
