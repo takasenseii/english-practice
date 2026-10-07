@@ -83,8 +83,14 @@ const tutor = {
     const allProgress = loadProgress();
     const saved = allProgress[user.id]?.[material.id] || {};
     let level = saved.level || "B1";
-    let activities = material.activities.filter(item => item.level === "both" || item.level === level);
-    let index = Math.min(saved.currentIndex || 0, Math.max(activities.length - 1, 0));
+    const practiceSections = material.practiceSections || [];
+    let practiceSection = practiceSections.some(section => section.id === saved.practiceSection) ? saved.practiceSection : practiceSections[0]?.id;
+    const sectionIndices = { ...(saved.sectionIndices || {}) };
+    function filteredActivities() {
+      return material.activities.filter(item => (item.level === "both" || item.level === level) && (!practiceSections.length || item.practiceSection === practiceSection));
+    }
+    let activities = filteredActivities();
+    let index = Math.min(practiceSections.length ? (sectionIndices[practiceSection] || 0) : (saved.currentIndex || 0), Math.max(activities.length - 1, 0));
     let responses = saved.responses || {};
 
     const isVideo = material.mediaType === "youtube";
@@ -137,6 +143,8 @@ const tutor = {
 
         ${material.images?.length ? `<section class="tutor-panel historical-images"><h2>Examine the historical images</h2><p>${escapeHtml(material.imageIntroduction || "Describe what you can see, then distinguish your observations from your interpretation.")}</p>${material.images.map(item => `<figure style="margin:24px 0"><h3>${escapeHtml(item.title)}</h3><a href="${escapeHtml(item.src)}" target="_blank" rel="noopener"><img src="${escapeHtml(item.src)}" alt="${escapeHtml(item.alt)}" loading="lazy" style="display:block;width:100%;max-width:800px;height:auto;margin:0 auto"></a><figcaption style="margin-top:12px;line-height:1.6">${escapeHtml(item.caption)}</figcaption>${item.transcription ? `<div class="tutor-panel" style="margin-top:16px"><h4>Handwritten note: transcription</h4><blockquote style="margin:12px 0">${escapeHtml(item.transcription)}</blockquote><p class="tutor-muted">Transcription supplied by your teacher. This is wording from the historical document.</p></div>` : ""}</figure>`).join("")}<p class="tutor-muted">Select an image to open the full-size version. Image-reflection questions follow the video questions.</p></section>` : ""}
 
+        ${practiceSections.length ? `<section class="tutor-panel"><nav aria-label="Practice sections" style="display:flex;flex-wrap:wrap;gap:12px">${practiceSections.map(section => `<button type="button" class="btn" data-practice-section="${section.id}" aria-pressed="${section.id === practiceSection}" style="text-align:left;flex:1"><strong>${escapeHtml(section.title)}</strong><br><span data-section-progress="${section.id}"></span></button>`).join("")}</nav><p id="tutorSectionDescription"></p><div id="tutorVocabularyList" ${practiceSection === "vocabulary" ? "" : "hidden"}><details><summary>Word list: simple English meanings and examples</summary><dl>${(material.vocabularyList || []).map(item => `<dt style="margin-top:16px"><strong>${escapeHtml(item.term)}</strong></dt><dd>${escapeHtml(item.definition)}<br><em>${escapeHtml(item.example)}</em></dd>`).join("")}</dl></details></div></section>` : ""}
+
         <section class="tutor-panel" aria-live="polite">
           <div class="progress-row">
             <span id="tutorCategory"></span>
@@ -178,11 +186,37 @@ const tutor = {
         userId: user.id,
         level,
         currentIndex: index,
+        ...(practiceSections.length ? { practiceSection, sectionIndices: { ...sectionIndices, [practiceSection]: index } } : {}),
         responses,
         updatedAt: new Date().toISOString()
       };
+      if (practiceSections.length) sectionIndices[practiceSection] = index;
       saveProgress(allProgress);
+      updatePracticeSections();
     }
+
+    function updatePracticeSections() {
+      if (!practiceSections.length) return;
+      root.querySelectorAll("[data-practice-section]").forEach(button => {
+        const id = button.dataset.practiceSection;
+        const items = material.activities.filter(item => item.practiceSection === id && (item.level === "both" || item.level === level));
+        button.setAttribute("aria-pressed", String(id === practiceSection));
+        button.classList.toggle("primary-btn", id === practiceSection);
+        button.querySelector("[data-section-progress]").textContent = `${items.filter(item => responses[item.id]?.completed).length}/${items.length} completed`;
+      });
+      root.querySelector("#tutorSectionDescription").textContent = practiceSections.find(section => section.id === practiceSection)?.description || "";
+      root.querySelector("#tutorVocabularyList").hidden = practiceSection !== "vocabulary";
+    }
+    root.querySelectorAll("[data-practice-section]").forEach(button => {
+      button.onclick = () => {
+        sectionIndices[practiceSection] = index;
+        practiceSection = button.dataset.practiceSection;
+        activities = filteredActivities();
+        index = Math.min(sectionIndices[practiceSection] || 0, Math.max(activities.length - 1, 0));
+        persist();
+        renderQuestion();
+      };
+    });
 
     function renderSummary() {
       const completed = activities.filter(item => responses[item.id]?.completed).length;
@@ -232,7 +266,7 @@ const tutor = {
           <label class="matching-row">
             <strong>${pair.term}</strong>
             <select data-match="${pairIndex}">
-              <option value="">Choose a meaning…</option>
+              <option value="">${escapeHtml(activity.choiceLabel || "Choose a meaning…")}</option>
               ${definitions.map(option => `<option value="${option.originalIndex}" ${Number(response.answer?.[pairIndex]) === option.originalIndex ? "selected" : ""}>${option.label}</option>`).join("")}
             </select>
           </label>`).join("")}</div>`;
@@ -376,12 +410,13 @@ const tutor = {
 
     levelSelect.onchange = () => {
       level = levelSelect.value;
-      activities = material.activities.filter(item => item.level === "both" || item.level === level);
+      activities = filteredActivities();
       index = 0;
       persist();
       renderQuestion();
     };
 
+    updatePracticeSections();
     renderQuestion();
   }
 };
