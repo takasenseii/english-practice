@@ -634,7 +634,7 @@ export const colonialismMaterials = [
       "url": "https://www.youtube.com/watch?v=QKU9rVKMxuY",
       "label": "The Stolen Generations — video with survivor testimony"
     },
-    "introduction": "Watch how survivors and family members describe forced removal and its effects. All questions use this video. Refer to named speakers rather than assuming every person had the same experience. Use the Show/Hide transcript button when you need support.",
+    "introduction": "Watch how survivors and family members describe forced removal and its effects. Then examine the two historical images and their wording. Use the video for the video questions and both the images and video for the image-reflection questions. Refer to named speakers rather than assuming everyone had the same experience. Use the Show/Hide transcript button for support.",
     "vocabulary": [
       {
         "term": "forcibly",
@@ -934,6 +934,79 @@ export const colonialismMaterials = [
           "Henrietta Hunter describes effects on later generations.",
           "Sorry Day acknowledges survivors and past mistakes; the reporter describes continuing support and compensation."
         ]
+      },
+      {
+        "id": "stolen-generations-photo-1",
+        "level": "both",
+        "type": "short-answer",
+        "category": "Reflect on historical images",
+        "prompt": "In photo 1, how does the handwritten note describe choosing a child? What does its wording suggest about the writer’s attitude and the children’s ability to make choices? Use two details from the note and connect them to the video.",
+        "hint": "Begin with a detail you can see or read. Explain your interpretation and connect it to a specific example from the video. Do not invent the people’s names, feelings or personal histories.",
+        "checklist": [
+          "I identified specific visual or written details.",
+          "I explained what those details suggest without presenting guesses as facts.",
+          "I connected my interpretation to evidence from the video."
+        ],
+        "modelPoints": [
+          "The writer prefers the girl in the centre but says any of the others would do if she is taken.",
+          "The requirement that they be strong focuses on a quality the adult wants.",
+          "The wording treats children as selectable and interchangeable; this is an interpretation supported by the language.",
+          "Children’s wishes and family relationships are absent from the note. The video describes forced separation and lost family connections."
+        ]
+      },
+      {
+        "id": "stolen-generations-photo-2",
+        "level": "both",
+        "type": "short-answer",
+        "category": "Reflect on historical images",
+        "prompt": "Photo 2 is titled “Three Generations”. How does the caption classify the people? What does this suggest about the importance the document gives to ancestry? Connect your interpretation to the video’s explanation of government policies.",
+        "hint": "Begin with a detail you can see or read. Explain your interpretation and connect it to a specific example from the video. Do not invent the people’s names, feelings or personal histories.",
+        "checklist": [
+          "I identified specific visual or written details.",
+          "I explained what those details suggest without presenting guesses as facts.",
+          "I connected my interpretation to evidence from the video."
+        ],
+        "modelPoints": [
+          "The caption uses numbered racial categories and parentage to classify the people.",
+          "It draws attention to ancestry rather than the people’s names, experiences or wishes.",
+          "The video says policies particularly targeted children with lighter skin and pressured them to adopt white culture.",
+          "The photo alone does not establish whether any pictured person was forcibly removed or how they felt."
+        ]
+      },
+      {
+        "id": "stolen-generations-photo-compare",
+        "level": "both",
+        "type": "short-answer",
+        "category": "Reflect on historical images",
+        "prompt": "Compare the way the two documents present people with the way survivors describe themselves in the video. Whose voices are missing from the documents, and what do the survivor accounts help us understand?",
+        "hint": "Begin with a detail you can see or read. Explain your interpretation and connect it to a specific example from the video. Do not invent the people’s names, feelings or personal histories.",
+        "checklist": [
+          "I identified specific visual or written details.",
+          "I explained what those details suggest without presenting guesses as facts.",
+          "I connected my interpretation to evidence from the video."
+        ],
+        "modelPoints": [
+          "Photo 1 contains an adult’s preference; photo 2 organises people through racial categories.",
+          "Neither supplied document includes the pictured people’s own account of their wishes or experiences.",
+          "Eileen Cummings describes language restrictions and separation; Harry Mills describes confinement; Nancy de Vries describes a difficult reunion.",
+          "Survivor testimony provides individual accounts of identity, relationships and harm that the documents’ wording does not convey."
+        ]
+      }
+    ],
+    "imageIntroduction": "Look closely at the photographs, printed captions and handwritten note. These documents contain historical racial labels that are discriminatory and should not be used to describe people today. The dates, original publications and identities of the people pictured have not been supplied. Distinguish what you can see or read from what you infer.",
+    "images": [
+      {
+        "src": "./images/colonialism/group-of-aboriginal-children.jpg",
+        "alt": "Historical newspaper clipping showing a group of children beneath the heading Homes Are Sought For These Children, with a handwritten note below.",
+        "title": "Photo 1: “Homes Are Sought For These Children”",
+        "caption": "Examine the heading, the printed description and the handwritten note. The document presents the children through an adult’s choices; consider whose voices are missing.",
+        "transcription": "I like the little girl in centre of group, but if taken by anyone else, any of the others would do, as long as they are strong."
+      },
+      {
+        "src": "./images/colonialism/three-generations.png",
+        "alt": "Historical photograph of three people above a caption titled Three Generations, with numbered racial classifications read from right to left.",
+        "title": "Photo 2: “Three Generations”",
+        "caption": "The caption labels the people from right to left using racial categories and descriptions of ancestry. Consider how the wording reduces people to classifications and how this connects to the video’s account of assimilation."
       }
     ]
   },
