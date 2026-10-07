@@ -1129,32 +1129,6 @@ export const colonialismMaterials = [
       "label": "The Stolen Generations — video with survivor testimony"
     },
     "introduction": "Watch how survivors and family members describe forced removal and its effects. Then examine the two historical images and their wording. Use the video for the video questions and both the images and video for the image-reflection questions. Refer to named speakers rather than assuming everyone had the same experience. Use the Show/Hide transcript button for support.",
-    "vocabulary": [
-      {
-        "term": "forcibly",
-        "definition": "Using force or without allowing someone a choice."
-      },
-      {
-        "term": "heritage",
-        "definition": "The culture, history and traditions connected to a person or community."
-      },
-      {
-        "term": "traumatised",
-        "definition": "Deeply affected emotionally by a distressing experience."
-      },
-      {
-        "term": "reconnect",
-        "definition": "Establish a connection again after being separated."
-      },
-      {
-        "term": "descendants",
-        "definition": "A person’s children, grandchildren and later generations."
-      },
-      {
-        "term": "compensate",
-        "definition": "Provide money or another form of support in recognition of harm or loss."
-      }
-    ],
     "transcript": [
       "<strong>Time context — not part of the spoken transcript:</strong> “15 years since that apology” refers to the video’s time of reporting, 15 years after the 2008 apology. Claims using “today” also refer to that time. Anya Harper’s statement about a new generation of Stolen Generations is her argument about contemporary child removals.",
       "EILEEN CUMMINGS, MEMBER OF THE STOLEN GENERATIONS: I wasn't allowed to speak language. I wasn't allowed to connect with my mother and my people. Those are things that the government did to us, and so when you think about children growing up in that system, of course we're going to be traumatised in some shape or form.",
@@ -1180,39 +1154,276 @@ export const colonialismMaterials = [
     ],
     "activities": [
       {
-        "id": "stolen-generations-vocabulary",
+        "id": "colonialism-stolen-generations-english-vocabulary-match-1",
+        "practiceSection": "vocabulary",
         "level": "both",
         "type": "matching",
-        "category": "Key vocabulary",
-        "prompt": "Match the six terms to their meanings.",
+        "category": "Match meanings: set 1 of 3",
+        "prompt": "Match each word or phrase to its simple English meaning.",
         "pairs": [
           {
-            "term": "forcibly",
-            "definition": "Using force or without allowing someone a choice."
+            "term": "mission",
+            "definition": "A place run by a religious group; in this video, a place where removed children were sent."
+          },
+          {
+            "term": "blanket",
+            "definition": "A thick cover used to keep someone warm."
+          },
+          {
+            "term": "orphanage",
+            "definition": "A home that cares for children without parents able to care for them."
+          },
+          {
+            "term": "foster family",
+            "definition": "A family that cares for a child who cannot live with their birth family."
+          },
+          {
+            "term": "First Nations peoples",
+            "definition": "In Australia, Aboriginal and Torres Strait Islander peoples."
+          }
+        ],
+        "hint": "Read the meanings carefully. Use the word list above for support.",
+        "explanation": "The meaning should fit the word as it is used in this unit."
+      },
+      {
+        "id": "colonialism-stolen-generations-english-vocabulary-match-2",
+        "practiceSection": "vocabulary",
+        "level": "both",
+        "type": "matching",
+        "category": "Match meanings: set 2 of 3",
+        "prompt": "Match each word or phrase to its simple English meaning.",
+        "pairs": [
+          {
+            "term": "policy",
+            "definition": "A rule or plan used by a government or organisation."
           },
           {
             "term": "heritage",
             "definition": "The culture, history and traditions connected to a person or community."
           },
           {
-            "term": "traumatised",
-            "definition": "Deeply affected emotionally by a distressing experience."
+            "term": "recognise",
+            "definition": "Accept that something is true, important or deserving of attention."
+          },
+          {
+            "term": "descendant",
+            "definition": "Someone’s child, grandchild or a member of a later generation."
           },
           {
             "term": "reconnect",
-            "definition": "Establish a connection again after being separated."
+            "definition": "Make contact or build a relationship again after being apart."
+          }
+        ],
+        "hint": "Read the meanings carefully. Use the word list above for support.",
+        "explanation": "The meaning should fit the word as it is used in this unit."
+      },
+      {
+        "id": "colonialism-stolen-generations-english-vocabulary-match-3",
+        "practiceSection": "vocabulary",
+        "level": "both",
+        "type": "matching",
+        "category": "Match meanings: set 3 of 3",
+        "prompt": "Match each word or phrase to its simple English meaning.",
+        "pairs": [
+          {
+            "term": "out-of-home care",
+            "definition": "Care for a child living away from their birth parents, such as foster care. Often shortened to OHC."
           },
           {
-            "term": "descendants",
-            "definition": "A person’s children, grandchildren and later generations."
+            "term": "forcibly",
+            "definition": "Using force or without allowing someone a choice."
+          },
+          {
+            "term": "traumatised",
+            "definition": "Deeply affected by a very frightening or harmful experience."
           },
           {
             "term": "compensate",
-            "definition": "Provide money or another form of support in recognition of harm or loss."
+            "definition": "Give money or other support in recognition of harm or loss."
           }
         ],
-        "hint": "Consider the term in the context of the video.",
-        "explanation": "These terms describe separation, identity, harm and responses to that harm."
+        "hint": "Read the meanings carefully. Use the word list above for support.",
+        "explanation": "The meaning should fit the word as it is used in this unit."
+      },
+      {
+        "id": "colonialism-stolen-generations-english-vocabulary-sentence-1",
+        "practiceSection": "vocabulary",
+        "level": "both",
+        "type": "matching",
+        "category": "Complete sentences: set 1 of 3",
+        "prompt": "Choose a word or phrase for each gap. Use each choice once.",
+        "choiceLabel": "Choose a word or phrase…",
+        "pairs": [
+          {
+            "term": "Some removed children were sent to a ___ far from home.",
+            "definition": "mission"
+          },
+          {
+            "term": "Harry Mills says they had a ___ but no mattress.",
+            "definition": "blanket"
+          },
+          {
+            "term": "The reporter says some children were placed in an ___.",
+            "definition": "orphanage"
+          },
+          {
+            "term": "A removed child could be placed with a ___.",
+            "definition": "foster family"
+          },
+          {
+            "term": "___ lived in Australia before European colonisation.",
+            "definition": "First Nations peoples"
+          }
+        ],
+        "hint": "Read the whole sentence and check the word list if needed.",
+        "explanation": "Each word or phrase completes the meaning of its sentence."
+      },
+      {
+        "id": "colonialism-stolen-generations-english-vocabulary-sentence-2",
+        "practiceSection": "vocabulary",
+        "level": "both",
+        "type": "matching",
+        "category": "Complete sentences: set 2 of 3",
+        "prompt": "Choose a word or phrase for each gap. Use each choice once.",
+        "choiceLabel": "Choose a word or phrase…",
+        "pairs": [
+          {
+            "term": "A government ___ can affect many families.",
+            "definition": "policy"
+          },
+          {
+            "term": "A person’s ___ connects them to their family’s culture and history.",
+            "definition": "heritage"
+          },
+          {
+            "term": "Sorry Day is a time to ___ survivors and what happened to them.",
+            "definition": "recognise"
+          },
+          {
+            "term": "A grandchild is a ___ of their grandparents.",
+            "definition": "descendant"
+          },
+          {
+            "term": "After many years apart, family members may try to ___.",
+            "definition": "reconnect"
+          }
+        ],
+        "hint": "Read the whole sentence and check the word list if needed.",
+        "explanation": "Each word or phrase completes the meaning of its sentence."
+      },
+      {
+        "id": "colonialism-stolen-generations-english-vocabulary-sentence-3",
+        "practiceSection": "vocabulary",
+        "level": "both",
+        "type": "matching",
+        "category": "Complete sentences: set 3 of 3",
+        "prompt": "Choose a word or phrase for each gap. Use each choice once.",
+        "choiceLabel": "Choose a word or phrase…",
+        "pairs": [
+          {
+            "term": "A child living with carers rather than their birth parents is in ___.",
+            "definition": "out-of-home care"
+          },
+          {
+            "term": "Children were ___ taken from their families.",
+            "definition": "forcibly"
+          },
+          {
+            "term": "Eileen Cummings says children in that system could be ___.",
+            "definition": "traumatised"
+          },
+          {
+            "term": "Some organisations work to ___ survivors for the harm done to them.",
+            "definition": "compensate"
+          }
+        ],
+        "hint": "Read the whole sentence and check the word list if needed.",
+        "explanation": "Each word or phrase completes the meaning of its sentence."
+      },
+      {
+        "id": "colonialism-stolen-generations-english-vocabulary-context-1",
+        "practiceSection": "vocabulary",
+        "level": "both",
+        "type": "multiple-choice",
+        "category": "Words in context: 1 of 5",
+        "prompt": "What does “mission” mean in Harry Mills’s account?",
+        "options": [
+          "A place run by a religious group where removed children lived.",
+          "A personal goal he freely chose.",
+          "A government population count.",
+          "A short family holiday."
+        ],
+        "answer": 0,
+        "hint": "Choose the meaning that fits the video. A word can have different meanings in other contexts.",
+        "explanation": "Mission has several meanings. Here it refers to a religious institution where children were placed."
+      },
+      {
+        "id": "colonialism-stolen-generations-english-vocabulary-context-2",
+        "practiceSection": "vocabulary",
+        "level": "both",
+        "type": "multiple-choice",
+        "category": "Words in context: 2 of 5",
+        "prompt": "What does “heritage” mean when the reporter describes children being forced to reject it?",
+        "options": [
+          "Their culture, history and traditions.",
+          "Only money left by a relative.",
+          "The bedding used in a mission.",
+          "A rule about school attendance."
+        ],
+        "answer": 0,
+        "hint": "Choose the meaning that fits the video. A word can have different meanings in other contexts.",
+        "explanation": "Here heritage refers to cultural identity, not just inherited money or property."
+      },
+      {
+        "id": "colonialism-stolen-generations-english-vocabulary-context-3",
+        "practiceSection": "vocabulary",
+        "level": "both",
+        "type": "multiple-choice",
+        "category": "Words in context: 3 of 5",
+        "prompt": "What does “reconnect” mean in the discussion of separated families?",
+        "options": [
+          "Build contact or a relationship again after being apart.",
+          "Move permanently away from all relatives.",
+          "Change a child’s name.",
+          "Announce a government policy."
+        ],
+        "answer": 0,
+        "hint": "Choose the meaning that fits the video. A word can have different meanings in other contexts.",
+        "explanation": "Reconnect means make a connection again. Reconnecting can be difficult after a long separation."
+      },
+      {
+        "id": "colonialism-stolen-generations-english-vocabulary-context-4",
+        "practiceSection": "vocabulary",
+        "level": "both",
+        "type": "multiple-choice",
+        "category": "Words in context: 4 of 5",
+        "prompt": "Who are the “descendants” mentioned in the apology?",
+        "options": [
+          "Children, grandchildren and later generations of the people affected.",
+          "Only the government officials who made the policies.",
+          "All the people who attended the same school.",
+          "Only people who moved to Australia from abroad."
+        ],
+        "answer": 0,
+        "hint": "Choose the meaning that fits the video. A word can have different meanings in other contexts.",
+        "explanation": "Descendants are later generations in a family."
+      },
+      {
+        "id": "colonialism-stolen-generations-english-vocabulary-context-5",
+        "practiceSection": "vocabulary",
+        "level": "both",
+        "type": "multiple-choice",
+        "category": "Words in context: 5 of 5",
+        "prompt": "What does “out-of-home care” mean in the reporter’s final discussion?",
+        "options": [
+          "Care for children living away from their birth parents, such as foster care.",
+          "Any time a child leaves home to attend school.",
+          "A hospital appointment for an adult.",
+          "A family trip outside Australia."
+        ],
+        "answer": 0,
+        "hint": "Choose the meaning that fits the video. A word can have different meanings in other contexts.",
+        "explanation": "Out-of-home care, often shortened to OHC, refers to care arrangements away from birth parents. The term alone does not explain every child’s circumstances."
       },
       {
         "id": "stolen-generations-mc-1",
@@ -1228,7 +1439,8 @@ export const colonialismMaterials = [
         ],
         "answer": 0,
         "hint": "Use the video or its transcript. Identify what the speaker actually says.",
-        "explanation": "The reporter explains that government policies forcibly separated children from their homes and families."
+        "explanation": "The reporter explains that government policies forcibly separated children from their homes and families.",
+        "practiceSection": "questions"
       },
       {
         "id": "stolen-generations-mc-2",
@@ -1244,7 +1456,8 @@ export const colonialismMaterials = [
         ],
         "answer": 0,
         "hint": "Use the video or its transcript. Identify what the speaker actually says.",
-        "explanation": "The reporter lists these placements and emphasises the distance from home."
+        "explanation": "The reporter lists these placements and emphasises the distance from home.",
+        "practiceSection": "questions"
       },
       {
         "id": "stolen-generations-mc-3",
@@ -1260,7 +1473,8 @@ export const colonialismMaterials = [
         ],
         "answer": 0,
         "hint": "Use the video or its transcript. Identify what the speaker actually says.",
-        "explanation": "She identifies restrictions on language and family/community connections and links them to trauma."
+        "explanation": "She identifies restrictions on language and family/community connections and links them to trauma.",
+        "practiceSection": "questions"
       },
       {
         "id": "stolen-generations-mc-4",
@@ -1276,7 +1490,8 @@ export const colonialismMaterials = [
         ],
         "answer": 0,
         "hint": "Use the video or its transcript. Identify what the speaker actually says.",
-        "explanation": "His account describes confinement and very poor living conditions."
+        "explanation": "His account describes confinement and very poor living conditions.",
+        "practiceSection": "questions"
       },
       {
         "id": "stolen-generations-mc-5",
@@ -1292,7 +1507,8 @@ export const colonialismMaterials = [
         ],
         "answer": 0,
         "hint": "Use the video or its transcript. Identify what the speaker actually says.",
-        "explanation": "The reporter describes changed names, forbidden languages and pressure to adopt white culture."
+        "explanation": "The reporter describes changed names, forbidden languages and pressure to adopt white culture.",
+        "practiceSection": "questions"
       },
       {
         "id": "stolen-generations-mc-6",
@@ -1308,7 +1524,8 @@ export const colonialismMaterials = [
         ],
         "answer": 0,
         "hint": "Use the video or its transcript. Identify what the speaker actually says.",
-        "explanation": "She says she met her mother after 53 years and that her mother could not relate to her."
+        "explanation": "She says she met her mother after 53 years and that her mother could not relate to her.",
+        "practiceSection": "questions"
       },
       {
         "id": "stolen-generations-mc-7",
@@ -1324,7 +1541,8 @@ export const colonialismMaterials = [
         ],
         "answer": 0,
         "hint": "Use the video or its transcript. Identify what the speaker actually says.",
-        "explanation": "The reporter explains both acknowledgement of pain and recommendations for responding to it."
+        "explanation": "The reporter explains both acknowledgement of pain and recommendations for responding to it.",
+        "practiceSection": "questions"
       },
       {
         "id": "stolen-generations-mc-8",
@@ -1340,7 +1558,8 @@ export const colonialismMaterials = [
         ],
         "answer": 0,
         "hint": "Use the video or its transcript. Identify what the speaker actually says.",
-        "explanation": "The video places the report in the 1990s, Sorry Day in 1998 and Kevin Rudd’s apology in 2008."
+        "explanation": "The video places the report in the 1990s, Sorry Day in 1998 and Kevin Rudd’s apology in 2008.",
+        "practiceSection": "questions"
       },
       {
         "id": "stolen-generations-mc-9",
@@ -1356,7 +1575,8 @@ export const colonialismMaterials = [
         ],
         "answer": 0,
         "hint": "Use the video or its transcript. Identify what the speaker actually says.",
-        "explanation": "The reporter describes incomplete reconnections; Henrietta describes difficulty explaining the events to her children."
+        "explanation": "The reporter describes incomplete reconnections; Henrietta describes difficulty explaining the events to her children.",
+        "practiceSection": "questions"
       },
       {
         "id": "stolen-generations-mc-10",
@@ -1372,7 +1592,8 @@ export const colonialismMaterials = [
         ],
         "answer": 0,
         "hint": "Use the video or its transcript. Identify what the speaker actually says.",
-        "explanation": "Attribute the warning to Anya Harper. The video does not establish identical experiences for every child or family."
+        "explanation": "Attribute the warning to Anya Harper. The video does not establish identical experiences for every child or family.",
+        "practiceSection": "questions"
       },
       {
         "id": "colonialism-australia-stolen-written-2",
@@ -1391,7 +1612,8 @@ export const colonialismMaterials = [
           "Harry Mills describes confinement and poor living conditions.",
           "Eileen Moseley reflects on mothers’ distress; Nancy de Vries describes difficulty relating after 53 years.",
           "Henrietta Hunter describes difficulties explaining the history to her children."
-        ]
+        ],
+        "practiceSection": "questions"
       },
       {
         "id": "stolen-generations-written-2",
@@ -1409,7 +1631,8 @@ export const colonialismMaterials = [
           "Children were required to reject Indigenous heritage and adopt white culture.",
           "Names were often changed and traditional languages were forbidden.",
           "Separation from family and community restricted cultural connections."
-        ]
+        ],
+        "practiceSection": "questions"
       },
       {
         "id": "stolen-generations-written-3",
@@ -1427,7 +1650,8 @@ export const colonialismMaterials = [
           "Some people had not reconnected with their families; some were still discovering their heritage.",
           "Henrietta Hunter describes effects on later generations.",
           "Sorry Day acknowledges survivors and past mistakes; the reporter describes continuing support and compensation."
-        ]
+        ],
+        "practiceSection": "questions"
       },
       {
         "id": "stolen-generations-photo-1",
@@ -1446,7 +1670,8 @@ export const colonialismMaterials = [
           "The requirement that they be strong focuses on a quality the adult wants.",
           "The wording treats children as selectable and interchangeable; this is an interpretation supported by the language.",
           "Children’s wishes and family relationships are absent from the note. The video describes forced separation and lost family connections."
-        ]
+        ],
+        "practiceSection": "questions"
       },
       {
         "id": "stolen-generations-photo-2",
@@ -1465,7 +1690,8 @@ export const colonialismMaterials = [
           "It draws attention to ancestry rather than the people’s names, experiences or wishes.",
           "The video says policies particularly targeted children with lighter skin and pressured them to adopt white culture.",
           "The photo alone does not establish whether any pictured person was forcibly removed or how they felt."
-        ]
+        ],
+        "practiceSection": "questions"
       },
       {
         "id": "stolen-generations-photo-compare",
@@ -1484,7 +1710,8 @@ export const colonialismMaterials = [
           "Neither supplied document includes the pictured people’s own account of their wishes or experiences.",
           "Eileen Cummings describes language restrictions and separation; Harry Mills describes confinement; Nancy de Vries describes a difficult reunion.",
           "Survivor testimony provides individual accounts of identity, relationships and harm that the documents’ wording does not convey."
-        ]
+        ],
+        "practiceSection": "questions"
       }
     ],
     "imageIntroduction": "Look closely at the photographs, printed captions and handwritten note. These documents contain historical racial labels that are discriminatory and should not be used to describe people today. The dates, original publications and identities of the people pictured have not been supplied. Distinguish what you can see or read from what you infer.",
@@ -1501,6 +1728,90 @@ export const colonialismMaterials = [
         "alt": "Historical photograph of three people above a caption titled Three Generations, with numbered racial classifications read from right to left.",
         "title": "Photo 2: “Three Generations”",
         "caption": "The caption labels the people from right to left using racial categories and descriptions of ancestry. Consider how the wording reduces people to classifications and how this connects to the video’s account of assimilation."
+      }
+    ],
+    "vocabularyList": [
+      {
+        "term": "mission",
+        "definition": "A place run by a religious group; in this video, a place where removed children were sent.",
+        "example": "Some removed children were sent to a mission far from home."
+      },
+      {
+        "term": "blanket",
+        "definition": "A thick cover used to keep someone warm.",
+        "example": "Harry Mills says they had a blanket but no mattress."
+      },
+      {
+        "term": "orphanage",
+        "definition": "A home that cares for children without parents able to care for them.",
+        "example": "The reporter says some children were placed in an orphanage."
+      },
+      {
+        "term": "foster family",
+        "definition": "A family that cares for a child who cannot live with their birth family.",
+        "example": "A removed child could be placed with a foster family."
+      },
+      {
+        "term": "First Nations peoples",
+        "definition": "In Australia, Aboriginal and Torres Strait Islander peoples.",
+        "example": "First Nations peoples lived in Australia before European colonisation."
+      },
+      {
+        "term": "policy",
+        "definition": "A rule or plan used by a government or organisation.",
+        "example": "A government policy can affect many families."
+      },
+      {
+        "term": "heritage",
+        "definition": "The culture, history and traditions connected to a person or community.",
+        "example": "A person’s heritage connects them to their family’s culture and history."
+      },
+      {
+        "term": "recognise",
+        "definition": "Accept that something is true, important or deserving of attention.",
+        "example": "Sorry Day is a time to recognise survivors and what happened to them."
+      },
+      {
+        "term": "descendant",
+        "definition": "Someone’s child, grandchild or a member of a later generation.",
+        "example": "A grandchild is a descendant of their grandparents."
+      },
+      {
+        "term": "reconnect",
+        "definition": "Make contact or build a relationship again after being apart.",
+        "example": "After many years apart, family members may try to reconnect."
+      },
+      {
+        "term": "out-of-home care",
+        "definition": "Care for a child living away from their birth parents, such as foster care. Often shortened to OHC.",
+        "example": "A child living with carers rather than their birth parents is in out-of-home care."
+      },
+      {
+        "term": "forcibly",
+        "definition": "Using force or without allowing someone a choice.",
+        "example": "Children were forcibly taken from their families."
+      },
+      {
+        "term": "traumatised",
+        "definition": "Deeply affected by a very frightening or harmful experience.",
+        "example": "Eileen Cummings says children in that system could be traumatised."
+      },
+      {
+        "term": "compensate",
+        "definition": "Give money or other support in recognition of harm or loss.",
+        "example": "Some organisations work to compensate survivors for the harm done to them."
+      }
+    ],
+    "practiceSections": [
+      {
+        "id": "vocabulary",
+        "title": "Vocabulary practice",
+        "description": "Use the simple English word list. Practise small sets of meanings and sentence gaps, then answer five questions about words in the video."
+      },
+      {
+        "id": "questions",
+        "title": "Video and reflection questions",
+        "description": "Answer the existing comprehension and writing questions. Use the video, transcript and the other resources shown in this section."
       }
     ]
   },
@@ -1527,59 +1838,790 @@ export const colonialismMaterials = [
       "url": "https://www.nationalgeographic.com/history/article/why-some-celebrate-indigenous-peoples-day-not-columbus-day/",
       "label": "National Geographic: Columbus Day or Indigenous Peoples’ Day?"
     },
-    "vocabulary": [
-      {
-        "term": "commemorate",
-        "definition": "Remember or honour an event or person publicly."
-      },
-      {
-        "term": "heritage",
-        "definition": "History and traditions associated with a community."
-      },
-      {
-        "term": "persecution",
-        "definition": "Hostile or unfair treatment directed at a group."
-      },
-      {
-        "term": "controversy",
-        "definition": "Public disagreement about an issue."
-      },
-      {
-        "term": "perspective",
-        "definition": "A way of interpreting events from a particular position."
-      }
-    ],
     "activities": [
       {
-        "id": "colonialism-columbus-vocabulary",
+        "id": "colonialism-columbus-english-vocabulary-match-1",
+        "practiceSection": "vocabulary",
         "level": "both",
         "type": "matching",
-        "category": "Key vocabulary",
-        "prompt": "Match the five terms to their meanings.",
+        "category": "Match meanings: set 1 of 11",
+        "prompt": "Match each word or phrase to its simple English meaning.",
         "pairs": [
           {
+            "term": "centuries",
+            "definition": "Periods of one hundred years."
+          },
+          {
+            "term": "explorer",
+            "definition": "Someone who travels to learn about places unfamiliar to them."
+          },
+          {
+            "term": "anniversary",
+            "definition": "A date that marks an event from an earlier year."
+          },
+          {
+            "term": "set foot",
+            "definition": "Enter or arrive in a place."
+          },
+          {
+            "term": "soil",
+            "definition": "Earth or land; in this video, the land of a particular place."
+          }
+        ],
+        "hint": "Read the meanings carefully. Use the word list above for support.",
+        "explanation": "The meaning should fit the word as it is used in this unit."
+      },
+      {
+        "id": "colonialism-columbus-english-vocabulary-match-2",
+        "practiceSection": "vocabulary",
+        "level": "both",
+        "type": "matching",
+        "category": "Match meanings: set 2 of 11",
+        "prompt": "Match each word or phrase to its simple English meaning.",
+        "pairs": [
+          {
+            "term": "voyage",
+            "definition": "A long journey, especially by sea."
+          },
+          {
+            "term": "county",
+            "definition": "An area within a country or state, with its own local administration."
+          },
+          {
+            "term": "national holiday",
+            "definition": "A holiday recognised across a country."
+          },
+          {
+            "term": "wealth",
+            "definition": "A large amount of money or valuable things."
+          },
+          {
+            "term": "defy",
+            "definition": "Refuse to obey or go against something."
+          }
+        ],
+        "hint": "Read the meanings carefully. Use the word list above for support.",
+        "explanation": "The meaning should fit the word as it is used in this unit."
+      },
+      {
+        "id": "colonialism-columbus-english-vocabulary-match-3",
+        "practiceSection": "vocabulary",
+        "level": "both",
+        "type": "matching",
+        "category": "Match meanings: set 3 of 11",
+        "prompt": "Match each word or phrase to its simple English meaning.",
+        "pairs": [
+          {
+            "term": "conventional",
+            "definition": "Usual or generally accepted."
+          },
+          {
+            "term": "inhabit",
+            "definition": "Live in a place."
+          },
+          {
+            "term": "friar",
+            "definition": "A man in a Catholic religious group whose members often work in communities."
+          },
+          {
+            "term": "experience",
+            "definition": "Live through or feel something yourself."
+          },
+          {
+            "term": "settlement",
+            "definition": "A place where people have built homes and formed a community."
+          }
+        ],
+        "hint": "Read the meanings carefully. Use the word list above for support.",
+        "explanation": "The meaning should fit the word as it is used in this unit."
+      },
+      {
+        "id": "colonialism-columbus-english-vocabulary-match-4",
+        "practiceSection": "vocabulary",
+        "level": "both",
+        "type": "matching",
+        "category": "Match meanings: set 4 of 11",
+        "prompt": "Match each word or phrase to its simple English meaning.",
+        "pairs": [
+          {
+            "term": "slaughter",
+            "definition": "Kill people or animals in a cruel or violent way; in this video, kill many people."
+          },
+          {
+            "term": "keep out",
+            "definition": "Prevent someone or something from entering or being included."
+          },
+          {
+            "term": "independence",
+            "definition": "Freedom from control by another country or power."
+          },
+          {
+            "term": "iconic",
+            "definition": "Very well known and seen as a symbol of something."
+          },
+          {
+            "term": "be cemented",
+            "definition": "Become firmly established or difficult to change."
+          }
+        ],
+        "hint": "Read the meanings carefully. Use the word list above for support.",
+        "explanation": "The meaning should fit the word as it is used in this unit."
+      },
+      {
+        "id": "colonialism-columbus-english-vocabulary-match-5",
+        "practiceSection": "vocabulary",
+        "level": "both",
+        "type": "matching",
+        "category": "Match meanings: set 5 of 11",
+        "prompt": "Match each word or phrase to its simple English meaning.",
+        "pairs": [
+          {
+            "term": "publish",
+            "definition": "Make a book or other work available to the public."
+          },
+          {
+            "term": "biography",
+            "definition": "A written account of a person’s life, usually written by someone else."
+          },
+          {
+            "term": "glorify",
+            "definition": "Present someone or something as especially great or admirable, often leaving out faults."
+          },
+          {
+            "term": "heroic",
+            "definition": "Showing great courage or presented as very brave."
+          },
+          {
+            "term": "genius",
+            "definition": "Someone thought to have exceptional ability or intelligence."
+          }
+        ],
+        "hint": "Read the meanings carefully. Use the word list above for support.",
+        "explanation": "The meaning should fit the word as it is used in this unit."
+      },
+      {
+        "id": "colonialism-columbus-english-vocabulary-match-6",
+        "practiceSection": "vocabulary",
+        "level": "both",
+        "type": "matching",
+        "category": "Match meanings: set 6 of 11",
+        "prompt": "Match each word or phrase to its simple English meaning.",
+        "pairs": [
+          {
+            "term": "neglect",
+            "definition": "Fail to give something the attention or care it needs."
+          },
+          {
+            "term": "mention",
+            "definition": "Speak or write briefly about something."
+          },
+          {
+            "term": "perpetual",
+            "definition": "Continuing all the time or for a very long time."
+          },
+          {
+            "term": "foreigner",
+            "definition": "Someone from another country."
+          },
+          {
+            "term": "be restricted",
+            "definition": "Be limited in what you can do or access."
+          }
+        ],
+        "hint": "Read the meanings carefully. Use the word list above for support.",
+        "explanation": "The meaning should fit the word as it is used in this unit."
+      },
+      {
+        "id": "colonialism-columbus-english-vocabulary-match-7",
+        "practiceSection": "vocabulary",
+        "level": "both",
+        "type": "matching",
+        "category": "Match meanings: set 7 of 11",
+        "prompt": "Match each word or phrase to its simple English meaning.",
+        "pairs": [
+          {
+            "term": "manual labour",
+            "definition": "Work done mainly with physical effort."
+          },
+          {
+            "term": "pledge",
+            "definition": "Make a serious promise."
+          },
+          {
+            "term": "allegiance",
+            "definition": "Loyalty to a person, group or country."
+          },
+          {
+            "term": "brand",
+            "definition": "Give someone or something a public image or label."
+          },
+          {
+            "term": "become embedded",
+            "definition": "Become a lasting part of something."
+          }
+        ],
+        "hint": "Read the meanings carefully. Use the word list above for support.",
+        "explanation": "The meaning should fit the word as it is used in this unit."
+      },
+      {
+        "id": "colonialism-columbus-english-vocabulary-match-8",
+        "practiceSection": "vocabulary",
+        "level": "both",
+        "type": "matching",
+        "category": "Match meanings: set 8 of 11",
+        "prompt": "Match each word or phrase to its simple English meaning.",
+        "pairs": [
+          {
+            "term": "further",
+            "definition": "More or additional."
+          },
+          {
+            "term": "found",
+            "definition": "Start or establish an organisation, place or institution."
+          },
+          {
+            "term": "immigrant",
+            "definition": "Someone who moves to another country to live there."
+          },
+          {
+            "term": "gain influence",
+            "definition": "Become better able to affect people’s opinions or decisions."
+          },
+          {
+            "term": "proclaim",
+            "definition": "Announce something officially or publicly."
+          }
+        ],
+        "hint": "Read the meanings carefully. Use the word list above for support.",
+        "explanation": "The meaning should fit the word as it is used in this unit."
+      },
+      {
+        "id": "colonialism-columbus-english-vocabulary-match-9",
+        "practiceSection": "vocabulary",
+        "level": "both",
+        "type": "matching",
+        "category": "Match meanings: set 9 of 11",
+        "prompt": "Match each word or phrase to its simple English meaning.",
+        "pairs": [
+          {
+            "term": "federal holiday",
+            "definition": "A holiday recognised by the national government in a federal country such as the United States."
+          },
+          {
+            "term": "settlers",
+            "definition": "People who move to a place and establish homes there."
+          },
+          {
+            "term": "token issue",
+            "definition": "In this video, a small or symbolic matter offered instead of meaningful action."
+          },
+          {
+            "term": "opt out",
+            "definition": "Choose not to take part."
+          },
+          {
+            "term": "a sense of unity",
+            "definition": "A feeling that people are together or share a purpose."
+          }
+        ],
+        "hint": "Read the meanings carefully. Use the word list above for support.",
+        "explanation": "The meaning should fit the word as it is used in this unit."
+      },
+      {
+        "id": "colonialism-columbus-english-vocabulary-match-10",
+        "practiceSection": "vocabulary",
+        "level": "both",
+        "type": "matching",
+        "category": "Match meanings: set 10 of 11",
+        "prompt": "Match each word or phrase to its simple English meaning.",
+        "pairs": [
+          {
+            "term": "belonging",
+            "definition": "The feeling of being accepted as part of a group or place."
+          },
+          {
+            "term": "human nature",
+            "definition": "Ways of feeling or behaving that are common among people."
+          },
+          {
+            "term": "discard",
+            "definition": "Throw away or stop using something."
+          },
+          {
             "term": "commemorate",
-            "definition": "Remember or honour an event or person publicly."
+            "definition": "Remember a person or event in a special way."
           },
           {
             "term": "heritage",
-            "definition": "History and traditions associated with a community."
-          },
+            "definition": "The history, culture and traditions connected to a community."
+          }
+        ],
+        "hint": "Read the meanings carefully. Use the word list above for support.",
+        "explanation": "The meaning should fit the word as it is used in this unit."
+      },
+      {
+        "id": "colonialism-columbus-english-vocabulary-match-11",
+        "practiceSection": "vocabulary",
+        "level": "both",
+        "type": "matching",
+        "category": "Match meanings: set 11 of 11",
+        "prompt": "Match each word or phrase to its simple English meaning.",
+        "pairs": [
           {
             "term": "persecution",
-            "definition": "Hostile or unfair treatment directed at a group."
+            "definition": "Cruel or unfair treatment directed at a group."
           },
           {
             "term": "controversy",
-            "definition": "Public disagreement about an issue."
+            "definition": "Strong public disagreement about an issue."
           },
           {
             "term": "perspective",
-            "definition": "A way of interpreting events from a particular position."
+            "definition": "A way of seeing or understanding something."
           }
         ],
-        "hint": "Read the meaning of every term before choosing.",
-        "explanation": "Use these terms to describe relationships between power, land, identity and historical memory."
+        "hint": "Read the meanings carefully. Use the word list above for support.",
+        "explanation": "The meaning should fit the word as it is used in this unit."
+      },
+      {
+        "id": "colonialism-columbus-english-vocabulary-sentence-1",
+        "practiceSection": "vocabulary",
+        "level": "both",
+        "type": "matching",
+        "category": "Complete sentences: set 1 of 11",
+        "prompt": "Choose a word or phrase for each gap. Use each choice once.",
+        "choiceLabel": "Choose a word or phrase…",
+        "pairs": [
+          {
+            "term": "The video says Columbus was celebrated for ___.",
+            "definition": "centuries"
+          },
+          {
+            "term": "Columbus was an ___ who sailed across the Atlantic.",
+            "definition": "explorer"
+          },
+          {
+            "term": "People marked the ___ of Columbus’s arrival.",
+            "definition": "anniversary"
+          },
+          {
+            "term": "The video says Columbus never ___ in what is now the United States.",
+            "definition": "set foot"
+          },
+          {
+            "term": "In the phrase “North American ___”, soil means land.",
+            "definition": "soil"
+          }
+        ],
+        "hint": "Read the whole sentence and check the word list if needed.",
+        "explanation": "Each word or phrase completes the meaning of its sentence."
+      },
+      {
+        "id": "colonialism-columbus-english-vocabulary-sentence-2",
+        "practiceSection": "vocabulary",
+        "level": "both",
+        "type": "matching",
+        "category": "Complete sentences: set 2 of 11",
+        "prompt": "Choose a word or phrase for each gap. Use each choice once.",
+        "choiceLabel": "Choose a word or phrase…",
+        "pairs": [
+          {
+            "term": "The ___ across the ocean took weeks.",
+            "definition": "voyage"
+          },
+          {
+            "term": "A town can be part of a ___.",
+            "definition": "county"
+          },
+          {
+            "term": "Columbus Day became a ___.",
+            "definition": "national holiday"
+          },
+          {
+            "term": "The explorer hoped to bring back ___.",
+            "definition": "wealth"
+          },
+          {
+            "term": "The cartoon presents Columbus as someone willing to ___ accepted ideas.",
+            "definition": "defy"
+          }
+        ],
+        "hint": "Read the whole sentence and check the word list if needed.",
+        "explanation": "Each word or phrase completes the meaning of its sentence."
+      },
+      {
+        "id": "colonialism-columbus-english-vocabulary-sentence-3",
+        "practiceSection": "vocabulary",
+        "level": "both",
+        "type": "matching",
+        "category": "Complete sentences: set 3 of 11",
+        "prompt": "Choose a word or phrase for each gap. Use each choice once.",
+        "choiceLabel": "Choose a word or phrase…",
+        "pairs": [
+          {
+            "term": "The video questions the story that Columbus challenged ___ wisdom about the Earth’s shape.",
+            "definition": "conventional"
+          },
+          {
+            "term": "People already ___ the islands when the explorers arrive.",
+            "definition": "inhabit"
+          },
+          {
+            "term": "A ___ wrote about violence against Indigenous people.",
+            "definition": "friar"
+          },
+          {
+            "term": "People can ___ discrimination because of their background.",
+            "definition": "experience"
+          },
+          {
+            "term": "The account describes an attack on a ___.",
+            "definition": "settlement"
+          }
+        ],
+        "hint": "Read the whole sentence and check the word list if needed.",
+        "explanation": "Each word or phrase completes the meaning of its sentence."
+      },
+      {
+        "id": "colonialism-columbus-english-vocabulary-sentence-4",
+        "practiceSection": "vocabulary",
+        "level": "both",
+        "type": "matching",
+        "category": "Complete sentences: set 4 of 11",
+        "prompt": "Choose a word or phrase for each gap. Use each choice once.",
+        "choiceLabel": "Choose a word or phrase…",
+        "pairs": [
+          {
+            "term": "The account describes how attackers would ___ people in settlements.",
+            "definition": "slaughter"
+          },
+          {
+            "term": "An account can ___ important details about violence.",
+            "definition": "keep out"
+          },
+          {
+            "term": "The United States fought Britain for ___.",
+            "definition": "independence"
+          },
+          {
+            "term": "The video explains how Columbus became an ___ figure.",
+            "definition": "iconic"
+          },
+          {
+            "term": "A public image can ___ by repeated stories and celebrations.",
+            "definition": "be cemented"
+          }
+        ],
+        "hint": "Read the whole sentence and check the word list if needed.",
+        "explanation": "Each word or phrase completes the meaning of its sentence."
+      },
+      {
+        "id": "colonialism-columbus-english-vocabulary-sentence-5",
+        "practiceSection": "vocabulary",
+        "level": "both",
+        "type": "matching",
+        "category": "Complete sentences: set 5 of 11",
+        "prompt": "Choose a word or phrase for each gap. Use each choice once.",
+        "choiceLabel": "Choose a word or phrase…",
+        "pairs": [
+          {
+            "term": "A writer can ___ a biography.",
+            "definition": "publish"
+          },
+          {
+            "term": "Washington Irving wrote a ___ of Columbus.",
+            "definition": "biography"
+          },
+          {
+            "term": "A story can ___ a leader while leaving out harmful actions.",
+            "definition": "glorify"
+          },
+          {
+            "term": "The book described Columbus as ___.",
+            "definition": "heroic"
+          },
+          {
+            "term": "The biography presented Columbus as a ___.",
+            "definition": "genius"
+          }
+        ],
+        "hint": "Read the whole sentence and check the word list if needed.",
+        "explanation": "Each word or phrase completes the meaning of its sentence."
+      },
+      {
+        "id": "colonialism-columbus-english-vocabulary-sentence-6",
+        "practiceSection": "vocabulary",
+        "level": "both",
+        "type": "matching",
+        "category": "Complete sentences: set 6 of 11",
+        "prompt": "Choose a word or phrase for each gap. Use each choice once.",
+        "choiceLabel": "Choose a word or phrase…",
+        "pairs": [
+          {
+            "term": "A writer may ___ important evidence.",
+            "definition": "neglect"
+          },
+          {
+            "term": "The biography did not ___ his brutal treatment of Indigenous people.",
+            "definition": "mention"
+          },
+          {
+            "term": "The immigrants were treated as ___ foreigners.",
+            "definition": "perpetual"
+          },
+          {
+            "term": "A person born abroad may be described as a ___.",
+            "definition": "foreigner"
+          },
+          {
+            "term": "Workers can ___ to only certain kinds of jobs.",
+            "definition": "be restricted"
+          }
+        ],
+        "hint": "Read the whole sentence and check the word list if needed.",
+        "explanation": "Each word or phrase completes the meaning of its sentence."
+      },
+      {
+        "id": "colonialism-columbus-english-vocabulary-sentence-7",
+        "practiceSection": "vocabulary",
+        "level": "both",
+        "type": "matching",
+        "category": "Complete sentences: set 7 of 11",
+        "prompt": "Choose a word or phrase for each gap. Use each choice once.",
+        "choiceLabel": "Choose a word or phrase…",
+        "pairs": [
+          {
+            "term": "Many immigrants could find only ___.",
+            "definition": "manual labour"
+          },
+          {
+            "term": "People can ___ to support their country.",
+            "definition": "pledge"
+          },
+          {
+            "term": "The students promised ___ to the flag.",
+            "definition": "allegiance"
+          },
+          {
+            "term": "A celebration can ___ someone as a national hero.",
+            "definition": "brand"
+          },
+          {
+            "term": "A story can ___ in a country’s culture.",
+            "definition": "become embedded"
+          }
+        ],
+        "hint": "Read the whole sentence and check the word list if needed.",
+        "explanation": "Each word or phrase completes the meaning of its sentence."
+      },
+      {
+        "id": "colonialism-columbus-english-vocabulary-sentence-8",
+        "practiceSection": "vocabulary",
+        "level": "both",
+        "type": "matching",
+        "category": "Complete sentences: set 8 of 11",
+        "prompt": "Choose a word or phrase for each gap. Use each choice once.",
+        "choiceLabel": "Choose a word or phrase…",
+        "pairs": [
+          {
+            "term": "The celebrations gave ___ support to the heroic image.",
+            "definition": "further"
+          },
+          {
+            "term": "A group of people can ___ a social club.",
+            "definition": "found"
+          },
+          {
+            "term": "An ___ may build a new life while keeping links with their former home.",
+            "definition": "immigrant"
+          },
+          {
+            "term": "A social club can ___ over political decisions.",
+            "definition": "gain influence"
+          },
+          {
+            "term": "A president can ___ a special day of celebration.",
+            "definition": "proclaim"
+          }
+        ],
+        "hint": "Read the whole sentence and check the word list if needed.",
+        "explanation": "Each word or phrase completes the meaning of its sentence."
+      },
+      {
+        "id": "colonialism-columbus-english-vocabulary-sentence-9",
+        "practiceSection": "vocabulary",
+        "level": "both",
+        "type": "matching",
+        "category": "Complete sentences: set 9 of 11",
+        "prompt": "Choose a word or phrase for each gap. Use each choice once.",
+        "choiceLabel": "Choose a word or phrase…",
+        "pairs": [
+          {
+            "term": "Columbus Day is described in the video as a ___.",
+            "definition": "federal holiday"
+          },
+          {
+            "term": "The video describes the harm caused by European ___ who followed Columbus.",
+            "definition": "settlers"
+          },
+          {
+            "term": "The speaker criticises the government for offering only a ___ rather than addressing larger problems.",
+            "definition": "token issue"
+          },
+          {
+            "term": "Some cities decided to ___ of Columbus Day celebrations.",
+            "definition": "opt out"
+          },
+          {
+            "term": "A celebration can create ___.",
+            "definition": "a sense of unity"
+          }
+        ],
+        "hint": "Read the whole sentence and check the word list if needed.",
+        "explanation": "Each word or phrase completes the meaning of its sentence."
+      },
+      {
+        "id": "colonialism-columbus-english-vocabulary-sentence-10",
+        "practiceSection": "vocabulary",
+        "level": "both",
+        "type": "matching",
+        "category": "Complete sentences: set 10 of 11",
+        "prompt": "Choose a word or phrase for each gap. Use each choice once.",
+        "choiceLabel": "Choose a word or phrase…",
+        "pairs": [
+          {
+            "term": "The immigrants wanted a feeling of ___.",
+            "definition": "belonging"
+          },
+          {
+            "term": "The video describes the wish for shared heroes as part of ___.",
+            "definition": "human nature"
+          },
+          {
+            "term": "A society may decide to ___ a misleading story.",
+            "definition": "discard"
+          },
+          {
+            "term": "A holiday can ___ an event from the past.",
+            "definition": "commemorate"
+          },
+          {
+            "term": "A celebration can be connected to a community’s ___.",
+            "definition": "heritage"
+          }
+        ],
+        "hint": "Read the whole sentence and check the word list if needed.",
+        "explanation": "Each word or phrase completes the meaning of its sentence."
+      },
+      {
+        "id": "colonialism-columbus-english-vocabulary-sentence-11",
+        "practiceSection": "vocabulary",
+        "level": "both",
+        "type": "matching",
+        "category": "Complete sentences: set 11 of 11",
+        "prompt": "Choose a word or phrase for each gap. Use each choice once.",
+        "choiceLabel": "Choose a word or phrase…",
+        "pairs": [
+          {
+            "term": "A community may face ___ because of its beliefs.",
+            "definition": "persecution"
+          },
+          {
+            "term": "There is ___ about celebrating Columbus.",
+            "definition": "controversy"
+          },
+          {
+            "term": "A survivor’s account can offer a different ___ on history.",
+            "definition": "perspective"
+          }
+        ],
+        "hint": "Read the whole sentence and check the word list if needed.",
+        "explanation": "Each word or phrase completes the meaning of its sentence."
+      },
+      {
+        "id": "colonialism-columbus-english-vocabulary-context-1",
+        "practiceSection": "vocabulary",
+        "level": "both",
+        "type": "multiple-choice",
+        "category": "Words in context: 1 of 5",
+        "prompt": "What does “biography” mean when the video discusses Washington Irving’s book?",
+        "options": [
+          "A written account of another person’s life.",
+          "A book someone writes about their own life.",
+          "A list of dates with no information about a person.",
+          "A promise of loyalty to a country."
+        ],
+        "answer": 0,
+        "hint": "Choose the meaning that fits the video. A word can have different meanings in other contexts.",
+        "explanation": "A biography usually tells someone else’s life story. A book about the writer’s own life is an autobiography."
+      },
+      {
+        "id": "colonialism-columbus-english-vocabulary-context-2",
+        "practiceSection": "vocabulary",
+        "level": "both",
+        "type": "multiple-choice",
+        "category": "Words in context: 2 of 5",
+        "prompt": "The video says Columbus’s status was “cemented”. What does this mean?",
+        "options": [
+          "His public image became firmly established.",
+          "His statues were all made from cement.",
+          "His voyages were cancelled.",
+          "His story disappeared from schools."
+        ],
+        "answer": 0,
+        "hint": "Choose the meaning that fits the video. A word can have different meanings in other contexts.",
+        "explanation": "Cemented is used figuratively: his public image became firmly established."
+      },
+      {
+        "id": "colonialism-columbus-english-vocabulary-context-3",
+        "practiceSection": "vocabulary",
+        "level": "both",
+        "type": "multiple-choice",
+        "category": "Words in context: 3 of 5",
+        "prompt": "What does “manual labour” mean in the discussion of immigrants?",
+        "options": [
+          "Work done mainly through physical effort.",
+          "Work that consists only of writing books.",
+          "A promise made during a parade.",
+          "The right to vote in an election."
+        ],
+        "answer": 0,
+        "hint": "Choose the meaning that fits the video. A word can have different meanings in other contexts.",
+        "explanation": "Manual labour involves physical work. The video says immigrants were restricted to this kind of employment."
+      },
+      {
+        "id": "colonialism-columbus-english-vocabulary-context-4",
+        "practiceSection": "vocabulary",
+        "level": "both",
+        "type": "multiple-choice",
+        "category": "Words in context: 4 of 5",
+        "prompt": "Some cities “opt out” of celebrating Columbus Day. What does this mean?",
+        "options": [
+          "They choose not to take part in the celebration.",
+          "They are required to organise larger parades.",
+          "They stop studying all history.",
+          "They move the holiday to another country."
+        ],
+        "answer": 0,
+        "hint": "Choose the meaning that fits the video. A word can have different meanings in other contexts.",
+        "explanation": "Opt out means choose not to participate. It does not mean erase the historical event."
+      },
+      {
+        "id": "colonialism-columbus-english-vocabulary-context-5",
+        "practiceSection": "vocabulary",
+        "level": "both",
+        "type": "multiple-choice",
+        "category": "Words in context: 5 of 5",
+        "prompt": "The video asks which myths to “discard”. What does discard mean?",
+        "options": [
+          "Stop using or accepting them.",
+          "Publish more biographies glorifying them.",
+          "Treat them as unquestionable facts.",
+          "Make everyone celebrate them."
+        ],
+        "answer": 0,
+        "hint": "Choose the meaning that fits the video. A word can have different meanings in other contexts.",
+        "explanation": "Discard means throw away or stop using something; here the video discusses stories a society may stop accepting."
       },
       {
         "id": "colonialism-columbus-mc-1",
@@ -1595,7 +2637,8 @@ export const colonialismMaterials = [
         ],
         "answer": 0,
         "explanation": "The article links commemoration to recognition and identity.",
-        "hint": "Identify the idea that is supported by the resource and study notes."
+        "hint": "Identify the idea that is supported by the resource and study notes.",
+        "practiceSection": "questions"
       },
       {
         "id": "colonialism-columbus-mc-2",
@@ -1611,7 +2654,8 @@ export const colonialismMaterials = [
         ],
         "answer": 0,
         "explanation": "The phrasing privileges the European arrival over existing inhabitants.",
-        "hint": "Identify the idea that is supported by the resource and study notes."
+        "hint": "Identify the idea that is supported by the resource and study notes.",
+        "practiceSection": "questions"
       },
       {
         "id": "colonialism-columbus-mc-3",
@@ -1627,7 +2671,8 @@ export const colonialismMaterials = [
         ],
         "answer": 0,
         "explanation": "Historical criticism concerns the acts and legacy being honoured.",
-        "hint": "Identify the idea that is supported by the resource and study notes."
+        "hint": "Identify the idea that is supported by the resource and study notes.",
+        "practiceSection": "questions"
       },
       {
         "id": "colonialism-columbus-mc-4",
@@ -1643,7 +2688,8 @@ export const colonialismMaterials = [
         ],
         "answer": 0,
         "explanation": "The alternative changes the focus of public remembrance.",
-        "hint": "Identify the idea that is supported by the resource and study notes."
+        "hint": "Identify the idea that is supported by the resource and study notes.",
+        "practiceSection": "questions"
       },
       {
         "id": "colonialism-columbus-mc-5",
@@ -1659,7 +2705,8 @@ export const colonialismMaterials = [
         ],
         "answer": 0,
         "explanation": "The article connects historical discrimination and colonial oppression to different meanings.",
-        "hint": "Identify the idea that is supported by the resource and study notes."
+        "hint": "Identify the idea that is supported by the resource and study notes.",
+        "practiceSection": "questions"
       },
       {
         "id": "colonialism-columbus-mc-6",
@@ -1675,7 +2722,8 @@ export const colonialismMaterials = [
         ],
         "answer": 0,
         "explanation": "This question addresses the social meaning of commemoration rather than an unrelated detail.",
-        "hint": "Identify the idea that is supported by the resource and study notes."
+        "hint": "Identify the idea that is supported by the resource and study notes.",
+        "practiceSection": "questions"
       },
       {
         "id": "colonialism-columbus-mc-7",
@@ -1691,7 +2739,8 @@ export const colonialismMaterials = [
         ],
         "answer": 0,
         "explanation": "Different formats can emphasise different evidence and perspectives.",
-        "hint": "Identify the idea that is supported by the resource and study notes."
+        "hint": "Identify the idea that is supported by the resource and study notes.",
+        "practiceSection": "questions"
       },
       {
         "id": "colonialism-columbus-mc-8",
@@ -1707,7 +2756,8 @@ export const colonialismMaterials = [
         ],
         "answer": 0,
         "explanation": "Groups contain diverse viewpoints; avoid universal claims without evidence.",
-        "hint": "Identify the idea that is supported by the resource and study notes."
+        "hint": "Identify the idea that is supported by the resource and study notes.",
+        "practiceSection": "questions"
       },
       {
         "id": "colonialism-columbus-mc-9",
@@ -1723,7 +2773,8 @@ export const colonialismMaterials = [
         ],
         "answer": 0,
         "explanation": "A society can study an individual without celebrating them.",
-        "hint": "Identify the idea that is supported by the resource and study notes."
+        "hint": "Identify the idea that is supported by the resource and study notes.",
+        "practiceSection": "questions"
       },
       {
         "id": "colonialism-columbus-mc-10",
@@ -1739,7 +2790,8 @@ export const colonialismMaterials = [
         ],
         "answer": 0,
         "explanation": "Connect knowledge of colonial power with choices about public memory.",
-        "hint": "Identify the idea that is supported by the resource and study notes."
+        "hint": "Identify the idea that is supported by the resource and study notes.",
+        "practiceSection": "questions"
       },
       {
         "id": "colonialism-columbus-effects-mc-1",
@@ -1755,7 +2807,8 @@ export const colonialismMaterials = [
         ],
         "answer": 0,
         "hint": "Consider whose experiences the video includes or leaves out. Avoid claims about every person or every community.",
-        "explanation": "The video contrasts a friendly encounter story with evidence of brutality and deaths."
+        "explanation": "The video contrasts a friendly encounter story with evidence of brutality and deaths.",
+        "practiceSection": "questions"
       },
       {
         "id": "colonialism-columbus-effects-mc-2",
@@ -1771,7 +2824,8 @@ export const colonialismMaterials = [
         ],
         "answer": 0,
         "hint": "Consider whose experiences the video includes or leaves out. Avoid claims about every person or every community.",
-        "explanation": "The quoted testimony points to harm inflicted on vulnerable people and families."
+        "explanation": "The quoted testimony points to harm inflicted on vulnerable people and families.",
+        "practiceSection": "questions"
       },
       {
         "id": "colonialism-columbus-effects-mc-3",
@@ -1787,7 +2841,8 @@ export const colonialismMaterials = [
         ],
         "answer": 0,
         "hint": "Consider whose experiences the video includes or leaves out. Avoid claims about every person or every community.",
-        "explanation": "These are possible consequences of violence, not a claim that every community had an identical experience."
+        "explanation": "These are possible consequences of violence, not a claim that every community had an identical experience.",
+        "practiceSection": "questions"
       },
       {
         "id": "colonialism-columbus-effects-mc-4",
@@ -1803,7 +2858,8 @@ export const colonialismMaterials = [
         ],
         "answer": 0,
         "hint": "Consider whose experiences the video includes or leaves out. Avoid claims about every person or every community.",
-        "explanation": "The video presents colonial harm as extending beyond Columbus’s voyages."
+        "explanation": "The video presents colonial harm as extending beyond Columbus’s voyages.",
+        "practiceSection": "questions"
       },
       {
         "id": "colonialism-columbus-effects-mc-5",
@@ -1819,7 +2875,8 @@ export const colonialismMaterials = [
         ],
         "answer": 0,
         "hint": "Consider whose experiences the video includes or leaves out. Avoid claims about every person or every community.",
-        "explanation": "Public honour can marginalise the experiences of those harmed. Responses within communities still vary."
+        "explanation": "Public honour can marginalise the experiences of those harmed. Responses within communities still vary.",
+        "practiceSection": "questions"
       },
       {
         "id": "colonialism-columbus-effects-mc-6",
@@ -1835,7 +2892,8 @@ export const colonialismMaterials = [
         ],
         "answer": 0,
         "hint": "Consider whose experiences the video includes or leaves out. Avoid claims about every person or every community.",
-        "explanation": "Omissions can shape whose experiences are recognised in public understanding."
+        "explanation": "Omissions can shape whose experiences are recognised in public understanding.",
+        "practiceSection": "questions"
       },
       {
         "id": "colonialism-columbus-effects-mc-7",
@@ -1851,7 +2909,8 @@ export const colonialismMaterials = [
         ],
         "answer": 0,
         "hint": "Consider whose experiences the video includes or leaves out. Avoid claims about every person or every community.",
-        "explanation": "The statement links history to ongoing concerns; investigate current conditions with current evidence."
+        "explanation": "The statement links history to ongoing concerns; investigate current conditions with current evidence.",
+        "practiceSection": "questions"
       },
       {
         "id": "colonialism-columbus-effects-mc-8",
@@ -1867,7 +2926,8 @@ export const colonialismMaterials = [
         ],
         "answer": 0,
         "hint": "Consider whose experiences the video includes or leaves out. Avoid claims about every person or every community.",
-        "explanation": "Recognition can change whose histories receive attention, but changing a name does not resolve every harm."
+        "explanation": "Recognition can change whose histories receive attention, but changing a name does not resolve every harm.",
+        "practiceSection": "questions"
       },
       {
         "id": "colonialism-columbus-effects-mc-9",
@@ -1883,7 +2943,8 @@ export const colonialismMaterials = [
         ],
         "answer": 0,
         "hint": "Consider whose experiences the video includes or leaves out. Avoid claims about every person or every community.",
-        "explanation": "A careful answer distinguishes historical evidence, continuing effects and claims needing up-to-date support."
+        "explanation": "A careful answer distinguishes historical evidence, continuing effects and claims needing up-to-date support.",
+        "practiceSection": "questions"
       },
       {
         "id": "colonialism-columbus-effects-mc-10",
@@ -1899,7 +2960,8 @@ export const colonialismMaterials = [
         ],
         "answer": 0,
         "hint": "Consider whose experiences the video includes or leaves out. Avoid claims about every person or every community.",
-        "explanation": "The video discusses Native rights activism. Include Indigenous agency as well as the harms inflicted."
+        "explanation": "The video discusses Native rights activism. Include Indigenous agency as well as the harms inflicted.",
+        "practiceSection": "questions"
       },
       {
         "id": "colonialism-columbus-effects-written-1",
@@ -1917,7 +2979,8 @@ export const colonialismMaterials = [
         "modelPoints": [
           "Contrast friendly encounters with the evidence of violence and mass deaths.",
           "Explain how omitting these experiences changes a learner’s understanding."
-        ]
+        ],
+        "practiceSection": "questions"
       },
       {
         "id": "colonialism-columbus-effects-written-2",
@@ -1935,7 +2998,8 @@ export const colonialismMaterials = [
         "modelPoints": [
           "Possible effects include grief, disrupted relationships and interrupted sharing of knowledge.",
           "Explain these as reasoned consequences rather than invented personal stories."
-        ]
+        ],
+        "practiceSection": "questions"
       },
       {
         "id": "colonialism-columbus-effects-written-3",
@@ -1954,7 +3018,8 @@ export const colonialismMaterials = [
           "Discuss whose experiences are recognised and how public honour can affect belonging.",
           "Changing a holiday’s name does not by itself repair injustice.",
           "Use current sources for specific claims about present-day conditions or statistics."
-        ]
+        ],
+        "practiceSection": "questions"
       },
       {
         "id": "colonialism-columbus-discussion-1",
@@ -1971,7 +3036,8 @@ export const colonialismMaterials = [
         "modelPoints": [
           "Explain Italian American recognition and Indigenous experiences.",
           "Use examples rather than implying each group has one view."
-        ]
+        ],
+        "practiceSection": "questions"
       },
       {
         "id": "colonialism-columbus-discussion-2",
@@ -1988,7 +3054,8 @@ export const colonialismMaterials = [
         "modelPoints": [
           "Distinguish your judgement from historical facts.",
           "Support your position and acknowledge a relevant counterargument."
-        ]
+        ],
+        "practiceSection": "questions"
       },
       {
         "id": "colonialism-columbus-discussion-3",
@@ -2005,7 +3072,8 @@ export const colonialismMaterials = [
         "modelPoints": [
           "Include one example from each case.",
           "Discuss whose perspectives are foregrounded and whose are overlooked."
-        ]
+        ],
+        "practiceSection": "questions"
       }
     ],
     "videoId": "fNqOGhDMm8k",
@@ -2036,6 +3104,285 @@ export const colonialismMaterials = [
       "Historians started reexamining Columbus and his story, correcting the myth and including the missing historical facts. As revelations about Columbus have become mainstream, some people have rejected the holiday, as well as the man and the legacy behind it.",
       "Today cities around the US are opting out of celebrating Columbus Day. In some cities they are choosing to celebrate Indigenous Peoples’ Day instead. At the same time, more than half of Americans think celebrating Columbus Day is a good idea, according to a poll commissioned by the Knights of Columbus.",
       "Most countries are formed with the help of myths and heroes to forge a sense of unity and belonging. It’s human nature. But as the myth of Columbus is confronted with brutal historical facts, the US will have to decide which myths are worth keeping and which ones to discard."
+    ],
+    "vocabularyList": [
+      {
+        "term": "centuries",
+        "definition": "Periods of one hundred years.",
+        "example": "The video says Columbus was celebrated for centuries."
+      },
+      {
+        "term": "explorer",
+        "definition": "Someone who travels to learn about places unfamiliar to them.",
+        "example": "Columbus was an explorer who sailed across the Atlantic."
+      },
+      {
+        "term": "anniversary",
+        "definition": "A date that marks an event from an earlier year.",
+        "example": "People marked the anniversary of Columbus’s arrival."
+      },
+      {
+        "term": "set foot",
+        "definition": "Enter or arrive in a place.",
+        "example": "The video says Columbus never set foot in what is now the United States."
+      },
+      {
+        "term": "soil",
+        "definition": "Earth or land; in this video, the land of a particular place.",
+        "example": "In the phrase “North American soil”, soil means land."
+      },
+      {
+        "term": "voyage",
+        "definition": "A long journey, especially by sea.",
+        "example": "The voyage across the ocean took weeks."
+      },
+      {
+        "term": "county",
+        "definition": "An area within a country or state, with its own local administration.",
+        "example": "A town can be part of a county."
+      },
+      {
+        "term": "national holiday",
+        "definition": "A holiday recognised across a country.",
+        "example": "Columbus Day became a national holiday."
+      },
+      {
+        "term": "wealth",
+        "definition": "A large amount of money or valuable things.",
+        "example": "The explorer hoped to bring back wealth."
+      },
+      {
+        "term": "defy",
+        "definition": "Refuse to obey or go against something.",
+        "example": "The cartoon presents Columbus as someone willing to defy accepted ideas."
+      },
+      {
+        "term": "conventional",
+        "definition": "Usual or generally accepted.",
+        "example": "The video questions the story that Columbus challenged conventional wisdom about the Earth’s shape."
+      },
+      {
+        "term": "inhabit",
+        "definition": "Live in a place.",
+        "example": "People already inhabit the islands when the explorers arrive."
+      },
+      {
+        "term": "friar",
+        "definition": "A man in a Catholic religious group whose members often work in communities.",
+        "example": "A friar wrote about violence against Indigenous people."
+      },
+      {
+        "term": "experience",
+        "definition": "Live through or feel something yourself.",
+        "example": "People can experience discrimination because of their background."
+      },
+      {
+        "term": "settlement",
+        "definition": "A place where people have built homes and formed a community.",
+        "example": "The account describes an attack on a settlement."
+      },
+      {
+        "term": "slaughter",
+        "definition": "Kill people or animals in a cruel or violent way; in this video, kill many people.",
+        "example": "The account describes how attackers would slaughter people in settlements."
+      },
+      {
+        "term": "keep out",
+        "definition": "Prevent someone or something from entering or being included.",
+        "example": "An account can keep out important details about violence."
+      },
+      {
+        "term": "independence",
+        "definition": "Freedom from control by another country or power.",
+        "example": "The United States fought Britain for independence."
+      },
+      {
+        "term": "iconic",
+        "definition": "Very well known and seen as a symbol of something.",
+        "example": "The video explains how Columbus became an iconic figure."
+      },
+      {
+        "term": "be cemented",
+        "definition": "Become firmly established or difficult to change.",
+        "example": "A public image can be cemented by repeated stories and celebrations."
+      },
+      {
+        "term": "publish",
+        "definition": "Make a book or other work available to the public.",
+        "example": "A writer can publish a biography."
+      },
+      {
+        "term": "biography",
+        "definition": "A written account of a person’s life, usually written by someone else.",
+        "example": "Washington Irving wrote a biography of Columbus."
+      },
+      {
+        "term": "glorify",
+        "definition": "Present someone or something as especially great or admirable, often leaving out faults.",
+        "example": "A story can glorify a leader while leaving out harmful actions."
+      },
+      {
+        "term": "heroic",
+        "definition": "Showing great courage or presented as very brave.",
+        "example": "The book described Columbus as heroic."
+      },
+      {
+        "term": "genius",
+        "definition": "Someone thought to have exceptional ability or intelligence.",
+        "example": "The biography presented Columbus as a genius."
+      },
+      {
+        "term": "neglect",
+        "definition": "Fail to give something the attention or care it needs.",
+        "example": "A writer may neglect important evidence."
+      },
+      {
+        "term": "mention",
+        "definition": "Speak or write briefly about something.",
+        "example": "The biography did not mention his brutal treatment of Indigenous people."
+      },
+      {
+        "term": "perpetual",
+        "definition": "Continuing all the time or for a very long time.",
+        "example": "The immigrants were treated as perpetual foreigners."
+      },
+      {
+        "term": "foreigner",
+        "definition": "Someone from another country.",
+        "example": "A person born abroad may be described as a foreigner."
+      },
+      {
+        "term": "be restricted",
+        "definition": "Be limited in what you can do or access.",
+        "example": "Workers can be restricted to only certain kinds of jobs."
+      },
+      {
+        "term": "manual labour",
+        "definition": "Work done mainly with physical effort.",
+        "example": "Many immigrants could find only manual labour."
+      },
+      {
+        "term": "pledge",
+        "definition": "Make a serious promise.",
+        "example": "People can pledge to support their country."
+      },
+      {
+        "term": "allegiance",
+        "definition": "Loyalty to a person, group or country.",
+        "example": "The students promised allegiance to the flag."
+      },
+      {
+        "term": "brand",
+        "definition": "Give someone or something a public image or label.",
+        "example": "A celebration can brand someone as a national hero."
+      },
+      {
+        "term": "become embedded",
+        "definition": "Become a lasting part of something.",
+        "example": "A story can become embedded in a country’s culture."
+      },
+      {
+        "term": "further",
+        "definition": "More or additional.",
+        "example": "The celebrations gave further support to the heroic image."
+      },
+      {
+        "term": "found",
+        "definition": "Start or establish an organisation, place or institution.",
+        "example": "A group of people can found a social club."
+      },
+      {
+        "term": "immigrant",
+        "definition": "Someone who moves to another country to live there.",
+        "example": "An immigrant may build a new life while keeping links with their former home."
+      },
+      {
+        "term": "gain influence",
+        "definition": "Become better able to affect people’s opinions or decisions.",
+        "example": "A social club can gain influence over political decisions."
+      },
+      {
+        "term": "proclaim",
+        "definition": "Announce something officially or publicly.",
+        "example": "A president can proclaim a special day of celebration."
+      },
+      {
+        "term": "federal holiday",
+        "definition": "A holiday recognised by the national government in a federal country such as the United States.",
+        "example": "Columbus Day is described in the video as a federal holiday."
+      },
+      {
+        "term": "settlers",
+        "definition": "People who move to a place and establish homes there.",
+        "example": "The video describes the harm caused by European settlers who followed Columbus."
+      },
+      {
+        "term": "token issue",
+        "definition": "In this video, a small or symbolic matter offered instead of meaningful action.",
+        "example": "The speaker criticises the government for offering only a token issue rather than addressing larger problems."
+      },
+      {
+        "term": "opt out",
+        "definition": "Choose not to take part.",
+        "example": "Some cities decided to opt out of Columbus Day celebrations."
+      },
+      {
+        "term": "a sense of unity",
+        "definition": "A feeling that people are together or share a purpose.",
+        "example": "A celebration can create a sense of unity."
+      },
+      {
+        "term": "belonging",
+        "definition": "The feeling of being accepted as part of a group or place.",
+        "example": "The immigrants wanted a feeling of belonging."
+      },
+      {
+        "term": "human nature",
+        "definition": "Ways of feeling or behaving that are common among people.",
+        "example": "The video describes the wish for shared heroes as part of human nature."
+      },
+      {
+        "term": "discard",
+        "definition": "Throw away or stop using something.",
+        "example": "A society may decide to discard a misleading story."
+      },
+      {
+        "term": "commemorate",
+        "definition": "Remember a person or event in a special way.",
+        "example": "A holiday can commemorate an event from the past."
+      },
+      {
+        "term": "heritage",
+        "definition": "The history, culture and traditions connected to a community.",
+        "example": "A celebration can be connected to a community’s heritage."
+      },
+      {
+        "term": "persecution",
+        "definition": "Cruel or unfair treatment directed at a group.",
+        "example": "A community may face persecution because of its beliefs."
+      },
+      {
+        "term": "controversy",
+        "definition": "Strong public disagreement about an issue.",
+        "example": "There is controversy about celebrating Columbus."
+      },
+      {
+        "term": "perspective",
+        "definition": "A way of seeing or understanding something.",
+        "example": "A survivor’s account can offer a different perspective on history."
+      }
+    ],
+    "practiceSections": [
+      {
+        "id": "vocabulary",
+        "title": "Vocabulary practice",
+        "description": "Use the simple English word list. Practise small sets of meanings and sentence gaps, then answer five questions about words in the video."
+      },
+      {
+        "id": "questions",
+        "title": "Video and reflection questions",
+        "description": "Answer the existing comprehension and writing questions. Use the video, transcript and the other resources shown in this section."
+      }
     ]
   }
 ];
