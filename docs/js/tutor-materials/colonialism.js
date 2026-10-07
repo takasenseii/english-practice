@@ -253,39 +253,390 @@ export const colonialismMaterials = [
     ],
     "activities": [
       {
-        "id": "colonialism-australia-vocabulary-six",
+        "id": "australia-english-vocabulary-match-1",
+        "practiceSection": "vocabulary",
         "level": "both",
         "type": "matching",
-        "category": "Key vocabulary",
-        "prompt": "Match the six terms to their meanings.",
+        "category": "Match meanings: set 1 of 5",
+        "prompt": "Match each word or phrase to its simple English meaning.",
         "pairs": [
           {
             "term": "Indigenous",
-            "definition": "Belonging to the peoples who inhabited a place before colonisation."
+            "definition": "Belonging to the first peoples of a place."
           },
           {
-            "term": "dispossession",
-            "definition": "Taking away people’s land or possessions."
+            "term": "Aboriginal",
+            "definition": "Connected to Australia’s Aboriginal peoples. Torres Strait Islander peoples are a distinct group."
           },
           {
-            "term": "assimilation",
-            "definition": "Pressure or policies making a group adopt a dominant culture."
+            "term": "overwhelmed",
+            "definition": "Affected by more than someone can cope with."
+          },
+          {
+            "term": "fatal",
+            "definition": "Causing death."
+          },
+          {
+            "term": "maintain",
+            "definition": "Keep something going or in good condition."
+          }
+        ],
+        "hint": "Read each meaning carefully. You can use the word list above.",
+        "explanation": "Review the word list if a meaning is still unclear."
+      },
+      {
+        "id": "australia-english-vocabulary-match-2",
+        "practiceSection": "vocabulary",
+        "level": "both",
+        "type": "matching",
+        "category": "Match meanings: set 2 of 5",
+        "prompt": "Match each word or phrase to its simple English meaning.",
+        "pairs": [
+          {
+            "term": "community",
+            "definition": "A group of people who live together or share a connection."
+          },
+          {
+            "term": "forcibly remove",
+            "definition": "Take someone away without giving them a choice."
+          },
+          {
+            "term": "assimilate",
+            "definition": "Become part of another culture by taking on its ways of life."
+          },
+          {
+            "term": "abuse",
+            "definition": "Harmful or cruel treatment of someone."
+          },
+          {
+            "term": "neglect",
+            "definition": "Failing to give someone or something the care they need."
+          }
+        ],
+        "hint": "Read each meaning carefully. You can use the word list above.",
+        "explanation": "Review the word list if a meaning is still unclear."
+      },
+      {
+        "id": "australia-english-vocabulary-match-3",
+        "practiceSection": "vocabulary",
+        "level": "both",
+        "type": "matching",
+        "category": "Match meanings: set 3 of 5",
+        "prompt": "Match each word or phrase to its simple English meaning.",
+        "pairs": [
+          {
+            "term": "disrupt",
+            "definition": "Interrupt something or stop it working normally."
+          },
+          {
+            "term": "long-term",
+            "definition": "Lasting or happening over a long time."
+          },
+          {
+            "term": "post-traumatic stress disorder",
+            "definition": "A condition in which a very frightening or harmful experience keeps affecting someone’s thoughts and feelings."
+          },
+          {
+            "term": "appropriation",
+            "definition": "Taking control of something for your own use."
+          }
+        ],
+        "hint": "Read each meaning carefully. You can use the word list above.",
+        "explanation": "Review the word list if a meaning is still unclear."
+      },
+      {
+        "id": "australia-english-vocabulary-match-4",
+        "practiceSection": "vocabulary",
+        "level": "both",
+        "type": "matching",
+        "category": "Match meanings: set 4 of 5",
+        "prompt": "Match each word or phrase to its simple English meaning.",
+        "pairs": [
+          {
+            "term": "prime land",
+            "definition": "Land that is especially valuable or useful."
+          },
+          {
+            "term": "livestock",
+            "definition": "Farm animals, such as cattle and sheep."
+          },
+          {
+            "term": "less viable",
+            "definition": "Harder to keep going or make work."
+          },
+          {
+            "term": "decline",
+            "definition": "A fall in number, amount or strength."
+          }
+        ],
+        "hint": "Read each meaning carefully. You can use the word list above.",
+        "explanation": "Review the word list if a meaning is still unclear."
+      },
+      {
+        "id": "australia-english-vocabulary-match-5",
+        "practiceSection": "vocabulary",
+        "level": "both",
+        "type": "matching",
+        "category": "Match meanings: set 5 of 5",
+        "prompt": "Match each word or phrase to its simple English meaning.",
+        "pairs": [
+          {
+            "term": "census",
+            "definition": "An official count of the people living in a country or area."
+          },
+          {
+            "term": "ward of the state",
+            "definition": "A person placed under the state’s legal care or control."
+          },
+          {
+            "term": "commemorate",
+            "definition": "Remember a person or event in a special way."
           },
           {
             "term": "reconciliation",
-            "definition": "A process of addressing historical harms and improving relationships."
-          },
-          {
-            "term": "First Nations peoples",
-            "definition": "In Australia, Aboriginal and Torres Strait Islander peoples, who lived there before European colonisation."
-          },
-          {
-            "term": "acknowledge",
-            "definition": "Recognise and openly accept that something happened or matters."
+            "definition": "Working to repair relationships after harm or conflict."
           }
         ],
-        "hint": "Read the meaning of every term before choosing.",
-        "explanation": "These terms help you describe the events and responses in the video."
+        "hint": "Read each meaning carefully. You can use the word list above.",
+        "explanation": "Review the word list if a meaning is still unclear."
+      },
+      {
+        "id": "australia-english-vocabulary-sentence-1",
+        "practiceSection": "vocabulary",
+        "level": "both",
+        "type": "matching",
+        "category": "Complete sentences: set 1 of 5",
+        "prompt": "Choose a word or phrase to fill each gap. Use each choice once.",
+        "choiceLabel": "Choose a word or phrase…",
+        "pairs": [
+          {
+            "term": "___ is the broader term that includes Aboriginal and Torres Strait Islander peoples in Australia.",
+            "definition": "Indigenous"
+          },
+          {
+            "term": "___ peoples are distinct from Torres Strait Islander peoples.",
+            "definition": "Aboriginal"
+          },
+          {
+            "term": "She felt ___ by all the new information.",
+            "definition": "overwhelmed"
+          },
+          {
+            "term": "The snake bite was ___ for the animal.",
+            "definition": "fatal"
+          },
+          {
+            "term": "It is important to ___ a healthy lifestyle.",
+            "definition": "maintain"
+          }
+        ],
+        "hint": "Use the sentence around the gap to help you. Check the word list for examples.",
+        "explanation": "The correct words complete the meaning of each sentence."
+      },
+      {
+        "id": "australia-english-vocabulary-sentence-2",
+        "practiceSection": "vocabulary",
+        "level": "both",
+        "type": "matching",
+        "category": "Complete sentences: set 2 of 5",
+        "prompt": "Choose a word or phrase to fill each gap. Use each choice once.",
+        "choiceLabel": "Choose a word or phrase…",
+        "pairs": [
+          {
+            "term": "The local ___ helped rebuild the school.",
+            "definition": "community"
+          },
+          {
+            "term": "To ___ a child is to take the child away without giving the family a choice.",
+            "definition": "forcibly remove"
+          },
+          {
+            "term": "The government tried to force Indigenous children to ___ into white society.",
+            "definition": "assimilate"
+          },
+          {
+            "term": "Some children suffered physical and emotional ___.",
+            "definition": "abuse"
+          },
+          {
+            "term": "The children did not receive proper care and suffered ___.",
+            "definition": "neglect"
+          }
+        ],
+        "hint": "Use the sentence around the gap to help you. Check the word list for examples.",
+        "explanation": "The correct words complete the meaning of each sentence."
+      },
+      {
+        "id": "australia-english-vocabulary-sentence-3",
+        "practiceSection": "vocabulary",
+        "level": "both",
+        "type": "matching",
+        "category": "Complete sentences: set 3 of 5",
+        "prompt": "Choose a word or phrase to fill each gap. Use each choice once.",
+        "choiceLabel": "Choose a word or phrase…",
+        "pairs": [
+          {
+            "term": "Separation can ___ the sharing of cultural knowledge.",
+            "definition": "disrupt"
+          },
+          {
+            "term": "Forced removal could have ___ effects.",
+            "definition": "long-term"
+          },
+          {
+            "term": "The video names ___ as one possible condition after a deeply harmful experience.",
+            "definition": "post-traumatic stress disorder"
+          },
+          {
+            "term": "The ___ of land took resources away from communities.",
+            "definition": "appropriation"
+          }
+        ],
+        "hint": "Use the sentence around the gap to help you. Check the word list for examples.",
+        "explanation": "The correct words complete the meaning of each sentence."
+      },
+      {
+        "id": "australia-english-vocabulary-sentence-4",
+        "practiceSection": "vocabulary",
+        "level": "both",
+        "type": "matching",
+        "category": "Complete sentences: set 4 of 5",
+        "prompt": "Choose a word or phrase to fill each gap. Use each choice once.",
+        "choiceLabel": "Choose a word or phrase…",
+        "pairs": [
+          {
+            "term": "Settlers took ___ that could be used for farming.",
+            "definition": "prime land"
+          },
+          {
+            "term": "The farmers looked after their ___ every day.",
+            "definition": "livestock"
+          },
+          {
+            "term": "A way of life can become ___ when food and water are lost.",
+            "definition": "less viable"
+          },
+          {
+            "term": "The population went into ___.",
+            "definition": "decline"
+          }
+        ],
+        "hint": "Use the sentence around the gap to help you. Check the word list for examples.",
+        "explanation": "The correct words complete the meaning of each sentence."
+      },
+      {
+        "id": "australia-english-vocabulary-sentence-5",
+        "practiceSection": "vocabulary",
+        "level": "both",
+        "type": "matching",
+        "category": "Complete sentences: set 5 of 5",
+        "prompt": "Choose a word or phrase to fill each gap. Use each choice once.",
+        "choiceLabel": "Choose a word or phrase…",
+        "pairs": [
+          {
+            "term": "The government uses a ___ to count the population.",
+            "definition": "census"
+          },
+          {
+            "term": "A person placed under the state’s legal care or control is called a ___.",
+            "definition": "ward of the state"
+          },
+          {
+            "term": "People gather to ___ an important event.",
+            "definition": "commemorate"
+          },
+          {
+            "term": "The communities worked towards ___.",
+            "definition": "reconciliation"
+          }
+        ],
+        "hint": "Use the sentence around the gap to help you. Check the word list for examples.",
+        "explanation": "The correct words complete the meaning of each sentence."
+      },
+      {
+        "id": "australia-english-vocabulary-context-1",
+        "practiceSection": "vocabulary",
+        "level": "both",
+        "type": "multiple-choice",
+        "category": "Words in context: 1 of 5",
+        "prompt": "In the video, the loss of food and water was often “fatal”. What does fatal mean?",
+        "options": [
+          "It caused people to die.",
+          "It made people feel surprised.",
+          "It lasted only a few minutes.",
+          "It made farming easier."
+        ],
+        "answer": 0,
+        "hint": "Choose the meaning that fits how the word is used in the video.",
+        "explanation": "Fatal means causing death."
+      },
+      {
+        "id": "australia-english-vocabulary-context-2",
+        "practiceSection": "vocabulary",
+        "level": "both",
+        "type": "multiple-choice",
+        "category": "Words in context: 2 of 5",
+        "prompt": "The video says cultural knowledge was “disrupted”. What does this mean?",
+        "options": [
+          "Its passing from one generation to the next was interrupted.",
+          "All communities chose to stop sharing it.",
+          "It was written down in a census.",
+          "It became easier to pass on."
+        ],
+        "answer": 0,
+        "hint": "Choose the meaning that fits how the word is used in the video.",
+        "explanation": "Disrupt means interrupt or stop something working normally."
+      },
+      {
+        "id": "australia-english-vocabulary-context-3",
+        "practiceSection": "vocabulary",
+        "level": "both",
+        "type": "multiple-choice",
+        "category": "Words in context: 3 of 5",
+        "prompt": "What does “livestock” refer to in the video?",
+        "options": [
+          "Farm animals, such as cattle and sheep.",
+          "The people counted in a census.",
+          "Trees and water sources.",
+          "The money used for compensation."
+        ],
+        "answer": 0,
+        "hint": "Choose the meaning that fits how the word is used in the video.",
+        "explanation": "Livestock means animals kept on farms."
+      },
+      {
+        "id": "australia-english-vocabulary-context-4",
+        "practiceSection": "vocabulary",
+        "level": "both",
+        "type": "multiple-choice",
+        "category": "Words in context: 4 of 5",
+        "prompt": "The video says a traditional lifestyle became “less viable”. What does this mean?",
+        "options": [
+          "It became harder to keep that way of life going.",
+          "It became healthier for everyone.",
+          "It became more popular with settlers.",
+          "It became easier to maintain."
+        ],
+        "answer": 0,
+        "hint": "Choose the meaning that fits how the word is used in the video.",
+        "explanation": "Less viable means harder to keep going or make work."
+      },
+      {
+        "id": "australia-english-vocabulary-context-5",
+        "practiceSection": "vocabulary",
+        "level": "both",
+        "type": "multiple-choice",
+        "category": "Words in context: 5 of 5",
+        "prompt": "What does working towards “reconciliation” mean?",
+        "options": [
+          "Trying to repair relationships after harm.",
+          "Forcing people to forget their history.",
+          "Removing children from their families.",
+          "Counting everyone in a country."
+        ],
+        "answer": 0,
+        "hint": "Choose the meaning that fits how the word is used in the video.",
+        "explanation": "Reconciliation involves working to repair relationships after harm or conflict."
       },
       {
         "id": "colonialism-australia-video-mc-1",
@@ -301,7 +652,8 @@ export const colonialismMaterials = [
         ],
         "answer": 0,
         "hint": "Use the video or its transcript. Identify what the speaker actually says.",
-        "explanation": "The video describes disease spreading soon after the colonists arrived."
+        "explanation": "The video describes disease spreading soon after the colonists arrived.",
+        "practiceSection": "questions"
       },
       {
         "id": "colonialism-australia-video-mc-2",
@@ -317,7 +669,8 @@ export const colonialismMaterials = [
         ],
         "answer": 0,
         "hint": "Use the video or its transcript. Identify what the speaker actually says.",
-        "explanation": "The video describes the appropriation of land and water, followed by the loss of food and water sources."
+        "explanation": "The video describes the appropriation of land and water, followed by the loss of food and water sources.",
+        "practiceSection": "questions"
       },
       {
         "id": "colonialism-australia-video-mc-3",
@@ -333,7 +686,8 @@ export const colonialismMaterials = [
         ],
         "answer": 0,
         "hint": "Use the video or its transcript. Identify what the speaker actually says.",
-        "explanation": "The video connects traditional land with spiritual practices, cultural life and the group’s well-being."
+        "explanation": "The video connects traditional land with spiritual practices, cultural life and the group’s well-being.",
+        "practiceSection": "questions"
       },
       {
         "id": "colonialism-australia-video-mc-4",
@@ -349,7 +703,8 @@ export const colonialismMaterials = [
         ],
         "answer": 0,
         "hint": "Use the video or its transcript. Identify what the speaker actually says.",
-        "explanation": "The video identifies children removed under government policies intended to assimilate them."
+        "explanation": "The video identifies children removed under government policies intended to assimilate them.",
+        "practiceSection": "questions"
       },
       {
         "id": "colonialism-australia-video-mc-5",
@@ -365,7 +720,8 @@ export const colonialismMaterials = [
         ],
         "answer": 0,
         "hint": "Use the video or its transcript. Identify what the speaker actually says.",
-        "explanation": "The video mentions Kevin Rudd’s apology, the New South Wales compensation package and National Sorry Day."
+        "explanation": "The video mentions Kevin Rudd’s apology, the New South Wales compensation package and National Sorry Day.",
+        "practiceSection": "questions"
       },
       {
         "id": "colonialism-australia-stolen-mc-1",
@@ -381,7 +737,8 @@ export const colonialismMaterials = [
         ],
         "answer": 0,
         "hint": "Use the transcript to consider choice, identity, family relationships and cultural knowledge.",
-        "explanation": "The system sought to make children adopt the dominant culture through separation from their families."
+        "explanation": "The system sought to make children adopt the dominant culture through separation from their families.",
+        "practiceSection": "questions"
       },
       {
         "id": "colonialism-australia-stolen-mc-2",
@@ -397,7 +754,8 @@ export const colonialismMaterials = [
         ],
         "answer": 0,
         "hint": "Use the transcript to consider choice, identity, family relationships and cultural knowledge.",
-        "explanation": "The central issue is coercion: authorities imposed separation rather than families freely choosing it."
+        "explanation": "The central issue is coercion: authorities imposed separation rather than families freely choosing it.",
+        "practiceSection": "questions"
       },
       {
         "id": "colonialism-australia-stolen-mc-3",
@@ -413,7 +771,8 @@ export const colonialismMaterials = [
         ],
         "answer": 0,
         "hint": "Use the transcript to consider choice, identity, family relationships and cultural knowledge.",
-        "explanation": "Restrictions on language and names attacked important connections to identity and community."
+        "explanation": "Restrictions on language and names attacked important connections to identity and community.",
+        "practiceSection": "questions"
       },
       {
         "id": "colonialism-australia-stolen-mc-4",
@@ -429,7 +788,8 @@ export const colonialismMaterials = [
         ],
         "answer": 0,
         "hint": "Use the transcript to consider choice, identity, family relationships and cultural knowledge.",
-        "explanation": "The transcript identifies abuse and neglect; these were serious harms, not simply ordinary difficulties of adjusting."
+        "explanation": "The transcript identifies abuse and neglect; these were serious harms, not simply ordinary difficulties of adjusting.",
+        "practiceSection": "questions"
       },
       {
         "id": "colonialism-australia-stolen-mc-5",
@@ -445,7 +805,8 @@ export const colonialismMaterials = [
         ],
         "answer": 0,
         "hint": "Use the transcript to consider choice, identity, family relationships and cultural knowledge.",
-        "explanation": "Language can carry relationships, stories and knowledge. Preventing its use can disrupt those connections."
+        "explanation": "Language can carry relationships, stories and knowledge. Preventing its use can disrupt those connections.",
+        "practiceSection": "questions"
       },
       {
         "id": "colonialism-australia-stolen-mc-6",
@@ -461,7 +822,8 @@ export const colonialismMaterials = [
         ],
         "answer": 0,
         "hint": "Use the transcript to consider choice, identity, family relationships and cultural knowledge.",
-        "explanation": "Restricting the use of a name can be part of imposing another identity on a child."
+        "explanation": "Restricting the use of a name can be part of imposing another identity on a child.",
+        "practiceSection": "questions"
       },
       {
         "id": "colonialism-australia-stolen-mc-7",
@@ -477,7 +839,8 @@ export const colonialismMaterials = [
         ],
         "answer": 0,
         "hint": "Use the transcript to consider choice, identity, family relationships and cultural knowledge.",
-        "explanation": "Separation interrupted transmission of knowledge. It does not mean all Indigenous cultures ceased to exist."
+        "explanation": "Separation interrupted transmission of knowledge. It does not mean all Indigenous cultures ceased to exist.",
+        "practiceSection": "questions"
       },
       {
         "id": "colonialism-australia-stolen-mc-8",
@@ -493,7 +856,8 @@ export const colonialismMaterials = [
         ],
         "answer": 0,
         "hint": "Use the transcript to consider choice, identity, family relationships and cultural knowledge.",
-        "explanation": "The transcript identifies serious possible long-term mental health effects. Individual experiences vary."
+        "explanation": "The transcript identifies serious possible long-term mental health effects. Individual experiences vary.",
+        "practiceSection": "questions"
       },
       {
         "id": "colonialism-australia-stolen-mc-9",
@@ -509,7 +873,8 @@ export const colonialismMaterials = [
         ],
         "answer": 0,
         "hint": "Use the transcript to consider choice, identity, family relationships and cultural knowledge.",
-        "explanation": "Families and communities lost relationships and opportunities to pass knowledge to younger generations."
+        "explanation": "Families and communities lost relationships and opportunities to pass knowledge to younger generations.",
+        "practiceSection": "questions"
       },
       {
         "id": "colonialism-australia-stolen-mc-10",
@@ -525,7 +890,8 @@ export const colonialismMaterials = [
         ],
         "answer": 0,
         "hint": "Use the transcript to consider choice, identity, family relationships and cultural knowledge.",
-        "explanation": "This was a system of coercive policies and practices, not an ordinary voluntary move between households."
+        "explanation": "This was a system of coercive policies and practices, not an ordinary voluntary move between households.",
+        "practiceSection": "questions"
       },
       {
         "id": "colonialism-australia-stolen-written-1",
@@ -542,7 +908,8 @@ export const colonialismMaterials = [
         "modelPoints": [
           "Language and names can connect children to family and cultural identity.",
           "The restrictions formed part of assimilation and limited children’s control over their own identity."
-        ]
+        ],
+        "practiceSection": "questions"
       },
       {
         "id": "colonialism-australia-stolen-written-3",
@@ -559,7 +926,8 @@ export const colonialismMaterials = [
         "modelPoints": [
           "Explain the role of government policies and separation from family.",
           "Connect the bans on language and names to pressure to adopt European culture."
-        ]
+        ],
+        "practiceSection": "questions"
       },
       {
         "id": "colonialism-australia-discussion-1",
@@ -577,7 +945,8 @@ export const colonialismMaterials = [
           "Australia Day marks the First Fleet’s arrival in Sydney; see the accuracy note about the video’s wording.",
           "Invasion Day can highlight dispossession, violence and harm to Indigenous communities.",
           "The video also describes Day of Mourning and Survival Day events."
-        ]
+        ],
+        "practiceSection": "questions"
       },
       {
         "id": "colonialism-australia-discussion-3",
@@ -595,7 +964,8 @@ export const colonialismMaterials = [
           "Kevin Rudd made a formal apology in 2008.",
           "The video mentions a compensation package for Stolen Generation survivors.",
           "National Sorry Day forms part of an ongoing reconciliation process."
-        ]
+        ],
+        "practiceSection": "questions"
       }
     ],
     "videoId": "d-RseyESNs0",
@@ -616,7 +986,131 @@ export const colonialismMaterials = [
       "Every 26th of January, Australia Day is celebrated as the national holiday. It commemorates the first European arrival. To others, it is known as Invasion Day. In 1938, 100 Aborigines gathered to mark a ‘Day of Mourning’. In 1988, more than 40,000 Australians marched together in Sydney to acknowledge ‘Survival Day’.",
       "In 2016, New South Wales announced a compensation package of $73 million for Stolen Generation survivors. ‘National Sorry Day’ has been held every year since 1998 on 26th of May as part of an ongoing reconciliation process."
     ],
-    "durationMinutes": 4
+    "durationMinutes": 4,
+    "vocabularyList": [
+      {
+        "term": "Indigenous",
+        "definition": "Belonging to the first peoples of a place.",
+        "example": "Indigenous peoples lived in Australia long before British colonisation."
+      },
+      {
+        "term": "Aboriginal",
+        "definition": "Connected to Australia’s Aboriginal peoples. Torres Strait Islander peoples are a distinct group.",
+        "example": "Aboriginal art can tell stories about land and ancestors."
+      },
+      {
+        "term": "overwhelmed",
+        "definition": "Affected by more than someone can cope with.",
+        "example": "She felt overwhelmed by all the new information."
+      },
+      {
+        "term": "fatal",
+        "definition": "Causing death.",
+        "example": "The snake bite was fatal for the animal."
+      },
+      {
+        "term": "maintain",
+        "definition": "Keep something going or in good condition.",
+        "example": "It is important to maintain a healthy lifestyle."
+      },
+      {
+        "term": "community",
+        "definition": "A group of people who live together or share a connection.",
+        "example": "The local community helped rebuild the school."
+      },
+      {
+        "term": "forcibly remove",
+        "definition": "Take someone away without giving them a choice.",
+        "example": "Many children were forcibly removed from their families."
+      },
+      {
+        "term": "assimilate",
+        "definition": "Become part of another culture by taking on its ways of life.",
+        "example": "The government tried to force Indigenous children to assimilate into white society."
+      },
+      {
+        "term": "abuse",
+        "definition": "Harmful or cruel treatment of someone.",
+        "example": "Some children suffered physical and emotional abuse."
+      },
+      {
+        "term": "neglect",
+        "definition": "Failing to give someone or something the care they need.",
+        "example": "The children did not receive proper care and suffered neglect."
+      },
+      {
+        "term": "disrupt",
+        "definition": "Interrupt something or stop it working normally.",
+        "example": "Separation can disrupt the sharing of cultural knowledge."
+      },
+      {
+        "term": "long-term",
+        "definition": "Lasting or happening over a long time.",
+        "example": "Forced removal could have long-term effects."
+      },
+      {
+        "term": "post-traumatic stress disorder",
+        "definition": "A condition in which a very frightening or harmful experience keeps affecting someone’s thoughts and feelings.",
+        "example": "The video names post-traumatic stress disorder as one possible long-term effect."
+      },
+      {
+        "term": "appropriation",
+        "definition": "Taking control of something for your own use.",
+        "example": "The appropriation of land took resources away from communities."
+      },
+      {
+        "term": "prime land",
+        "definition": "Land that is especially valuable or useful.",
+        "example": "Settlers took prime land that could be used for farming."
+      },
+      {
+        "term": "livestock",
+        "definition": "Farm animals, such as cattle and sheep.",
+        "example": "The farmers looked after their livestock every day."
+      },
+      {
+        "term": "less viable",
+        "definition": "Harder to keep going or make work.",
+        "example": "A way of life can become less viable when food and water are lost."
+      },
+      {
+        "term": "decline",
+        "definition": "A fall in number, amount or strength.",
+        "example": "The population went into decline."
+      },
+      {
+        "term": "census",
+        "definition": "An official count of the people living in a country or area.",
+        "example": "The government uses a census to count the population."
+      },
+      {
+        "term": "ward of the state",
+        "definition": "A person placed under the state’s legal care or control.",
+        "example": "The video says some Indigenous people were treated as wards of the state."
+      },
+      {
+        "term": "commemorate",
+        "definition": "Remember a person or event in a special way.",
+        "example": "People gather to commemorate an important event."
+      },
+      {
+        "term": "reconciliation",
+        "definition": "Working to repair relationships after harm or conflict.",
+        "example": "The communities worked towards reconciliation."
+      }
+    ],
+    "practiceSections": [
+      {
+        "id": "vocabulary",
+        "title": "Vocabulary practice",
+        "description": "Learn the words using simple English. Practise five small meaning sets, five sentence sets and five questions about word meanings."
+      },
+      {
+        "id": "questions",
+        "title": "Video questions",
+        "description": "Answer questions about the video. Use the transcript if you need support."
+      }
+    ]
   },
   {
     "id": "colonialism-stolen-generations",
