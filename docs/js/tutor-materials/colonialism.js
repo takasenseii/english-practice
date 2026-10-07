@@ -219,17 +219,10 @@ export const colonialismMaterials = [
     "levels": [
       "B1"
     ],
-    "introduction": "Before watching, consider whose perspective is expressed by the words “settlement” and “invasion”. Watch for changes in land control, government policies and Indigenous rights. Use the Show/Hide transcript button for listening support. Read the separate historical accuracy note before relying on dates and claims from the video.",
+    "introduction": "Watch the video for changes in land, health, culture and government treatment of Indigenous Australians. All questions in this section use this video. Use the Show/Hide transcript button for support. The historical accuracy note is separate from the spoken transcript; do not use the video’s incorrect 1967 claim as a fact.",
     "mediaType": "youtube",
-    "text": [
-      "Aboriginal and Torres Strait Islander peoples lived in Australia long before British colonisation and comprise many distinct peoples, cultures and languages. British colonisation began in 1788.",
-      "Colonisation involved dispossession and struggles over land. The legal idea of terra nullius denied recognition of existing Indigenous ownership; the Mabo decision later rejected that doctrine.",
-      "The Stolen Generations refers to Aboriginal and Torres Strait Islander children forcibly removed from families through laws, policies and practices. These separations damaged family and cultural connections. Reconciliation concerns acknowledging this history and building more just relationships."
-    ],
-    "transcriptLabel": "Study notes",
-    "sourceLead": "Original resource:",
     "source": {
-      "url": "https://youtu.be/d-RseyESNs0",
+      "url": "https://www.youtube.com/watch?v=d-RseyESNs0",
       "label": "A Brief History of Australian Colonisation, Indigenous Rights and the Reconciliation Process"
     },
     "vocabulary": [
@@ -246,21 +239,25 @@ export const colonialismMaterials = [
         "definition": "Pressure or policies making a group adopt a dominant culture."
       },
       {
-        "term": "terra nullius",
-        "definition": "A legal concept meaning land belonging to no one."
-      },
-      {
         "term": "reconciliation",
         "definition": "A process of addressing historical harms and improving relationships."
+      },
+      {
+        "term": "First Nations peoples",
+        "definition": "In Australia, Aboriginal and Torres Strait Islander peoples, who lived there before European colonisation."
+      },
+      {
+        "term": "acknowledge",
+        "definition": "Recognise and openly accept that something happened or matters."
       }
     ],
     "activities": [
       {
-        "id": "colonialism-australia-vocabulary",
+        "id": "colonialism-australia-vocabulary-six",
         "level": "both",
         "type": "matching",
         "category": "Key vocabulary",
-        "prompt": "Match the five terms to their meanings.",
+        "prompt": "Match the six terms to their meanings.",
         "pairs": [
           {
             "term": "Indigenous",
@@ -275,96 +272,100 @@ export const colonialismMaterials = [
             "definition": "Pressure or policies making a group adopt a dominant culture."
           },
           {
-            "term": "terra nullius",
-            "definition": "A legal concept meaning land belonging to no one."
-          },
-          {
             "term": "reconciliation",
             "definition": "A process of addressing historical harms and improving relationships."
+          },
+          {
+            "term": "First Nations peoples",
+            "definition": "In Australia, Aboriginal and Torres Strait Islander peoples, who lived there before European colonisation."
+          },
+          {
+            "term": "acknowledge",
+            "definition": "Recognise and openly accept that something happened or matters."
           }
         ],
         "hint": "Read the meaning of every term before choosing.",
-        "explanation": "Use these terms to describe relationships between power, land, identity and historical memory."
+        "explanation": "These terms help you describe the events and responses in the video."
       },
       {
-        "id": "colonialism-australia-mc-1",
+        "id": "colonialism-australia-video-mc-1",
         "level": "both",
         "type": "multiple-choice",
-        "category": "Check understanding",
-        "prompt": "Which statement accurately describes Australia before British colonisation?",
+        "category": "Video comprehension",
+        "prompt": "According to the video, what happened within weeks of the British colonists’ arrival in 1788?",
         "options": [
-          "It was home to diverse Aboriginal and Torres Strait Islander peoples.",
-          "It had no inhabitants.",
-          "All its inhabitants shared one language.",
-          "Its history began with European arrivals."
+          "European diseases overwhelmed the Indigenous population.",
+          "A treaty recognised Indigenous land ownership.",
+          "All Indigenous communities moved to Sydney.",
+          "Indigenous people gained federal voting rights."
         ],
         "answer": 0,
-        "explanation": "Indigenous presence and diversity predate colonisation.",
-        "hint": "Identify the idea that is supported by the resource and study notes."
+        "hint": "Use the video or its transcript. Identify what the speaker actually says.",
+        "explanation": "The video describes disease spreading soon after the colonists arrived."
       },
       {
-        "id": "colonialism-australia-mc-2",
+        "id": "colonialism-australia-video-mc-2",
         "level": "both",
         "type": "multiple-choice",
-        "category": "Check understanding",
-        "prompt": "What does dispossession describe in this context?",
+        "category": "Video comprehension",
+        "prompt": "What does the video say settlers took from Indigenous communities?",
         "options": [
-          "Indigenous peoples losing control of their lands.",
-          "Visitors learning a local language.",
-          "A voluntary school exchange.",
-          "An agreement to share a book."
+          "Land and water resources.",
+          "Only unused buildings.",
+          "Only imported livestock.",
+          "Only written records."
         ],
         "answer": 0,
-        "explanation": "Land control is central to understanding colonial dispossession.",
-        "hint": "Identify the idea that is supported by the resource and study notes."
+        "hint": "Use the video or its transcript. Identify what the speaker actually says.",
+        "explanation": "The video describes the appropriation of land and water, followed by the loss of food and water sources."
       },
       {
-        "id": "colonialism-australia-mc-3",
+        "id": "colonialism-australia-video-mc-3",
         "level": "both",
         "type": "multiple-choice",
-        "category": "Check understanding",
-        "prompt": "Why is the idea of terra nullius important to examine?",
+        "category": "Video comprehension",
+        "prompt": "Why did being forced away from traditional areas harm communities, according to the video?",
         "options": [
-          "It denied recognition of existing Indigenous ownership.",
-          "It proved that Australia was uninhabited.",
-          "It guaranteed Indigenous land rights.",
-          "It described an ordinary weather pattern."
+          "It made it difficult to maintain cultural and spiritual practices linked to the land.",
+          "It made communities lose interest in their traditions.",
+          "It ended every community’s connection to its language immediately.",
+          "It gave all communities secure access to food and water."
         ],
         "answer": 0,
-        "explanation": "A legal doctrine is not proof that people or their connections to land did not exist.",
-        "hint": "Identify the idea that is supported by the resource and study notes."
+        "hint": "Use the video or its transcript. Identify what the speaker actually says.",
+        "explanation": "The video connects traditional land with spiritual practices, cultural life and the group’s well-being."
       },
       {
-        "id": "colonialism-australia-mc-4",
+        "id": "colonialism-australia-video-mc-4",
         "level": "both",
         "type": "multiple-choice",
-        "category": "Check understanding",
-        "prompt": "Who were the Stolen Generations?",
+        "category": "Video comprehension",
+        "prompt": "Who does the video identify as the Stolen Generations?",
         "options": [
           "Aboriginal and Torres Strait Islander children forcibly removed from their families.",
-          "British sailors lost at sea.",
-          "Students on voluntary exchanges.",
-          "All migrants arriving in Australia."
+          "British sailors who arrived in 1770.",
+          "Families who chose to migrate to Australia.",
+          "All children who attended school in Sydney."
         ],
         "answer": 0,
-        "explanation": "Forced separation affected families, communities and cultural connections.",
-        "hint": "Identify the idea that is supported by the resource and study notes."
+        "hint": "Use the video or its transcript. Identify what the speaker actually says.",
+        "explanation": "The video identifies children removed under government policies intended to assimilate them."
       },
       {
-        "id": "colonialism-australia-mc-5",
+        "id": "colonialism-australia-video-mc-5",
         "level": "both",
         "type": "multiple-choice",
-        "category": "Check understanding",
-        "prompt": "Which response best reflects the idea of reconciliation?",
+        "category": "Video comprehension",
+        "prompt": "Which actions towards reconciliation are mentioned in the video?",
         "options": [
-          "Acknowledge historical harms and work towards more just relationships.",
-          "Ignore the past to avoid difficult questions.",
-          "Assume one apology automatically repairs every harm.",
-          "Treat Indigenous peoples as belonging only to the past."
+          "A formal apology, a compensation package and National Sorry Day.",
+          "A treaty signed when British settlement began.",
+          "An end to all racism following the first settlement.",
+          "The removal of all Indigenous languages from public life."
         ],
         "answer": 0,
-        "explanation": "Reconciliation involves ongoing relationships and action, not simply forgetting.",
-        "hint": "Identify the idea that is supported by the resource and study notes."
+        "hint": "Use the video or its transcript. Identify what the speaker actually says.",
+        "explanation": "The video mentions Kevin Rudd’s apology, the New South Wales compensation package and National Sorry Day."
       },
       {
         "id": "colonialism-australia-stolen-mc-1",
@@ -544,23 +545,6 @@ export const colonialismMaterials = [
         ]
       },
       {
-        "id": "colonialism-australia-stolen-written-2",
-        "level": "both",
-        "type": "short-answer",
-        "category": "The Stolen Generations: explain the system",
-        "prompt": "Describe how forced removal could affect a child, their family and their community. Use at least two examples from the transcript.",
-        "hint": "Explain a policy, how it affected people, and why it mattered. Discuss the evidence rather than inventing a survivor’s personal story.",
-        "checklist": [
-          "Explain the policy or practice clearly.",
-          "Use specific examples from the supplied transcript.",
-          "Connect the treatment to identity, family, culture or long-term effects."
-        ],
-        "modelPoints": [
-          "Consider separation, abuse or neglect, and the interruption of cultural knowledge.",
-          "Consider long-term effects while recognising that survivors’ experiences were not all identical."
-        ]
-      },
-      {
         "id": "colonialism-australia-stolen-written-3",
         "level": "both",
         "type": "short-answer",
@@ -581,48 +565,40 @@ export const colonialismMaterials = [
         "id": "colonialism-australia-discussion-1",
         "level": "both",
         "type": "short-answer",
-        "category": "Discuss and reflect",
-        "prompt": "How can “settlement” and “invasion” describe the same process from different perspectives?",
-        "hint": "Give a clear answer, an example and a link to the source. Use phrases such as “According to the article…” or “The video suggests…”.",
+        "category": "Explain using video evidence",
+        "prompt": "The video says 26 January is called Australia Day by some people and Invasion Day by others. What different experiences do these names highlight? Use examples from the video.",
+        "hint": "Use specific examples from the video. Identify the speaker where relevant and explain how the example supports your answer.",
         "checklist": [
-          "Answer the question directly.",
-          "Support your response with a specific example from the material.",
-          "Distinguish historical evidence from your interpretation."
+          "I answered the question directly.",
+          "I used specific evidence from the video.",
+          "I distinguished what a speaker says from my own interpretation."
         ],
         "modelPoints": [
-          "Discuss land control and whose experience a word foregrounds.",
-          "Explain the perspective without assuming everyone within a group agrees."
+          "Australia Day marks the First Fleet’s arrival in Sydney; see the accuracy note about the video’s wording.",
+          "Invasion Day can highlight dispossession, violence and harm to Indigenous communities.",
+          "The video also describes Day of Mourning and Survival Day events."
         ]
       },
       {
         "id": "colonialism-australia-discussion-3",
         "level": "both",
         "type": "short-answer",
-        "category": "Discuss and reflect",
-        "prompt": "Why might reconciliation require more than acknowledging the past?",
-        "hint": "Give a clear answer, an example and a link to the source. Use phrases such as “According to the article…” or “The video suggests…”.",
+        "category": "Explain using video evidence",
+        "prompt": "What examples in the video show that reconciliation involves both recognising past harm and taking action? Give two examples.",
+        "hint": "Use specific examples from the video. Identify the speaker where relevant and explain how the example supports your answer.",
         "checklist": [
-          "Answer the question directly.",
-          "Support your response with a specific example from the material.",
-          "Distinguish historical evidence from your interpretation."
+          "I answered the question directly.",
+          "I used specific evidence from the video.",
+          "I distinguished what a speaker says from my own interpretation."
         ],
         "modelPoints": [
-          "Consider continuing rights, relationships and consequences.",
-          "Distinguish your proposal from a claim that the video explicitly makes."
+          "Kevin Rudd made a formal apology in 2008.",
+          "The video mentions a compensation package for Stolen Generation survivors.",
+          "National Sorry Day forms part of an ongoing reconciliation process."
         ]
       }
     ],
     "videoId": "d-RseyESNs0",
-    "additionalSources": [
-      {
-        "url": "https://aiatsis.gov.au/explore/stolen-generations",
-        "label": "Background check: AIATSIS — The Stolen Generations"
-      },
-      {
-        "url": "https://aiatsis.gov.au/explore/land-rights",
-        "label": "Background check: AIATSIS — Land rights"
-      }
-    ],
     "transcript": [
       "<strong>Historical accuracy note — not part of the spoken transcript:</strong> The video incorrectly links citizenship and voting rights to 1967. Citizenship legislation dates to 1948 (effective 1949), and all Indigenous Australians gained eligibility to enrol and vote in federal elections in 1962. The 1967 referendum changed constitutional provisions concerning counting Aboriginal people and Commonwealth law-making powers. Australia Day marks the First Fleet’s arrival in Sydney in 1788, not the first European arrival in Australia. See the <a href=\"https://www.aec.gov.au/indigenous/milestones.htm\" target=\"_blank\" rel=\"noopener\">Australian Electoral Commission timeline</a> and <a href=\"https://www.reconciliation.org.au/national-sorry-day-2020/\" target=\"_blank\" rel=\"noopener\">Reconciliation Australia</a>. The transcript below includes a correction to a transcription error: National Sorry Day began in 1998, as stated in the video.",
       "In 1770, Lieutenant James Cook took possession of Australia’s east coast for the British Crown, naming it New South Wales.",
@@ -643,11 +619,330 @@ export const colonialismMaterials = [
     "durationMinutes": 4
   },
   {
+    "id": "colonialism-stolen-generations",
+    "courseId": "english-1",
+    "unitId": "colonialism",
+    "unitTitle": "Colonialism",
+    "title": "3. The Stolen Generations",
+    "topic": "Survivors’ experiences, family separation, identity and continuing effects.",
+    "levels": [
+      "B1"
+    ],
+    "mediaType": "youtube",
+    "videoId": "QKU9rVKMxuY",
+    "source": {
+      "url": "https://www.youtube.com/watch?v=QKU9rVKMxuY",
+      "label": "The Stolen Generations — video with survivor testimony"
+    },
+    "introduction": "Watch how survivors and family members describe forced removal and its effects. All questions use this video. Refer to named speakers rather than assuming every person had the same experience. Use the Show/Hide transcript button when you need support.",
+    "vocabulary": [
+      {
+        "term": "forcibly",
+        "definition": "Using force or without allowing someone a choice."
+      },
+      {
+        "term": "heritage",
+        "definition": "The culture, history and traditions connected to a person or community."
+      },
+      {
+        "term": "traumatised",
+        "definition": "Deeply affected emotionally by a distressing experience."
+      },
+      {
+        "term": "reconnect",
+        "definition": "Establish a connection again after being separated."
+      },
+      {
+        "term": "descendants",
+        "definition": "A person’s children, grandchildren and later generations."
+      },
+      {
+        "term": "compensate",
+        "definition": "Provide money or another form of support in recognition of harm or loss."
+      }
+    ],
+    "transcript": [
+      "<strong>Time context — not part of the spoken transcript:</strong> “15 years since that apology” refers to the video’s time of reporting, 15 years after the 2008 apology. Claims using “today” also refer to that time. Anya Harper’s statement about a new generation of Stolen Generations is her argument about contemporary child removals.",
+      "EILEEN CUMMINGS, MEMBER OF THE STOLEN GENERATIONS: I wasn't allowed to speak language. I wasn't allowed to connect with my mother and my people. Those are things that the government did to us, and so when you think about children growing up in that system, of course we're going to be traumatised in some shape or form.",
+      "HARRY MILLS, MEMBER OF THE STOLEN GENERATIONS: We got to stay in the mission, locked up in the house, dry bread and water. Two pillows, blanket, no mattress.",
+      "EILEEN MOSELEY, MEMBER OF THE STOLEN GENERATIONS: Even today, I think about how our poor mothers felt having us crying and telling us to stop crying and then walking away.",
+      "JACK, REPORTER: These are just some of the stories that have been shared by the Stolen Generations. That's the name that's been given to a group of Aboriginal and Torres Strait Islander people who, during the 1900s, were forcibly taken from their homes and their families by the Australian government. They were put into missions, orphanages or with white foster families that were often far, far away from their homes.",
+      "ABC REPORTER: Were you taken away from your parents?",
+      "BOB RANDALL, MEMBER OF THE STOLEN GENERATIONS: Yes, I was taken away from my mother as a baby.",
+      "ABC REPORTER: Did this just happen to you or who else did it happen to?",
+      "BOB RANDALL, MEMBER OF THE STOLEN GENERATIONS: Oh, quite a number of children.",
+      "ABC REPORTER: Why were they taken away?",
+      "BOB RANDALL, MEMBER OF THE STOLEN GENERATIONS: I don't know what the reason was. I 'spose they thought they could give us better homes away from our mothers.",
+      "JACK, REPORTER: At the time the government thought that it was better for First Nations children, especially those with lighter skin, to be raised by non-Indigenous people. So they made policies that forced kids to reject their Indigenous heritage and adopt white culture. Their names were often changed, and they were forbidden to speak their traditional languages.",
+      "NANCY DE VRIES, MEMBER OF THE STOLEN GENERATIONS: When I finally got home to meet my mother after 53 years. I'm sorry. She could not relate to me.",
+      "JACK, REPORTER: More than 50 thousand kids were taken from their homes up until the 1960s, when there were big protests and people started campaigning for Australia's First Nations peoples to be treated better.",
+      "JACK: It was during this period that Aussies started learning for the first time just what sort of impact the Stolen Generations actually had. And then in the 1990s there was a massive investigation called the Bringing Them Home Report. The report's aim was to acknowledge the pain caused and make recommendations for healing and reconciliation, including that the current government apologises for the laws and policies that were put in place by previous governments. In 1998, the year after the Bringing Them Home Report was handed down, Sorry Day was established as a way to recognise and acknowledge Stolen Generations survivors. But it wasn't until 2008 when Kevin Rudd became Prime Minister that the Stolen Generations got their apology.",
+      "KEVIN RUDD, FORMER PRIME MINISTER: For the pain, suffering and hurt of these Stolen Generations, their descendants and for their families left behind, we say sorry.",
+      "JACK, REPORTER: It's now been 15 years since that apology and while today there are many organisations and individuals that are working to support and compensate the Stolen Generations, the impacts are still being felt.",
+      "HENRIETTA HUNTER, STOLEN GENERATIONS FAMILY MEMBER: It was even hard for me as a mother to explain that to my kids. And that's but why, Mum? Why? Why? And I said, I really can't explain it.",
+      "JACK, REPORTER: There are many people who haven't been able to reconnect with their families and many others are only just finding out that they have First Nations heritage. Meanwhile today the amount of Aboriginal and Torres Strait Islander kids in out-of-home care is still really high.",
+      "ANYA HARPER, TASMANIAN ABORIGINAL CENTRE: The figures are appalling, and we all should hang our heads in shame. We are continuing to create a new, yet a new generation of Stolen Generations.",
+      "JACK, REPORTER: And while we can't change what's happened in our country's history, many say that Sorry Day is all about acknowledging the mistakes of the past so we can move forward together and work towards a better future for all Australians."
+    ],
+    "activities": [
+      {
+        "id": "stolen-generations-vocabulary",
+        "level": "both",
+        "type": "matching",
+        "category": "Key vocabulary",
+        "prompt": "Match the six terms to their meanings.",
+        "pairs": [
+          {
+            "term": "forcibly",
+            "definition": "Using force or without allowing someone a choice."
+          },
+          {
+            "term": "heritage",
+            "definition": "The culture, history and traditions connected to a person or community."
+          },
+          {
+            "term": "traumatised",
+            "definition": "Deeply affected emotionally by a distressing experience."
+          },
+          {
+            "term": "reconnect",
+            "definition": "Establish a connection again after being separated."
+          },
+          {
+            "term": "descendants",
+            "definition": "A person’s children, grandchildren and later generations."
+          },
+          {
+            "term": "compensate",
+            "definition": "Provide money or another form of support in recognition of harm or loss."
+          }
+        ],
+        "hint": "Consider the term in the context of the video.",
+        "explanation": "These terms describe separation, identity, harm and responses to that harm."
+      },
+      {
+        "id": "stolen-generations-mc-1",
+        "level": "both",
+        "type": "multiple-choice",
+        "category": "Video comprehension",
+        "prompt": "Who were the Stolen Generations, according to the reporter?",
+        "options": [
+          "Aboriginal and Torres Strait Islander people forcibly removed from their families as children.",
+          "Children who chose to study overseas.",
+          "All Australian children born after 2008.",
+          "People who volunteered to leave their communities."
+        ],
+        "answer": 0,
+        "hint": "Use the video or its transcript. Identify what the speaker actually says.",
+        "explanation": "The reporter explains that government policies forcibly separated children from their homes and families."
+      },
+      {
+        "id": "stolen-generations-mc-2",
+        "level": "both",
+        "type": "multiple-choice",
+        "category": "Video comprehension",
+        "prompt": "Where were the removed children placed, according to the video?",
+        "options": [
+          "In missions, orphanages or white foster families, often far from home.",
+          "Always with relatives in their own communities.",
+          "Only in schools next door to their families.",
+          "Only in hospitals for short visits."
+        ],
+        "answer": 0,
+        "hint": "Use the video or its transcript. Identify what the speaker actually says.",
+        "explanation": "The reporter lists these placements and emphasises the distance from home."
+      },
+      {
+        "id": "stolen-generations-mc-3",
+        "level": "both",
+        "type": "multiple-choice",
+        "category": "Video comprehension",
+        "prompt": "What does Eileen Cummings say she was not allowed to do?",
+        "options": [
+          "Speak her language or connect with her mother and her people.",
+          "Attend any public ceremony after 2008.",
+          "Speak English or leave Australia.",
+          "Meet any other children at all."
+        ],
+        "answer": 0,
+        "hint": "Use the video or its transcript. Identify what the speaker actually says.",
+        "explanation": "She identifies restrictions on language and family/community connections and links them to trauma."
+      },
+      {
+        "id": "stolen-generations-mc-4",
+        "level": "both",
+        "type": "multiple-choice",
+        "category": "Video comprehension",
+        "prompt": "Which conditions does Harry Mills describe?",
+        "options": [
+          "Being locked up, receiving dry bread and water, and having no mattress.",
+          "Having a private bedroom with a comfortable bed.",
+          "Choosing his own meals and living arrangements.",
+          "Being allowed to return home every day."
+        ],
+        "answer": 0,
+        "hint": "Use the video or its transcript. Identify what the speaker actually says.",
+        "explanation": "His account describes confinement and very poor living conditions."
+      },
+      {
+        "id": "stolen-generations-mc-5",
+        "level": "both",
+        "type": "multiple-choice",
+        "category": "Video comprehension",
+        "prompt": "What did the government policies described in the video try to make children do?",
+        "options": [
+          "Reject their Indigenous heritage and adopt white culture.",
+          "Keep their original names and languages without restriction.",
+          "Choose freely whether to leave their families.",
+          "Teach their traditional languages to government officials."
+        ],
+        "answer": 0,
+        "hint": "Use the video or its transcript. Identify what the speaker actually says.",
+        "explanation": "The reporter describes changed names, forbidden languages and pressure to adopt white culture."
+      },
+      {
+        "id": "stolen-generations-mc-6",
+        "level": "both",
+        "type": "multiple-choice",
+        "category": "Video comprehension",
+        "prompt": "What does Nancy de Vries’s account show about reunion?",
+        "options": [
+          "Meeting again after decades did not automatically restore the relationship.",
+          "Every family reunited shortly after removal.",
+          "She had never wanted to meet her mother.",
+          "Her mother immediately recognised every shared experience."
+        ],
+        "answer": 0,
+        "hint": "Use the video or its transcript. Identify what the speaker actually says.",
+        "explanation": "She says she met her mother after 53 years and that her mother could not relate to her."
+      },
+      {
+        "id": "stolen-generations-mc-7",
+        "level": "both",
+        "type": "multiple-choice",
+        "category": "Video comprehension",
+        "prompt": "What was the aim of the Bringing Them Home Report, as explained in the video?",
+        "options": [
+          "Acknowledge the pain and recommend healing and reconciliation, including an apology.",
+          "Prove that no harm had occurred.",
+          "Require survivors to abandon their heritage.",
+          "Replace family testimony with accounts of tourism."
+        ],
+        "answer": 0,
+        "hint": "Use the video or its transcript. Identify what the speaker actually says.",
+        "explanation": "The reporter explains both acknowledgement of pain and recommendations for responding to it."
+      },
+      {
+        "id": "stolen-generations-mc-8",
+        "level": "both",
+        "type": "multiple-choice",
+        "category": "Video comprehension",
+        "prompt": "Which sequence does the video give?",
+        "options": [
+          "The Bringing Them Home Report, Sorry Day in 1998, then the apology in 2008.",
+          "The apology in 2008, then Sorry Day in 1998, then the report.",
+          "Sorry Day began in 2008 and the apology happened in 1998.",
+          "The apology occurred before the forced removals."
+        ],
+        "answer": 0,
+        "hint": "Use the video or its transcript. Identify what the speaker actually says.",
+        "explanation": "The video places the report in the 1990s, Sorry Day in 1998 and Kevin Rudd’s apology in 2008."
+      },
+      {
+        "id": "stolen-generations-mc-9",
+        "level": "both",
+        "type": "multiple-choice",
+        "category": "Video comprehension",
+        "prompt": "Which continuing effects are described by the reporter and Henrietta Hunter?",
+        "options": [
+          "Difficulties reconnecting with family and explaining the history to children.",
+          "Every survivor had reconnected with family immediately.",
+          "All descendants already knew their family history.",
+          "The apology ended every difficulty for families."
+        ],
+        "answer": 0,
+        "hint": "Use the video or its transcript. Identify what the speaker actually says.",
+        "explanation": "The reporter describes incomplete reconnections; Henrietta describes difficulty explaining the events to her children."
+      },
+      {
+        "id": "stolen-generations-mc-10",
+        "level": "both",
+        "type": "multiple-choice",
+        "category": "Video comprehension",
+        "prompt": "How should you describe Anya Harper’s statement about a “new generation of Stolen Generations”?",
+        "options": [
+          "As her argument that current child removals continue serious harm.",
+          "As proof that every child in care has exactly the same experience as every historical survivor.",
+          "As a claim that no children are in out-of-home care.",
+          "As Kevin Rudd’s wording in the 2008 apology."
+        ],
+        "answer": 0,
+        "hint": "Use the video or its transcript. Identify what the speaker actually says.",
+        "explanation": "Attribute the warning to Anya Harper. The video does not establish identical experiences for every child or family."
+      },
+      {
+        "id": "colonialism-australia-stolen-written-2",
+        "level": "both",
+        "type": "short-answer",
+        "category": "Explain using video evidence",
+        "prompt": "How did forced removal affect children, their parents and their communities? Use at least two examples from the video.",
+        "hint": "Use specific examples from the video. Identify the speaker where relevant and explain how the example supports your answer.",
+        "checklist": [
+          "I answered the question directly.",
+          "I used specific evidence from the video.",
+          "I distinguished what a speaker says from my own interpretation."
+        ],
+        "modelPoints": [
+          "Eileen Cummings describes lost language and family/community connections and trauma.",
+          "Harry Mills describes confinement and poor living conditions.",
+          "Eileen Moseley reflects on mothers’ distress; Nancy de Vries describes difficulty relating after 53 years.",
+          "Henrietta Hunter describes difficulties explaining the history to her children."
+        ]
+      },
+      {
+        "id": "stolen-generations-written-2",
+        "level": "both",
+        "type": "short-answer",
+        "category": "Explain using video evidence",
+        "prompt": "How did the policies try to change children’s identities? Explain using two practices described in the video.",
+        "hint": "Use specific examples from the video. Identify the speaker where relevant and explain how the example supports your answer.",
+        "checklist": [
+          "I answered the question directly.",
+          "I used specific evidence from the video.",
+          "I distinguished what a speaker says from my own interpretation."
+        ],
+        "modelPoints": [
+          "Children were required to reject Indigenous heritage and adopt white culture.",
+          "Names were often changed and traditional languages were forbidden.",
+          "Separation from family and community restricted cultural connections."
+        ]
+      },
+      {
+        "id": "stolen-generations-written-3",
+        "level": "both",
+        "type": "short-answer",
+        "category": "Explain using video evidence",
+        "prompt": "Why did the apology not mean that all the harm had ended? Use two examples from the video and explain how Sorry Day responds to this history.",
+        "hint": "Use specific examples from the video. Identify the speaker where relevant and explain how the example supports your answer.",
+        "checklist": [
+          "I answered the question directly.",
+          "I used specific evidence from the video.",
+          "I distinguished what a speaker says from my own interpretation."
+        ],
+        "modelPoints": [
+          "Some people had not reconnected with their families; some were still discovering their heritage.",
+          "Henrietta Hunter describes effects on later generations.",
+          "Sorry Day acknowledges survivors and past mistakes; the reporter describes continuing support and compensation."
+        ]
+      }
+    ]
+  },
+  {
     "id": "colonialism-columbus",
     "courseId": "english-1",
     "unitId": "colonialism",
     "unitTitle": "Colonialism",
-    "title": "3. Columbus Day",
+    "title": "4. Columbus Day",
     "topic": "Commemoration, Italian American identity and Indigenous perspectives.",
     "levels": [
       "B1"
