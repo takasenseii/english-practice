@@ -135,6 +135,8 @@ const tutor = {
         </section>
 
 
+        ${material.images?.length ? `<section class="tutor-panel historical-images"><h2>Examine the historical images</h2><p>${escapeHtml(material.imageIntroduction || "Describe what you can see, then distinguish your observations from your interpretation.")}</p>${material.images.map(item => `<figure style="margin:24px 0"><h3>${escapeHtml(item.title)}</h3><a href="${escapeHtml(item.src)}" target="_blank" rel="noopener"><img src="${escapeHtml(item.src)}" alt="${escapeHtml(item.alt)}" loading="lazy" style="display:block;width:100%;max-width:800px;height:auto;margin:0 auto"></a><figcaption style="margin-top:12px;line-height:1.6">${escapeHtml(item.caption)}</figcaption>${item.transcription ? `<div class="tutor-panel" style="margin-top:16px"><h4>Handwritten note: transcription</h4><blockquote style="margin:12px 0">${escapeHtml(item.transcription)}</blockquote><p class="tutor-muted">Transcription supplied by your teacher. This is wording from the historical document.</p></div>` : ""}</figure>`).join("")}<p class="tutor-muted">Select an image to open the full-size version. Image-reflection questions follow the video questions.</p></section>` : ""}
+
         <section class="tutor-panel" aria-live="polite">
           <div class="progress-row">
             <span id="tutorCategory"></span>
