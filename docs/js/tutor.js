@@ -76,6 +76,18 @@ function shuffledOptions(activity, userId) {
   return options;
 }
 
+export function evaluateMultipleSelection(selected, correctAnswers) {
+  const chosen = new Set(selected.map(Number));
+  const expected = new Set(correctAnswers);
+  const missing = [...expected].filter(index => !chosen.has(index));
+  const extra = [...chosen].filter(index => !expected.has(index));
+  return { correct: missing.length === 0 && extra.length === 0, missing, extra };
+}
+
+export function evaluateClassification(items, answer) {
+  return items.map((item, index) => ({ correct: Number(answer[index]) === item.answer, index }));
+}
+
 const tutor = {
   render(root, materialId) {
     const material = tutorMaterials.find(item => item.id === materialId) || tutorMaterials[0];
@@ -163,7 +175,9 @@ const tutor = {
 
         ${material.images?.length ? `<section class="tutor-panel historical-images"><h2>Examine the historical images</h2><p>${escapeHtml(material.imageIntroduction || "Describe what you can see, then distinguish your observations from your interpretation.")}</p>${material.images.map(item => `<figure style="margin:24px 0"><h3>${escapeHtml(item.title)}</h3><a href="${escapeHtml(item.src)}" target="_blank" rel="noopener"><img src="${escapeHtml(item.src)}" alt="${escapeHtml(item.alt)}" loading="lazy" style="display:block;width:100%;max-width:800px;height:auto;margin:0 auto"></a><figcaption style="margin-top:12px;line-height:1.6">${escapeHtml(item.caption)}</figcaption>${item.transcription ? `<div class="tutor-panel" style="margin-top:16px"><h4>Handwritten note: transcription</h4><blockquote style="margin:12px 0">${escapeHtml(item.transcription)}</blockquote><p class="tutor-muted">Transcription supplied by your teacher. This is wording from the historical document.</p></div>` : ""}</figure>`).join("")}<p class="tutor-muted">Select an image to open the full-size version. Image-reflection questions follow the video questions.</p></section>` : ""}
 
-        ${practiceSections.length ? `<section class="tutor-panel"><nav aria-label="Practice sections" style="display:flex;flex-wrap:wrap;gap:12px">${practiceSections.map(section => `<button type="button" class="btn" data-practice-section="${section.id}" aria-pressed="${section.id === practiceSection}" style="text-align:left;flex:1"><strong>${escapeHtml(section.title)}</strong><br><span data-section-progress="${section.id}"></span></button>`).join("")}</nav><p id="tutorSectionDescription"></p><div id="tutorVocabularyList" ${practiceSection === "vocabulary" ? "" : "hidden"}><details><summary>Word list: simple English meanings and examples</summary><dl>${(material.vocabularyList || []).map(item => `<dt style="margin-top:16px"><strong>${escapeHtml(item.term)}</strong></dt><dd>${escapeHtml(item.definition)}<br><em>${escapeHtml(item.example)}</em></dd>`).join("")}</dl></details></div></section>` : ""}
+        ${material.learningCards?.length ? `<section class="tutor-panel"><h2>Stöd för ditt lärande</h2>${material.learningCards.map(card => `<details><summary>${escapeHtml(card.title)}</summary><p>${escapeHtml(card.body)}</p></details>`).join("")}</section>` : ""}
+
+        ${practiceSections.length ? `<section class="tutor-panel"><nav aria-label="Practice sections" style="display:flex;flex-wrap:wrap;gap:12px">${practiceSections.map(section => `<button type="button" class="btn" data-practice-section="${section.id}" aria-pressed="${section.id === practiceSection}" style="text-align:left;flex:1;min-width:140px"><strong>${escapeHtml(section.title)}</strong><br><span data-section-progress="${section.id}"></span></button>`).join("")}</nav><p id="tutorSectionDescription"></p><div id="tutorVocabularyList" ${practiceSection === "vocabulary" ? "" : "hidden"}><details><summary>Word list: simple English meanings and examples</summary><dl>${(material.vocabularyList || []).map(item => `<dt style="margin-top:16px"><strong>${escapeHtml(item.term)}</strong></dt><dd>${escapeHtml(item.definition)}<br><em>${escapeHtml(item.example)}</em></dd>`).join("")}</dl></details></div></section>` : ""}
 
         <section class="tutor-panel" aria-live="polite">
           <div class="progress-row">
@@ -270,13 +284,15 @@ const tutor = {
       root.querySelector("#tutorProgressBar").style.width = `${percent}%`;
 
       let answerArea;
-      if (activity.type === "multiple-choice") {
+      if (activity.type === "multiple-choice" || activity.type === "multiple-select") {
         const displayedOptions = shuffledOptions(activity, user.id);
         answerArea = `<div class="tutor-options">${displayedOptions.map(option => `
           <label class="tutor-option">
-            <input type="radio" name="tutorAnswer" value="${option.originalIndex}" ${Number(response.answer) === option.originalIndex ? "checked" : ""}>
+            <input type="${activity.type === "multiple-select" ? "checkbox" : "radio"}" name="tutorAnswer" value="${option.originalIndex}" ${activity.type === "multiple-select" ? (Array.isArray(response.answer) && response.answer.includes(option.originalIndex) ? "checked" : "") : (Number(response.answer) === option.originalIndex ? "checked" : "")}>
             <span>${option.label}</span>
           </label>`).join("")}</div>`;
+      } else if (activity.type === "classification") {
+        answerArea = `<div class="matching-list">${activity.items.map((item, itemIndex) => `<label class="matching-row"><span>${escapeHtml(item.text)}</span><select data-classify="${itemIndex}"><option value="">${isSwedish ? "Välj kategori…" : "Choose a category…"}</option>${activity.categories.map((category, categoryIndex) => `<option value="${categoryIndex}" ${response.answer?.[itemIndex] !== undefined && Number(response.answer[itemIndex]) === categoryIndex ? "selected" : ""}>${escapeHtml(category)}</option>`).join("")}</select></label>`).join("")}</div>`;
       } else if (activity.type === "matching") {
         const definitions = shuffledOptions(
           { id: activity.id, options: activity.pairs.map(pair => pair.definition) },
@@ -322,7 +338,7 @@ const tutor = {
         ${answerArea}
         <div class="tutor-actions">
           <button class="btn" id="tutorHint">Hint</button>
-          <button class="btn primary-btn" id="tutorCheck">${["multiple-choice", "matching", "ordering", "true-false"].includes(activity.type) ? "Check answer" : "Save and review"}</button>
+          <button class="btn primary-btn" id="tutorCheck">${["multiple-choice", "multiple-select", "classification", "matching", "ordering", "true-false"].includes(activity.type) ? "Check answer" : "Save and review"}</button>
         </div>
         <div id="tutorFeedback"></div>
         <div class="tutor-navigation">
@@ -358,6 +374,21 @@ const tutor = {
           const correct = answer === activity.answer;
           responses[activity.id] = { answer, correct, completed: true, checkedAt: new Date().toISOString(), hintUsed: responses[activity.id]?.hintUsed || false };
           feedback.innerHTML = localise(`<div class="feedback ${correct ? "correct-feedback" : "error-feedback"}"><strong>${correct ? "Correct." : "Not quite."}</strong> ${activity.explanation}</div>`);
+        } else if (activity.type === "multiple-select") {
+          const answer = [...root.querySelectorAll('input[name="tutorAnswer"]:checked')].map(input => Number(input.value));
+          if (!answer.length) { feedback.innerHTML = `<div class="feedback error-feedback">${isSwedish ? "Välj minst ett alternativ först." : "Select an option first."}</div>`; return; }
+          const result = evaluateMultipleSelection(answer, activity.answers);
+          responses[activity.id] = { answer, correct: result.correct, completed: true, checkedAt: new Date().toISOString(), hintUsed: responses[activity.id]?.hintUsed || false };
+          feedback.innerHTML = `<div class="feedback ${result.correct ? "correct-feedback" : "error-feedback"}"><strong>${result.correct ? "✔ Alla val är rätt." : `✖ ${result.missing.length} rätta alternativ saknas och ${result.extra.length} felaktiga alternativ är valda.`}</strong><p>${escapeHtml(activity.explanation)}</p></div>`;
+        } else if (activity.type === "classification") {
+          const selects = [...root.querySelectorAll("[data-classify]")];
+          if (selects.some(select => select.value === "")) { feedback.innerHTML = `<div class="feedback error-feedback">Välj en kategori för varje påstående.</div>`; return; }
+          const answer = Object.fromEntries(selects.map(select => [select.dataset.classify, Number(select.value)]));
+          const checked = evaluateClassification(activity.items, answer);
+          const correctCount = checked.filter(item => item.correct).length;
+          const correct = correctCount === activity.items.length;
+          responses[activity.id] = { answer, correct, correctCount, completed: true, checkedAt: new Date().toISOString(), hintUsed: responses[activity.id]?.hintUsed || false };
+          feedback.innerHTML = `<div class="feedback ${correct ? "correct-feedback" : "error-feedback"}"><strong>${correctCount} av ${activity.items.length} kategorier är rätt.</strong><ul>${checked.map(item => `<li>${item.correct ? "✔" : "✖"} ${escapeHtml(activity.items[item.index].text)} <strong>${escapeHtml(activity.categories[activity.items[item.index].answer])}</strong> — ${escapeHtml(activity.items[item.index].explanation)}</li>`).join("")}</ul><p>${escapeHtml(activity.explanation)}</p></div>`;
         } else if (activity.type === "matching") {
           const selects = [...root.querySelectorAll("[data-match]")];
           if (selects.some(select => select.value === "")) {
