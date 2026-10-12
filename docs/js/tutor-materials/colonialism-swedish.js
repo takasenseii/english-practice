@@ -16,10 +16,12 @@ export const swedishColonialismMaterials = [
       "label": "Undervisningsmaterial",
       "url": "https://urplay.se/program/232835-plugga-historia-kolonialismen"
     },
-    "introduction": "Det här arbetsområdet handlar om kolonialism och imperialism: vad begreppen betyder, varför europeiska länder ville kontrollera andra områden och hur människor och naturresurser utnyttjades. Vi undersöker följderna både historiskt och idag. Se UR-programmet och gör det tillhörande quizet. Träna sedan begrepp och svara på frågorna här.",
+    "introduction": "Se UR:s Kolonialismen och arbeta sedan i de fyra flikarna. Begrepp och repetition ger stöd inför analysen. Uppgifter med flera rätta svar är tydligt märkta. Du kan byta flik och fortsätta där du slutade.",
     "lessonNotes": [
       "Kolonialism handlar om kontroll och utnyttjande, inte bara om kontakt mellan länder. Europeiska makter sökte bland annat rikedomar och inflytande. Erövringar kunde leda till våld, förslavning och förlust av mark och kulturella uttryck.",
-      "UR-programmet tar upp den tidiga europeiska kolonisationen från slutet av 1400-talet. Kolonialism är samtidigt ett bredare begrepp och begränsas inte till en enda tidsperiod. När du bedömer följder, fråga vem som fick fördelar och vem som utsattes för skada."
+      "UR-programmet tar upp den tidiga europeiska kolonisationen från slutet av 1400-talet. Kolonialism är samtidigt ett bredare begrepp och begränsas inte till en enda tidsperiod. När du bedömer följder, fråga vem som fick fördelar och vem som utsattes för skada.",
+      "Stöd till tidslinjen: Columbus nådde Karibien 1492. Nya Sverige etablerades 1638. S:t Barthélemy blev svensk koloni 1784 och slaveriet där avskaffades 1847.",
+      "I repetitionsfrågorna används historiska benämningar endast när de behövs för att förstå materialet. Columbus nådde redan bebodda områden. Kolonialismens vinster och kostnader fördelades mycket ojämnt."
     ],
     "resourceGroups": [
       {
@@ -41,6 +43,32 @@ export const swedishColonialismMaterials = [
           {
             "label": "UR:s sammanfattning (PDF)",
             "url": "https://www.ur.se/mb/pdf/Arbetsblad/234000-234999/234682-2_PLUGGA_HISTORIA_KOLON_SAMMANFATTNING.pdf"
+          }
+        ]
+      },
+      {
+        "title": "Sveriges koloniala historia",
+        "items": [
+          {
+            "label": "Forum för levande historia: tidslinje över svensk slavhandel och slaveri",
+            "url": "https://www.levandehistoria.se/undervisningsmaterial/sverige-slavhandeln-och-slaveriet/undervisningssida/tidslinje"
+          }
+        ]
+      },
+      {
+        "title": "Jämförelser och eget arbete",
+        "items": [
+          {
+            "label": "UR:s lärarhandledning och historikerns reflektioner",
+            "url": "https://urplay.se/serie/232834-plugga-historia/extra"
+          },
+          {
+            "label": "Venndiagram (UR, PDF)",
+            "url": "https://www.ur.se/mb/pdf/Arbetsblad/234000-234999/234619-2_PLUGGA_HISTOIA_VENNDIAGRAM.pdf"
+          },
+          {
+            "label": "Världskarta (UR, PDF)",
+            "url": "https://urplay.se/uras/pdf/varldskarta-plugga-historia.pdf"
           }
         ]
       }
@@ -95,18 +123,68 @@ export const swedishColonialismMaterials = [
         "term": "konsekvens",
         "definition": "En följd av en händelse eller ett beslut.",
         "example": "Förlust av mark kunde vara en konsekvens av kolonisation."
+      },
+      {
+        "term": "Sidenvägen",
+        "definition": "Ett nätverk av äldre handelsvägar mellan delar av Asien och Europa.",
+        "example": "Sidenvägen förband olika områden genom handel."
+      },
+      {
+        "term": "upptäcktsresor",
+        "definition": "Resor för att undersöka platser som var okända för dem som reste; där kunde redan bo människor.",
+        "example": "Europeiska upptäcktsresor gick till redan bebodda områden."
+      },
+      {
+        "term": "tidigmoderna tiden",
+        "definition": "En historisk period som ofta räknas från ungefär 1500 till slutet av 1700-talet.",
+        "example": "Den tidigmoderna tiden omfattar flera stora samhällsförändringar."
+      },
+      {
+        "term": "kolonisation",
+        "definition": "Processen när människor etablerar bosättningar och kontroll över andra områden.",
+        "example": "Kolonisation kunde förändra vem som kontrollerade mark."
+      },
+      {
+        "term": "kolonier",
+        "definition": "Områden som kontrolleras av en främmande makt.",
+        "example": "Kolonier kunde utnyttjas för råvaror och handel."
+      },
+      {
+        "term": "civilisationer",
+        "definition": "Stora och organiserade samhällen med olika sociala, politiska och kulturella system.",
+        "example": "I Amerika fanns flera civilisationer före européernas ankomst."
+      },
+      {
+        "term": "triangelhandeln",
+        "definition": "En förenklad modell av handel mellan Europa, Afrika och Amerika som omfattade förslavade människor och varor.",
+        "example": "Triangelhandeln kopplade ekonomiska vinster till förslavning."
+      },
+      {
+        "term": "rasism",
+        "definition": "Idéer eller handlingar som rangordnar och missgynnar människor utifrån exempelvis härkomst eller hudfärg.",
+        "example": "Rasism användes för att rättfärdiga förtryck."
       }
     ],
     "practiceSections": [
       {
         "id": "vocabulary",
-        "title": "Begreppsträning",
-        "description": "Lär dig begreppen med enkla förklaringar och korta övningar."
+        "title": "Begrepp",
+        "description": "Lär dig orden med enkla förklaringar, matchning och meningar."
       },
       {
-        "id": "questions",
-        "title": "Frågor och resonemang",
-        "description": "Använd materialet och stödtexten. Flervalsfrågorna rättas direkt. Skriftliga svar sparas och jämförs med innehållspunkter."
+        "id": "repetition",
+        "title": "Repetition",
+        "description": "Kontrollera förståelsen. Vissa frågor har flera rätta svar; välj då alla som stämmer."
+      },
+      {
+        "id": "analysis",
+        "title": "Analys",
+        "description": "Undersök orsaker, följder, perspektiv och källor. Använd konkreta belägg."
+      },
+      {
+        "id": "extension",
+        "title": "Arbeta vidare",
+        "description": "Jämför, undersök och skapa. Uppgifterna kan göras individuellt eller tillsammans."
       }
     ],
     "text": [
@@ -115,12 +193,12 @@ export const swedishColonialismMaterials = [
     ],
     "activities": [
       {
-        "id": "colonialism-sv-1-begrepp-match-1",
+        "id": "colonialism-sv-1-ur-vocab-match-1",
         "level": "both",
         "practiceSection": "vocabulary",
         "type": "matching",
         "category": "Matcha begrepp",
-        "prompt": "Matcha varje begrepp med rätt förklaring.",
+        "prompt": "Matcha begreppen med deras enkla förklaringar.",
         "pairs": [
           {
             "term": "kolonialism",
@@ -143,16 +221,16 @@ export const swedishColonialismMaterials = [
             "definition": "Sådant som finns i naturen och kan användas, till exempel skog och mineraler."
           }
         ],
-        "hint": "Ta hjälp av begreppslistan ovan. Läs alla förklaringar innan du väljer.",
-        "explanation": "Förklaringarna använder enkel svenska."
+        "hint": "Ta hjälp av begreppslistan.",
+        "explanation": "Begreppen används för att förstå filmens händelser och samband."
       },
       {
-        "id": "colonialism-sv-1-begrepp-mening-1",
+        "id": "colonialism-sv-1-ur-vocab-gap-1",
         "level": "both",
         "practiceSection": "vocabulary",
         "type": "matching",
         "category": "Begrepp i meningar",
-        "prompt": "Välj rätt begrepp till varje lucka. Använd varje begrepp en gång.",
+        "prompt": "Välj ett begrepp till varje lucka. Använd varje alternativ en gång.",
         "choiceLabel": "Välj ett begrepp…",
         "pairs": [
           {
@@ -176,16 +254,16 @@ export const swedishColonialismMaterials = [
             "definition": "naturresurser"
           }
         ],
-        "hint": "Läs hela meningen. Använd begreppslistans exempel om du behöver hjälp.",
-        "explanation": "Begreppet ska passa både meningen och sammanhanget."
+        "hint": "Läs hela meningen och jämför med begreppslistan.",
+        "explanation": "Varje begrepp ska passa sitt sammanhang."
       },
       {
-        "id": "colonialism-sv-1-begrepp-match-2",
+        "id": "colonialism-sv-1-ur-vocab-match-2",
         "level": "both",
         "practiceSection": "vocabulary",
         "type": "matching",
         "category": "Matcha begrepp",
-        "prompt": "Matcha varje begrepp med rätt förklaring.",
+        "prompt": "Matcha begreppen med deras enkla förklaringar.",
         "pairs": [
           {
             "term": "motiv",
@@ -208,16 +286,16 @@ export const swedishColonialismMaterials = [
             "definition": "En följd av en händelse eller ett beslut."
           }
         ],
-        "hint": "Ta hjälp av begreppslistan ovan. Läs alla förklaringar innan du väljer.",
-        "explanation": "Förklaringarna använder enkel svenska."
+        "hint": "Ta hjälp av begreppslistan.",
+        "explanation": "Begreppen används för att förstå filmens händelser och samband."
       },
       {
-        "id": "colonialism-sv-1-begrepp-mening-2",
+        "id": "colonialism-sv-1-ur-vocab-gap-2",
         "level": "both",
         "practiceSection": "vocabulary",
         "type": "matching",
         "category": "Begrepp i meningar",
-        "prompt": "Välj rätt begrepp till varje lucka. Använd varje begrepp en gång.",
+        "prompt": "Välj ett begrepp till varje lucka. Använd varje alternativ en gång.",
         "choiceLabel": "Välj ett begrepp…",
         "pairs": [
           {
@@ -241,203 +319,669 @@ export const swedishColonialismMaterials = [
             "definition": "konsekvens"
           }
         ],
-        "hint": "Läs hela meningen. Använd begreppslistans exempel om du behöver hjälp.",
-        "explanation": "Begreppet ska passa både meningen och sammanhanget."
+        "hint": "Läs hela meningen och jämför med begreppslistan.",
+        "explanation": "Varje begrepp ska passa sitt sammanhang."
       },
       {
-        "id": "colonialism-sv-1-begrepp-val-1",
+        "id": "colonialism-sv-1-ur-vocab-match-3",
         "level": "both",
         "practiceSection": "vocabulary",
-        "type": "multiple-choice",
-        "category": "Begrepp i sammanhang",
-        "prompt": "Vad betyder kolonialism i det här arbetsområdet?",
-        "options": [
-          "När en makt tar kontroll över ett annat område och utnyttjar dess människor eller tillgångar.",
-          "Ett område som styrs av en främmande makt.",
-          "Ett land som kontrollerar kolonier.",
-          "När en stat försöker utöka sin makt över andra länder eller områden."
+        "type": "matching",
+        "category": "Matcha begrepp",
+        "prompt": "Matcha begreppen med deras enkla förklaringar.",
+        "pairs": [
+          {
+            "term": "Sidenvägen",
+            "definition": "Ett nätverk av äldre handelsvägar mellan delar av Asien och Europa."
+          },
+          {
+            "term": "upptäcktsresor",
+            "definition": "Resor för att undersöka platser som var okända för dem som reste; där kunde redan bo människor."
+          },
+          {
+            "term": "tidigmoderna tiden",
+            "definition": "En historisk period som ofta räknas från ungefär 1500 till slutet av 1700-talet."
+          },
+          {
+            "term": "kolonisation",
+            "definition": "Processen när människor etablerar bosättningar och kontroll över andra områden."
+          },
+          {
+            "term": "kolonier",
+            "definition": "Områden som kontrolleras av en främmande makt."
+          }
         ],
-        "answer": 0,
-        "hint": "Läs begreppslistan och välj den förklaring som passar ordet.",
-        "explanation": "När en makt tar kontroll över ett annat område och utnyttjar dess människor eller tillgångar."
+        "hint": "Ta hjälp av begreppslistan.",
+        "explanation": "Begreppen används för att förstå filmens händelser och samband."
       },
       {
-        "id": "colonialism-sv-1-begrepp-val-2",
+        "id": "colonialism-sv-1-ur-vocab-gap-3",
         "level": "both",
         "practiceSection": "vocabulary",
-        "type": "multiple-choice",
-        "category": "Begrepp i sammanhang",
-        "prompt": "Vad betyder koloni i det här arbetsområdet?",
-        "options": [
-          "Ett område som styrs av en främmande makt.",
-          "Ett land som kontrollerar kolonier.",
-          "När en stat försöker utöka sin makt över andra länder eller områden.",
-          "Sådant som finns i naturen och kan användas, till exempel skog och mineraler."
+        "type": "matching",
+        "category": "Begrepp i meningar",
+        "prompt": "Välj ett begrepp till varje lucka. Använd varje alternativ en gång.",
+        "choiceLabel": "Välj ett begrepp…",
+        "pairs": [
+          {
+            "term": "___ förband olika områden genom handel.",
+            "definition": "Sidenvägen"
+          },
+          {
+            "term": "Europeiska ___ gick till redan bebodda områden.",
+            "definition": "upptäcktsresor"
+          },
+          {
+            "term": "Den ___ omfattar flera stora samhällsförändringar.",
+            "definition": "tidigmoderna tiden"
+          },
+          {
+            "term": "___ kunde förändra vem som kontrollerade mark.",
+            "definition": "kolonisation"
+          },
+          {
+            "term": "___ kunde utnyttjas för råvaror och handel.",
+            "definition": "kolonier"
+          }
         ],
-        "answer": 0,
-        "hint": "Läs begreppslistan och välj den förklaring som passar ordet.",
-        "explanation": "Ett område som styrs av en främmande makt."
+        "hint": "Läs hela meningen och jämför med begreppslistan.",
+        "explanation": "Varje begrepp ska passa sitt sammanhang."
       },
       {
-        "id": "colonialism-sv-1-begrepp-val-3",
+        "id": "colonialism-sv-1-ur-vocab-match-4",
         "level": "both",
         "practiceSection": "vocabulary",
-        "type": "multiple-choice",
-        "category": "Begrepp i sammanhang",
-        "prompt": "Vad betyder kolonialmakt i det här arbetsområdet?",
-        "options": [
-          "Ett land som kontrollerar kolonier.",
-          "När en stat försöker utöka sin makt över andra länder eller områden.",
-          "Sådant som finns i naturen och kan användas, till exempel skog och mineraler.",
-          "En anledning till att någon gör något."
+        "type": "matching",
+        "category": "Matcha begrepp",
+        "prompt": "Matcha begreppen med deras enkla förklaringar.",
+        "pairs": [
+          {
+            "term": "civilisationer",
+            "definition": "Stora och organiserade samhällen med olika sociala, politiska och kulturella system."
+          },
+          {
+            "term": "triangelhandeln",
+            "definition": "En förenklad modell av handel mellan Europa, Afrika och Amerika som omfattade förslavade människor och varor."
+          },
+          {
+            "term": "rasism",
+            "definition": "Idéer eller handlingar som rangordnar och missgynnar människor utifrån exempelvis härkomst eller hudfärg."
+          }
         ],
-        "answer": 0,
-        "hint": "Läs begreppslistan och välj den förklaring som passar ordet.",
-        "explanation": "Ett land som kontrollerar kolonier."
+        "hint": "Ta hjälp av begreppslistan.",
+        "explanation": "Begreppen används för att förstå filmens händelser och samband."
       },
       {
-        "id": "colonialism-sv-1-fraga-1",
+        "id": "colonialism-sv-1-ur-vocab-gap-4",
         "level": "both",
-        "practiceSection": "questions",
-        "type": "multiple-choice",
-        "category": "Kontrollera din förståelse",
-        "prompt": "Vilken situation är ett exempel på kolonialism?",
-        "options": [
-          "En främmande makt tar kontroll över ett område och utnyttjar dess tillgångar.",
-          "Två självständiga länder samarbetar på lika villkor.",
-          "En person reser på semester.",
-          "Elever lär sig ett nytt språk."
+        "practiceSection": "vocabulary",
+        "type": "matching",
+        "category": "Begrepp i meningar",
+        "prompt": "Välj ett begrepp till varje lucka. Använd varje alternativ en gång.",
+        "choiceLabel": "Välj ett begrepp…",
+        "pairs": [
+          {
+            "term": "I Amerika fanns flera ___ före européernas ankomst.",
+            "definition": "civilisationer"
+          },
+          {
+            "term": "___ kopplade ekonomiska vinster till förslavning.",
+            "definition": "triangelhandeln"
+          },
+          {
+            "term": "___ användes för att rättfärdiga förtryck.",
+            "definition": "rasism"
+          }
         ],
-        "answer": 0,
-        "hint": "Läs stödtexten och använd materialet. Välj alternativet som bäst stämmer med innehållet.",
-        "explanation": "Kontroll och utnyttjande är centrala delar av begreppet."
+        "hint": "Läs hela meningen och jämför med begreppslistan.",
+        "explanation": "Varje begrepp ska passa sitt sammanhang."
       },
       {
-        "id": "colonialism-sv-1-fraga-2",
+        "id": "colonialism-sv-1-ur-rep-1",
         "level": "both",
-        "practiceSection": "questions",
+        "practiceSection": "repetition",
         "type": "multiple-choice",
-        "category": "Kontrollera din förståelse",
-        "prompt": "Vilket är ett ekonomiskt motiv för att skaffa kolonier?",
+        "category": "Repetition till UR-filmen",
+        "prompt": "Vad var Sidenvägen?",
         "options": [
-          "Att få tillgång till värdefulla resurser.",
-          "Att avskaffa all internationell handel.",
-          "Att göra alla länder lika mäktiga.",
-          "Att lämna alla tillgångar orörda."
+          "Ett nätverk av handelsvägar mellan Asien och Europa.",
+          "En väg som bara gick mellan Stockholm och Göteborg.",
+          "En sjöväg över Atlanten.",
+          "Ett namn på en amerikansk koloni."
         ],
         "answer": 0,
-        "hint": "Läs stödtexten och använd materialet. Välj alternativet som bäst stämmer med innehållet.",
-        "explanation": "Naturresurser och rikedomar kunde locka kolonialmakter."
+        "hint": "Använd UR-filmen, sammanfattningen och stödtexten. Om flera svar ska väljas står det i frågan.",
+        "explanation": "Den knöt samman handelsområden genom många vägar och mellanhänder."
       },
       {
-        "id": "colonialism-sv-1-fraga-3",
+        "id": "colonialism-sv-1-ur-rep-2",
         "level": "both",
-        "practiceSection": "questions",
+        "practiceSection": "repetition",
         "type": "multiple-choice",
-        "category": "Kontrollera din förståelse",
-        "prompt": "Vilken fråga hjälper dig att förstå kolonialismens följder?",
+        "category": "Repetition till UR-filmen",
+        "prompt": "Vilken missbedömning gjorde Columbus om jorden?",
         "options": [
-          "Vilka fick vinster och vilka drabbades av skada?",
-          "Vilket lands flagga hade flest färger?",
-          "Vilket fartyg hade finast namn?",
-          "Vilken plats var lättast att uttala?"
+          "Han underskattade avståndet västerut till Asien.",
+          "Han bevisade för första gången att jorden var rund.",
+          "Han visste att resan skulle sluta i Amerika.",
+          "Han trodde att Atlanten inte innehöll vatten."
         ],
         "answer": 0,
-        "hint": "Läs stödtexten och använd materialet. Välj alternativet som bäst stämmer med innehållet.",
-        "explanation": "Konsekvenser måste undersökas ur olika människors perspektiv."
+        "hint": "Använd UR-filmen, sammanfattningen och stödtexten. Om flera svar ska väljas står det i frågan.",
+        "explanation": "Det är en förenkling att säga att alla trodde på en platt jord. Columbus fel gällde framför allt storlek och avstånd."
       },
       {
-        "id": "colonialism-sv-1-fraga-4",
+        "id": "colonialism-sv-1-ur-rep-3",
         "level": "both",
-        "practiceSection": "questions",
+        "practiceSection": "repetition",
         "type": "multiple-choice",
-        "category": "Kontrollera din förståelse",
-        "prompt": "Varför är kolonialism mer än vanliga resor eller handel?",
+        "category": "Repetition till UR-filmen",
+        "prompt": "Vilket år nådde Columbus Karibien?",
         "options": [
-          "Den innebär att en makt kontrollerar ett annat område.",
-          "Alla resor leder till kolonier.",
-          "Handel är alltid förbjuden i kolonier.",
-          "Kolonialism kräver att alla talar samma språk."
+          "1492",
+          "1788",
+          "1884",
+          "1914"
         ],
         "answer": 0,
-        "hint": "Läs stödtexten och använd materialet. Välj alternativet som bäst stämmer med innehållet.",
-        "explanation": "Kontakt mellan människor är inte i sig kolonialism."
+        "hint": "Använd UR-filmen, sammanfattningen och stödtexten. Om flera svar ska väljas står det i frågan.",
+        "explanation": "Resan 1492 nådde öar i Karibien, som redan var bebodda."
       },
       {
-        "id": "colonialism-sv-1-fraga-5",
+        "id": "colonialism-sv-1-ur-rep-4",
         "level": "both",
-        "practiceSection": "questions",
+        "practiceSection": "repetition",
         "type": "multiple-choice",
-        "category": "Kontrollera din förståelse",
-        "prompt": "Vad betyder exploatering i det här sammanhanget?",
+        "category": "Repetition till UR-filmen",
+        "prompt": "Vilken historisk benämning använde Columbus om människorna han mötte?",
         "options": [
-          "Att utnyttja människor eller resurser för egen vinning.",
-          "Att skydda alla människors självbestämmande.",
-          "Att byta idéer på lika villkor.",
-          "Att avstå från ekonomiska vinster."
+          "”Indianer”, eftersom han trodde att han hade nått Asien.",
+          "”Australier”, eftersom han hade nått Australien.",
+          "”Romare”, eftersom han hade nått Rom.",
+          "”Vikingar”, eftersom han hade nått Norden."
         ],
         "answer": 0,
-        "hint": "Läs stödtexten och använd materialet. Välj alternativet som bäst stämmer med innehållet.",
-        "explanation": "Exploatering beskriver ett ojämnt förhållande där någon utnyttjar andra."
+        "hint": "Använd UR-filmen, sammanfattningen och stödtexten. Om flera svar ska väljas står det i frågan.",
+        "explanation": "Detta är en historisk benämning. I egna svar är namnet på folket eller ursprungsfolk ofta mer precist."
       },
       {
-        "id": "colonialism-sv-1-skriv-1",
+        "id": "colonialism-sv-1-ur-rep-5",
         "level": "both",
-        "practiceSection": "questions",
-        "type": "short-answer",
-        "category": "Förklara och resonera",
-        "prompt": "Beskriv två motiv för europeisk kolonisation. Ge ett exempel från UR-programmet.",
-        "hint": "Svara med egna ord. Ge ett konkret exempel och ange vilket material du använder.",
-        "checklist": [
-          "Jag besvarar frågan.",
-          "Jag använder minst ett tydligt exempel.",
-          "Jag anger vilken källa exemplet kommer från.",
-          "Jag skiljer mellan uppgifter i källan och min egen tolkning."
+        "practiceSection": "repetition",
+        "type": "multiple-choice",
+        "category": "Repetition till UR-filmen",
+        "prompt": "Vad var målet med Columbus första resa?",
+        "options": [
+          "Att hitta en sjöväg västerut till Asien.",
+          "Att besöka en redan känd amerikansk stat.",
+          "Att delta i Berlinkonferensen.",
+          "Att nå Australien."
         ],
-        "modelPoints": [
-          "Ekonomisk vinning genom tillgångar eller handel.",
+        "answer": 0,
+        "hint": "Använd UR-filmen, sammanfattningen och stödtexten. Om flera svar ska väljas står det i frågan.",
+        "explanation": "Målet var handel och tillgång till Asiens rikedomar, inte en planerad resa till Amerika."
+      },
+      {
+        "id": "colonialism-sv-1-ur-rep-6",
+        "level": "both",
+        "practiceSection": "repetition",
+        "type": "multiple-select",
+        "category": "Repetition till UR-filmen",
+        "prompt": "Vilka drivkrafter fanns bakom senare resor? Välj alla som stämmer.",
+        "options": [
+          "Guld och rikedomar.",
+          "Spridning av kristendomen.",
           "Makt och inflytande.",
-          "Välj ett konkret exempel från programmet och förklara kopplingen."
+          "Nyfikenhet och utforskande.",
+          "Att garantera alla samhällen självbestämmande."
+        ],
+        "answers": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "hint": "Använd UR-filmen, sammanfattningen och stödtexten. Om flera svar ska väljas står det i frågan.",
+        "explanation": "Motiven kunde vara ekonomiska, religiösa, politiska och kunskapsinriktade."
+      },
+      {
+        "id": "colonialism-sv-1-ur-rep-7",
+        "level": "both",
+        "practiceSection": "repetition",
+        "type": "multiple-select",
+        "category": "Repetition till UR-filmen",
+        "prompt": "Vilka följder kunde erövringar få för ursprungsbefolkningar? Välj alla som stämmer.",
+        "options": [
+          "Förslavning och våld.",
+          "Många dödsfall.",
+          "Plundring och förlust av mark.",
+          "Tvång att överge delar av språk, religion eller kultur.",
+          "Att alla omedelbart fick lika politisk makt."
+        ],
+        "answers": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "hint": "Använd UR-filmen, sammanfattningen och stödtexten. Om flera svar ska väljas står det i frågan.",
+        "explanation": "Följder och erfarenheter varierade; tvång och skador var centrala delar av kolonisationen."
+      },
+      {
+        "id": "colonialism-sv-1-ur-rep-8",
+        "level": "both",
+        "practiceSection": "repetition",
+        "type": "multiple-choice",
+        "category": "Repetition till UR-filmen",
+        "prompt": "Vilka fördelar lyfter UR-materialet i förklaringen till europeiska erövringar?",
+        "options": [
+          "Fartyg och krutvapen.",
+          "Att alla erövrade områden saknade invånare.",
+          "Att européerna aldrig mötte motstånd.",
+          "Att alla avtal var frivilliga och jämlika."
+        ],
+        "answer": 0,
+        "hint": "Använd UR-filmen, sammanfattningen och stödtexten. Om flera svar ska väljas står det i frågan.",
+        "explanation": "Tekniska fördelar var en faktor, men inte en ensam förklaring till varje erövring."
+      },
+      {
+        "id": "colonialism-sv-1-ur-rep-10",
+        "level": "both",
+        "practiceSection": "repetition",
+        "type": "multiple-choice",
+        "category": "Repetition till UR-filmen",
+        "prompt": "Vad var triangelhandeln?",
+        "options": [
+          "En modell av handel över Atlanten med bland annat förslavade människor, kolonialvaror och tillverkade varor.",
+          "Ett frivilligt skolutbyte mellan tre länder.",
+          "En enda resväg som varje skepp alltid följde.",
+          "Handel enbart mellan tre europeiska städer."
+        ],
+        "answer": 0,
+        "hint": "Använd UR-filmen, sammanfattningen och stödtexten. Om flera svar ska väljas står det i frågan.",
+        "explanation": "Modellen visar samband mellan Europa, Afrika och Amerika. Alla resor följde inte en identisk triangel."
+      },
+      {
+        "id": "colonialism-sv-1-ur-rep-11",
+        "level": "both",
+        "practiceSection": "repetition",
+        "type": "multiple-choice",
+        "category": "Repetition till UR-filmen",
+        "prompt": "Vilken roll hade Sverige i slavhandeln?",
+        "options": [
+          "Svenska aktörer deltog i handeln, bland annat genom handelsstationer och S:t Barthélemy.",
+          "Sverige deltog aldrig i kolonialism eller slaveri.",
+          "Sverige kontrollerade alla världens slavskepp.",
+          "Sverige hade inga ekonomiska intressen utanför Europa."
+        ],
+        "answer": 0,
+        "hint": "Använd UR-filmen, sammanfattningen och stödtexten. Om flera svar ska väljas står det i frågan.",
+        "explanation": "Svensk medverkan var mindre än vissa andra makters, men den fanns och hade allvarliga följder."
+      },
+      {
+        "id": "colonialism-sv-1-ur-rep-12",
+        "level": "both",
+        "practiceSection": "repetition",
+        "type": "multiple-select",
+        "category": "Repetition till UR-filmen",
+        "prompt": "Vilka följder för Europa behandlas i materialet? Välj alla som stämmer.",
+        "options": [
+          "Vinster från kolonial handel och resurser.",
+          "Resurser och handelsflöden som bidrog till industriell utveckling.",
+          "Att hela Europas befolkning gynnades lika mycket.",
+          "Att all ekonomisk ojämlikhet försvann."
+        ],
+        "answers": [
+          0,
+          1
+        ],
+        "hint": "Använd UR-filmen, sammanfattningen och stödtexten. Om flera svar ska väljas står det i frågan.",
+        "explanation": "Vinsterna fördelades ojämnt. Kolonialism bidrog till industriell utveckling men var inte dess enda orsak."
+      },
+      {
+        "id": "colonialism-sv-1-ur-rep-13",
+        "level": "both",
+        "practiceSection": "repetition",
+        "type": "multiple-select",
+        "category": "Repetition till UR-filmen",
+        "prompt": "Vilka konsekvenser för erövrade områden behandlas? Välj alla som stämmer.",
+        "options": [
+          "Lidande och död.",
+          "Utnyttjande av naturresurser.",
+          "Förlust eller försvagning av kulturella och språkliga praktiker.",
+          "Att alla lokala samhällen hade samma erfarenheter."
+        ],
+        "answers": [
+          0,
+          1,
+          2
+        ],
+        "hint": "Använd UR-filmen, sammanfattningen och stödtexten. Om flera svar ska väljas står det i frågan.",
+        "explanation": "Undersök både människors erfarenheter och förändringar i samhällen."
+      },
+      {
+        "id": "colonialism-sv-1-ur-rep-9",
+        "level": "both",
+        "practiceSection": "repetition",
+        "type": "matching",
+        "category": "Repetition till UR-filmen",
+        "prompt": "Matcha kolonialmakterna med exempel på områden de koloniserade. Översikten visar exempel, inte hela deras koloniala imperier.",
+        "pairs": [
+          {
+            "term": "Frankrike",
+            "definition": "Nordamerika – bland annat områden i dagens Kanada."
+          },
+          {
+            "term": "England",
+            "definition": "Nordamerika – bland annat kolonier längs östkusten."
+          },
+          {
+            "term": "Portugal",
+            "definition": "Sydamerika – framför allt Brasilien."
+          },
+          {
+            "term": "Spanien",
+            "definition": "Stora områden i Mellan- och Sydamerika."
+          }
+        ],
+        "hint": "Två makter hade kolonier i Nordamerika, men deras områden och historia var inte identiska.",
+        "explanation": "Flera kolonialmakters områden överlappade eller förändrades över tid."
+      },
+      {
+        "id": "colonialism-sv-1-ur-analysis-1",
+        "level": "both",
+        "practiceSection": "analysis",
+        "type": "short-answer",
+        "category": "Analys och källkritik",
+        "prompt": "Förklara kolonisation och kolonialism. Vad är likt och vad skiljer begreppen åt?",
+        "hint": "Använd konkreta exempel. Förklara hur du tänker och ange ditt underlag. Ett resonemang kan ha flera rimliga svar.",
+        "checklist": [
+          "Jag besvarar uppgiften med egna ord.",
+          "Jag använder konkreta exempel och anger källor.",
+          "Jag förklarar mina slutsatser.",
+          "Jag skiljer mellan belägg, tolkning och sådant jag inte kan veta säkert."
+        ],
+        "modelPoints": [
+          "Kolonisation beskriver en process av etablering och kontroll.",
+          "Kolonialism beskriver ett maktförhållande eller system av kontroll och utnyttjande.",
+          "Begreppen överlappar; gränsen är inte alltid skarp."
         ]
       },
       {
-        "id": "colonialism-sv-1-skriv-2",
+        "id": "colonialism-sv-1-ur-analysis-2",
         "level": "both",
-        "practiceSection": "questions",
+        "practiceSection": "analysis",
         "type": "short-answer",
-        "category": "Förklara och resonera",
-        "prompt": "Beskriv två konsekvenser för människor i ett koloniserat område. Använd materialet.",
-        "hint": "Svara med egna ord. Ge ett konkret exempel och ange vilket material du använder.",
+        "category": "Analys och källkritik",
+        "prompt": "Hur kan Columbus dagböcker användas som källor? Resonera om närhet, perspektiv, syfte och om du läser ett original eller en senare återgivning.",
+        "hint": "Använd konkreta exempel. Förklara hur du tänker och ange ditt underlag. Ett resonemang kan ha flera rimliga svar.",
         "checklist": [
-          "Jag besvarar frågan.",
-          "Jag använder minst ett tydligt exempel.",
-          "Jag anger vilken källa exemplet kommer från.",
-          "Jag skiljer mellan uppgifter i källan och min egen tolkning."
+          "Jag besvarar uppgiften med egna ord.",
+          "Jag använder konkreta exempel och anger källor.",
+          "Jag förklarar mina slutsatser.",
+          "Jag skiljer mellan belägg, tolkning och sådant jag inte kan veta säkert."
         ],
         "modelPoints": [
-          "Förlust av kontroll över mark och resurser.",
-          "Våld, förslavning eller påverkan på språk och kultur.",
-          "Förklara följder för människor, inte bara för stater."
+          "En samtida dagbok kan fungera som primärkälla till skribentens perspektiv.",
+          "Närhet betyder inte att allt är sant eller att alla röster finns med.",
+          "Bevarade versioner, bearbetningar och översättningar behöver granskas; ett program som berättar om dagboken är en annan källa."
         ]
       },
       {
-        "id": "colonialism-sv-1-skriv-3",
+        "id": "colonialism-sv-1-ur-analysis-3",
         "level": "both",
-        "practiceSection": "questions",
+        "practiceSection": "analysis",
         "type": "short-answer",
-        "category": "Förklara och resonera",
-        "prompt": "Varför behöver vi fråga både vem som gynnades och vem som drabbades när vi studerar kolonialism?",
-        "hint": "Svara med egna ord. Ge ett konkret exempel och ange vilket material du använder.",
+        "category": "Analys och källkritik",
+        "prompt": "Hur kunde erövrare rättfärdiga grymheter? Analysera motiveringar utan att själv godta dem.",
+        "hint": "Använd konkreta exempel. Förklara hur du tänker och ange ditt underlag. Ett resonemang kan ha flera rimliga svar.",
         "checklist": [
-          "Jag besvarar frågan.",
-          "Jag använder minst ett tydligt exempel.",
-          "Jag anger vilken källa exemplet kommer från.",
-          "Jag skiljer mellan uppgifter i källan och min egen tolkning."
+          "Jag besvarar uppgiften med egna ord.",
+          "Jag använder konkreta exempel och anger källor.",
+          "Jag förklarar mina slutsatser.",
+          "Jag skiljer mellan belägg, tolkning och sådant jag inte kan veta säkert."
         ],
         "modelPoints": [
-          "Vinster och kostnader fördelades mycket ojämnt.",
-          "Kolonialmaktens beskrivning kan skilja sig från de koloniserades erfarenheter."
+          "Ekonomiska och politiska intressen.",
+          "Religiösa föreställningar eller rasistisk rangordning.",
+          "Att förklara en motivering är inte att ursäkta våldet."
         ]
+      },
+      {
+        "id": "colonialism-sv-1-ur-analysis-4",
+        "level": "both",
+        "practiceSection": "analysis",
+        "type": "short-answer",
+        "category": "Analys och källkritik",
+        "prompt": "Diskutera påståendet ”Columbus upptäckte Amerika”. För vem kan ankomsten ha varit en upptäckt och vilka erfarenheter döljer uttrycket?",
+        "hint": "Använd konkreta exempel. Förklara hur du tänker och ange ditt underlag. Ett resonemang kan ha flera rimliga svar.",
+        "checklist": [
+          "Jag besvarar uppgiften med egna ord.",
+          "Jag använder konkreta exempel och anger källor.",
+          "Jag förklarar mina slutsatser.",
+          "Jag skiljer mellan belägg, tolkning och sådant jag inte kan veta säkert."
+        ],
+        "modelPoints": [
+          "Platserna var redan bebodda och kända för människorna som levde där.",
+          "Resan innebar ny kunskap och kontakt för vissa européer.",
+          "Välj ord som gör perspektivet tydligt, exempelvis nådde Karibien."
+        ]
+      },
+      {
+        "id": "colonialism-sv-1-ur-analysis-5",
+        "level": "both",
+        "practiceSection": "analysis",
+        "type": "short-answer",
+        "category": "Analys och källkritik",
+        "prompt": "Varför kan Sveriges koloniala historia vara mindre känd? Ge möjliga förklaringar och skilj dem från sådant du har belägg för.",
+        "hint": "Använd konkreta exempel. Förklara hur du tänker och ange ditt underlag. Ett resonemang kan ha flera rimliga svar.",
+        "checklist": [
+          "Jag besvarar uppgiften med egna ord.",
+          "Jag använder konkreta exempel och anger källor.",
+          "Jag förklarar mina slutsatser.",
+          "Jag skiljer mellan belägg, tolkning och sådant jag inte kan veta säkert."
+        ],
+        "modelPoints": [
+          "Imperiets storlek och vilka berättelser som fått plats i undervisning och offentlig historia kan undersökas.",
+          "Mindre omfattning betyder inte frånvaro eller ansvarsfrihet.",
+          "Använd ett konkret exempel från Forum för levande historia."
+        ]
+      },
+      {
+        "id": "colonialism-sv-1-ur-analysis-6",
+        "level": "both",
+        "practiceSection": "analysis",
+        "type": "short-answer",
+        "category": "Analys och källkritik",
+        "prompt": "Hur kan kolonialismen kopplas till globalisering? Använd exempel från huvudfilmen. Jämför med historikerns reflektioner om du har sett det avsnittet.",
+        "hint": "Använd konkreta exempel. Förklara hur du tänker och ange ditt underlag. Ett resonemang kan ha flera rimliga svar.",
+        "checklist": [
+          "Jag besvarar uppgiften med egna ord.",
+          "Jag använder konkreta exempel och anger källor.",
+          "Jag förklarar mina slutsatser.",
+          "Jag skiljer mellan belägg, tolkning och sådant jag inte kan veta säkert."
+        ],
+        "modelPoints": [
+          "Handel, människor, varor och idéer kopplades samman över stora avstånd.",
+          "Kontakter över långa avstånd fanns också före kolonialismen, exempelvis Sidenvägen.",
+          "Tvång, våld och ojämlikhet var del av vissa globala nätverk."
+        ]
+      },
+      {
+        "id": "colonialism-sv-1-ur-analysis-7",
+        "level": "both",
+        "practiceSection": "analysis",
+        "type": "short-answer",
+        "category": "Analys och källkritik",
+        "prompt": "Hur kunde världen ha utvecklats utan den europeiska kolonialismen? Formulera ett möjligt scenario och förklara vad du inte kan veta.",
+        "hint": "Använd konkreta exempel. Förklara hur du tänker och ange ditt underlag. Ett resonemang kan ha flera rimliga svar.",
+        "checklist": [
+          "Jag besvarar uppgiften med egna ord.",
+          "Jag använder konkreta exempel och anger källor.",
+          "Jag förklarar mina slutsatser.",
+          "Jag skiljer mellan belägg, tolkning och sådant jag inte kan veta säkert."
+        ],
+        "modelPoints": [
+          "Detta är ett kontrafaktiskt resonemang, inte en säker historisk uppgift.",
+          "Utgå från verkliga handelssystem eller samhällen och redovisa antaganden.",
+          "Flera olika utvecklingar är möjliga."
+        ]
+      },
+      {
+        "id": "colonialism-sv-1-ur-venn",
+        "level": "both",
+        "practiceSection": "extension",
+        "type": "classification",
+        "category": "Sortera och jämför",
+        "prompt": "Sortera påståendena för en jämförelse av de två UR-avsnitten. Indelningen gäller filmernas tidsperioder; kolonialism och imperialism som begrepp överlappar.",
+        "categories": [
+          "Gemensamt",
+          "Tidig kolonialism i UR-avsnittet",
+          "1800-talets imperialism i UR-avsnittet"
+        ],
+        "items": [
+          {
+            "text": "Kontroll över områden och utnyttjande av människor eller resurser.",
+            "answer": 0,
+            "explanation": "Det finns i båda perioderna."
+          },
+          {
+            "text": "Columbus resa 1492 och den tidiga europeiska expansionen i Amerika.",
+            "answer": 1,
+            "explanation": "Detta hör till den tidigare period som kolonialismavsnittet tar upp."
+          },
+          {
+            "text": "Berlinkonferensen 1884–1885.",
+            "answer": 2,
+            "explanation": "Detta hör till 1800-talets imperialism."
+          },
+          {
+            "text": "Religiösa motiveringar, makt och ekonomiska intressen.",
+            "answer": 0,
+            "explanation": "Dessa kan finnas i båda."
+          },
+          {
+            "text": "Industrialiseringens efterfrågan på råvaror under 1800-talet.",
+            "answer": 2,
+            "explanation": "Tidsangivelsen knyter påståendet till imperialismavsnittet."
+          },
+          {
+            "text": "Våld och motstånd från berörda samhällen.",
+            "answer": 0,
+            "explanation": "Motstånd och våld är inte unika för en av perioderna."
+          }
+        ],
+        "hint": "Läs hela påståendet. Välj den kategori som passar just den formuleringen.",
+        "explanation": "Utgå från de beskrivna sambanden. Orsaker och följder kan förstärka varandra."
+      },
+      {
+        "id": "colonialism-sv-1-ur-extension-1",
+        "level": "both",
+        "practiceSection": "extension",
+        "type": "short-answer",
+        "category": "Arbeta vidare",
+        "prompt": "Sammanfatta din jämförelse av kolonialism och imperialism. Använd ett gemensamt drag och en skillnad mellan filmernas perioder.",
+        "hint": "Använd konkreta exempel. Förklara hur du tänker och ange ditt underlag. Ett resonemang kan ha flera rimliga svar.",
+        "checklist": [
+          "Jag besvarar uppgiften med egna ord.",
+          "Jag använder konkreta exempel och anger källor.",
+          "Jag förklarar mina slutsatser.",
+          "Jag skiljer mellan belägg, tolkning och sådant jag inte kan veta säkert."
+        ],
+        "modelPoints": [
+          "Skilj mellan breda begrepp och de tidsperioder UR har valt.",
+          "Använd konkreta exempel och förklara jämförelsen."
+        ]
+      },
+      {
+        "id": "colonialism-sv-1-ur-extension-2",
+        "level": "both",
+        "practiceSection": "extension",
+        "type": "short-answer",
+        "category": "Arbeta vidare",
+        "prompt": "Expertgrupper: välj aztekiska samhällen, inkariket, mayasamhällen eller ett namngivet nordamerikanskt ursprungsfolk. Förbered en kort redogörelse om samhälle, kultur och mötet med kolonial expansion.",
+        "hint": "Använd konkreta exempel. Förklara hur du tänker och ange ditt underlag. Ett resonemang kan ha flera rimliga svar.",
+        "checklist": [
+          "Jag besvarar uppgiften med egna ord.",
+          "Jag använder konkreta exempel och anger källor.",
+          "Jag förklarar mina slutsatser.",
+          "Jag skiljer mellan belägg, tolkning och sådant jag inte kan veta säkert."
+        ],
+        "modelPoints": [
+          "Avgränsa plats och tid. Gruppen Nordamerikas ursprungsfolk är inte en enda kultur.",
+          "Använd minst två källor och anteckna vad de visar.",
+          "Dela kunskapen i hemgruppen och jämför utan att rangordna kulturer."
+        ]
+      },
+      {
+        "id": "colonialism-sv-1-ur-extension-3",
+        "level": "both",
+        "practiceSection": "extension",
+        "type": "short-answer",
+        "category": "Arbeta vidare",
+        "prompt": "Skriv en fiktiv dialog mellan en erövrare och en person från ett ursprungsfolk som måste samarbeta. Visa olika perspektiv med stöd i materialet och förklara vilka delar du har hittat på.",
+        "hint": "Använd konkreta exempel. Förklara hur du tänker och ange ditt underlag. Ett resonemang kan ha flera rimliga svar.",
+        "checklist": [
+          "Jag besvarar uppgiften med egna ord.",
+          "Jag använder konkreta exempel och anger källor.",
+          "Jag förklarar mina slutsatser.",
+          "Jag skiljer mellan belägg, tolkning och sådant jag inte kan veta säkert."
+        ],
+        "modelPoints": [
+          "Använd historiskt underlag utan att låta en person representera alla.",
+          "Markera att dialogen är fiktion, inte ett autentiskt vittnesmål.",
+          "Lyft maktskillnader, val och möjliga mål."
+        ]
+      },
+      {
+        "id": "colonialism-sv-1-ur-extension-4",
+        "level": "both",
+        "practiceSection": "extension",
+        "type": "short-answer",
+        "category": "Arbeta vidare",
+        "prompt": "Utforma regler och en enkel budget för ett tänkt samhälle där invånarnas rättigheter skyddas. Fördela 100 budgetenheter mellan exempelvis utbildning, vård, försörjning och rättsväsende. Motivera två prioriteringar.",
+        "hint": "Använd konkreta exempel. Förklara hur du tänker och ange ditt underlag. Ett resonemang kan ha flera rimliga svar.",
+        "checklist": [
+          "Jag besvarar uppgiften med egna ord.",
+          "Jag använder konkreta exempel och anger källor.",
+          "Jag förklarar mina slutsatser.",
+          "Jag skiljer mellan belägg, tolkning och sådant jag inte kan veta säkert."
+        ],
+        "modelPoints": [
+          "Utgå från invånarnas rättigheter och deltagande, inte från att ett land är tomt.",
+          "Summan ska vara 100 och prioriteringarna ska förklaras.",
+          "Jämför med en klasskamrat: vem får makt och hur kan beslut granskas?"
+        ]
+      },
+      {
+        "id": "colonialism-sv-1-ur-tidslinje",
+        "level": "both",
+        "practiceSection": "repetition",
+        "type": "ordering",
+        "category": "Bygg en tidslinje",
+        "prompt": "Placera händelserna i tidsordning, från äldst till yngst.",
+        "items": [
+          "Columbus når Karibien.",
+          "Den svenska kolonin Nya Sverige etableras i Nordamerika.",
+          "S:t Barthélemy blir svensk koloni.",
+          "Slaveriet avskaffas på svenska S:t Barthélemy."
+        ],
+        "hint": "Årtalen är 1492, 1638, 1784 och 1847. Koppla varje årtal till rätt händelse.",
+        "explanation": "Tidslinjen visar både den tidiga europeiska expansionen och senare svensk medverkan."
+      }
+    ],
+    "learningCards": [
+      {
+        "title": "Så bygger du ett resonemang",
+        "body": "Påstående → konkret exempel → förklaring av sambandet → nyansering. Ange vilken källa exemplet kommer från."
+      },
+      {
+        "title": "Primärkälla eller senare tolkning?",
+        "body": "En källa nära händelsen kan visa ett samtida perspektiv, men är inte automatiskt sann eller neutral. En senare framställning kan jämföra flera källor. Fråga alltid: källa till vad?"
+      },
+      {
+        "title": "När flera alternativ är rätt",
+        "body": "Läs alla alternativ. Markera alla som stämmer och kontrollera först när du är klar. Du får återkoppling om både saknade och felvalda alternativ."
       }
     ]
   },
@@ -1522,9 +2066,10 @@ export const swedishColonialismMaterials = [
       "label": "Undervisningsmaterial",
       "url": "https://urplay.se/program/232836-plugga-historia-imperialismen"
     },
-    "introduction": "Se UR-programmet om imperialismen och läs den bearbetade texten från det uppladdade dokumentet nedan. Arbeta med begreppen, de tidigare övningarna och de nya textfrågorna. Läs den historiska preciseringen innan du besvarar frågor om Berlinkonferensen och senare konflikter. De tolv studiefrågorna från ditt frågedokument finns nu som flervalsfrågor i frågefliken.",
+    "introduction": "Se UR:s Imperialismen. Träna begrepp, gör filmens repetitionsfrågor och fortsätt med studiefrågorna till Berlinkonferensen. Analys och Arbeta vidare innehåller sortering, jämförelser, källkritik och undersökningar.",
     "lessonNotes": [
-      "Historisk precisering: Berlinkonferensen skapade regler för koloniala anspråk. Den ritade inte färdigt Afrikas gränser. Den brittiska sammanföringen av Nigeria skedde senare, 1914. Koloniala gränser är en möjlig bakgrundsfaktor, inte en ensam förklaring till alla senare konflikter."
+      "Historisk precisering: Berlinkonferensen skapade regler för koloniala anspråk. Den ritade inte färdigt Afrikas gränser. Den brittiska sammanföringen av Nigeria skedde senare, 1914. Koloniala gränser är en möjlig bakgrundsfaktor, inte en ensam förklaring till alla senare konflikter.",
+      "Historiska preciseringar: exakta dödstal under Leopold II är osäkra. Indisk textilproduktion påverkades av brittiska handelsvillkor, men ett allmänt påstående att Indien aldrig fick tillverka tyg är för kategoriskt. Etiopien stod emot långvarig kolonisation men ockuperades av Italien 1936–1941."
     ],
     "resourceGroups": [
       {
@@ -1571,6 +2116,36 @@ export const swedishColonialismMaterials = [
           {
             "label": "Samväldets presentation av Nigeria",
             "url": "https://thecommonwealth.org/our-member-countries/nigeria"
+          }
+        ]
+      },
+      {
+        "title": "Jämförelser och eget arbete",
+        "items": [
+          {
+            "label": "UR:s lärarhandledning och historikerns reflektioner",
+            "url": "https://urplay.se/serie/232834-plugga-historia/extra"
+          },
+          {
+            "label": "Venndiagram (UR, PDF)",
+            "url": "https://www.ur.se/mb/pdf/Arbetsblad/234000-234999/234619-2_PLUGGA_HISTOIA_VENNDIAGRAM.pdf"
+          },
+          {
+            "label": "Världskarta (UR, PDF)",
+            "url": "https://urplay.se/uras/pdf/varldskarta-plugga-historia.pdf"
+          }
+        ]
+      },
+      {
+        "title": "Bakgrund till preciseringar (på engelska)",
+        "items": [
+          {
+            "label": "V&A: indiska textilier och handel",
+            "url": "https://www.vam.ac.uk/articles/indian-textiles/"
+          },
+          {
+            "label": "Cambridge: Italiens ockupation av Etiopien 1936–1941",
+            "url": "https://www.cambridge.org/core/books/history-of-modern-ethiopia-18551991/italian-occupation-19361941/282596A9423875613429990FBCE4696D"
           }
         ]
       }
@@ -1685,18 +2260,83 @@ export const swedishColonialismMaterials = [
         "term": "kolonialt arv",
         "definition": "Följder av kolonialtiden som finns kvar efteråt.",
         "example": "Ett kolonialt arv kan påverka språk och institutioner."
+      },
+      {
+        "term": "imperium",
+        "definition": "Ett stort rike som kontrollerar flera områden eller folk.",
+        "example": "Ett imperium kan omfatta många olika samhällen."
+      },
+      {
+        "term": "kolonier",
+        "definition": "Områden som styrs eller kontrolleras av en främmande makt.",
+        "example": "Kolonier kunde ge inkomster och politiskt inflytande."
+      },
+      {
+        "term": "kolonialism",
+        "definition": "Kontroll och utnyttjande av andra områden och deras människor eller tillgångar.",
+        "example": "Kolonialism innebär ojämna maktförhållanden."
+      },
+      {
+        "term": "nationalism",
+        "definition": "Idéer om nationens gemenskap, identitet och intressen.",
+        "example": "Nationalism kunde öka viljan att stärka landets makt."
+      },
+      {
+        "term": "industrialiseringen",
+        "definition": "Övergången till större produktion med maskiner och fabriker.",
+        "example": "Industrialiseringen ökade efterfrågan på råvaror."
+      },
+      {
+        "term": "ekonomi",
+        "definition": "Hur resurser, arbete, produktion och handel ordnas och fördelas.",
+        "example": "Koloniernas ekonomi påverkades av makt och handel."
+      },
+      {
+        "term": "status",
+        "definition": "Den ställning eller det anseende någon har.",
+        "example": "Kolonier kunde ge en stormakt högre status."
+      },
+      {
+        "term": "kultur",
+        "definition": "Människors uttryck, kunskaper, traditioner och sätt att leva.",
+        "example": "Människor bevarar och förändrar sin kultur."
+      },
+      {
+        "term": "rasism",
+        "definition": "Idéer eller handlingar som rangordnar människor utifrån exempelvis härkomst eller hudfärg.",
+        "example": "Rasism kunde användas för att försvara erövringar."
+      },
+      {
+        "term": "kapplöpning",
+        "definition": "En intensiv tävlan om att hinna före andra.",
+        "example": "Stormakternas kapplöpning ökade jakten på kolonier."
+      },
+      {
+        "term": "Berlinkonferensen",
+        "definition": "Mötet 1884–1885 där kolonialmakter förhandlade om regler för anspråk och handel i Afrika.",
+        "example": "Berlinkonferensen hölls utan afrikanska företrädare."
       }
     ],
     "practiceSections": [
       {
         "id": "vocabulary",
-        "title": "Begreppsträning",
-        "description": "Lär dig begreppen med enkla förklaringar och korta övningar."
+        "title": "Begrepp",
+        "description": "Lär dig orden med enkla förklaringar, matchning och meningar."
       },
       {
-        "id": "questions",
-        "title": "Frågor och resonemang",
-        "description": "Använd materialet och stödtexten. Flervalsfrågorna rättas direkt. Skriftliga svar sparas och jämförs med innehållspunkter."
+        "id": "repetition",
+        "title": "Repetition",
+        "description": "Kontrollera förståelsen. Vissa frågor har flera rätta svar; välj då alla som stämmer."
+      },
+      {
+        "id": "analysis",
+        "title": "Analys",
+        "description": "Undersök orsaker, följder, perspektiv och källor. Använd konkreta belägg."
+      },
+      {
+        "id": "extension",
+        "title": "Arbeta vidare",
+        "description": "Jämför, undersök och skapa. Uppgifterna kan göras individuellt eller tillsammans."
       }
     ],
     "text": [
@@ -1705,12 +2345,12 @@ export const swedishColonialismMaterials = [
     ],
     "activities": [
       {
-        "id": "colonialism-sv-3-begrepp-text-match-1",
+        "id": "colonialism-sv-3-ur-vocab-match-1",
         "level": "both",
         "practiceSection": "vocabulary",
         "type": "matching",
         "category": "Matcha begrepp",
-        "prompt": "Matcha varje begrepp med rätt förklaring.",
+        "prompt": "Matcha begreppen med deras enkla förklaringar.",
         "pairs": [
           {
             "term": "imperialism",
@@ -1733,16 +2373,16 @@ export const swedishColonialismMaterials = [
             "definition": "Ett land med stor militär, ekonomisk eller politisk makt."
           }
         ],
-        "hint": "Ta hjälp av begreppslistan. Läs alla alternativ.",
-        "explanation": "Förklaringarna använder enkel svenska."
+        "hint": "Ta hjälp av begreppslistan.",
+        "explanation": "Begreppen används för att förstå filmens händelser och samband."
       },
       {
-        "id": "colonialism-sv-3-begrepp-text-mening-1",
+        "id": "colonialism-sv-3-ur-vocab-gap-1",
         "level": "both",
         "practiceSection": "vocabulary",
         "type": "matching",
         "category": "Begrepp i meningar",
-        "prompt": "Välj rätt begrepp till varje lucka. Använd varje begrepp en gång.",
+        "prompt": "Välj ett begrepp till varje lucka. Använd varje alternativ en gång.",
         "choiceLabel": "Välj ett begrepp…",
         "pairs": [
           {
@@ -1766,16 +2406,16 @@ export const swedishColonialismMaterials = [
             "definition": "stormakt"
           }
         ],
-        "hint": "Läs hela meningen. Jämför med exemplen i begreppslistan.",
-        "explanation": "Varje begrepp ska passa meningen och sammanhanget."
+        "hint": "Läs hela meningen och jämför med begreppslistan.",
+        "explanation": "Varje begrepp ska passa sitt sammanhang."
       },
       {
-        "id": "colonialism-sv-3-begrepp-text-match-2",
+        "id": "colonialism-sv-3-ur-vocab-match-2",
         "level": "both",
         "practiceSection": "vocabulary",
         "type": "matching",
         "category": "Matcha begrepp",
-        "prompt": "Matcha varje begrepp med rätt förklaring.",
+        "prompt": "Matcha begreppen med deras enkla förklaringar.",
         "pairs": [
           {
             "term": "exploatering",
@@ -1798,16 +2438,16 @@ export const swedishColonialismMaterials = [
             "definition": "Ett krig mellan grupper inom samma stat."
           }
         ],
-        "hint": "Ta hjälp av begreppslistan. Läs alla alternativ.",
-        "explanation": "Förklaringarna använder enkel svenska."
+        "hint": "Ta hjälp av begreppslistan.",
+        "explanation": "Begreppen används för att förstå filmens händelser och samband."
       },
       {
-        "id": "colonialism-sv-3-begrepp-text-mening-2",
+        "id": "colonialism-sv-3-ur-vocab-gap-2",
         "level": "both",
         "practiceSection": "vocabulary",
         "type": "matching",
         "category": "Begrepp i meningar",
-        "prompt": "Välj rätt begrepp till varje lucka. Använd varje begrepp en gång.",
+        "prompt": "Välj ett begrepp till varje lucka. Använd varje alternativ en gång.",
         "choiceLabel": "Välj ett begrepp…",
         "pairs": [
           {
@@ -1831,16 +2471,16 @@ export const swedishColonialismMaterials = [
             "definition": "inbördeskrig"
           }
         ],
-        "hint": "Läs hela meningen. Jämför med exemplen i begreppslistan.",
-        "explanation": "Varje begrepp ska passa meningen och sammanhanget."
+        "hint": "Läs hela meningen och jämför med begreppslistan.",
+        "explanation": "Varje begrepp ska passa sitt sammanhang."
       },
       {
-        "id": "colonialism-sv-3-begrepp-text-match-3",
+        "id": "colonialism-sv-3-ur-vocab-match-3",
         "level": "both",
         "practiceSection": "vocabulary",
         "type": "matching",
         "category": "Matcha begrepp",
-        "prompt": "Matcha varje begrepp med rätt förklaring.",
+        "prompt": "Matcha begreppen med deras enkla förklaringar.",
         "pairs": [
           {
             "term": "strategiskt läge",
@@ -1863,16 +2503,16 @@ export const swedishColonialismMaterials = [
             "definition": "Nya eller förbättrade tekniska lösningar."
           }
         ],
-        "hint": "Ta hjälp av begreppslistan. Läs alla alternativ.",
-        "explanation": "Förklaringarna använder enkel svenska."
+        "hint": "Ta hjälp av begreppslistan.",
+        "explanation": "Begreppen används för att förstå filmens händelser och samband."
       },
       {
-        "id": "colonialism-sv-3-begrepp-text-mening-3",
+        "id": "colonialism-sv-3-ur-vocab-gap-3",
         "level": "both",
         "practiceSection": "vocabulary",
         "type": "matching",
         "category": "Begrepp i meningar",
-        "prompt": "Välj rätt begrepp till varje lucka. Använd varje begrepp en gång.",
+        "prompt": "Välj ett begrepp till varje lucka. Använd varje alternativ en gång.",
         "choiceLabel": "Välj ett begrepp…",
         "pairs": [
           {
@@ -1896,16 +2536,16 @@ export const swedishColonialismMaterials = [
             "definition": "tekniska framsteg"
           }
         ],
-        "hint": "Läs hela meningen. Jämför med exemplen i begreppslistan.",
-        "explanation": "Varje begrepp ska passa meningen och sammanhanget."
+        "hint": "Läs hela meningen och jämför med begreppslistan.",
+        "explanation": "Varje begrepp ska passa sitt sammanhang."
       },
       {
-        "id": "colonialism-sv-3-begrepp-text-match-4",
+        "id": "colonialism-sv-3-ur-vocab-match-4",
         "level": "both",
         "practiceSection": "vocabulary",
         "type": "matching",
         "category": "Matcha begrepp",
-        "prompt": "Matcha varje begrepp med rätt förklaring.",
+        "prompt": "Matcha begreppen med deras enkla förklaringar.",
         "pairs": [
           {
             "term": "protektorat",
@@ -1928,16 +2568,16 @@ export const swedishColonialismMaterials = [
             "definition": "Ett begrepp för ekonomiskt eller politiskt beroende som kan begränsa ett formellt självständigt lands handlingsutrymme."
           }
         ],
-        "hint": "Ta hjälp av begreppslistan. Läs alla alternativ.",
-        "explanation": "Förklaringarna använder enkel svenska."
+        "hint": "Ta hjälp av begreppslistan.",
+        "explanation": "Begreppen används för att förstå filmens händelser och samband."
       },
       {
-        "id": "colonialism-sv-3-begrepp-text-mening-4",
+        "id": "colonialism-sv-3-ur-vocab-gap-4",
         "level": "both",
         "practiceSection": "vocabulary",
         "type": "matching",
         "category": "Begrepp i meningar",
-        "prompt": "Välj rätt begrepp till varje lucka. Använd varje begrepp en gång.",
+        "prompt": "Välj ett begrepp till varje lucka. Använd varje alternativ en gång.",
         "choiceLabel": "Välj ett begrepp…",
         "pairs": [
           {
@@ -1961,16 +2601,16 @@ export const swedishColonialismMaterials = [
             "definition": "neokolonialism"
           }
         ],
-        "hint": "Läs hela meningen. Jämför med exemplen i begreppslistan.",
-        "explanation": "Varje begrepp ska passa meningen och sammanhanget."
+        "hint": "Läs hela meningen och jämför med begreppslistan.",
+        "explanation": "Varje begrepp ska passa sitt sammanhang."
       },
       {
-        "id": "colonialism-sv-3-begrepp-text-match-5",
+        "id": "colonialism-sv-3-ur-vocab-match-5",
         "level": "both",
         "practiceSection": "vocabulary",
         "type": "matching",
         "category": "Matcha begrepp",
-        "prompt": "Matcha varje begrepp med rätt förklaring.",
+        "prompt": "Matcha begreppen med deras enkla förklaringar.",
         "pairs": [
           {
             "term": "social hierarki",
@@ -1979,18 +2619,30 @@ export const swedishColonialismMaterials = [
           {
             "term": "kolonialt arv",
             "definition": "Följder av kolonialtiden som finns kvar efteråt."
+          },
+          {
+            "term": "imperium",
+            "definition": "Ett stort rike som kontrollerar flera områden eller folk."
+          },
+          {
+            "term": "kolonier",
+            "definition": "Områden som styrs eller kontrolleras av en främmande makt."
+          },
+          {
+            "term": "kolonialism",
+            "definition": "Kontroll och utnyttjande av andra områden och deras människor eller tillgångar."
           }
         ],
-        "hint": "Ta hjälp av begreppslistan. Läs alla alternativ.",
-        "explanation": "Förklaringarna använder enkel svenska."
+        "hint": "Ta hjälp av begreppslistan.",
+        "explanation": "Begreppen används för att förstå filmens händelser och samband."
       },
       {
-        "id": "colonialism-sv-3-begrepp-text-mening-5",
+        "id": "colonialism-sv-3-ur-vocab-gap-5",
         "level": "both",
         "practiceSection": "vocabulary",
         "type": "matching",
         "category": "Begrepp i meningar",
-        "prompt": "Välj rätt begrepp till varje lucka. Använd varje begrepp en gång.",
+        "prompt": "Välj ett begrepp till varje lucka. Använd varje alternativ en gång.",
         "choiceLabel": "Välj ett begrepp…",
         "pairs": [
           {
@@ -2000,209 +2652,482 @@ export const swedishColonialismMaterials = [
           {
             "term": "Ett ___ kan påverka språk och institutioner.",
             "definition": "kolonialt arv"
+          },
+          {
+            "term": "Ett ___ kan omfatta många olika samhällen.",
+            "definition": "imperium"
+          },
+          {
+            "term": "___ kunde ge inkomster och politiskt inflytande.",
+            "definition": "kolonier"
+          },
+          {
+            "term": "___ innebär ojämna maktförhållanden.",
+            "definition": "kolonialism"
           }
         ],
-        "hint": "Läs hela meningen. Jämför med exemplen i begreppslistan.",
-        "explanation": "Varje begrepp ska passa meningen och sammanhanget."
+        "hint": "Läs hela meningen och jämför med begreppslistan.",
+        "explanation": "Varje begrepp ska passa sitt sammanhang."
       },
       {
-        "id": "colonialism-sv-3-begrepp-val-1",
+        "id": "colonialism-sv-3-ur-vocab-match-6",
         "level": "both",
         "practiceSection": "vocabulary",
-        "type": "multiple-choice",
-        "category": "Begrepp i sammanhang",
-        "prompt": "Vad betyder imperialism i det här arbetsområdet?",
-        "options": [
-          "När en stat försöker utöka sin makt över andra områden.",
-          "När maskiner och fabriker får en större roll i produktionen.",
-          "Material som används för att tillverka andra saker.",
-          "Konkurrens mellan personer eller grupper som vill nå samma mål."
+        "type": "matching",
+        "category": "Matcha begrepp",
+        "prompt": "Matcha begreppen med deras enkla förklaringar.",
+        "pairs": [
+          {
+            "term": "nationalism",
+            "definition": "Idéer om nationens gemenskap, identitet och intressen."
+          },
+          {
+            "term": "industrialiseringen",
+            "definition": "Övergången till större produktion med maskiner och fabriker."
+          },
+          {
+            "term": "ekonomi",
+            "definition": "Hur resurser, arbete, produktion och handel ordnas och fördelas."
+          },
+          {
+            "term": "status",
+            "definition": "Den ställning eller det anseende någon har."
+          },
+          {
+            "term": "kultur",
+            "definition": "Människors uttryck, kunskaper, traditioner och sätt att leva."
+          }
         ],
-        "answer": 0,
-        "hint": "Läs begreppslistan och välj den förklaring som passar ordet.",
-        "explanation": "När en stat försöker utöka sin makt över andra områden."
+        "hint": "Ta hjälp av begreppslistan.",
+        "explanation": "Begreppen används för att förstå filmens händelser och samband."
       },
       {
-        "id": "colonialism-sv-3-begrepp-val-2",
+        "id": "colonialism-sv-3-ur-vocab-gap-6",
         "level": "both",
         "practiceSection": "vocabulary",
-        "type": "multiple-choice",
-        "category": "Begrepp i sammanhang",
-        "prompt": "Vad betyder industrialisering i det här arbetsområdet?",
-        "options": [
-          "När maskiner och fabriker får en större roll i produktionen.",
-          "Material som används för att tillverka andra saker.",
-          "Konkurrens mellan personer eller grupper som vill nå samma mål.",
-          "Ett land med stor militär, ekonomisk eller politisk makt."
+        "type": "matching",
+        "category": "Begrepp i meningar",
+        "prompt": "Välj ett begrepp till varje lucka. Använd varje alternativ en gång.",
+        "choiceLabel": "Välj ett begrepp…",
+        "pairs": [
+          {
+            "term": "___ kunde öka viljan att stärka landets makt.",
+            "definition": "nationalism"
+          },
+          {
+            "term": "___ ökade efterfrågan på råvaror.",
+            "definition": "industrialiseringen"
+          },
+          {
+            "term": "Koloniernas ___ påverkades av makt och handel.",
+            "definition": "ekonomi"
+          },
+          {
+            "term": "Kolonier kunde ge en stormakt högre ___.",
+            "definition": "status"
+          },
+          {
+            "term": "Människor bevarar och förändrar sin ___.",
+            "definition": "kultur"
+          }
         ],
-        "answer": 0,
-        "hint": "Läs begreppslistan och välj den förklaring som passar ordet.",
-        "explanation": "När maskiner och fabriker får en större roll i produktionen."
+        "hint": "Läs hela meningen och jämför med begreppslistan.",
+        "explanation": "Varje begrepp ska passa sitt sammanhang."
       },
       {
-        "id": "colonialism-sv-3-begrepp-val-3",
+        "id": "colonialism-sv-3-ur-vocab-match-7",
         "level": "both",
         "practiceSection": "vocabulary",
+        "type": "matching",
+        "category": "Matcha begrepp",
+        "prompt": "Matcha begreppen med deras enkla förklaringar.",
+        "pairs": [
+          {
+            "term": "rasism",
+            "definition": "Idéer eller handlingar som rangordnar människor utifrån exempelvis härkomst eller hudfärg."
+          },
+          {
+            "term": "kapplöpning",
+            "definition": "En intensiv tävlan om att hinna före andra."
+          },
+          {
+            "term": "Berlinkonferensen",
+            "definition": "Mötet 1884–1885 där kolonialmakter förhandlade om regler för anspråk och handel i Afrika."
+          }
+        ],
+        "hint": "Ta hjälp av begreppslistan.",
+        "explanation": "Begreppen används för att förstå filmens händelser och samband."
+      },
+      {
+        "id": "colonialism-sv-3-ur-vocab-gap-7",
+        "level": "both",
+        "practiceSection": "vocabulary",
+        "type": "matching",
+        "category": "Begrepp i meningar",
+        "prompt": "Välj ett begrepp till varje lucka. Använd varje alternativ en gång.",
+        "choiceLabel": "Välj ett begrepp…",
+        "pairs": [
+          {
+            "term": "___ kunde användas för att försvara erövringar.",
+            "definition": "rasism"
+          },
+          {
+            "term": "Stormakternas ___ ökade jakten på kolonier.",
+            "definition": "kapplöpning"
+          },
+          {
+            "term": "___ hölls utan afrikanska företrädare.",
+            "definition": "Berlinkonferensen"
+          }
+        ],
+        "hint": "Läs hela meningen och jämför med begreppslistan.",
+        "explanation": "Varje begrepp ska passa sitt sammanhang."
+      },
+      {
+        "id": "colonialism-sv-3-ur-rep-1",
+        "level": "both",
+        "practiceSection": "repetition",
         "type": "multiple-choice",
-        "category": "Begrepp i sammanhang",
-        "prompt": "Vad betyder råvaror i det här arbetsområdet?",
+        "category": "Repetition till UR-filmen",
+        "prompt": "Vilken period behandlar UR-avsnittet som imperialismens tidsålder?",
         "options": [
-          "Material som används för att tillverka andra saker.",
-          "Konkurrens mellan personer eller grupper som vill nå samma mål.",
-          "Ett land med stor militär, ekonomisk eller politisk makt.",
-          "Att utnyttja människor eller resurser för egen vinning."
+          "Från början av 1800-talet till 1914.",
+          "Enbart antiken.",
+          "Enbart åren efter 2000.",
+          "En enda dag 1884."
         ],
         "answer": 0,
-        "hint": "Läs begreppslistan och välj den förklaring som passar ordet.",
-        "explanation": "Material som används för att tillverka andra saker."
+        "hint": "Använd UR-filmen, sammanfattningen och stödtexten. Om flera svar ska väljas står det i frågan.",
+        "explanation": "Imperialism är ett bredare begrepp; detta är avsnittets periodisering."
       },
       {
-        "id": "colonialism-sv-3-fraga-1",
+        "id": "colonialism-sv-3-ur-rep-2",
         "level": "both",
-        "practiceSection": "questions",
+        "practiceSection": "repetition",
         "type": "multiple-choice",
-        "category": "Kontrollera din förståelse",
-        "prompt": "Hur kunde industrialiseringen bidra till imperialismen?",
+        "category": "Repetition till UR-filmen",
+        "prompt": "Vad betyder imperium?",
         "options": [
-          "Den ökade behovet av råvaror och gav tekniska fördelar.",
-          "Den gjorde alla råvaror värdelösa.",
-          "Den tog bort konkurrensen mellan stater.",
-          "Den gjorde koloniala erövringar omöjliga."
+          "Ett stort rike med makt över flera områden eller folk.",
+          "En enskild vara.",
+          "En demokratisk folkomröstning.",
+          "Ett litet frivilligt bokprojekt."
         ],
         "answer": 0,
-        "hint": "Läs stödtexten och använd materialet. Välj alternativet som bäst stämmer med innehållet.",
-        "explanation": "Industrialisering, ekonomiska intressen och makt kunde förstärka varandra."
+        "hint": "Använd UR-filmen, sammanfattningen och stödtexten. Om flera svar ska väljas står det i frågan.",
+        "explanation": "Ett imperium omfattar flera områden under en makt."
       },
       {
-        "id": "colonialism-sv-3-fraga-2",
+        "id": "colonialism-sv-3-ur-rep-3",
         "level": "both",
-        "practiceSection": "questions",
+        "practiceSection": "repetition",
         "type": "multiple-choice",
-        "category": "Kontrollera din förståelse",
-        "prompt": "Vad bidrog Berlinkonferensen till?",
+        "category": "Repetition till UR-filmen",
+        "prompt": "Vad betyder imperialism?",
         "options": [
-          "Regler för kolonialmakternas anspråk i Afrika.",
-          "Självbestämmande för alla afrikanska samhällen.",
-          "Att alla Afrikas gränser ritades färdigt under ett möte.",
-          "Att kolonialismen omedelbart upphörde."
+          "Att en stat försöker utvidga sin makt över andra områden.",
+          "Att all internationell handel upphör.",
+          "Att alla länder frivilligt får lika makt.",
+          "Att en person lämnar tillbaka en bok."
         ],
         "answer": 0,
-        "hint": "Läs stödtexten och använd materialet. Välj alternativet som bäst stämmer med innehållet.",
-        "explanation": "Konferensen skapade ett ramverk; erövringar och gränsdragningar fortsatte efteråt."
+        "hint": "Använd UR-filmen, sammanfattningen och stödtexten. Om flera svar ska väljas står det i frågan.",
+        "explanation": "Imperialism kan utövas på olika sätt, även utanför den tidsperiod filmen behandlar."
       },
       {
-        "id": "colonialism-sv-3-fraga-3",
+        "id": "colonialism-sv-3-ur-rep-4",
         "level": "both",
-        "practiceSection": "questions",
+        "practiceSection": "repetition",
         "type": "multiple-choice",
-        "category": "Kontrollera din förståelse",
-        "prompt": "Vilka fick inte delta som företrädare vid konferensen?",
+        "category": "Repetition till UR-filmen",
+        "prompt": "Vilka ungefärliga andelar av världen anger UR-materialet för europeisk kontroll i början av 1800-talet respektive 1914?",
         "options": [
-          "Afrikanska samhällens företrädare.",
-          "Alla europeiska kolonialmakter.",
-          "Den tyske värden.",
-          "Samtliga stater med handelsintressen."
+          "35 procent respektive 84 procent.",
+          "84 procent respektive 35 procent.",
+          "5 procent respektive 10 procent.",
+          "100 procent vid båda tidpunkterna."
         ],
         "answer": 0,
-        "hint": "Läs stödtexten och använd materialet. Välj alternativet som bäst stämmer med innehållet.",
-        "explanation": "De samhällen vars framtid påverkades fick inte företräda sina intressen."
+        "hint": "Använd UR-filmen, sammanfattningen och stödtexten. Om flera svar ska väljas står det i frågan.",
+        "explanation": "Siffrorna är översiktliga mått i UR-materialet; fråga också vad kontroll betyder och hur den mäts."
       },
       {
-        "id": "colonialism-sv-3-fraga-4",
+        "id": "colonialism-sv-3-ur-rep-5",
         "level": "both",
-        "practiceSection": "questions",
+        "practiceSection": "repetition",
         "type": "multiple-choice",
-        "category": "Kontrollera din förståelse",
-        "prompt": "Vad visar exemplet med gummiutvinning i Kongo?",
+        "category": "Repetition till UR-filmen",
+        "prompt": "Vilken stor samhällsförändring bidrog till imperialismen?",
         "options": [
-          "Att inkomster kunde bygga på tvång och våld mot befolkningen.",
-          "Att alla arbetare hade full valfrihet.",
-          "Att inga naturresurser utnyttjades.",
-          "Att vinsterna alltid delades lika."
+          "Industrialiseringen.",
+          "Att alla fabriker stängdes.",
+          "Att behovet av råvaror försvann.",
+          "Att transporterna upphörde."
         ],
         "answer": 0,
-        "hint": "Läs stödtexten och använd materialet. Välj alternativet som bäst stämmer med innehållet.",
-        "explanation": "Undersök både ekonomiska vinster och människors erfarenheter."
+        "hint": "Använd UR-filmen, sammanfattningen och stödtexten. Om flera svar ska väljas står det i frågan.",
+        "explanation": "Industrin skapade efterfrågan på råvaror och tekniska möjligheter."
       },
       {
-        "id": "colonialism-sv-3-fraga-5",
+        "id": "colonialism-sv-3-ur-rep-6",
         "level": "both",
-        "practiceSection": "questions",
+        "practiceSection": "repetition",
         "type": "multiple-choice",
-        "category": "Kontrollera din förståelse",
-        "prompt": "Vilket sätt är bäst för att förklara en senare konflikt?",
+        "category": "Repetition till UR-filmen",
+        "prompt": "Vad bidrog Berlinkonferensen 1884–1885 till?",
         "options": [
-          "Undersöka kolonial bakgrund tillsammans med andra politiska och ekonomiska orsaker.",
-          "Anta att en enda kolonial gräns förklarar allt.",
-          "Bortse från alla beslut efter självständigheten.",
-          "Anta att alla länder haft identiska erfarenheter."
+          "Regler för koloniala anspråk och handel som bidrog till fortsatt uppdelning av Afrika.",
+          "Att Afrikas alla gränser ritades färdigt vid mötet.",
+          "Att afrikanska stater fick lika representation.",
+          "Att alla kolonier blev självständiga."
         ],
         "answer": 0,
-        "hint": "Läs stödtexten och använd materialet. Välj alternativet som bäst stämmer med innehållet.",
-        "explanation": "Historiska samband behöver belägg och flera led i förklaringen."
+        "hint": "Använd UR-filmen, sammanfattningen och stödtexten. Om flera svar ska väljas står det i frågan.",
+        "explanation": "Gränser fastställdes också genom senare avtal och erövringar."
       },
       {
-        "id": "colonialism-sv-3-skriv-1",
+        "id": "colonialism-sv-3-ur-rep-7",
         "level": "both",
-        "practiceSection": "questions",
-        "type": "short-answer",
-        "category": "Förklara och resonera",
-        "prompt": "Förklara hur råvaror, rivalitet och makt kunde hänga ihop under imperialismen. Använd ett exempel från materialet.",
-        "hint": "Svara med egna ord. Ge ett konkret exempel och ange vilket material du använder.",
-        "checklist": [
-          "Jag besvarar frågan.",
-          "Jag använder minst ett tydligt exempel.",
-          "Jag anger vilken källa exemplet kommer från.",
-          "Jag skiljer mellan uppgifter i källan och min egen tolkning."
+        "practiceSection": "repetition",
+        "type": "multiple-choice",
+        "category": "Repetition till UR-filmen",
+        "prompt": "Hur många afrikanska företrädare deltog i Berlinkonferensen?",
+        "options": [
+          "Inga.",
+          "En företrädare från varje afrikanskt samhälle.",
+          "Fler än de europeiska företrädarna.",
+          "Samtliga afrikanska kungar och regeringar."
         ],
-        "modelPoints": [
-          "Industrins behov av råvaror kunde göra områden ekonomiskt attraktiva.",
-          "Konkurrens mellan stormakter kunde driva kontroll och erövring."
-        ]
+        "answer": 0,
+        "hint": "Använd UR-filmen, sammanfattningen och stödtexten. Om flera svar ska väljas står det i frågan.",
+        "explanation": "Berörda samhällens framtid diskuterades utan deras representation."
       },
       {
-        "id": "colonialism-sv-3-skriv-2",
+        "id": "colonialism-sv-3-ur-rep-8",
         "level": "both",
-        "practiceSection": "questions",
-        "type": "short-answer",
-        "category": "Förklara och resonera",
-        "prompt": "Varför spelar det roll att afrikanska företrädare inte deltog i Berlinkonferensen?",
-        "hint": "Svara med egna ord. Ge ett konkret exempel och ange vilket material du använder.",
-        "checklist": [
-          "Jag besvarar frågan.",
-          "Jag använder minst ett tydligt exempel.",
-          "Jag anger vilken källa exemplet kommer från.",
-          "Jag skiljer mellan uppgifter i källan och min egen tolkning."
+        "practiceSection": "repetition",
+        "type": "multiple-select",
+        "category": "Repetition till UR-filmen",
+        "prompt": "Vilka drivkrafter behandlas i UR-materialet? Välj alla som stämmer.",
+        "options": [
+          "Ekonomiska intressen.",
+          "Status och rivalitet.",
+          "Spridning av kultur eller religion som motivering.",
+          "Rasistiska idéer.",
+          "Att ge alla erövrade samhällen lika makt."
         ],
-        "modelPoints": [
-          "Beslut om makt och anspråk fattades utan de berörda samhällenas representation.",
-          "Koppla till självbestämmande och intressekonflikter."
-        ]
+        "answers": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "hint": "Använd UR-filmen, sammanfattningen och stödtexten. Om flera svar ska väljas står det i frågan.",
+        "explanation": "Motiven kunde förstärka varandra."
       },
       {
-        "id": "colonialism-sv-3-skriv-3",
+        "id": "colonialism-sv-3-ur-rep-9",
         "level": "both",
-        "practiceSection": "questions",
-        "type": "short-answer",
-        "category": "Förklara och resonera",
-        "prompt": "Undersök Kongo eller Nigeria/Biafra i materialet. Beskriv en historisk bakgrund, en konkret konsekvens för människor och vad du behöver veta mer om för att förklara sambandet.",
-        "hint": "Svara med egna ord. Ge ett konkret exempel och ange vilket material du använder.",
-        "checklist": [
-          "Jag besvarar frågan.",
-          "Jag använder minst ett tydligt exempel.",
-          "Jag anger vilken källa exemplet kommer från.",
-          "Jag skiljer mellan uppgifter i källan och min egen tolkning."
+        "practiceSection": "repetition",
+        "type": "multiple-select",
+        "category": "Repetition till UR-filmen",
+        "prompt": "Vilka råvaror eller produkter var viktiga i kolonial handel? Välj alla som stämmer.",
+        "options": [
+          "Gummi och bomull.",
+          "Guld och diamanter.",
+          "Kakao, te, socker och kryddor.",
+          "Digitala appar från 2000-talet."
         ],
-        "modelPoints": [
-          "Ange vilket exempel och vilka källor du använder.",
-          "Skilj kolonial bakgrund från händelser som inträffade senare.",
-          "Visa flera möjliga orsaker och peka ut en fråga som kräver mer information."
-        ]
+        "answers": [
+          0,
+          1,
+          2
+        ],
+        "hint": "Använd UR-filmen, sammanfattningen och stödtexten. Om flera svar ska väljas står det i frågan.",
+        "explanation": "De användes för industri, konsumtion och handel."
+      },
+      {
+        "id": "colonialism-sv-3-ur-rep-10",
+        "level": "both",
+        "practiceSection": "repetition",
+        "type": "multiple-choice",
+        "category": "Repetition till UR-filmen",
+        "prompt": "Vad är nationalism?",
+        "options": [
+          "Idéer om nationens gemenskap, identitet och intressen.",
+          "Att varje person saknar alla kulturella band.",
+          "Att all handel måste ske i samma stad.",
+          "En synonym till textilproduktion."
+        ],
+        "answer": 0,
+        "hint": "Använd UR-filmen, sammanfattningen och stödtexten. Om flera svar ska väljas står det i frågan.",
+        "explanation": "Nationalism kan ta olika former; den är inte automatiskt samma sak som rasism."
+      },
+      {
+        "id": "colonialism-sv-3-ur-rep-11",
+        "level": "both",
+        "practiceSection": "repetition",
+        "type": "multiple-choice",
+        "category": "Repetition till UR-filmen",
+        "prompt": "Vilket område styrdes personligen av Leopold II 1885–1908?",
+        "options": [
+          "Kongofristaten, i dagens Demokratiska republiken Kongo.",
+          "Japan.",
+          "Indien.",
+          "Nigeria."
+        ],
+        "answer": 0,
+        "hint": "Använd UR-filmen, sammanfattningen och stödtexten. Om flera svar ska väljas står det i frågan.",
+        "explanation": "Filmens uppgift om 20 miljoner döda är en osäker uppskattning, inte ett säkert facit. Frågan testar vilket område det gäller."
+      },
+      {
+        "id": "colonialism-sv-3-ur-rep-12",
+        "level": "both",
+        "practiceSection": "repetition",
+        "type": "multiple-choice",
+        "category": "Repetition till UR-filmen",
+        "prompt": "Vilken ungefärlig andel av Afrika anges som koloniserad år 1914 i UR-materialet?",
+        "options": [
+          "90 procent.",
+          "10 procent.",
+          "0 procent.",
+          "Exakt 100 procent."
+        ],
+        "answer": 0,
+        "hint": "Använd UR-filmen, sammanfattningen och stödtexten. Om flera svar ska väljas står det i frågan.",
+        "explanation": "Detta är en översiktlig siffra; olika områden hade olika historia."
+      },
+      {
+        "id": "colonialism-sv-3-ur-rep-13",
+        "level": "both",
+        "practiceSection": "repetition",
+        "type": "multiple-choice",
+        "category": "Repetition till UR-filmen",
+        "prompt": "Vilket asiatiskt land var också en imperialistmakt under perioden?",
+        "options": [
+          "Japan.",
+          "Samtliga asiatiska länder hade identisk imperialistisk politik.",
+          "Inget land utanför Europa utövade imperialism.",
+          "S:t Barthélemy."
+        ],
+        "answer": 0,
+        "hint": "Använd UR-filmen, sammanfattningen och stödtexten. Om flera svar ska väljas står det i frågan.",
+        "explanation": "Imperialism var inte enbart ett europeiskt fenomen."
+      },
+      {
+        "id": "colonialism-sv-3-ur-rep-14",
+        "level": "both",
+        "practiceSection": "repetition",
+        "type": "multiple-choice",
+        "category": "Repetition till UR-filmen",
+        "prompt": "Hur kunde brittisk politik gynna brittisk textilindustri på Indiens bekostnad?",
+        "options": [
+          "Genom handelsvillkor och ekonomisk kontroll som försvårade konkurrens från indiska textilier.",
+          "Genom att ge alla indiska producenter lika inflytande över brittisk politik.",
+          "Genom att helt sluta använda bomull.",
+          "Genom att avskaffa varje form av handel."
+        ],
+        "answer": 0,
+        "hint": "Använd UR-filmen, sammanfattningen och stödtexten. Om flera svar ska väljas står det i frågan.",
+        "explanation": "Formuleringen att Indien aldrig fick tillverka tyg är för kategorisk. Undersök vilka regler och vilken period som avses."
+      },
+      {
+        "id": "colonialism-sv-3-ur-rep-15",
+        "level": "both",
+        "practiceSection": "repetition",
+        "type": "multiple-choice",
+        "category": "Repetition till UR-filmen",
+        "prompt": "Hur reagerade människor i erövrade områden?",
+        "options": [
+          "De gjorde motstånd på olika sätt, bland annat genom uppror.",
+          "Alla accepterade alltid styret.",
+          "De saknade helt egna mål.",
+          "Ingen försökte försvara mark eller självbestämmande."
+        ],
+        "answer": 0,
+        "hint": "Använd UR-filmen, sammanfattningen och stödtexten. Om flera svar ska väljas står det i frågan.",
+        "explanation": "Motstånd fanns även när det slogs ner."
+      },
+      {
+        "id": "colonialism-sv-3-ur-rep-16",
+        "level": "both",
+        "practiceSection": "repetition",
+        "type": "multiple-select",
+        "category": "Repetition till UR-filmen",
+        "prompt": "Vilka faktorer kunde ge imperialistmakter fördelar? Välj alla som stämmer.",
+        "options": [
+          "Telegrafen.",
+          "Järnvägen.",
+          "Kulsprutan och andra militära fördelar.",
+          "Att lokalt motstånd aldrig förekom."
+        ],
+        "answers": [
+          0,
+          1,
+          2
+        ],
+        "hint": "Använd UR-filmen, sammanfattningen och stödtexten. Om flera svar ska väljas står det i frågan.",
+        "explanation": "Kommunikation, transporter och vapen kunde stärka kontrollen."
+      },
+      {
+        "id": "colonialism-sv-3-ur-rep-17",
+        "level": "both",
+        "practiceSection": "repetition",
+        "type": "multiple-choice",
+        "category": "Repetition till UR-filmen",
+        "prompt": "När blev många kolonier i Syd- och Centralamerika självständiga?",
+        "options": [
+          "Under 1800-talet.",
+          "Alla på samma dag 1492.",
+          "Först efter år 2000.",
+          "Ingen gång alls."
+        ],
+        "answer": 0,
+        "hint": "Använd UR-filmen, sammanfattningen och stödtexten. Om flera svar ska väljas står det i frågan.",
+        "explanation": "Det är en översikt; tidpunkter och förlopp varierade mellan områden."
+      },
+      {
+        "id": "colonialism-sv-3-ur-rep-18",
+        "level": "both",
+        "practiceSection": "repetition",
+        "type": "multiple-choice",
+        "category": "Repetition till UR-filmen",
+        "prompt": "När blev många kolonier i Asien och Afrika självständiga?",
+        "options": [
+          "Under 1900-talet.",
+          "Alla under antiken.",
+          "Alla år 1492.",
+          "Alla vid Berlinkonferensen."
+        ],
+        "answer": 0,
+        "hint": "Använd UR-filmen, sammanfattningen och stödtexten. Om flera svar ska väljas står det i frågan.",
+        "explanation": "Avkolonisering skedde i olika steg och är inte en enda samtidig händelse."
+      },
+      {
+        "id": "colonialism-sv-3-ur-rep-19",
+        "level": "both",
+        "practiceSection": "repetition",
+        "type": "multiple-select",
+        "category": "Repetition till UR-filmen",
+        "prompt": "Vilka långsiktiga följder behöver undersökas? Välj alla som stämmer.",
+        "options": [
+          "Gränser och politiska maktförhållanden.",
+          "Språk, religion och kulturella förändringar.",
+          "Ekonomiska strukturer och resursfördelning.",
+          "Att varje nutida problem har exakt en kolonial orsak."
+        ],
+        "answers": [
+          0,
+          1,
+          2
+        ],
+        "hint": "Använd UR-filmen, sammanfattningen och stödtexten. Om flera svar ska väljas står det i frågan.",
+        "explanation": "Följderna varierar och måste beläggas i det konkreta fallet."
       },
       {
         "id": "colonialism-sv-3-studiefraga-1",
         "level": "both",
-        "practiceSection": "questions",
+        "practiceSection": "repetition",
         "type": "multiple-choice",
         "category": "Studiefrågor till Berlinkonferensen",
         "prompt": "Vad menas med kolonialism?",
@@ -2218,7 +3143,7 @@ export const swedishColonialismMaterials = [
       {
         "id": "colonialism-sv-3-studiefraga-2",
         "level": "both",
-        "practiceSection": "questions",
+        "practiceSection": "repetition",
         "type": "multiple-choice",
         "category": "Studiefrågor till Berlinkonferensen",
         "prompt": "Varför ville de europeiska stormakterna skaffa kolonier under 1800-talet?",
@@ -2234,7 +3159,7 @@ export const swedishColonialismMaterials = [
       {
         "id": "colonialism-sv-3-studiefraga-3",
         "level": "both",
-        "practiceSection": "questions",
+        "practiceSection": "repetition",
         "type": "multiple-choice",
         "category": "Studiefrågor till Berlinkonferensen",
         "prompt": "Varför ökade spänningarna mellan de europeiska stormakterna under 1800-talet?",
@@ -2250,7 +3175,7 @@ export const swedishColonialismMaterials = [
       {
         "id": "colonialism-sv-3-studiefraga-4",
         "level": "both",
-        "practiceSection": "questions",
+        "practiceSection": "repetition",
         "type": "multiple-choice",
         "category": "Studiefrågor till Berlinkonferensen",
         "prompt": "Varför koloniserades stora delar av Afrika senare än exempelvis delar av Amerika och Asien?",
@@ -2266,7 +3191,7 @@ export const swedishColonialismMaterials = [
       {
         "id": "colonialism-sv-3-studiefraga-5",
         "level": "both",
-        "practiceSection": "questions",
+        "practiceSection": "repetition",
         "type": "multiple-choice",
         "category": "Studiefrågor till Berlinkonferensen",
         "prompt": "Varför hölls Berlinkonferensen 1884–1885?",
@@ -2282,7 +3207,7 @@ export const swedishColonialismMaterials = [
       {
         "id": "colonialism-sv-3-studiefraga-6",
         "level": "both",
-        "practiceSection": "questions",
+        "practiceSection": "repetition",
         "type": "multiple-choice",
         "category": "Studiefrågor till Berlinkonferensen",
         "prompt": "Hur kunde koloniala gränsdragningar under och efter uppdelningen av Afrika påverka afrikanska samhällen?",
@@ -2298,7 +3223,7 @@ export const swedishColonialismMaterials = [
       {
         "id": "colonialism-sv-3-studiefraga-7",
         "level": "both",
-        "practiceSection": "questions",
+        "practiceSection": "repetition",
         "type": "multiple-choice",
         "category": "Studiefrågor till Berlinkonferensen",
         "prompt": "Vad innebär det att ett land eller område är ett protektorat?",
@@ -2314,7 +3239,7 @@ export const swedishColonialismMaterials = [
       {
         "id": "colonialism-sv-3-studiefraga-8",
         "level": "both",
-        "practiceSection": "questions",
+        "practiceSection": "repetition",
         "type": "multiple-choice",
         "category": "Studiefrågor till Berlinkonferensen",
         "prompt": "Hur påverkade den brittiska kolonialmakten utvecklingen i Nigeria enligt texten?",
@@ -2330,7 +3255,7 @@ export const swedishColonialismMaterials = [
       {
         "id": "colonialism-sv-3-studiefraga-9",
         "level": "both",
-        "practiceSection": "questions",
+        "practiceSection": "repetition",
         "type": "multiple-choice",
         "category": "Studiefrågor till Berlinkonferensen",
         "prompt": "Vad var en viktig konsekvens av exploateringen av Kongo under Leopold II?",
@@ -2346,7 +3271,7 @@ export const swedishColonialismMaterials = [
       {
         "id": "colonialism-sv-3-studiefraga-10",
         "level": "both",
-        "practiceSection": "questions",
+        "practiceSection": "repetition",
         "type": "multiple-choice",
         "category": "Studiefrågor till Berlinkonferensen",
         "prompt": "Hur kan koloniala gränsdragningar bidra till konflikter även efter att ett land blivit självständigt?",
@@ -2362,7 +3287,7 @@ export const swedishColonialismMaterials = [
       {
         "id": "colonialism-sv-3-studiefraga-11",
         "level": "both",
-        "practiceSection": "questions",
+        "practiceSection": "repetition",
         "type": "multiple-choice",
         "category": "Studiefrågor till Berlinkonferensen",
         "prompt": "Vad menas med neokolonialism enligt texten?",
@@ -2378,7 +3303,7 @@ export const swedishColonialismMaterials = [
       {
         "id": "colonialism-sv-3-studiefraga-12",
         "level": "both",
-        "practiceSection": "questions",
+        "practiceSection": "repetition",
         "type": "multiple-choice",
         "category": "Studiefrågor till Berlinkonferensen",
         "prompt": "Vilket påstående sammanfattar bäst textens huvudbudskap om Berlinkonferensen och kolonialismens arv?",
@@ -2392,9 +3317,225 @@ export const swedishColonialismMaterials = [
         "explanation": "Kolonialismens följder berör mer än kartan: också makt, ekonomi, samhällen och kultur."
       },
       {
+        "id": "colonialism-sv-3-ur-analysis-1",
+        "level": "both",
+        "practiceSection": "analysis",
+        "type": "short-answer",
+        "category": "Analys och källkritik",
+        "prompt": "Hur kunde Berlinkonferensen motiveras som ett sätt att skapa fred? Vilka människors fred gällde argumentet, och vilka invändningar kan göras?",
+        "hint": "Använd konkreta exempel. Förklara hur du tänker och ange ditt underlag. Ett resonemang kan ha flera rimliga svar.",
+        "checklist": [
+          "Jag besvarar uppgiften med egna ord.",
+          "Jag använder konkreta exempel och anger källor.",
+          "Jag förklarar mina slutsatser.",
+          "Jag skiljer mellan belägg, tolkning och sådant jag inte kan veta säkert."
+        ],
+        "modelPoints": [
+          "Reglerna skulle minska konflikter mellan kolonialmakter.",
+          "För de koloniserade kunde expansionen innebära krig och tvång.",
+          "Fråga vilka som fick delta och vilka intressen som skyddades."
+        ]
+      },
+      {
+        "id": "colonialism-sv-3-ur-analysis-2",
+        "level": "both",
+        "practiceSection": "analysis",
+        "type": "short-answer",
+        "category": "Analys och källkritik",
+        "prompt": "Hur kunde koloniala gränser skära genom befintliga samhällen? Ge ett möjligt långsiktigt samband och förklara varför gränser inte ensamma förklarar dagens Afrika.",
+        "hint": "Använd konkreta exempel. Förklara hur du tänker och ange ditt underlag. Ett resonemang kan ha flera rimliga svar.",
+        "checklist": [
+          "Jag besvarar uppgiften med egna ord.",
+          "Jag använder konkreta exempel och anger källor.",
+          "Jag förklarar mina slutsatser.",
+          "Jag skiljer mellan belägg, tolkning och sådant jag inte kan veta säkert."
+        ],
+        "modelPoints": [
+          "Grupper kunde delas eller hamna i samma koloniala enhet.",
+          "Senare beslut, resurser och politiska intressen behöver också undersökas.",
+          "Afrika består av många olika samhällen och stater."
+        ]
+      },
+      {
+        "id": "colonialism-sv-3-ur-analysis-3",
+        "level": "both",
+        "practiceSection": "analysis",
+        "type": "short-answer",
+        "category": "Analys och källkritik",
+        "prompt": "Resonera om nationalism, rasism och imperialism. Hur kunde de förstärka varandra utan att vara samma sak?",
+        "hint": "Använd konkreta exempel. Förklara hur du tänker och ange ditt underlag. Ett resonemang kan ha flera rimliga svar.",
+        "checklist": [
+          "Jag besvarar uppgiften med egna ord.",
+          "Jag använder konkreta exempel och anger källor.",
+          "Jag förklarar mina slutsatser.",
+          "Jag skiljer mellan belägg, tolkning och sådant jag inte kan veta säkert."
+        ],
+        "modelPoints": [
+          "Nationell prestige kunde driva konkurrens om kolonier.",
+          "Rasistiska idéer kunde användas för att rättfärdiga kontroll.",
+          "Nationalism kan också finnas i antikoloniala självständighetsrörelser."
+        ]
+      },
+      {
+        "id": "colonialism-sv-3-ur-analysis-4",
+        "level": "both",
+        "practiceSection": "analysis",
+        "type": "short-answer",
+        "category": "Analys och källkritik",
+        "prompt": "Välj två källtyper till Leopold II:s styre som tas upp i filmen eller historikerns reflektioner. Vad kan de visa och vilka begränsningar har de?",
+        "hint": "Använd konkreta exempel. Förklara hur du tänker och ange ditt underlag. Ett resonemang kan ha flera rimliga svar.",
+        "checklist": [
+          "Jag besvarar uppgiften med egna ord.",
+          "Jag använder konkreta exempel och anger källor.",
+          "Jag förklarar mina slutsatser.",
+          "Jag skiljer mellan belägg, tolkning och sådant jag inte kan veta säkert."
+        ],
+        "modelPoints": [
+          "Identifiera de källor som faktiskt visas eller beskrivs.",
+          "Ett samtida dokument eller fotografi kan vara primärkälla; en senare analys är en annan källtyp.",
+          "Undersök skapare, datum, syfte, urval och vad källan inte visar."
+        ]
+      },
+      {
+        "id": "colonialism-sv-3-ur-analysis-5",
+        "level": "both",
+        "practiceSection": "analysis",
+        "type": "short-answer",
+        "category": "Analys och källkritik",
+        "prompt": "Filmen visar bilder där offer inte är fullt identifierbara. Vilka argument finns för och emot att visa bilder av utsatta människor? Analysera både bildens användning och vad du vet om dess ursprung.",
+        "hint": "Använd konkreta exempel. Förklara hur du tänker och ange ditt underlag. Ett resonemang kan ha flera rimliga svar.",
+        "checklist": [
+          "Jag besvarar uppgiften med egna ord.",
+          "Jag använder konkreta exempel och anger källor.",
+          "Jag förklarar mina slutsatser.",
+          "Jag skiljer mellan belägg, tolkning och sådant jag inte kan veta säkert."
+        ],
+        "modelPoints": [
+          "Bilder kan synliggöra övergrepp och fungera som belägg.",
+          "Värdighet, integritet, samtycke och risk för förnyad utsatthet behöver beaktas.",
+          "Gissa inte vem en person är eller varför ansiktet dolts utan källstöd."
+        ]
+      },
+      {
+        "id": "colonialism-sv-3-ur-analysis-6",
+        "level": "both",
+        "practiceSection": "analysis",
+        "type": "short-answer",
+        "category": "Analys och källkritik",
+        "prompt": "Varför kunde makthavare använda offentliga avrättningar efter uppror? Resonera om syftet och möjliga följder utan att rättfärdiga våldet.",
+        "hint": "Använd konkreta exempel. Förklara hur du tänker och ange ditt underlag. Ett resonemang kan ha flera rimliga svar.",
+        "checklist": [
+          "Jag besvarar uppgiften med egna ord.",
+          "Jag använder konkreta exempel och anger källor.",
+          "Jag förklarar mina slutsatser.",
+          "Jag skiljer mellan belägg, tolkning och sådant jag inte kan veta säkert."
+        ],
+        "modelPoints": [
+          "Avskräckning och uppvisning av makt är möjliga syften att undersöka.",
+          "Våld kan skapa rädsla, trauma och ytterligare motstånd.",
+          "En jämförelse med nutiden måste vara avgränsad och belagd."
+        ]
+      },
+      {
+        "id": "colonialism-sv-3-ur-analysis-7",
+        "level": "both",
+        "practiceSection": "analysis",
+        "type": "short-answer",
+        "category": "Analys och källkritik",
+        "prompt": "Analysera argumentet att ett mycket starkt vapen kan skapa fred genom avskräckning. Ge ett nutida exempel på resonemanget och diskutera argument för och emot.",
+        "hint": "Använd konkreta exempel. Förklara hur du tänker och ange ditt underlag. Ett resonemang kan ha flera rimliga svar.",
+        "checklist": [
+          "Jag besvarar uppgiften med egna ord.",
+          "Jag använder konkreta exempel och anger källor.",
+          "Jag förklarar mina slutsatser.",
+          "Jag skiljer mellan belägg, tolkning och sådant jag inte kan veta säkert."
+        ],
+        "modelPoints": [
+          "Avskräckning bygger på att risken för ett angrepp upplevs som för stor.",
+          "Motargument kan gälla kapprustning, feltolkningar eller stora konsekvenser om avskräckning misslyckas.",
+          "Diskutera argument och källor, inte hur vapen används."
+        ]
+      },
+      {
+        "id": "colonialism-sv-3-ur-orsaker-foljder",
+        "level": "both",
+        "practiceSection": "analysis",
+        "type": "classification",
+        "category": "Sortera och jämför",
+        "prompt": "Sortera påståendena som orsak, konsekvens eller både och. Det är formuleringen i varje påstående som avgör.",
+        "categories": [
+          "Orsak",
+          "Konsekvens",
+          "Både orsak och konsekvens"
+        ],
+        "items": [
+          {
+            "text": "Engelska språket spreds i områden som Storbritannien kontrollerade.",
+            "answer": 1,
+            "explanation": "Här beskrivs spridning som en följd av kontroll."
+          },
+          {
+            "text": "Rasism användes för att motivera erövringar och förstärktes genom koloniala system.",
+            "answer": 2,
+            "explanation": "Idéerna både bidrog till och påverkades av systemen."
+          },
+          {
+            "text": "Nationalism drev kolonial konkurrens och kolonier användes sedan för nationell prestige.",
+            "answer": 2,
+            "explanation": "En återkoppling mellan motiv och följd."
+          },
+          {
+            "text": "Kolonialism gav inkomster som kunde finansiera vidare expansion.",
+            "answer": 2,
+            "explanation": "Koloniala system kunde vara både resultat och drivkraft för fortsatt maktutvidgning."
+          },
+          {
+            "text": "Vapen och militär teknik gav fördelar vid erövringar.",
+            "answer": 0,
+            "explanation": "Här beskrivs en möjliggörande faktor."
+          },
+          {
+            "text": "Industrier ökade efterfrågan på råvaror och kunde dra nytta av koloniala handelsflöden.",
+            "answer": 2,
+            "explanation": "Industrin kunde både driva och påverkas av expansionen."
+          },
+          {
+            "text": "Spridning av kristendom användes som motiv för erövring och följde av missionsverksamhet.",
+            "answer": 2,
+            "explanation": "Motiv och senare kulturell förändring kan kopplas samman."
+          },
+          {
+            "text": "Kolonial rivalitet ökade konflikter, som i sin tur kunde driva nya anspråk.",
+            "answer": 2,
+            "explanation": "Konflikter kunde vara både följd och drivkraft."
+          }
+        ],
+        "hint": "Läs hela påståendet. Välj den kategori som passar just den formuleringen.",
+        "explanation": "Utgå från de beskrivna sambanden. Orsaker och följder kan förstärka varandra."
+      },
+      {
+        "id": "colonialism-sv-3-ur-analysis-8",
+        "level": "both",
+        "practiceSection": "analysis",
+        "type": "short-answer",
+        "category": "Analys och källkritik",
+        "prompt": "Välj två påståenden från sorteringen. Förklara varför de är orsaker, konsekvenser eller båda. Vilket konkret exempel stöder ditt resonemang?",
+        "hint": "Använd konkreta exempel. Förklara hur du tänker och ange ditt underlag. Ett resonemang kan ha flera rimliga svar.",
+        "checklist": [
+          "Jag besvarar uppgiften med egna ord.",
+          "Jag använder konkreta exempel och anger källor.",
+          "Jag förklarar mina slutsatser.",
+          "Jag skiljer mellan belägg, tolkning och sådant jag inte kan veta säkert."
+        ],
+        "modelPoints": [
+          "Förklara ett tydligt samband i mer än ett led.",
+          "Utgå från ett konkret exempel och skilj det från andra möjliga tolkningar."
+        ]
+      },
+      {
         "id": "colonialism-sv-3-text-skriv-1",
         "level": "both",
-        "practiceSection": "questions",
+        "practiceSection": "analysis",
         "type": "short-answer",
         "category": "Resonera om texten",
         "prompt": "Jämför kolonial kontroll i Nigeria och Kongofristaten. Vem kontrollerade områdena och hur kunde råvaror, marknader eller makt vara viktiga?",
@@ -2414,7 +3555,7 @@ export const swedishColonialismMaterials = [
       {
         "id": "colonialism-sv-3-text-skriv-2",
         "level": "both",
-        "practiceSection": "questions",
+        "practiceSection": "analysis",
         "type": "short-answer",
         "category": "Resonera om texten",
         "prompt": "Texten ger intryck av att Afrikas gränser ritades på Berlinkonferensen. Använd preciseringen på sidan för att göra förklaringen mer korrekt.",
@@ -2435,7 +3576,7 @@ export const swedishColonialismMaterials = [
       {
         "id": "colonialism-sv-3-text-skriv-3",
         "level": "both",
-        "practiceSection": "questions",
+        "practiceSection": "analysis",
         "type": "short-answer",
         "category": "Resonera om texten",
         "prompt": "Vad är skillnaden mellan kolonialism och neokolonialism? Förklara också vilka belägg du skulle behöva för att undersöka ett nutida exempel.",
@@ -2451,6 +3592,188 @@ export const swedishColonialismMaterials = [
           "Undersök exempelvis avtal, ägande, skulder eller politiska villkor.",
           "Handel eller medlemskap i en organisation bevisar inte ensamt kontroll."
         ]
+      },
+      {
+        "id": "colonialism-sv-3-ur-venn",
+        "level": "both",
+        "practiceSection": "extension",
+        "type": "classification",
+        "category": "Sortera och jämför",
+        "prompt": "Sortera påståendena för en jämförelse av de två UR-avsnitten. Indelningen gäller filmernas tidsperioder; kolonialism och imperialism som begrepp överlappar.",
+        "categories": [
+          "Gemensamt",
+          "Tidig kolonialism i UR-avsnittet",
+          "1800-talets imperialism i UR-avsnittet"
+        ],
+        "items": [
+          {
+            "text": "Kontroll över områden och utnyttjande av människor eller resurser.",
+            "answer": 0,
+            "explanation": "Det finns i båda perioderna."
+          },
+          {
+            "text": "Columbus resa 1492 och den tidiga europeiska expansionen i Amerika.",
+            "answer": 1,
+            "explanation": "Detta hör till den tidigare period som kolonialismavsnittet tar upp."
+          },
+          {
+            "text": "Berlinkonferensen 1884–1885.",
+            "answer": 2,
+            "explanation": "Detta hör till 1800-talets imperialism."
+          },
+          {
+            "text": "Religiösa motiveringar, makt och ekonomiska intressen.",
+            "answer": 0,
+            "explanation": "Dessa kan finnas i båda."
+          },
+          {
+            "text": "Industrialiseringens efterfrågan på råvaror under 1800-talet.",
+            "answer": 2,
+            "explanation": "Tidsangivelsen knyter påståendet till imperialismavsnittet."
+          },
+          {
+            "text": "Våld och motstånd från berörda samhällen.",
+            "answer": 0,
+            "explanation": "Motstånd och våld är inte unika för en av perioderna."
+          }
+        ],
+        "hint": "Läs hela påståendet. Välj den kategori som passar just den formuleringen.",
+        "explanation": "Utgå från de beskrivna sambanden. Orsaker och följder kan förstärka varandra."
+      },
+      {
+        "id": "colonialism-sv-3-ur-extension-1",
+        "level": "both",
+        "practiceSection": "extension",
+        "type": "short-answer",
+        "category": "Arbeta vidare",
+        "prompt": "Kartuppgift: jämför kolonial kontroll i mitten av 1800-talet och år 1914. Ange två förändringar, ett område som inte är markerat och vad kartan inte kan visa.",
+        "hint": "Använd konkreta exempel. Förklara hur du tänker och ange ditt underlag. Ett resonemang kan ha flera rimliga svar.",
+        "checklist": [
+          "Jag besvarar uppgiften med egna ord.",
+          "Jag använder konkreta exempel och anger källor.",
+          "Jag förklarar mina slutsatser.",
+          "Jag skiljer mellan belägg, tolkning och sådant jag inte kan veta säkert."
+        ],
+        "modelPoints": [
+          "Använd kartans teckenförklaring, datum och källa.",
+          "En omarkerad plats behöver inte sakna historia eller yttre påverkan.",
+          "Kartprojektioner förvränger världen på olika sätt; kontrollera vilken projektion din karta använder."
+        ]
+      },
+      {
+        "id": "colonialism-sv-3-ur-extension-2",
+        "level": "both",
+        "practiceSection": "extension",
+        "type": "short-answer",
+        "category": "Arbeta vidare",
+        "prompt": "Sammanfatta jämförelsen av kolonialism och imperialism med ett gemensamt drag och en skillnad mellan UR-avsnittens perioder.",
+        "hint": "Använd konkreta exempel. Förklara hur du tänker och ange ditt underlag. Ett resonemang kan ha flera rimliga svar.",
+        "checklist": [
+          "Jag besvarar uppgiften med egna ord.",
+          "Jag använder konkreta exempel och anger källor.",
+          "Jag förklarar mina slutsatser.",
+          "Jag skiljer mellan belägg, tolkning och sådant jag inte kan veta säkert."
+        ],
+        "modelPoints": [
+          "Begreppen överlappar; filmerna har valt olika historiska fokus.",
+          "Använd minst två konkreta exempel."
+        ]
+      },
+      {
+        "id": "colonialism-sv-3-ur-extension-3",
+        "level": "both",
+        "practiceSection": "extension",
+        "type": "short-answer",
+        "category": "Arbeta vidare",
+        "prompt": "Skriv en kort redogörelse om kolonial exploatering och möjliga följder idag. Använd råvaror, industrier, marknad, gränser, kultur, religion, rasism och språk.",
+        "hint": "Använd konkreta exempel. Förklara hur du tänker och ange ditt underlag. Ett resonemang kan ha flera rimliga svar.",
+        "checklist": [
+          "Jag besvarar uppgiften med egna ord.",
+          "Jag använder konkreta exempel och anger källor.",
+          "Jag förklarar mina slutsatser.",
+          "Jag skiljer mellan belägg, tolkning och sådant jag inte kan veta säkert."
+        ],
+        "modelPoints": [
+          "Förklara samband och ange källor.",
+          "Skilj konkreta ekonomiska eller kulturella följder från generaliseringar om rika och fattiga länder.",
+          "Nutida påståenden behöver aktuella belägg."
+        ]
+      },
+      {
+        "id": "colonialism-sv-3-ur-extension-4",
+        "level": "both",
+        "practiceSection": "extension",
+        "type": "short-answer",
+        "category": "Arbeta vidare",
+        "prompt": "Undersök Indien under brittisk kontroll och vägen till självständighet. Hur förändrades ekonomisk och politisk makt?",
+        "hint": "Använd konkreta exempel. Förklara hur du tänker och ange ditt underlag. Ett resonemang kan ha flera rimliga svar.",
+        "checklist": [
+          "Jag besvarar uppgiften med egna ord.",
+          "Jag använder konkreta exempel och anger källor.",
+          "Jag förklarar mina slutsatser.",
+          "Jag skiljer mellan belägg, tolkning och sådant jag inte kan veta säkert."
+        ],
+        "modelPoints": [
+          "Avgränsa en tidsperiod och använd minst två källor.",
+          "Beskriv lokala aktörers och rörelsers handlingskraft.",
+          "Skilj textilpolitikens olika regler och perioder åt."
+        ]
+      },
+      {
+        "id": "colonialism-sv-3-ur-extension-5",
+        "level": "both",
+        "practiceSection": "extension",
+        "type": "short-answer",
+        "category": "Arbeta vidare",
+        "prompt": "Undersök Etiopiens motstånd mot italiensk expansion och den italienska ockupationen 1936–1941. Varför är påståendet ”Etiopien koloniserades aldrig” för förenklat?",
+        "hint": "Använd konkreta exempel. Förklara hur du tänker och ange ditt underlag. Ett resonemang kan ha flera rimliga svar.",
+        "checklist": [
+          "Jag besvarar uppgiften med egna ord.",
+          "Jag använder konkreta exempel och anger källor.",
+          "Jag förklarar mina slutsatser.",
+          "Jag skiljer mellan belägg, tolkning och sådant jag inte kan veta säkert."
+        ],
+        "modelPoints": [
+          "Undersök motstånd och hur självständigheten försvarades.",
+          "Landet ockuperades av Italien 1936–1941.",
+          "Skilj långvarigt kolonialt styre från invasion och ockupation."
+        ]
+      },
+      {
+        "id": "colonialism-sv-3-ur-extension-6",
+        "level": "both",
+        "practiceSection": "extension",
+        "type": "short-answer",
+        "category": "Arbeta vidare",
+        "prompt": "Undersök kristen mission i ett koloniserat område. Vilka mål fanns och hur reagerade människor där?",
+        "hint": "Använd konkreta exempel. Förklara hur du tänker och ange ditt underlag. Ett resonemang kan ha flera rimliga svar.",
+        "checklist": [
+          "Jag besvarar uppgiften med egna ord.",
+          "Jag använder konkreta exempel och anger källor.",
+          "Jag förklarar mina slutsatser.",
+          "Jag skiljer mellan belägg, tolkning och sådant jag inte kan veta säkert."
+        ],
+        "modelPoints": [
+          "Avgränsa område, aktörer och period.",
+          "Analysera relationen till kolonial makt och lokala val eller motstånd.",
+          "Olika erfarenheter måste beläggas."
+        ]
+      },
+      {
+        "id": "colonialism-sv-3-ur-tidslinje",
+        "level": "both",
+        "practiceSection": "repetition",
+        "type": "ordering",
+        "category": "Bygg en tidslinje",
+        "prompt": "Placera händelserna i tidsordning, från äldst till yngst.",
+        "items": [
+          "Berlinkonferensen hålls.",
+          "Belgiska staten tar över styret av Kongo från Leopold II.",
+          "Britterna sammanför områden till Nigeria.",
+          "Nigeria och Kongo blir självständiga."
+        ],
+        "hint": "Årtalen är 1884–1885, 1908, 1914 och 1960. Använd lästexten för att koppla händelserna till årtalen.",
+        "explanation": "Händelserna skedde vid olika tidpunkter. Alla gränser eller stater skapades inte vid Berlinkonferensen."
       }
     ],
     "readingPassages": [
@@ -2465,6 +3788,20 @@ export const swedishColonialismMaterials = [
           "Koloniala maktstrukturer och gränser kan vara del av bakgrunden till senare konflikter. De förklarar inte ensamma varje konflikt i Nigeria eller Kongo. Även senare politiska beslut, resursfördelning och andra intressen behöver undersökas. Nigeria skapades inte färdigt på Berlinkonferensen.",
           "Texten diskuterar hur handel, företag, investeringar och ekonomiskt beroende kan ge fortsatt inflytande efter formell självständighet. Neokolonialism är ett begrepp som används för sådana maktförhållanden. För att använda begreppet i ett visst fall behöver du visa vem som påverkar vem, hur det sker och vilka belägg som finns."
         ]
+      }
+    ],
+    "learningCards": [
+      {
+        "title": "Så bygger du ett resonemang",
+        "body": "Påstående → konkret exempel → förklaring av sambandet → nyansering. Ange vilken källa exemplet kommer från."
+      },
+      {
+        "title": "Primärkälla eller senare tolkning?",
+        "body": "En källa nära händelsen kan visa ett samtida perspektiv, men är inte automatiskt sann eller neutral. En senare framställning kan jämföra flera källor. Fråga alltid: källa till vad?"
+      },
+      {
+        "title": "När flera alternativ är rätt",
+        "body": "Läs alla alternativ. Markera alla som stämmer och kontrollera först när du är klar. Du får återkoppling om både saknade och felvalda alternativ."
       }
     ]
   },

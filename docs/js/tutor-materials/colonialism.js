@@ -1,3 +1,4 @@
+import { swedishColonialismMaterials } from "./colonialism-swedish.js";
 export const colonialismMaterials = [
   {
     "id": "colonialism-introduction",
@@ -3385,4 +3386,4 @@ export const colonialismMaterials = [
       }
     ]
   }
-];
+, ...swedishColonialismMaterials];
