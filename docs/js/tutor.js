@@ -93,8 +93,7 @@ const tutor = {
     const material = tutorMaterials.find(item => item.id === materialId) || tutorMaterials[0];
     const isSwedish = material.language === "sv";
     const translations = {"Before you begin": "Innan du börjar", "Level": "Nivå", "Key vocabulary": "Viktiga begrepp", "Your progress is saved on this device. A future version can connect it to your school Google account.": "Dina svar och framsteg sparas på den här enheten.", "Watch and listen for the main idea. Use the transcript button below when you need support.": "Se filmen och lyssna efter huvudbudskapet. Använd materiallänkarna om du behöver stöd.", "Word list: simple English meanings and examples": "Begreppslista: enkla förklaringar och exempel", "Select an image to open the full-size version. Image-reflection questions follow the video questions.": "Välj en bild för att öppna den i full storlek. Bildfrågorna kommer efter filmfrågorna.", "Well done": "Bra arbetat", "Automatically checked questions correct:": "Rätt på automatiskt rättade frågor:", "Your written responses have been saved for later review.": "Dina skriftliga svar har sparats.", "Review from the beginning": "Gå igenom från början", "Choose a meaning…": "Välj en förklaring…", "Write your answer here…": "Skriv ditt svar här…", "Hint": "Ledtråd", "Check answer": "Kontrollera svaret", "Save and review": "Spara och granska", "← Previous": "← Föregående", "Next →": "Nästa →", "Finish": "Avsluta", "Choose an answer first.": "Välj ett svar först.", "Match every word before checking.": "Välj ett alternativ till varje rad innan du kontrollerar.", "All matches are correct.": "Alla svar är rätt.", "Correct.": "Rätt.", "Not quite.": "Inte riktigt.", "Give every event a position before checking.": "Ge varje händelse en plats innan du kontrollerar.", "Use each position only once.": "Använd varje position bara en gång.", "Correct order.": "Rätt ordning.", "Answer every statement before checking.": "Besvara varje påstående innan du kontrollerar.", "Correct each statement that you marked false.": "Rätta varje påstående som du markerat som falskt.", "Write an answer before reviewing it.": "Skriv ett svar innan du granskar det.", "Review your response": "Granska ditt svar", "Check that your answer includes the following:": "Kontrollera att ditt svar innehåller följande:", "Show useful content points": "Visa förslag på innehåll", "Show corrections": "Visa rättelser", "True": "Sant", "False": "Falskt", "If false, write a corrected statement…": "Om falskt, skriv ett rättat påstående…", "Your answer": "Ditt svar", "Study notes": "Stödtext", "Session complete": "Övningen är avslutad"};
-    function localise(value) {
-      if (!isSwedish) return value;
+    function translateText(value) {
       let text = value;
       for (const [english, swedish] of Object.entries(translations).sort((a,b) => b[0].length-a[0].length)) text = text.split(english).join(swedish);
       return text.replace(/Question (\d+) of (\d+)/g, "Fråga $1 av $2")
@@ -105,6 +104,20 @@ const tutor = {
         .replace(/(\d+)\/(\d+) activities/g, "$1/$2 uppgifter")
         .replace(/(\d+)\/(\d+) completed/g, "$1/$2 klara")
         .replace(/(\d+) words/g, "$1 ord");
+    }
+    // Translate visible text and placeholders, never IDs, classes or data attributes.
+    function localise(value) {
+      if (!isSwedish) return value;
+      if (!/<[a-z][^>]*>/i.test(value)) return translateText(value);
+      const template = document.createElement("template");
+      template.innerHTML = value;
+      const walker = document.createTreeWalker(template.content, 4);
+      let node;
+      while ((node = walker.nextNode())) node.nodeValue = translateText(node.nodeValue);
+      template.content.querySelectorAll("[placeholder]").forEach(element => {
+        element.setAttribute("placeholder", translateText(element.getAttribute("placeholder")));
+      });
+      return template.innerHTML;
     }
     const user = getAnonymousUser();
     const allProgress = loadProgress();
