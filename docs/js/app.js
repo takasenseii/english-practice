@@ -1,3 +1,4 @@
+import argumentativeWriting, { argumentativeSections } from "./argumentative-writing.js";
 import avsan from "./avsan.js";
 import capital from "./capitalisation.js"; 
 import timeprep from "./timeprep.js";
@@ -117,6 +118,7 @@ const menuSections = [
     title: "Writing",
     description: "Plan, organise and develop structured texts.",
     items: [
+      { id: "argumentative-writing", label: "Argumentative writing", description: "Plan, develop and revise an argumentative essay.", render: renderArgumentativeWriting },
       { id: "ibc", label: "IBC: Whole Essay", description: "Practise introductions, body plans and conclusions at three levels.", render: renderIbc },
       { id: "peel", label: "PEEL: Body Paragraphs", description: "Read complete model essays and practise building body paragraphs.", render: renderWriting },
       { id: "improve-writing", label: "Improve Your Writing", description: "Practise evidence, punctuation, transitions and linking words.", render: renderWritingImprovement },
@@ -161,27 +163,36 @@ function clearMountedView() {
 
 function renderMenu() {
   clearMountedView();
-
-  const menu = document.getElementById("menu");
-  const sections = [...menuSections].sort((a, b) => a.title.localeCompare(b.title));
-
-  menu.innerHTML = `
-    <div class="container">
-      <div class="topbar">
-        <div class="brand">English Practice Space Online</div>
-        <p class="home-intro">What would you like to practise?</p>
-      </div>
-      <div class="grid category-grid">
-        ${sections.map(section => `
-          <div class="card category-card">
-            <div class="pill">Category</div>
-            <h2>${section.title}</h2>
-            <p>${section.description}</p>
-            <div class="category-count">${section.items.length} ${section.countLabel || (section.items.length === 1 ? "activity" : "activities")}</div>
-            <a class="btn" href="#/${section.id}">Choose →</a>
-          </div>`).join("")}
-      </div>
-    </div>`;
+  const esc = value => String(value).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const sections = [...menuSections].sort((a,b)=>a.title.localeCompare(b.title));
+  const link=(url,label)=>`<a href="#/${esc(url)}">${esc(label)}</a>`;
+  function itemMarkup(item) {
+    if(item.id==='argumentative-writing') return `<details class="index-item" open><summary>${link(item.id,item.label)}</summary><ul>${argumentativeSections.map(x=>`<li>${link(item.id+'/'+x.id,x.title)}</li>`).join('')}</ul></details>`;
+    if(item.id.startsWith('private-tutor/')) {
+      const course=item.id.split('/')[1], materials=tutorMaterials.filter(m=>m.courseId===course);
+      const units=[...new Set(materials.map(m=>m.unitId))];
+      return `<details class="index-item" open><summary>${link(item.id,item.label)}</summary>${units.length?units.map(unit=>{const ms=materials.filter(m=>m.unitId===unit);return `<details class="index-unit" open><summary>${link(item.id+'/'+unit,ms[0].unitTitle)}</summary><ul>${ms.map(m=>`<li>${link(item.id+'/'+unit+'/'+m.id,m.title)}</li>`).join('')}</ul></details>`;}).join(''):'<p>No units yet.</p>'}</details>`;
+    }
+    return `<div class="index-item">${link(item.id,item.label)}<p>${esc(item.description||'')}</p></div>`;
+  }
+  const menu=document.getElementById('menu');
+  menu.innerHTML=`<style>.home-index{max-width:1000px;margin:auto;padding:20px}.home-index a,.home-index a:visited{color:#ffe166}.home-index details{padding:12px 0}.home-index summary{cursor:pointer;font-size:1.12em}.home-index ul{padding-left:26px}.home-index li{margin:10px 0}.index-group{border-bottom:1px solid #6b7588}.index-item,.index-unit{margin:12px 0 12px 20px}.index-item p{margin:5px 0;font-size:.95em}.home-index input{width:100%;box-sizing:border-box;font:inherit;padding:14px;background:#152034;color:#fff;border:1px solid #8994a8;border-radius:6px}.home-index [hidden]{display:none!important}.home-index a:focus-visible{outline:3px solid #ffe166}</style><main class="home-index"><div class="topbar"><div class="brand">English Practice Space Online</div><p>Find a unit or go directly to a section.</p></div><label for="home-search">Search units and sections</label><input id="home-search" type="search" placeholder="For example: PEEL, Harvard, colonialism…"><p id="index-count" role="status"></p>${sections.map(s=>`<details class="index-group" open><summary>${esc(s.title)}</summary><p>${esc(s.description)}</p>${s.items.map(itemMarkup).join('')}</details>`).join('')}<p id="index-empty" hidden>No matching units or sections.</p></main>`;
+  menu.querySelector('#home-search').oninput=e=>{
+    const q=e.target.value.trim().toLocaleLowerCase();let count=0;
+    menu.querySelectorAll('.index-group').forEach(group=>{
+      const groupTitle=group.querySelector('summary').textContent.toLocaleLowerCase();
+      group.querySelectorAll(':scope > .index-item').forEach(item=>{
+        const links=[...item.querySelectorAll('a')];let found=false;
+        links.forEach(a=>{const li=a.closest('li');const context=li?[...item.querySelectorAll(':scope > summary,:scope > .index-unit > summary')].map(x=>x.textContent).join(' '):'';const match=!q||(groupTitle+' '+context+' '+a.textContent).toLocaleLowerCase().includes(q);if(li)li.hidden=!match;if(match){found=true;count++;}});
+        // Search descriptions too for simple entries.
+        if(!found&&item.textContent.toLocaleLowerCase().includes(q)){found=true;count++;}
+        item.hidden=!found;if(found&&q)item.querySelectorAll('details').forEach(d=>d.open=true);
+        item.querySelectorAll('.index-unit').forEach(unit=>{unit.hidden=q&&[...unit.querySelectorAll('li')].every(li=>li.hidden)&&!unit.querySelector('summary').textContent.toLocaleLowerCase().includes(q);});
+      });
+      group.hidden=[...group.querySelectorAll(':scope > .index-item')].every(x=>x.hidden);if(q&&!group.hidden)group.open=true;
+    });
+    menu.querySelector('#index-count').textContent=q?`${count} matching links`:'';menu.querySelector('#index-empty').hidden=count!==0;
+  };
 }
 
 function renderCategory(section) {
@@ -290,6 +301,12 @@ function router() {
     return;
   }
 
+  if (route === "argumentative-writing" || route.startsWith("argumentative-writing/")) {
+    clearMountedView();
+    document.getElementById("menu").innerHTML='<div class="container"><a href="#/">← All units</a> · <a href="#/writing">Writing</a></div>';
+    argumentativeWriting.render(document.getElementById("view"), route.split('/')[1] || 'plan');
+    return;
+  }
   const section = menuSections.find(item => item.id === route);
   if (section) {
     renderCategory(section);
@@ -403,3 +420,5 @@ resourceLinkStyle.textContent = `
   #view a:not(.btn):hover, #menu a:not(.btn):hover { color: #ffeaa6; }
 `;
 document.head.appendChild(resourceLinkStyle);
+
+function renderArgumentativeWriting(root) { mountExercise(argumentativeWriting, root); }
