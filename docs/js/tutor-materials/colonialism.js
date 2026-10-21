@@ -1826,7 +1826,7 @@ export const colonialismMaterials = [
     "levels": [
       "B1"
     ],
-    "introduction": "Read the National Geographic article and watch the Vox video. Ask what each source explains about the holiday’s origins and whose experiences are being remembered. Use the Show/Hide transcript button for listening support. If the article requires a subscription, begin with the video and study notes.",
+    "introduction": "Watch the Vox video and read the National Geographic article. Choose Vocabulary practice, Video questions or Text questions below. Each question section tells you which source to use. The video transcript is available through the Show/Hide transcript button. If the article requires a subscription, complete the video questions first and return to the text questions when you can access the article.",
     "mediaType": "youtube",
     "text": [
       "Columbus reached the Caribbean in 1492. Calling this a “discovery” can obscure the presence of the Indigenous peoples who already lived there.",
@@ -2638,8 +2638,8 @@ export const colonialismMaterials = [
         ],
         "answer": 0,
         "explanation": "The article links commemoration to recognition and identity.",
-        "hint": "Identify the idea that is supported by the resource and study notes.",
-        "practiceSection": "questions"
+        "hint": "Use the National Geographic article. Support your answer with a detail from the text and distinguish the author’s account from your own interpretation.",
+        "practiceSection": "text"
       },
       {
         "id": "colonialism-columbus-mc-2",
@@ -2655,8 +2655,8 @@ export const colonialismMaterials = [
         ],
         "answer": 0,
         "explanation": "The phrasing privileges the European arrival over existing inhabitants.",
-        "hint": "Identify the idea that is supported by the resource and study notes.",
-        "practiceSection": "questions"
+        "hint": "Use the National Geographic article. Support your answer with a detail from the text and distinguish the author’s account from your own interpretation.",
+        "practiceSection": "text"
       },
       {
         "id": "colonialism-columbus-mc-3",
@@ -2672,8 +2672,8 @@ export const colonialismMaterials = [
         ],
         "answer": 0,
         "explanation": "Historical criticism concerns the acts and legacy being honoured.",
-        "hint": "Identify the idea that is supported by the resource and study notes.",
-        "practiceSection": "questions"
+        "hint": "Use the National Geographic article. Support your answer with a detail from the text and distinguish the author’s account from your own interpretation.",
+        "practiceSection": "text"
       },
       {
         "id": "colonialism-columbus-mc-4",
@@ -2689,8 +2689,8 @@ export const colonialismMaterials = [
         ],
         "answer": 0,
         "explanation": "The alternative changes the focus of public remembrance.",
-        "hint": "Identify the idea that is supported by the resource and study notes.",
-        "practiceSection": "questions"
+        "hint": "Use the National Geographic article. Support your answer with a detail from the text and distinguish the author’s account from your own interpretation.",
+        "practiceSection": "text"
       },
       {
         "id": "colonialism-columbus-mc-5",
@@ -2706,42 +2706,42 @@ export const colonialismMaterials = [
         ],
         "answer": 0,
         "explanation": "The article connects historical discrimination and colonial oppression to different meanings.",
-        "hint": "Identify the idea that is supported by the resource and study notes.",
-        "practiceSection": "questions"
+        "hint": "Use the National Geographic article. Support your answer with a detail from the text and distinguish the author’s account from your own interpretation.",
+        "practiceSection": "text"
       },
       {
         "id": "colonialism-columbus-mc-6",
         "level": "both",
         "type": "multiple-choice",
         "category": "Check understanding",
-        "prompt": "When watching the Vox video, which question best connects the holiday to identity?",
+        "prompt": "According to the video, why did many Italian immigrants embrace Columbus as a symbol?",
         "options": [
-          "Why did commemorating Columbus matter to Italian Americans?",
-          "Which ship was fastest in a modern race?",
-          "What is the cheapest ticket to Italy?",
-          "How many colours appear in the video?"
+          "He was Italian and Catholic, and already admired in the United States.",
+          "He had personally welcomed them to the United States.",
+          "He had ended all discrimination against immigrants.",
+          "He had lived in every American city."
         ],
         "answer": 0,
-        "explanation": "This question addresses the social meaning of commemoration rather than an unrelated detail.",
-        "hint": "Identify the idea that is supported by the resource and study notes.",
-        "practiceSection": "questions"
+        "explanation": "The video explains that immigrants facing discrimination embraced a respected Italian and Catholic figure as a symbol of belonging.",
+        "hint": "Identify the idea that is supported by the video and transcript.",
+        "practiceSection": "video"
       },
       {
         "id": "colonialism-columbus-mc-7",
         "level": "both",
         "type": "multiple-choice",
         "category": "Check understanding",
-        "prompt": "How should you compare the video and article?",
+        "prompt": "When explaining the article’s account of Columbus Day, how should you support your answer?",
         "options": [
-          "Identify shared points and differences, using examples from each.",
-          "Assume both say exactly the same thing.",
-          "Use only their titles as evidence.",
-          "Ignore one source whenever it differs."
+          "Use a specific detail from the article and explain how it supports your point.",
+          "Use only the title as proof of every claim.",
+          "Assume the author speaks for every member of a community.",
+          "Replace the article’s account with an unrelated opinion."
         ],
         "answer": 0,
-        "explanation": "Different formats can emphasise different evidence and perspectives.",
-        "hint": "Identify the idea that is supported by the resource and study notes.",
-        "practiceSection": "questions"
+        "explanation": "A specific detail from the text makes your interpretation traceable to the source.",
+        "hint": "Use the National Geographic article. Support your answer with a detail from the text and distinguish the author’s account from your own interpretation.",
+        "practiceSection": "text"
       },
       {
         "id": "colonialism-columbus-mc-8",
@@ -2757,8 +2757,8 @@ export const colonialismMaterials = [
         ],
         "answer": 0,
         "explanation": "Groups contain diverse viewpoints; avoid universal claims without evidence.",
-        "hint": "Identify the idea that is supported by the resource and study notes.",
-        "practiceSection": "questions"
+        "hint": "Use the National Geographic article. Support your answer with a detail from the text and distinguish the author’s account from your own interpretation.",
+        "practiceSection": "text"
       },
       {
         "id": "colonialism-columbus-mc-9",
@@ -2774,25 +2774,25 @@ export const colonialismMaterials = [
         ],
         "answer": 0,
         "explanation": "A society can study an individual without celebrating them.",
-        "hint": "Identify the idea that is supported by the resource and study notes.",
-        "practiceSection": "questions"
+        "hint": "Use the National Geographic article. Support your answer with a detail from the text and distinguish the author’s account from your own interpretation.",
+        "practiceSection": "text"
       },
       {
         "id": "colonialism-columbus-mc-10",
         "level": "both",
         "type": "multiple-choice",
         "category": "Check understanding",
-        "prompt": "Which question is best for the unit’s final discussion?",
+        "prompt": "Which question best helps you reflect on the article’s discussion of the holiday?",
         "options": [
-          "How does colonialism influence whose history is remembered?",
+          "Whose stories does a public holiday recognise, and whose stories can it leave out?",
           "Which source has the brightest logo?",
           "Can history be understood without any evidence?",
           "Which holiday name is easiest to spell?"
         ],
         "answer": 0,
         "explanation": "Connect knowledge of colonial power with choices about public memory.",
-        "hint": "Identify the idea that is supported by the resource and study notes.",
-        "practiceSection": "questions"
+        "hint": "Use the National Geographic article. Support your answer with a detail from the text and distinguish the author’s account from your own interpretation.",
+        "practiceSection": "text"
       },
       {
         "id": "colonialism-columbus-effects-mc-1",
@@ -2809,7 +2809,7 @@ export const colonialismMaterials = [
         "answer": 0,
         "hint": "Consider whose experiences the video includes or leaves out. Avoid claims about every person or every community.",
         "explanation": "The video contrasts a friendly encounter story with evidence of brutality and deaths.",
-        "practiceSection": "questions"
+        "practiceSection": "video"
       },
       {
         "id": "colonialism-columbus-effects-mc-2",
@@ -2826,7 +2826,7 @@ export const colonialismMaterials = [
         "answer": 0,
         "hint": "Consider whose experiences the video includes or leaves out. Avoid claims about every person or every community.",
         "explanation": "The quoted testimony points to harm inflicted on vulnerable people and families.",
-        "practiceSection": "questions"
+        "practiceSection": "video"
       },
       {
         "id": "colonialism-columbus-effects-mc-3",
@@ -2843,7 +2843,7 @@ export const colonialismMaterials = [
         "answer": 0,
         "hint": "Consider whose experiences the video includes or leaves out. Avoid claims about every person or every community.",
         "explanation": "These are possible consequences of violence, not a claim that every community had an identical experience.",
-        "practiceSection": "questions"
+        "practiceSection": "video"
       },
       {
         "id": "colonialism-columbus-effects-mc-4",
@@ -2860,7 +2860,7 @@ export const colonialismMaterials = [
         "answer": 0,
         "hint": "Consider whose experiences the video includes or leaves out. Avoid claims about every person or every community.",
         "explanation": "The video presents colonial harm as extending beyond Columbus’s voyages.",
-        "practiceSection": "questions"
+        "practiceSection": "video"
       },
       {
         "id": "colonialism-columbus-effects-mc-5",
@@ -2877,7 +2877,7 @@ export const colonialismMaterials = [
         "answer": 0,
         "hint": "Consider whose experiences the video includes or leaves out. Avoid claims about every person or every community.",
         "explanation": "Public honour can marginalise the experiences of those harmed. Responses within communities still vary.",
-        "practiceSection": "questions"
+        "practiceSection": "video"
       },
       {
         "id": "colonialism-columbus-effects-mc-6",
@@ -2894,7 +2894,7 @@ export const colonialismMaterials = [
         "answer": 0,
         "hint": "Consider whose experiences the video includes or leaves out. Avoid claims about every person or every community.",
         "explanation": "Omissions can shape whose experiences are recognised in public understanding.",
-        "practiceSection": "questions"
+        "practiceSection": "video"
       },
       {
         "id": "colonialism-columbus-effects-mc-7",
@@ -2911,7 +2911,7 @@ export const colonialismMaterials = [
         "answer": 0,
         "hint": "Consider whose experiences the video includes or leaves out. Avoid claims about every person or every community.",
         "explanation": "The statement links history to ongoing concerns; investigate current conditions with current evidence.",
-        "practiceSection": "questions"
+        "practiceSection": "video"
       },
       {
         "id": "colonialism-columbus-effects-mc-8",
@@ -2928,7 +2928,7 @@ export const colonialismMaterials = [
         "answer": 0,
         "hint": "Consider whose experiences the video includes or leaves out. Avoid claims about every person or every community.",
         "explanation": "Recognition can change whose histories receive attention, but changing a name does not resolve every harm.",
-        "practiceSection": "questions"
+        "practiceSection": "video"
       },
       {
         "id": "colonialism-columbus-effects-mc-9",
@@ -2945,7 +2945,7 @@ export const colonialismMaterials = [
         "answer": 0,
         "hint": "Consider whose experiences the video includes or leaves out. Avoid claims about every person or every community.",
         "explanation": "A careful answer distinguishes historical evidence, continuing effects and claims needing up-to-date support.",
-        "practiceSection": "questions"
+        "practiceSection": "video"
       },
       {
         "id": "colonialism-columbus-effects-mc-10",
@@ -2962,7 +2962,7 @@ export const colonialismMaterials = [
         "answer": 0,
         "hint": "Consider whose experiences the video includes or leaves out. Avoid claims about every person or every community.",
         "explanation": "The video discusses Native rights activism. Include Indigenous agency as well as the harms inflicted.",
-        "practiceSection": "questions"
+        "practiceSection": "video"
       },
       {
         "id": "colonialism-columbus-effects-written-1",
@@ -2981,7 +2981,7 @@ export const colonialismMaterials = [
           "Contrast friendly encounters with the evidence of violence and mass deaths.",
           "Explain how omitting these experiences changes a learner’s understanding."
         ],
-        "practiceSection": "questions"
+        "practiceSection": "video"
       },
       {
         "id": "colonialism-columbus-effects-written-2",
@@ -3000,7 +3000,7 @@ export const colonialismMaterials = [
           "Possible effects include grief, disrupted relationships and interrupted sharing of knowledge.",
           "Explain these as reasoned consequences rather than invented personal stories."
         ],
-        "practiceSection": "questions"
+        "practiceSection": "video"
       },
       {
         "id": "colonialism-columbus-effects-written-3",
@@ -3020,15 +3020,15 @@ export const colonialismMaterials = [
           "Changing a holiday’s name does not by itself repair injustice.",
           "Use current sources for specific claims about present-day conditions or statistics."
         ],
-        "practiceSection": "questions"
+        "practiceSection": "video"
       },
       {
         "id": "colonialism-columbus-discussion-1",
         "level": "both",
         "type": "short-answer",
         "category": "Discuss and reflect",
-        "prompt": "Why can Columbus Day represent recognition for some people and oppression for others? Use both sources.",
-        "hint": "Give a clear answer, an example and a link to the source. Use phrases such as “According to the article…” or “The video suggests…”.",
+        "prompt": "According to the article, why can Columbus Day represent recognition for some people and oppression for others? Use examples from the text.",
+        "hint": "Use the National Geographic article. Support your answer with a detail from the text and distinguish the author’s account from your own interpretation.",
         "checklist": [
           "Answer the question directly.",
           "Support your response with a specific example from the material.",
@@ -3038,7 +3038,7 @@ export const colonialismMaterials = [
           "Explain Italian American recognition and Indigenous experiences.",
           "Use examples rather than implying each group has one view."
         ],
-        "practiceSection": "questions"
+        "practiceSection": "text"
       },
       {
         "id": "colonialism-columbus-discussion-2",
@@ -3046,7 +3046,7 @@ export const colonialismMaterials = [
         "type": "short-answer",
         "category": "Discuss and reflect",
         "prompt": "Should a public holiday honour a person, commemorate an event, or recognise a community? Explain your view.",
-        "hint": "Give a clear answer, an example and a link to the source. Use phrases such as “According to the article…” or “The video suggests…”.",
+        "hint": "Use the National Geographic article. Support your answer with a detail from the text and distinguish the author’s account from your own interpretation.",
         "checklist": [
           "Answer the question directly.",
           "Support your response with a specific example from the material.",
@@ -3056,25 +3056,25 @@ export const colonialismMaterials = [
           "Distinguish your judgement from historical facts.",
           "Support your position and acknowledge a relevant counterargument."
         ],
-        "practiceSection": "questions"
+        "practiceSection": "text"
       },
       {
         "id": "colonialism-columbus-discussion-3",
         "level": "both",
         "type": "short-answer",
         "category": "Discuss and reflect",
-        "prompt": "Whose stories do we hear when we learn about colonialism, and whose stories are left out? Compare Australia with the Columbus Day debate.",
-        "hint": "Give a clear answer, an example and a link to the source. Use phrases such as “According to the article…” or “The video suggests…”.",
+        "prompt": "Whose stories receive attention in the article’s discussion of Columbus Day, and whose experiences can be overlooked when Columbus is celebrated? Use two details from the text.",
+        "hint": "Use the National Geographic article. Support your answer with a detail from the text and distinguish the author’s account from your own interpretation.",
         "checklist": [
           "Answer the question directly.",
           "Support your response with a specific example from the material.",
           "Distinguish historical evidence from your interpretation."
         ],
         "modelPoints": [
-          "Include one example from each case.",
-          "Discuss whose perspectives are foregrounded and whose are overlooked."
+          "Identify perspectives represented in the article.",
+          "Use two relevant details to explain how public celebrations can recognise some experiences and overlook others."
         ],
-        "practiceSection": "questions"
+        "practiceSection": "text"
       }
     ],
     "videoId": "fNqOGhDMm8k",
@@ -3377,12 +3377,17 @@ export const colonialismMaterials = [
       {
         "id": "vocabulary",
         "title": "Vocabulary practice",
-        "description": "Use the simple English word list. Practise small sets of meanings and sentence gaps, then answer five questions about words in the video."
+        "description": "Practise the simple English meanings and examples in the word list."
       },
       {
-        "id": "questions",
-        "title": "Video and reflection questions",
-        "description": "Answer the existing comprehension and writing questions. Use the video, transcript and the other resources shown in this section."
+        "id": "video",
+        "title": "Video questions",
+        "description": "Watch the Vox video and use its transcript. Answer questions about its account of Columbus, colonial violence, Indigenous experiences and public remembrance. Reflection questions ask you to explain possible consequences; distinguish these inferences from facts stated in the video."
+      },
+      {
+        "id": "text",
+        "title": "Text questions",
+        "description": "Read the linked National Geographic article. Use details from the article for comprehension and reflection questions. If the article is unavailable, you can still complete Vocabulary practice and Video questions, then return to the text questions when you have access."
       }
     ]
   }
