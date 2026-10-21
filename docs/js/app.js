@@ -165,33 +165,39 @@ function renderMenu() {
   clearMountedView();
   const esc = value => String(value).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const sections = [...menuSections].sort((a,b)=>a.title.localeCompare(b.title));
-  const link=(url,label)=>`<a href="#/${esc(url)}">${esc(label)}</a>`;
-  function itemMarkup(item) {
-    if(item.id==='argumentative-writing') return `<details class="index-item" open><summary>${link(item.id,item.label)}</summary><ul>${argumentativeSections.map(x=>`<li>${link(item.id+'/'+x.id,x.title)}</li>`).join('')}</ul></details>`;
-    if(item.id.startsWith('private-tutor/')) {
-      const course=item.id.split('/')[1], materials=tutorMaterials.filter(m=>m.courseId===course);
-      const units=[...new Set(materials.map(m=>m.unitId))];
-      return `<details class="index-item" open><summary>${link(item.id,item.label)}</summary>${units.length?units.map(unit=>{const ms=materials.filter(m=>m.unitId===unit);return `<details class="index-unit" open><summary>${link(item.id+'/'+unit,ms[0].unitTitle)}</summary><ul>${ms.map(m=>`<li>${link(item.id+'/'+unit+'/'+m.id,m.title)}</li>`).join('')}</ul></details>`;}).join(''):'<p>No units yet.</p>'}</details>`;
-    }
-    return `<div class="index-item">${link(item.id,item.label)}<p>${esc(item.description||'')}</p></div>`;
-  }
-  const menu=document.getElementById('menu');
-  menu.innerHTML=`<style>.home-index{max-width:1000px;margin:auto;padding:20px}.home-index a,.home-index a:visited{color:#ffe166}.home-index details{padding:12px 0}.home-index summary{cursor:pointer;font-size:1.12em}.home-index ul{padding-left:26px}.home-index li{margin:10px 0}.index-group{border-bottom:1px solid #6b7588}.index-item,.index-unit{margin:12px 0 12px 20px}.index-item p{margin:5px 0;font-size:.95em}.home-index input{width:100%;box-sizing:border-box;font:inherit;padding:14px;background:#152034;color:#fff;border:1px solid #8994a8;border-radius:6px}.home-index [hidden]{display:none!important}.home-index a:focus-visible{outline:3px solid #ffe166}</style><main class="home-index"><div class="topbar"><div class="brand">English Practice Space Online</div><p>Find a unit or go directly to a section.</p></div><label for="home-search">Search units and sections</label><input id="home-search" type="search" placeholder="For example: PEEL, Harvard, colonialism…"><p id="index-count" role="status"></p>${sections.map(s=>`<details class="index-group" open><summary>${esc(s.title)}</summary><p>${esc(s.description)}</p>${s.items.map(itemMarkup).join('')}</details>`).join('')}<p id="index-empty" hidden>No matching units or sections.</p></main>`;
-  menu.querySelector('#home-search').oninput=e=>{
-    const q=e.target.value.trim().toLocaleLowerCase();let count=0;
-    menu.querySelectorAll('.index-group').forEach(group=>{
-      const groupTitle=group.querySelector('summary').textContent.toLocaleLowerCase();
-      group.querySelectorAll(':scope > .index-item').forEach(item=>{
-        const links=[...item.querySelectorAll('a')];let found=false;
-        links.forEach(a=>{const li=a.closest('li');const context=li?[...item.querySelectorAll(':scope > summary,:scope > .index-unit > summary')].map(x=>x.textContent).join(' '):'';const match=!q||(groupTitle+' '+context+' '+a.textContent).toLocaleLowerCase().includes(q);if(li)li.hidden=!match;if(match){found=true;count++;}});
-        // Search descriptions too for simple entries.
-        if(!found&&item.textContent.toLocaleLowerCase().includes(q)){found=true;count++;}
-        item.hidden=!found;if(found&&q)item.querySelectorAll('details').forEach(d=>d.open=true);
-        item.querySelectorAll('.index-unit').forEach(unit=>{unit.hidden=q&&[...unit.querySelectorAll('li')].every(li=>li.hidden)&&!unit.querySelector('summary').textContent.toLocaleLowerCase().includes(q);});
-      });
-      group.hidden=[...group.querySelectorAll(':scope > .index-item')].every(x=>x.hidden);if(q&&!group.hidden)group.open=true;
+  const entries=[];
+  const add=(path,title,context,description='')=>entries.push({path,title,context,search:(title+' '+context+' '+description).toLocaleLowerCase()});
+  sections.forEach(section=>{
+    add(section.id,section.title,'Category',section.description);
+    section.items.forEach(item=>{
+      add(item.id,item.label,section.title,item.description);
+      if(item.id==='argumentative-writing') argumentativeSections.forEach(part=>add(item.id+'/'+part.id,part.title,section.title+' / '+item.label));
+      if(item.id.startsWith('private-tutor/')){
+        const course=item.id.split('/')[1];
+        const materials=tutorMaterials.filter(m=>m.courseId===course);
+        [...new Set(materials.map(m=>m.unitId))].forEach(unit=>{
+          const resources=materials.filter(m=>m.unitId===unit), unitTitle=resources[0].unitTitle;
+          add(item.id+'/'+unit,unitTitle,section.title+' / '+item.label);
+          resources.forEach(m=>add(item.id+'/'+unit+'/'+m.id,m.title,section.title+' / '+item.label+' / '+unitTitle,m.topic||''));
+        });
+      }
     });
-    menu.querySelector('#index-count').textContent=q?`${count} matching links`:'';menu.querySelector('#index-empty').hidden=count!==0;
+  });
+  // Useful terms for learners who know a style name rather than the unit name.
+  const references=entries.find(e=>e.path==='referencing');
+  if(references) references.search+=' harvard apa oxford citations reference list';
+  const menu=document.getElementById('menu');
+  menu.innerHTML=`<style>
+    .home-search{margin:24px 0 30px}.home-search label{display:block;font-weight:600;margin-bottom:9px}.home-search input{width:100%;box-sizing:border-box;font:inherit;padding:14px 16px;background:#152034;color:#fff;border:1px solid #8994a8;border-radius:8px}.home-search input:focus-visible{outline:2px solid #ffe166;outline-offset:2px}.home-search-results{padding:16px 20px;margin:16px 0;border:1px solid #6b7588;border-radius:8px;background:#152034}.home-search-results ul{list-style:none;padding:0;margin:0}.home-search-results li{padding:12px 0;border-bottom:1px solid #485268}.home-search-results li:last-child{border-bottom:0}.home-search-results a,.home-search-results a:visited{color:#ffe166;font-weight:600}.home-search-results small{display:block;margin-top:5px;color:#d4dce8}.home-search [hidden]{display:none!important}.home-search-count{margin:12px 0 0}.home-search-results a:focus-visible{outline:2px solid #ffe166;outline-offset:3px}
+  </style><div class="container"><div class="topbar"><div class="brand">English Practice Space Online</div><p class="home-intro">What would you like to practise?</p></div>
+  <section class="home-search" aria-label="Find learning material"><label for="home-search">Search units and sections</label><input id="home-search" type="search" placeholder="For example: PEEL, Harvard, colonialism…" aria-controls="home-results" autocomplete="off"><p class="home-search-count" id="home-search-count" role="status" aria-live="polite"></p><div id="home-results" class="home-search-results" hidden></div></section>
+  <div class="grid category-grid">${sections.map(section=>`<div class="card category-card"><div class="pill">Category</div><h2>${esc(section.title)}</h2><p>${esc(section.description)}</p><div class="category-count">${section.items.length} ${esc(section.countLabel||(section.items.length===1?'activity':'activities'))}</div><a class="btn" href="#/${esc(section.id)}">Choose →</a></div>`).join('')}</div></div>`;
+  menu.querySelector('#home-search').oninput=e=>{
+    const query=e.target.value.trim().toLocaleLowerCase(),results=menu.querySelector('#home-results'),status=menu.querySelector('#home-search-count');
+    if(!query){results.hidden=true;results.innerHTML='';status.textContent='';return;}
+    const words=query.split(/\s+/), matches=entries.filter(entry=>words.every(word=>entry.search.includes(word)));
+    results.hidden=false;status.textContent=matches.length===1?'1 result':`${matches.length} results`;
+    results.innerHTML=matches.length?`<ul>${matches.map(entry=>`<li><a href="#/${esc(entry.path)}">${esc(entry.title)}</a><small>${esc(entry.context)}</small></li>`).join('')}</ul>`:'<p>No matching units or sections. Try another word, such as writing or colonialism.</p>';
   };
 }
 
