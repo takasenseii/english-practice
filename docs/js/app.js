@@ -15,7 +15,9 @@ import referencing from "./referencing.js";
 import paraphrasing from "./paraphrasing.js";
 import sourceEvaluation from "./source-evaluation.js";
 import speaking from "./speaking.js";
-import { tutorMaterials } from "./tutor-materials.js";
+import { tutorMaterials as existingTutorMaterials } from "./tutor-materials.js";
+import { voiceMaterials, renderVoiceSection, renderVoiceOverview } from "./a-voice-for-change.js";
+const tutorMaterials = [...existingTutorMaterials.filter(m => m.unitId !== "a-voice-for-change"), ...voiceMaterials];
 
 
 
@@ -249,7 +251,7 @@ function renderTutorCourse(courseId) {
         <div class="card">
           <div class="pill">Unit</div>
           <h3>${unit.title}</h3>
-          <p>${unit.count} ${unit.count === 1 ? "resource" : "resources"}</p>
+          <p>${unit.count} ${unit.id === "a-voice-for-change" ? "sections" : (unit.count === 1 ? "resource" : "resources")}</p>
           <a class="btn" href="#/private-tutor/${courseId}/${unit.id}">Choose →</a>
         </div>`).join("")}</div>` : `<div class="card empty-category"><h2>No units yet</h2><p>Materials for ${courseTitle} will appear here when they are added.</p></div>`}
     </div>`;
@@ -257,6 +259,11 @@ function renderTutorCourse(courseId) {
 }
 
 function renderTutorUnit(courseId, unitId) {
+  if (courseId === "english-1" && unitId === "a-voice-for-change") {
+    clearMountedView();
+    renderVoiceOverview(document.getElementById("menu"));
+    return;
+  }
   clearMountedView();
   const resources = tutorMaterials
     .filter(material => material.courseId === courseId && material.unitId === unitId)
@@ -391,6 +398,11 @@ function renderTutor(root, materialId) {
   if (typeof currentUnmount === "function") {
     currentUnmount();
     currentUnmount = null;
+  }
+  if (voiceMaterials.some(m => m.id === materialId)) {
+    root.innerHTML = "";
+    currentUnmount = renderVoiceSection(root, materialId);
+    return;
   }
   tutor.render(root, materialId);
 }
