@@ -1,3 +1,4 @@
+import discussions, { discussionSections } from './discussions.js';
 import argumentativeWriting, { argumentativeSections } from "./argumentative-writing.js";
 import avsan from "./avsan.js";
 import capital from "./capitalisation.js"; 
@@ -134,9 +135,10 @@ const menuSections = [
   {
     id: "speaking",
     title: "Speaking",
-    description: "Organise and deliver clear oral presentations.",
+    description: "Take part in discussions and deliver clear oral presentations.",
     items: [
-      { id: "oral-ibc", label: "IBC for Oral Presentations", description: "Plan an introduction, body and conclusion for a presentation.", render: renderSpeaking }
+      { id: "oral-ibc", label: "IBC for Oral Presentations", description: "Plan an introduction, body and conclusion for a presentation.", render: renderSpeaking },
+      { id: "discussions", label: "Seminars and Discussions", description: "Study expressions, listen, practise responding and prepare for a seminar.", render: renderDiscussions }
     ]
   },
   {
@@ -175,6 +177,7 @@ function renderMenu() {
     section.items.forEach(item=>{
       add(item.id,item.label,section.title,item.description);
       if(item.id==='argumentative-writing') argumentativeSections.forEach(part=>add(item.id+'/'+part.id,part.title,section.title+' / '+item.label));
+      if(item.id==='discussions') discussionSections.forEach(part=>add(item.id+'/'+part.id,part.title,section.title+' / '+item.label));
       if(item.id.startsWith('private-tutor/')){
         const course=item.id.split('/')[1];
         const materials=tutorMaterials.filter(m=>m.courseId===course);
@@ -267,6 +270,12 @@ function router() {
     return;
   }
 
+  if (route.startsWith("discussions/")) {
+    clearMountedView();
+    document.getElementById("menu").innerHTML='';
+    discussions.render(document.getElementById("view"), route.split('/')[1]);
+    return;
+  }
   if (route === "argumentative-writing" || route.startsWith("argumentative-writing/")) {
     clearMountedView();
     document.getElementById("menu").innerHTML='<div class="container"><a href="#/">← All units</a> · <a href="#/writing">Writing</a></div>';
@@ -398,3 +407,5 @@ resourceLinkStyle.textContent = `
 document.head.appendChild(resourceLinkStyle);
 
 function renderArgumentativeWriting(root) { mountExercise(argumentativeWriting, root); }
+
+function renderDiscussions(root) { mountExercise(discussions, root); }
