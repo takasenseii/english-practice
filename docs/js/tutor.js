@@ -88,6 +88,292 @@ export function evaluateClassification(items, answer) {
   return items.map((item, index) => ({ correct: Number(answer[index]) === item.answer, index }));
 }
 
+
+// Swedish meanings are written for the vocabulary's meaning in these resources.
+const SWEDISH_VOCABULARY = {
+  "segregation": "segregering",
+  "equality": "jämlikhet; lika rättigheter",
+  "boycott": "bojkott",
+  "resistance": "motstånd",
+  "discrimination": "diskriminering",
+  "activist": "aktivist",
+  "declining revenues": "minskande intäkter",
+  "desegregation": "avskaffande av rassegregering",
+  "collective action": "gemensamt handlande",
+  "economic pressure": "ekonomiska påtryckningar",
+  "death threat": "dödshot",
+  "Supreme Court": "USA:s högsta domstol",
+  "act of protest": "protesthandling",
+  "civil-rights work": "medborgarrättsarbete",
+  "racial violence": "rasistiskt våld",
+  "gather information": "samla information",
+  "challenge segregation": "utmana; motarbeta segregering",
+  "Supreme Court decision": "beslut från högsta domstolen",
+  "serious consequences": "allvarliga konsekvenser",
+  "individual action": "en enskild persons handling",
+  "entrepreneur": "entreprenör; företagare",
+  "product": "produkt",
+  "service": "tjänst",
+  "boutique": "liten specialbutik; modebutik",
+  "passionate": "engagerad; med ett starkt intresse",
+  "motivated": "motiverad",
+  "bring an idea to life": "förverkliga en idé",
+  "think outside the box": "tänka i nya banor",
+  "comfort zone": "trygghetszon",
+  "marketplace": "marknad",
+  "bring something to the table": "bidra med något värdefullt",
+  "expand your knowledge": "utöka dina kunskaper",
+  "product or service": "produkt eller tjänst",
+  "share characteristics": "ha gemensamma egenskaper",
+  "independent": "självständig",
+  "expand their knowledge": "utöka sina kunskaper",
+  "break out of their comfort zone": "våga lämna sin trygghetszon",
+  "new opportunities": "nya möjligheter",
+  "aspiring": "blivande; som strävar efter att bli något",
+  "sandbox": "skyddad miljö för att testa idéer",
+  "mindset": "tankesätt",
+  "opportunity": "möjlighet",
+  "core competencies": "kärnkompetenser",
+  "reinvent": "förnya i grunden",
+  "target market": "målmarknad; avsedd kundgrupp",
+  "cash": "likvida medel; tillgängliga pengar",
+  "deposit": "förskottsbetalning; handpenning",
+  "asset": "tillgång",
+  "regulation": "regel; bestämmelse",
+  "roadblock": "hinder",
+  "counterconventional": "som går emot etablerade arbetssätt",
+  "fly in the face of": "gå rakt emot",
+  "mental inclination": "mental benägenhet; tendens i tankesättet",
+  "predetermine": "förutbestämma",
+  "stick to your knitting": "hålla sig till det man redan kan",
+  "nurture": "stödja och utveckla",
+  "move the needle": "åstadkomma en märkbar förändring",
+  "lateral stability": "stabilitet i sidled",
+  "cash is the lifeblood": "tillgängliga pengar är verksamhetens livsnerv",
+  "ride the float": "använda kunders förskottsbetalningar före leverans",
+  "return on investment": "avkastning på investerat kapital",
+  "ambiguous": "tvetydig; öppen för flera tolkningar",
+  "startup": "nystartat företag med tillväxtambitioner",
+  "factor": "faktor",
+  "succeed": "lyckas",
+  "failure": "misslyckande",
+  "team": "lag; arbetsgrupp",
+  "execution": "genomförande",
+  "adaptability": "anpassningsförmåga",
+  "business model": "affärsmodell",
+  "funding": "finansiering",
+  "timing": "val av rätt tidpunkt",
+  "competitor": "konkurrent",
+  "revenue": "intäkter",
+  "equity incentives": "aktiebaserade incitament; belöningar i form av ägarandelar",
+  "unlock human potential": "frigöra människors potential",
+  "systematic": "systematisk",
+  "misperception": "missuppfattning",
+  "differentiability": "möjlighet att särskiljas från alternativen",
+  "definitive": "slutgiltig; avgörande",
+  "underfunded": "underfinansierad",
+  "gain traction": "få genomslag; börja få stöd eller kunder",
+  "broadband penetration": "bredbandsutbredning",
+  "cost-effective": "kostnadseffektiv",
+  "assess timing": "bedöma om tidpunkten är rätt",
+  "be in denial": "förneka verkligheten",
+  "premise": "grundtanke; utgångspunkt",
+  "competition": "tävling",
+  "achievement": "prestation",
+  "setback": "motgång; bakslag",
+  "transformation": "genomgripande förändring",
+  "trial": "prövning; försök",
+  "bankruptcy": "konkurs",
+  "dynamic": "föränderlig; dynamisk",
+  "surrender": "ge upp kontrollen; acceptera det man inte kan styra",
+  "advantage": "fördel",
+  "mastery": "mycket hög skicklighet; mästerskap",
+  "groundbreaking achievement": "banbrytande prestation",
+  "sanitized story": "tillrättalagd berättelse",
+  "potential failure": "möjligt misslyckande",
+  "merit a signature": "vara värd en signatur",
+  "near win": "att nästan vinna",
+  "propulsion": "drivkraft",
+  "rock bottom": "bottenläge; livets lägsta punkt",
+  "solid foundation": "stabil grund",
+  "requisite": "nödvändig förutsättning",
+  "frame an experience": "beskriva eller tolka en upplevelse ur ett visst perspektiv",
+  "force-fit": "tvinga in något i ett sammanhang där det inte passar",
+  "embrace uncertainty": "acceptera och våga möta osäkerhet",
+  "wear many hats": "ha många olika roller",
+  "delegate": "delegera",
+  "target audience": "målgrupp",
+  "work-life balance": "balans mellan arbete och privatliv",
+  "deadline": "sista tidsfrist",
+  "blind spot": "blind fläck; svaghet man inte själv ser",
+  "market research": "marknadsundersökning",
+  "customer base": "kundbas",
+  "side business": "sidoverksamhet",
+  "accountability": "ansvarsskyldighet; att stå till svars",
+  "cultural fit": "hur väl någon passar organisationens värderingar och arbetssätt",
+  "solopreneur": "enmansföretagare",
+  "cash infusion": "kapitaltillskott",
+  "working capital": "rörelsekapital",
+  "brand ambassador": "varumärkesambassadör",
+  "overhead costs": "omkostnader",
+  "cede control": "överlåta kontroll",
+  "cast a wide net": "söka brett bland många alternativ",
+  "built-in safety net": "inbyggt skyddsnät",
+  "pick up the slack": "ta över arbete som andra inte har hunnit eller kunnat göra",
+  "cut your losses": "avbryta för att begränsa förlusterna",
+  "hard and soft skills": "tekniska färdigheter och mellanmänskliga förmågor",
+  "pivot": "strategisk kursändring",
+  "customer behaviour": "kundbeteende",
+  "financial crisis": "finanskris; ekonomisk kris",
+  "persistence": "uthållighet",
+  "test failure": "misslyckat test",
+  "contract": "avtal",
+  "withdraw": "dra sig ur",
+  "reputation": "rykte",
+  "layoff": "uppsägning på grund av arbetsbrist",
+  "workplace safety": "arbetsmiljösäkerhet",
+  "course-correct": "korrigera kursen; justera planen",
+  "product-market fit": "överensstämmelse mellan produkten och marknadens behov",
+  "liquidity crisis": "likviditetskris; brist på pengar för omedelbara betalningar",
+  "calculated risk": "kalkylerad risk",
+  "iterative testing": "upprepade tester och förbättringar",
+  "failure tolerance": "tolerans för misslyckade försök",
+  "contractual obligation": "avtalsenlig skyldighet",
+  "stakeholder confidence": "intressenternas förtroende",
+  "overpromise": "lova mer än man kan hålla",
+  "operational decision": "beslut om den löpande verksamheten",
+  "ethical trade-off": "etisk avvägning",
+  "colony": "koloni",
+  "exploitation": "exploatering; utnyttjande",
+  "settler": "bosättare",
+  "displacement": "tvångsförflyttning; fördrivning",
+  "prestige": "prestige; anseende",
+  "Indigenous": "som tillhör ett urfolk",
+  "dispossession": "berövande av mark eller egendom",
+  "assimilation": "assimilering; anpassning till den dominerande kulturen",
+  "reconciliation": "försoning",
+  "First Nations peoples": "Australiens urfolk: aboriginska folk och Torres Strait Islander-folk",
+  "acknowledge": "erkänna; uppmärksamma",
+  "Aboriginal": "aboriginsk; som rör Australiens aboriginska folk",
+  "overwhelmed": "överväldigad",
+  "fatal": "dödlig",
+  "maintain": "upprätthålla; bibehålla",
+  "community": "gemenskap; lokalsamhälle",
+  "forcibly remove": "tvångsomhänderta; föra bort med tvång",
+  "assimilate": "assimileras; anpassa sig till en annan kultur",
+  "abuse": "övergrepp; misshandel",
+  "neglect": "försumma; försummelse",
+  "disrupt": "störa; avbryta",
+  "long-term": "långsiktig; långvarig",
+  "post-traumatic stress disorder": "posttraumatiskt stressyndrom, PTSD",
+  "appropriation": "övertagande; tillägnande",
+  "prime land": "särskilt värdefull eller användbar mark",
+  "livestock": "boskap",
+  "less viable": "svårare att upprätthålla; mindre livskraftig",
+  "decline": "minskning; nedgång",
+  "census": "folkräkning",
+  "ward of the state": "person som står under statens rättsliga vård eller förmyndarskap",
+  "commemorate": "högtidlighålla minnet av",
+  "mission": "missionsstation",
+  "blanket": "filt",
+  "orphanage": "barnhem",
+  "foster family": "familjehem; fosterfamilj",
+  "policy": "policy; riktlinje; politisk handlingsplan",
+  "heritage": "kulturarv",
+  "recognise": "erkänna; uppmärksamma",
+  "descendant": "ättling",
+  "reconnect": "återknyta kontakten",
+  "out-of-home care": "vård utanför det egna hemmet",
+  "forcibly": "med tvång",
+  "traumatised": "traumatiserad",
+  "compensate": "kompensera; ge ersättning",
+  "centuries": "århundraden",
+  "explorer": "upptäcktsresande",
+  "anniversary": "årsdag",
+  "set foot": "sätta sin fot; anlända",
+  "soil": "jord; mark",
+  "voyage": "sjöresa",
+  "county": "administrativt område; ungefär län",
+  "national holiday": "nationell helgdag",
+  "wealth": "rikedom",
+  "defy": "trotsa",
+  "conventional": "vedertagen; traditionell",
+  "inhabit": "bebo",
+  "friar": "ordensbroder i en katolsk tiggarorden",
+  "experience": "uppleva",
+  "settlement": "bosättning",
+  "slaughter": "massakrera; slakta",
+  "keep out": "hålla utanför; utestänga",
+  "independence": "självständighet",
+  "iconic": "ikonisk; starkt symbolisk",
+  "be cemented": "bli fast etablerad",
+  "publish": "publicera",
+  "biography": "biografi; levnadsteckning",
+  "glorify": "förhärliga",
+  "heroic": "hjältemodig",
+  "genius": "geni",
+  "mention": "nämna",
+  "perpetual": "ständig; evig",
+  "foreigner": "utlänning",
+  "be restricted": "vara begränsad; vara hänvisad till",
+  "manual labour": "kroppsarbete",
+  "pledge": "lova högtidligt",
+  "allegiance": "rohet; lojalitet",
+  "brand": "framställa som; ge en offentlig etikett",
+  "become embedded": "bli en bestående del av",
+  "further": "ytterligare",
+  "found": "grunda",
+  "immigrant": "invandrare",
+  "gain influence": "få ökat inflytande",
+  "proclaim": "utropa",
+  "federal holiday": "federal helgdag",
+  "settlers": "bosättare",
+  "token issue": "symbolfråga utan verklig förändring",
+  "opt out": "välja att avstå",
+  "a sense of unity": "en känsla av samhörighet",
+  "belonging": "tillhörighet",
+  "human nature": "människans natur",
+  "discard": "förkasta; kasta bort",
+  "persecution": "förföljelse",
+  "controversy": "kontrovers; stark oenighet",
+  "perspective": "perspektiv"
+};
+const normaliseVocabularyTerm = term => String(term || '').trim().toLocaleLowerCase('en').replace(/[’‘]/g, "'");
+const SWEDISH_LOOKUP = new Map(Object.entries(SWEDISH_VOCABULARY).map(([term,meaning]) => [normaliseVocabularyTerm(term), meaning]));
+export function swedishMeaning(item) {
+  return item.swedish || item.translationSv || SWEDISH_LOOKUP.get(normaliseVocabularyTerm(item.term)) || '';
+}
+export function getMaterialVocabulary(material, level) {
+  if (Array.isArray(material.vocabulary) && material.vocabulary.length) return material.vocabulary;
+  if (Array.isArray(material.vocabularyList) && material.vocabularyList.length) return [];
+  const seen = new Set();
+  return (material.activities || []).filter(activity => activity.type === 'matching' &&
+    (!level || activity.level === 'both' || activity.level === level) &&
+    (/vocab/i.test(activity.id || '') || /vocab/i.test(activity.category || '')))
+    .flatMap(activity => activity.pairs || []).filter(item => {
+      const key = normaliseVocabularyTerm(item.term);
+      if (!key || key.includes('___') || seen.has(key)) return false;
+      seen.add(key); return true;
+    });
+}
+export function renderVocabularyTable(items, isSwedish = false) {
+  if (!items.length) return '';
+  const hasExamples = items.some(item => item.example);
+  const labels = isSwedish ? ['Begrepp', 'Svenska', 'Förklaring', 'Exempel'] : ['Word / phrase', 'Swedish', 'Simple English', 'Example'];
+  const words = items.map(item => `<tr><td><strong>${escapeHtml(item.term || '')}</strong></td>${isSwedish ? '' : `<td lang="sv">${escapeHtml(swedishMeaning(item) || 'Translation not yet added')}</td>`}<td>${escapeHtml(item.definition || '')}</td>${hasExamples ? `<td>${escapeHtml(item.example || '—')}</td>` : ''}</tr>`).join('');
+  return `<div class="tutor-vocab-scroll" tabindex="0" role="region" aria-label="${isSwedish ? 'Begreppslista' : 'Vocabulary list'}"><table class="tutor-vocab-table"><thead><tr><th scope="col">${labels[0]}</th>${isSwedish ? '' : `<th scope="col" lang="sv">${labels[1]}</th>`}<th scope="col">${labels[2]}</th>${hasExamples ? `<th scope="col">${labels[3]}</th>` : ''}</tr></thead><tbody>${words}</tbody></table></div>`;
+}
+const vocabularyTableStyle = `<style>
+.tutor-shell .tutor-vocab-scroll{overflow-x:auto;margin:18px 0;border:1px solid #4c607b;border-radius:12px;background:#101b2c}
+.tutor-shell .tutor-vocab-table{width:100%;border-collapse:collapse;min-width:560px;color:#eef2fa;line-height:1.6}
+.tutor-shell .tutor-vocab-table th,.tutor-shell .tutor-vocab-table td{padding:13px 16px;text-align:left;vertical-align:top;border-bottom:1px solid #455871}
+.tutor-shell .tutor-vocab-table th{color:#d9efb4;background:#172437;font-weight:700}
+.tutor-shell .tutor-vocab-table tbody tr:last-child td{border-bottom:0}
+.tutor-shell .tutor-vocab-table td[lang=sv]{color:#ffe6a5}
+.tutor-shell .tutor-vocab-scroll:focus-visible{outline:3px solid #ffe166;outline-offset:3px}
+@media(max-width:600px){.tutor-shell .tutor-vocab-table th,.tutor-shell .tutor-vocab-table td{padding:11px}}
+</style>`;
+
 const tutor = {
   render(root, materialId) {
     const material = tutorMaterials.find(item => item.id === materialId) || tutorMaterials[0];
@@ -138,7 +424,7 @@ const tutor = {
     const readingContent = hasSuppliedTranscript ? material.transcript : (material.text || []);
     const readingLabel = isVideo ? (hasSuppliedTranscript ? "Transcript" : material.sourceLead ? "Study notes" : "Transcript") : (material.transcriptLabel || "Reading");
 
-    root.innerHTML = localise(`
+    root.innerHTML = vocabularyTableStyle + localise(`
       <div class="container tutor-shell" lang="${isSwedish ? "sv" : "en"}">
         <header class="tutor-heading">
           <div>
@@ -155,7 +441,7 @@ const tutor = {
         <section class="tutor-panel">
           <h2>Before you begin</h2>
           <p>${material.introduction}</p>
-          ${material.vocabulary ? `<details><summary>Key vocabulary</summary><dl>${material.vocabulary.map(item => `<dt><strong>${escapeHtml(item.term)}</strong></dt><dd>${escapeHtml(item.definition)}</dd>`).join("")}</dl></details>` : ""}
+          <div id="tutorKeyVocabulary">${getMaterialVocabulary(material, level).length ? `<details><summary>${isSwedish ? 'Viktiga begrepp' : 'Key vocabulary · English and Swedish'}</summary>${renderVocabularyTable(getMaterialVocabulary(material, level), isSwedish)}</details>` : ""}</div>
           ${material.sourceLead ? `<p class="source-line">${escapeHtml(material.sourceLead)} <a href="${escapeHtml(material.source.url)}" target="_blank" rel="noopener">${escapeHtml(material.source.label)}</a></p>` : ""}
           ${material.additionalSources ? `<ul>${material.additionalSources.map(source => `<li><a href="${escapeHtml(source.url)}" target="_blank" rel="noopener">${escapeHtml(source.label)}</a></li>`).join("")}</ul>` : ""}
 
@@ -190,7 +476,7 @@ const tutor = {
 
         ${material.learningCards?.length ? `<section class="tutor-panel"><h2>Stöd för ditt lärande</h2>${material.learningCards.map(card => `<details><summary>${escapeHtml(card.title)}</summary><p>${escapeHtml(card.body)}</p></details>`).join("")}</section>` : ""}
 
-        ${practiceSections.length ? `<section class="tutor-panel"><nav aria-label="Practice sections" style="display:flex;flex-wrap:wrap;gap:12px">${practiceSections.map(section => `<button type="button" class="btn" data-practice-section="${section.id}" aria-pressed="${section.id === practiceSection}" style="text-align:left;flex:1;min-width:140px"><strong>${escapeHtml(section.title)}</strong><br><span data-section-progress="${section.id}"></span></button>`).join("")}</nav><p id="tutorSectionDescription"></p><div id="tutorVocabularyList" ${practiceSection === "vocabulary" ? "" : "hidden"}><details><summary>Word list: simple English meanings and examples</summary><dl>${(material.vocabularyList || []).map(item => `<dt style="margin-top:16px"><strong>${escapeHtml(item.term)}</strong></dt><dd>${escapeHtml(item.definition)}<br><em>${escapeHtml(item.example)}</em></dd>`).join("")}</dl></details></div></section>` : ""}
+        ${practiceSections.length ? `<section class="tutor-panel"><nav aria-label="Practice sections" style="display:flex;flex-wrap:wrap;gap:12px">${practiceSections.map(section => `<button type="button" class="btn" data-practice-section="${section.id}" aria-pressed="${section.id === practiceSection}" style="text-align:left;flex:1;min-width:140px"><strong>${escapeHtml(section.title)}</strong><br><span data-section-progress="${section.id}"></span></button>`).join("")}</nav><p id="tutorSectionDescription"></p><div id="tutorVocabularyList" ${practiceSection === "vocabulary" ? "" : "hidden"}><details><summary>${isSwedish ? 'Begreppslista: förklaringar och exempel' : 'Word list · English meanings, Swedish translations and examples'}</summary>${renderVocabularyTable(material.vocabularyList || [], isSwedish)}</details></div></section>` : ""}
 
         <section class="tutor-panel" aria-live="polite">
           <div class="progress-row">
@@ -474,6 +760,9 @@ const tutor = {
 
     levelSelect.onchange = () => {
       level = levelSelect.value;
+      const vocabularyRoot = root.querySelector("#tutorKeyVocabulary");
+      const words = getMaterialVocabulary(material, level);
+      vocabularyRoot.innerHTML = words.length ? `<details><summary>${isSwedish ? 'Viktiga begrepp' : 'Key vocabulary · English and Swedish'}</summary>${renderVocabularyTable(words, isSwedish)}</details>` : '';
       activities = filteredActivities();
       index = 0;
       persist();
