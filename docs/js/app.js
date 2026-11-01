@@ -16,7 +16,7 @@ import paraphrasing from "./paraphrasing.js";
 import sourceEvaluation from "./source-evaluation.js";
 import speaking from "./speaking.js";
 import { tutorMaterials as existingTutorMaterials } from "./tutor-materials.js";
-import { voiceMaterials, renderVoiceSection, renderVoiceOverview } from "./a-voice-for-change.js";
+import { voiceMaterials, renderVoiceSection, renderVoiceOverview, renderCourseOverview, renderUnitOverview } from "./a-voice-for-change.js";
 const tutorMaterials = [...existingTutorMaterials.filter(m => m.unitId !== "a-voice-for-change"), ...voiceMaterials];
 
 
@@ -234,72 +234,20 @@ function renderCategory(section) {
 
 function renderTutorCourse(courseId) {
   clearMountedView();
-  const courseNumber = courseId.replace("english-", "");
-  const courseTitle = `English ${courseNumber}`;
-  const courseMaterials = tutorMaterials.filter(material => material.courseId === courseId);
-  const units = [...new Map(courseMaterials.map(material => [material.unitId, {
-    id: material.unitId,
-    title: material.unitTitle,
-    count: courseMaterials.filter(item => item.unitId === material.unitId).length
-  }])).values()].sort((a, b) => a.title.localeCompare(b.title));
-
-  document.getElementById("menu").innerHTML = `
-    <div class="container">
-      <button class="backBtn" id="backBtn">← Back to Private Tutor</button>
-      <div class="category-heading"><div class="pill">Course</div><h1>${courseTitle}</h1><p>Choose a unit.</p></div>
-      ${units.length ? `<div class="grid">${units.map(unit => `
-        <div class="card">
-          <div class="pill">Unit</div>
-          <h3>${unit.title}</h3>
-          <p>${unit.count} ${unit.id === "a-voice-for-change" ? "sections" : (unit.count === 1 ? "resource" : "resources")}</p>
-          <a class="btn" href="#/private-tutor/${courseId}/${unit.id}">Choose →</a>
-        </div>`).join("")}</div>` : `<div class="card empty-category"><h2>No units yet</h2><p>Materials for ${courseTitle} will appear here when they are added.</p></div>`}
-    </div>`;
-  document.getElementById("backBtn").onclick = () => { location.hash = "#/private-tutor"; };
+  renderCourseOverview(document.getElementById("menu"), courseId,
+    tutorMaterials.filter(material => material.courseId === courseId));
 }
 
 function renderTutorUnit(courseId, unitId) {
+  clearMountedView();
   if (courseId === "english-1" && unitId === "a-voice-for-change") {
-    clearMountedView();
     renderVoiceOverview(document.getElementById("menu"));
     return;
   }
-  clearMountedView();
-  const resources = tutorMaterials
-    .filter(material => material.courseId === courseId && material.unitId === unitId)
-    .sort((a, b) => a.title.localeCompare(b.title));
+  const resources = tutorMaterials.filter(material => material.courseId === courseId && material.unitId === unitId);
   if (!resources.length) { renderTutorCourse(courseId); return; }
-  const unitTitle = resources[0].unitTitle;
-
-  function resourceSizeLabel(material) {
-    if (material.mediaType === "youtube") {
-      if (!Number.isFinite(material.durationMinutes) || material.durationMinutes <= 0) return "Video";
-      return `Approx. ${material.durationMinutes} ${material.durationMinutes === 1 ? "minute" : "minutes"}`;
-    }
-    const words = (material.text || [])
-      .join(" ")
-      .trim()
-      .split(/\s+/)
-      .filter(Boolean).length;
-    return `${words} ${words === 1 ? "word" : "words"}${material.sourceLead ? " of study notes + linked reading" : ""}`;
-  }
-
-  document.getElementById("menu").innerHTML = `
-    <div class="container">
-      <button class="backBtn" id="backBtn">← Back to English ${courseId.replace("english-", "")}</button>
-      <div class="category-heading"><div class="pill">Unit</div><h1>${unitTitle}</h1><p>Choose a resource.</p></div>
-      <div class="grid">${resources.map(material => `
-        <div class="card">
-          <div class="pill">${material.mediaType === "youtube" ? "Video" : "Reading"}</div>
-          <h3>${material.title}</h3>
-          <p>${material.topic}</p>
-          <p><strong>${resourceSizeLabel(material)}</strong></p>
-          <a class="btn" href="#/private-tutor/${courseId}/${unitId}/${material.id}">Open →</a>
-        </div>`).join("")}</div>
-    </div>`;
-  document.getElementById("backBtn").onclick = () => { location.hash = `#/private-tutor/${courseId}`; };
+  renderUnitOverview(document.getElementById("menu"), courseId, unitId, resources);
 }
-
 
 function router() {
   const route = (location.hash || "#/").replace("#/", "");
