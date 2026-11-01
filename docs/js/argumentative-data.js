@@ -8,29 +8,33 @@ export const stages = [
       [
         "A task asks: “Should students study history? Discuss both sides in 300–500 words.” What must you do?",
         "Give your position and consider an opposing view.",
-        "Only list historical dates.",
-        "Write only the opposing view.",
+        "Explain both views without developing an answer to the question.",
+        "Defend your view without mentioning an objection.",
+        "Summarise the history syllabus without evaluating its purpose.",
         "Discuss means considering different views while developing your answer."
       ],
       [
         "Which plan follows the examination template?",
         "Introduction → argument 1 → argument 2 → counterargument and rebuttal → conclusion",
-        "Introduction → conclusion → three unrelated examples",
-        "Five supporting arguments without a conclusion",
+        "Introduction → argument 1 → counterargument → argument 2 → conclusion without rebuttal",
+        "Introduction → argument 1 → argument 2 → conclusion → counterargument and rebuttal",
+        "Introduction → argument 1 → rebuttal without objection → argument 2 → conclusion",
         "The template combines the counterargument and rebuttal in one body paragraph."
       ],
       [
         "When should you decide on your position and main arguments?",
         "Before drafting the introduction.",
-        "Only after submitting the essay.",
-        "After writing an introduction that you will never change.",
+        "After drafting the introduction but before deciding what the body will cover.",
+        "After choosing the introduction's wording and keeping that wording fixed.",
+        "After writing the conclusion without planning the body.",
         "Planning helps the introduction match the argument you actually develop."
       ],
       [
         "Which two reasons support walking as a practical exercise?",
         "It is easy and convenient.",
-        "It requires a pool and expensive equipment.",
-        "It is impossible in every kind of weather.",
+        "It is inexpensive and competitive.",
+        "It is convenient and needs specialist equipment.",
+        "It is easy and suitable for every weather condition.",
         "These are the two supporting points developed in the model essay."
       ]
     ],
@@ -46,29 +50,33 @@ export const stages = [
       [
         "Which sentence is an arguable thesis?",
         "Schools should keep history lessons because they help students understand society and question one-sided accounts.",
-        "History is a school subject.",
-        "This essay has some words about history.",
+        "History lessons examine society and accounts of past events.",
+        "This essay describes the history lessons available at the school.",
+        "Some students study history and others prefer different subjects.",
         "The first sentence takes a clear position and gives reasons."
       ],
       [
-        "Which is too broad for a short essay?",
+        "Which proposed topic is too broad to develop clearly in a short essay?",
         "Everything about education must change.",
-        "Schools should offer a quiet reading period each day.",
-        "Schools should provide drinking water in classrooms.",
+        "Schools should start the school day thirty minutes later.",
+        "Schools should give pupils a wider range of creative subjects.",
+        "Schools should review the balance between homework and classroom study.",
         "Everything about education cannot be developed clearly in a short essay."
       ],
       [
         "Which is the thesis in The Best Exercise?",
         "Although walking can be hard to do in certain types of weather, it is one of the best forms of exercise because it is easy and convenient.",
-        "Firstly, walking is easy.",
-        "For example, swimming requires a pool.",
+        "Walking needs less equipment than many other types of exercise.",
+        "Walking can fit into daily routines such as travelling to a shop.",
+        "Walking is unsuitable in some weather, so its convenience has limits.",
         "The thesis gives the overall position, reasons and a concession."
       ],
       [
         "How does a topic sentence differ from a thesis?",
         "It states the main idea of one paragraph.",
-        "It must summarise every argument in the essay.",
-        "It only gives the title of a source.",
+        "It outlines the main position and every supporting reason.",
+        "It introduces the example before stating the paragraph's main idea.",
+        "It states the final judgement after all the body paragraphs.",
         "Each topic sentence develops one part of the overall argument."
       ]
     ],
@@ -84,29 +92,33 @@ export const stages = [
       [
         "Which sentence states a point?",
         "Firstly, walking is easy.",
-        "For example, swimming requires a pool.",
-        "In conclusion, these reasons support my position.",
+        "For instance, swimming requires a pool.",
+        "This means people need somewhere suitable to swim.",
+        "This example supports the view that equipment affects convenience.",
         "The point introduces the main idea of the paragraph."
       ],
       [
         "Which sentence gives a specific example of equipment?",
         "Lifting weights requires barbells and benches.",
-        "Walking is convenient.",
-        "Convenience matters.",
+        "Lifting weights needs more equipment than walking.",
+        "Having the right equipment can make exercise more practical.",
+        "Equipment requirements vary between forms of exercise.",
         "The sentence gives a concrete example rather than a general claim."
       ],
       [
         "What should a link do?",
         "Explain how the paragraph supports the thesis.",
-        "Introduce a completely different topic.",
-        "Repeat the title without explaining anything.",
+        "Add a further example without explaining the paragraph's relevance.",
+        "Restate the point without showing its connection to the overall position.",
+        "Introduce the opposing view before the current point is explained.",
         "A link makes the importance of the paragraph clear."
       ],
       [
         "Which claim needs an identifiable research source?",
         "Scientists found that spending time in nature makes people happier.",
-        "For example, a person could walk to a nearby shop.",
-        "My argument is that walking can be convenient.",
+        "I suggest that students could walk to a nearby shop.",
+        "This essay argues that walking may fit into everyday routines.",
+        "Consider a person choosing to walk rather than drive a short distance.",
         "A claim about research needs a traceable source; “scientists found” is not enough."
       ]
     ],
@@ -122,29 +134,33 @@ export const stages = [
       [
         "Which is a counterargument to daily reading periods?",
         "They could reduce the time available for other subjects.",
-        "They would give students more reading practice.",
-        "They could make reading a habit.",
+        "They could help students choose books they enjoy.",
+        "They could give students a routine for independent practice.",
+        "They could create a quiet space within the school day.",
         "The objection challenges the proposal by identifying a possible cost."
       ],
       [
         "Which rebuttal responds directly to that objection?",
         "A short period could be built into an existing lesson, reducing the effect on other subjects.",
-        "Reading books is enjoyable for some people.",
-        "Schools have classrooms.",
+        "Reading periods could improve vocabulary and reading confidence.",
+        "Reading periods could give pupils access to a wider selection of books.",
+        "Reading periods could encourage parents to discuss books at home.",
         "The response addresses the concern about time rather than changing the topic."
       ],
       [
         "Does “people have adapted to the climate” fully answer the concern about dangerous weather?",
         "No. Adaptation does not make all dangerous conditions safe.",
-        "Yes. All weather becomes safe if you live there.",
-        "Yes. It proves every person enjoys walking.",
+        "Yes. Familiarity with the local climate is enough to show the conditions are safe.",
+        "Yes. Adapting to a climate provides evidence that the weather objection does not apply.",
+        "No. The existence of unsafe weather means walking is never a practical option.",
         "A stronger response should acknowledge unsafe conditions and limit the claim."
       ],
       [
         "Which response makes a balanced argument about walking?",
         "Walking is often convenient, although people need to choose safe conditions or suitable indoor places.",
-        "Walking is always safe, whatever the weather.",
-        "Bad weather never affects anyone.",
+        "Walking is convenient because local experience makes checking conditions unnecessary.",
+        "Walking is convenient provided people continue outdoors even when conditions are unsafe.",
+        "Walking is convenient only if weather conditions are identical throughout the year.",
         "A qualified claim recognises the limitation while keeping the main position."
       ]
     ],
@@ -160,29 +176,33 @@ export const stages = [
       [
         "What belongs in a conclusion?",
         "A summary of the argument and a restated position.",
-        "A new study that has not been discussed.",
-        "A new supporting argument with no explanation.",
+        "A restated position followed by evidence not discussed in the body.",
+        "A summary of the topic without returning to the essay's position.",
+        "A new objection that the reader is left to answer.",
         "The conclusion brings together ideas already developed."
       ],
       [
         "Which is a restatement rather than a copy of “Walking is easy and convenient”?",
         "Walking offers a simple activity that can fit into everyday life.",
         "Walking is easy and convenient.",
-        "Walking requires an expensive gym membership.",
+        "Walking is convenient mainly because it improves physical health.",
+        "Walking is easy provided a person purchases specialist equipment.",
         "The meaning stays similar while the wording changes."
       ],
       [
         "Which sentence introduces a new argument if the essay only discusses ease, convenience and weather?",
         "Walking also improves the local economy by attracting tourists.",
-        "Walking can fit into a daily routine.",
-        "Poor weather can sometimes limit outdoor walking.",
+        "Walking requires little specialist equipment.",
+        "Walking is often accessible during an ordinary daily journey.",
+        "Walking may be less suitable during unsafe weather.",
         "A new claim about tourism would need development in the body first."
       ],
       [
         "Which final sentence is a relevant call to action for a school reading proposal?",
         "Schools should try a short reading period and evaluate how it works.",
-        "That is all I have to say.",
-        "A completely different issue is school transport.",
+        "Schools should replace every other subject with independent reading.",
+        "Schools should try the proposal without checking its effect on other lessons.",
+        "Schools should wait until every student already enjoys reading before trying it.",
         "The action follows from the argument rather than changing subject."
       ]
     ],
@@ -198,29 +218,33 @@ export const stages = [
       [
         "Which order helps an introduction move from general to specific?",
         "Hook → transition → thesis → main points",
-        "Conclusion → new evidence → unrelated question",
-        "Examples → reference list → title",
+        "Hook → main points → new evidence → thesis",
+        "Thesis → conclusion → hook → main points",
+        "Examples → main points → counterargument → hook",
         "The reader first meets the topic, then the precise position and plan."
       ],
       [
         "What does the A in BAM mean in the video?",
         "Argument: your thesis or position.",
-        "An unrelated anecdote.",
-        "All your evidence in full.",
+        "Analysis: a detailed explanation of the first example.",
+        "Audience: the group the essay is written for.",
+        "Acknowledgement: a concession to the opposing view.",
         "BAM means Background, Argument and Main points."
       ],
       [
         "Which hook can be used without pretending to cite research?",
         "How can schools make time for regular reading?",
-        "Ninety-nine per cent of students improve immediately, according to an unnamed study.",
-        "Scientists have proved my opinion is always right.",
+        "Research shows reading improves results, although no source is identified.",
+        "Most students dislike reading, according to a survey whose details are unavailable.",
+        "Experts agree that daily reading is the best policy, though none are named.",
         "A relevant question can introduce the issue without inventing evidence."
       ],
       [
         "What should you check after drafting the introduction?",
         "Its thesis and main points match the body of the essay.",
-        "It contains every example from every paragraph.",
-        "It repeats the task word for word.",
+        "Its main points cover more topics than the body can develop.",
+        "Its hook gives the final answer before identifying the topic.",
+        "Its thesis repeats the task instead of taking a position on it.",
         "The introduction should prepare readers for the argument they will actually read."
       ]
     ],

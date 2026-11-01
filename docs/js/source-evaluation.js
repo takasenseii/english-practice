@@ -8,26 +8,446 @@ const cases=[
 ];
 const q=(prompt,right,wrong,why)=>({prompt,choices:[{text:right,correct:true},...wrong.map(text=>({text,correct:false}))],why});
 export const questions=[
- q('What does Currency ask you to examine?','Whether the information is recent enough for the topic.',['How much the source costs.','Whether the author uses formal words.','How many people liked the page.'],'The date matters in relation to your research question.'),
- q('What does Relevance ask you to examine?','Whether the information helps answer your research question.',['Whether the page uses attractive images.','Whether the author agrees with you.','Whether the text is the newest online.'],'A credible source can still be unsuitable for your particular task.'),
- q('Which question checks Authority?','Does the author have expertise related to this topic?',['Is the website colourful?','Does the title contain a question?','Is the article short?'],'Authority involves the source’s identity and relevant knowledge.'),
- q('Which action checks Accuracy?','Trace a claim to its evidence and inspect that evidence.',['Count the advertisements.','Check whether you like the conclusion.','Choose the easiest article to read.'],'Claims need support that can be examined.'),
- q('Which question checks Purpose?','Is the source trying to inform, sell, entertain or persuade?',['How many paragraphs are there?','What font does it use?','Is the headline short?'],'Purpose can influence what the source emphasises or leaves out.'),
- q('Which source is the best starting point for current bus fares?','A current operator fare page with dates and ticket conditions.',['A holiday blog from 2018.','An undated screenshot shared online.','A fictional story mentioning a bus fare.'],'Use an appropriate current source, then verify its conditions.'),
- q('Is an older source always unsuitable?','No; it may be appropriate for a historical question.',['Yes; every source expires after five years.','Yes; only this year’s publications count.','No; dates never matter.'],'Currency is topic-dependent. An older document may also be valuable evidence from its own period.'),
- q('An expert in astronomy gives advice on language teaching. What should you check?','Whether they also have relevant expertise in language teaching.',['Whether they are famous.','Whether they have any degree at all.','Whether their article is long.'],'Expertise in one area does not automatically transfer to another.'),
- q('A website ends in .org. What can you conclude?','The ending alone does not establish the reliability of its claims.',['Every claim has been independently verified.','It is always a government website.','It has no viewpoint or purpose.'],'Investigate authorship, evidence and purpose rather than relying on a domain ending.'),
- q('A page has professional design and no spelling errors. What next?','Check authorship, evidence and independent coverage.',['Accept every claim as true.','Assume it is peer reviewed.','Skip checking publication dates.'],'Presentation quality is not proof of content accuracy.'),
- q('Several websites repeat the same claim. Is that enough independent support?','No; they may all be copying a single source.',['Yes; repetition proves truth.','Yes; three websites are always sufficient.','No; online information is never useful.'],'Trace the sources to see whether the evidence is genuinely independent.'),
- q('A seller says its app improves learning but provides no evidence. What should you do?','Look for independent research supporting the claim.',['Treat the promise as a measured result.','Reject every possible benefit without checking.','Use customer likes as scientific proof.'],'Commercial purpose is a reason to investigate claims, not automatic proof that they are false.'),
- q('Can an opinion article be useful?','Yes, as evidence of a viewpoint, with its limits made clear.',['No; opinions have no research value.','Yes; it proves that everyone agrees.','Yes; opinions need no evaluation.'],'Use the source for an appropriate claim: one viewpoint is not a population-wide finding.'),
- q('A student describes disliking uniforms. Which claim does this directly support?','This student expressed opposition to uniforms.',['All students oppose uniforms.','Uniforms always reduce learning.','No school supports uniforms.'],'Do not generalise beyond what the source supports.'),
- q('A school survey reports 80% agreement. What should you examine?','The questions, sample size, selection and response rate.',['Only the percentage in the headline.','Whether the result matches your opinion.','Whether the report includes photographs.'],'Methods affect how well the result supports a wider claim.'),
- q('Two credible sources disagree. What is a useful response?','Compare their evidence, dates, methods and scope.',['Choose whichever agrees with you.','Assume both must be dishonest.','Average their conclusions without reading them.'],'Different populations, definitions or dates may help explain disagreement.'),
- q('What is lateral reading?','Leaving a page to investigate its source and claims elsewhere.',['Reading only the first paragraph.','Reading a page from right to left.','Opening more pages from the same publisher only.'],'Independent coverage can reveal information that a source does not disclose about itself.'),
- q('A screenshot shows a striking claim without a date or link. What first?','Find the original publication and its context.',['Share it because it looks convincing.','Assume the date is today.','Treat the screenshot as a complete source.'],'A screenshot may omit dates, qualifications or surrounding material.'),
- q('Does passing a checklist guarantee a source is correct?','No; the criteria guide a judgement rather than guarantee truth.',['Yes; five positive answers prove every claim.','Yes; if its author has a degree.','No; evaluation can never help.'],'Evaluate the particular information you intend to use and explain your decision.'),
- q('What should a brief source evaluation contain?','Specific evidence, limitations and a judgement about its use.',['Only “this source is reliable”.','Only the website address.','Only whether you agree with the writer.'],'Explain what you checked, what remains uncertain and which claims the source can support.')
+  {
+    "prompt": "What does Currency ask you to examine?",
+    "choices": [
+      {
+        "text": "Whether the information is recent enough for the topic.",
+        "correct": true
+      },
+      {
+        "text": "Whether the publication date is the same as the access date.",
+        "correct": false
+      },
+      {
+        "text": "Whether the author has recently gained a new qualification.",
+        "correct": false
+      },
+      {
+        "text": "Whether the source has been widely shared this week.",
+        "correct": false
+      }
+    ],
+    "why": "The date matters in relation to your research question."
+  },
+  {
+    "prompt": "What does Relevance ask you to examine?",
+    "choices": [
+      {
+        "text": "Whether the information helps answer your research question.",
+        "correct": true
+      },
+      {
+        "text": "Whether the source supports the position you intend to argue.",
+        "correct": false
+      },
+      {
+        "text": "Whether the source covers the topic in the greatest detail.",
+        "correct": false
+      },
+      {
+        "text": "Whether the publication date makes it newer than other sources.",
+        "correct": false
+      }
+    ],
+    "why": "A credible source can still be unsuitable for your particular task."
+  },
+  {
+    "prompt": "Which question checks Authority?",
+    "choices": [
+      {
+        "text": "Does the author have expertise related to this topic?",
+        "correct": true
+      },
+      {
+        "text": "Can the author explain the claim in an accessible style?",
+        "correct": false
+      },
+      {
+        "text": "Has the article appeared in more than one publication?",
+        "correct": false
+      },
+      {
+        "text": "Does the author cite a large number of different sources?",
+        "correct": false
+      }
+    ],
+    "why": "Authority involves the source’s identity and relevant knowledge."
+  },
+  {
+    "prompt": "Which action checks Accuracy?",
+    "choices": [
+      {
+        "text": "Trace a claim to its evidence and inspect that evidence.",
+        "correct": true
+      },
+      {
+        "text": "Check whether the author is qualified, without inspecting the evidence.",
+        "correct": false
+      },
+      {
+        "text": "Check whether the date is recent, without tracing the claim.",
+        "correct": false
+      },
+      {
+        "text": "Compare how often the headline appears in search results.",
+        "correct": false
+      }
+    ],
+    "why": "Claims need support that can be examined."
+  },
+  {
+    "prompt": "Which question checks Purpose?",
+    "choices": [
+      {
+        "text": "Is the source trying to inform, sell, entertain or persuade?",
+        "correct": true
+      },
+      {
+        "text": "Does the source address the exact topic of the assignment?",
+        "correct": false
+      },
+      {
+        "text": "Can the source be traced to a named specialist author?",
+        "correct": false
+      },
+      {
+        "text": "Does the source provide evidence that can be independently checked?",
+        "correct": false
+      }
+    ],
+    "why": "Purpose can influence what the source emphasises or leaves out."
+  },
+  {
+    "prompt": "Which source is the best starting point for current bus fares?",
+    "choices": [
+      {
+        "text": "A current operator fare page with dates and ticket conditions.",
+        "correct": true
+      },
+      {
+        "text": "A recent travel guide giving typical fares but no valid-from date.",
+        "correct": false
+      },
+      {
+        "text": "A current passenger forum discussing fares paid on several routes.",
+        "correct": false
+      },
+      {
+        "text": "A city tourism page showing an older fare table without ticket conditions.",
+        "correct": false
+      }
+    ],
+    "why": "Use an appropriate current source, then verify its conditions."
+  },
+  {
+    "prompt": "Is an older source always unsuitable?",
+    "choices": [
+      {
+        "text": "No; it may be appropriate for a historical question.",
+        "correct": true
+      },
+      {
+        "text": "No; an older source is suitable whenever it has been cited by a newer article.",
+        "correct": false
+      },
+      {
+        "text": "Yes; historical questions should use only recent explanations.",
+        "correct": false
+      },
+      {
+        "text": "No; an older source is suitable whenever its author is a recognised expert.",
+        "correct": false
+      }
+    ],
+    "why": "Currency is topic-dependent. An older document may also be valuable evidence from its own period."
+  },
+  {
+    "prompt": "An expert in astronomy gives advice on language teaching. What should you check?",
+    "choices": [
+      {
+        "text": "Whether they also have relevant expertise in language teaching.",
+        "correct": true
+      },
+      {
+        "text": "Whether their astronomy research has been peer reviewed.",
+        "correct": false
+      },
+      {
+        "text": "Whether their university has a good general reputation.",
+        "correct": false
+      },
+      {
+        "text": "Whether their article has attracted positive comments from teachers.",
+        "correct": false
+      }
+    ],
+    "why": "Expertise in one area does not automatically transfer to another."
+  },
+  {
+    "prompt": "A website ends in .org. What can you conclude?",
+    "choices": [
+      {
+        "text": "The ending alone does not establish the reliability of its claims.",
+        "correct": true
+      },
+      {
+        "text": "The source is likely reliable because it is not a commercial domain.",
+        "correct": false
+      },
+      {
+        "text": "The source can be treated as independent of political interests.",
+        "correct": false
+      },
+      {
+        "text": "The source has passed an accuracy review before registering the domain.",
+        "correct": false
+      }
+    ],
+    "why": "Investigate authorship, evidence and purpose rather than relying on a domain ending."
+  },
+  {
+    "prompt": "A page has professional design and no spelling errors. What next?",
+    "choices": [
+      {
+        "text": "Check authorship, evidence and independent coverage.",
+        "correct": true
+      },
+      {
+        "text": "Treat the editing quality as evidence that its claims were checked.",
+        "correct": false
+      },
+      {
+        "text": "Use the design to judge whether the author is qualified.",
+        "correct": false
+      },
+      {
+        "text": "Check the conclusion only against other pages by the same publisher.",
+        "correct": false
+      }
+    ],
+    "why": "Presentation quality is not proof of content accuracy."
+  },
+  {
+    "prompt": "Several websites repeat the same claim. Is that enough independent support?",
+    "choices": [
+      {
+        "text": "No; they may all be copying a single source.",
+        "correct": true
+      },
+      {
+        "text": "Yes; different website names establish that the evidence is independent.",
+        "correct": false
+      },
+      {
+        "text": "Yes; repeated coverage is sufficient if the wording differs.",
+        "correct": false
+      },
+      {
+        "text": "No; repeated coverage cannot contribute evidence even when based on separate investigations.",
+        "correct": false
+      }
+    ],
+    "why": "Trace the sources to see whether the evidence is genuinely independent."
+  },
+  {
+    "prompt": "A seller says its app improves learning but provides no evidence. What should you do?",
+    "choices": [
+      {
+        "text": "Look for independent research supporting the claim.",
+        "correct": true
+      },
+      {
+        "text": "Use detailed customer testimonials as evidence of the average learning gain.",
+        "correct": false
+      },
+      {
+        "text": "Check whether the seller explains its teaching method instead of checking outcomes.",
+        "correct": false
+      },
+      {
+        "text": "Treat the lack of evidence as sufficient proof that the product cannot help.",
+        "correct": false
+      }
+    ],
+    "why": "Commercial purpose is a reason to investigate claims, not automatic proof that they are false."
+  },
+  {
+    "prompt": "Can an opinion article be useful?",
+    "choices": [
+      {
+        "text": "Yes, as evidence of a viewpoint, with its limits made clear.",
+        "correct": true
+      },
+      {
+        "text": "Yes, as evidence of the typical opinion of everyone the author mentions.",
+        "correct": false
+      },
+      {
+        "text": "Yes, as factual support whenever the author has personal experience.",
+        "correct": false
+      },
+      {
+        "text": "No, unless the article gives equal space to every opposing position.",
+        "correct": false
+      }
+    ],
+    "why": "Use the source for an appropriate claim: one viewpoint is not a population-wide finding."
+  },
+  {
+    "prompt": "A student describes disliking uniforms. Which claim does this directly support?",
+    "choices": [
+      {
+        "text": "This student expressed opposition to uniforms.",
+        "correct": true
+      },
+      {
+        "text": "Students at the school generally oppose uniforms.",
+        "correct": false
+      },
+      {
+        "text": "The uniform policy caused a decline in student attendance.",
+        "correct": false
+      },
+      {
+        "text": "The school's student survey showed opposition to uniforms.",
+        "correct": false
+      }
+    ],
+    "why": "Do not generalise beyond what the source supports."
+  },
+  {
+    "prompt": "A school survey reports 80% agreement. What should you examine?",
+    "choices": [
+      {
+        "text": "The questions, sample size, selection and response rate.",
+        "correct": true
+      },
+      {
+        "text": "Whether the survey's main result is presented in a readable chart.",
+        "correct": false
+      },
+      {
+        "text": "Whether the school has repeated the percentage in other publications.",
+        "correct": false
+      },
+      {
+        "text": "Whether the survey's conclusion agrees with the school's stated values.",
+        "correct": false
+      }
+    ],
+    "why": "Methods affect how well the result supports a wider claim."
+  },
+  {
+    "prompt": "Two credible sources disagree. What is a useful response?",
+    "choices": [
+      {
+        "text": "Compare their evidence, dates, methods and scope.",
+        "correct": true
+      },
+      {
+        "text": "Prefer the newer source without comparing the populations studied.",
+        "correct": false
+      },
+      {
+        "text": "Prefer the source with the longer bibliography without reading its evidence.",
+        "correct": false
+      },
+      {
+        "text": "Combine the results before checking whether they address the same question.",
+        "correct": false
+      }
+    ],
+    "why": "Different populations, definitions or dates may help explain disagreement."
+  },
+  {
+    "prompt": "What is lateral reading?",
+    "choices": [
+      {
+        "text": "Leaving a page to investigate its source and claims elsewhere.",
+        "correct": true
+      },
+      {
+        "text": "Comparing different paragraphs within the same article.",
+        "correct": false
+      },
+      {
+        "text": "Following the source's own links without checking independent coverage.",
+        "correct": false
+      },
+      {
+        "text": "Reading several articles from the same publisher in publication order.",
+        "correct": false
+      }
+    ],
+    "why": "Independent coverage can reveal information that a source does not disclose about itself."
+  },
+  {
+    "prompt": "A screenshot shows a striking claim without a date or link. What first?",
+    "choices": [
+      {
+        "text": "Find the original publication and its context.",
+        "correct": true
+      },
+      {
+        "text": "Compare the screenshot with reposts that repeat its wording.",
+        "correct": false
+      },
+      {
+        "text": "Judge the claim by the reputation of the person who shared it.",
+        "correct": false
+      },
+      {
+        "text": "Check the image's visual quality before using its headline as evidence.",
+        "correct": false
+      }
+    ],
+    "why": "A screenshot may omit dates, qualifications or surrounding material."
+  },
+  {
+    "prompt": "Does passing a checklist guarantee a source is correct?",
+    "choices": [
+      {
+        "text": "No; the criteria guide a judgement rather than guarantee truth.",
+        "correct": true
+      },
+      {
+        "text": "Yes; a positive result establishes that the conclusion is correct.",
+        "correct": false
+      },
+      {
+        "text": "No; only author qualifications can establish that a claim is correct.",
+        "correct": false
+      },
+      {
+        "text": "Yes; provided the checklist was completed by someone other than the author.",
+        "correct": false
+      }
+    ],
+    "why": "Evaluate the particular information you intend to use and explain your decision."
+  },
+  {
+    "prompt": "What should a brief source evaluation contain?",
+    "choices": [
+      {
+        "text": "Specific evidence, limitations and a judgement about its use.",
+        "correct": true
+      },
+      {
+        "text": "A summary of the article and a judgement based mainly on its professional appearance.",
+        "correct": false
+      },
+      {
+        "text": "The author's qualifications and a judgement without examining the relevant claim.",
+        "correct": false
+      },
+      {
+        "text": "A publication date and a statement that a recent source is suitable for any task.",
+        "correct": false
+      }
+    ],
+    "why": "Explain what you checked, what remains uncertain and which claims the source can support."
+  }
 ];
 const css=`.se-space{max-width:1000px;margin:auto;padding:20px;line-height:1.65}.se-space .card{margin:18px 0;padding:22px}.se-space .se-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px}.se-space .se-box{padding:16px;border:1px solid #7b8ba3;border-radius:10px}.se-space a{color:#a7ceff}.se-space iframe{width:100%;aspect-ratio:16/9;border:0}.se-space label{display:flex;gap:10px;padding:12px;margin:8px 0;border:1px solid #7b8ba3;border-radius:8px;cursor:pointer}.se-space input{flex-shrink:0;margin-top:7px}.se-space fieldset{min-width:0;border:0;padding:0}.se-space legend{font-weight:bold}.se-space button{cursor:pointer;padding:10px 14px}.se-space .se-actions{display:flex;flex-wrap:wrap;gap:10px}.se-space .se-ok{border-color:#7cdfa2}.se-space .se-bad{border-color:#ffbf7f}.se-space textarea{box-sizing:border-box;width:100%;min-height:150px;background:#101c2c;color:#fff;padding:12px;font:inherit;border:1px solid #8495b0;border-radius:8px}`;
 export default {render(root){let state=questions.map(()=>({selected:null,checked:false,solved:false,revealed:false,attempted:new Set()})),orders=questions.map(x=>shuffle(x.choices));let draft='';try{draft=localStorage.getItem('epso_source_evaluation_draft_v1')||'';}catch{}

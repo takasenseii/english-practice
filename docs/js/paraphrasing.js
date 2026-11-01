@@ -8,21 +8,351 @@ export const examples=[
 ];
 const q=(prompt,correct,wrong,explanation,example=null)=>({prompt,options:[{text:correct,correct:true},...wrong.map(text=>({text,correct:false}))],explanation,example});
 export const questions=[
- q('What is the main aim of paraphrasing?','Express a source’s meaning accurately in your own wording and structure.',['Replace a few words with synonyms.','Copy the source and add a citation.','Change the source’s conclusion to match your opinion.'],'A paraphrase presents the source’s idea accurately through a fresh formulation.'),
- q('What should you do before writing a paraphrase?','Read until you understand the idea.',['Start replacing individual words immediately.','Choose a citation format before reading.','Copy the first sentence and shorten it.'],'Understanding comes before rewording.'),
- q('Which method helps you avoid following the original too closely?','Put the source aside, write from your understanding, then compare.',['Keep every sentence in the same order.','Use a synonym for every important word.','Remove the author’s name and publication year.'],'Writing with the source temporarily out of view can help you build your own sentence. Afterwards, check accuracy and citation.'),
- q('Does a paraphrase need a citation?','Yes, because the idea still comes from the source.',['No, if every word is different.','Only when it contains a quotation.','Only when the source is a book.'],'A new formulation does not make a borrowed idea your own.'),
- q('How does paraphrasing differ from summarising?','A paraphrase restates a specific passage; a summary condenses its main points.',['A paraphrase never needs a citation.','A summary must be longer than its source.','There is no difference in purpose or detail.'],'Both require accurate meaning and source acknowledgement. A summary generally covers the main points more briefly.'),
- q('What is the main weakness of the poor vocabulary paraphrase?','It follows the original structure and replaces only a few words.',['It omits the source citation.','It changes often into always.','It introduces a new topic.'],examples[0].problem,0),
- q('Why is the good vocabulary paraphrase stronger?','It reorganises the idea while preserving the comparison.',['It removes the need for a citation.','It proves that shorter sessions always work.','It keeps every phrase in the same order.'],examples[0].strength,0),
- q('Which claim would distort the vocabulary original?','Short sessions guarantee that every student remembers every word.',['Shorter sessions can support vocabulary recall.','Students often remember more when practice is spread out.','The passage compares distributed study with one long session.'],'Guarantee, every student and every word introduce certainty and scope that the original does not claim.',0),
- q('What is the main weakness of the poor bus paraphrase?','It makes a possible problem sound unavoidable.',['It uses a different sentence structure.','It credits the source.','It retains the hourly frequency.'],examples[1].problem,1),
- q('Which detail must an accurate bus paraphrase preserve?','Planning may reduce the risk of long waits.',['All bus services run once an hour.','Careful planning never helps.','Hourly buses always arrive late.'],'The original connects careful planning to avoiding a possible long wait.',1),
- q('Why can you keep the word bus in a paraphrase?','Necessary everyday or technical terms do not all need replacing.',['One unchanged word removes the need for a citation.','Only nouns may be copied from a source.','You must keep the whole sentence whenever you keep a noun.'],'The goal is independent expression of meaning, not replacing every word.',1),
- q('What is missing from the poor school-garden paraphrase?','A citation acknowledging the source.',['A statement about maintaining the garden.','A reference to learning about plants.','Different wording from the original.'],examples[2].problem,2),
- q('Which paraphrase best preserves both sides of the school-garden original?','Gardens can support practical learning but require ongoing care.',['School gardens have no disadvantages.','Gardens teach students everything about science.','Only staff benefit from school gardens.'],'The original balances an educational benefit with a maintenance responsibility.',2),
- q('You want to include an author’s exact distinctive phrase. What should you do?','Mark it as a quotation and cite it with the required locator.',['Change one word and present it as your own sentence.','Keep it unchanged and cite only in the reference list.','Remove quotation marks so it looks like a paraphrase.'],'Exact borrowed wording requires quotation formatting as well as source acknowledgement.'),
- q('Which is the best final check for a paraphrase?','Check accuracy, independent wording and structure, and the citation.',['Count how many synonyms you used.','Make sure it is exactly the original length.','Remove all words that appear in the source.'],'A successful paraphrase must be accurate, independently expressed and credited.')
+  {
+    "prompt": "What is the main aim of paraphrasing?",
+    "options": [
+      {
+        "text": "Express a source’s meaning accurately in your own wording and structure.",
+        "correct": true
+      },
+      {
+        "text": "Express the conclusion in stronger terms using your own sentence structure.",
+        "correct": false
+      },
+      {
+        "text": "Preserve the original sentence structure while replacing its key words.",
+        "correct": false
+      },
+      {
+        "text": "Change the source’s conclusion to match your opinion.",
+        "correct": false
+      }
+    ],
+    "explanation": "A paraphrase presents the source’s idea accurately through a fresh formulation.",
+    "example": null
+  },
+  {
+    "prompt": "What should you do before writing a paraphrase?",
+    "options": [
+      {
+        "text": "Read until you understand the idea.",
+        "correct": true
+      },
+      {
+        "text": "Identify words to replace before establishing the main idea.",
+        "correct": false
+      },
+      {
+        "text": "Choose the source's strongest sentence before reading its surrounding context.",
+        "correct": false
+      },
+      {
+        "text": "Copy the first sentence and shorten it.",
+        "correct": false
+      }
+    ],
+    "explanation": "Understanding comes before rewording.",
+    "example": null
+  },
+  {
+    "prompt": "Which method helps you avoid following the original too closely?",
+    "options": [
+      {
+        "text": "Put the source aside, write from your understanding, then compare.",
+        "correct": true
+      },
+      {
+        "text": "Follow the source sentence by sentence while changing each main verb.",
+        "correct": false
+      },
+      {
+        "text": "Retain the source's structure but replace all technical terms.",
+        "correct": false
+      },
+      {
+        "text": "Remove the author’s name and publication year.",
+        "correct": false
+      }
+    ],
+    "explanation": "Writing with the source temporarily out of view can help you build your own sentence. Afterwards, check accuracy and citation.",
+    "example": null
+  },
+  {
+    "prompt": "Does a paraphrase need a citation?",
+    "options": [
+      {
+        "text": "Yes, because the idea still comes from the source.",
+        "correct": true
+      },
+      {
+        "text": "No, if every word is different.",
+        "correct": false
+      },
+      {
+        "text": "Only when it contains a quotation.",
+        "correct": false
+      },
+      {
+        "text": "Only when the source is a book.",
+        "correct": false
+      }
+    ],
+    "explanation": "A new formulation does not make a borrowed idea your own.",
+    "example": null
+  },
+  {
+    "prompt": "How does paraphrasing differ from summarising?",
+    "options": [
+      {
+        "text": "A paraphrase restates a specific passage; a summary condenses its main points.",
+        "correct": true
+      },
+      {
+        "text": "A paraphrase changes only the wording; a summary changes the author's argument.",
+        "correct": false
+      },
+      {
+        "text": "A paraphrase combines several authors; a summary discusses only one source.",
+        "correct": false
+      },
+      {
+        "text": "There is no difference in purpose or detail.",
+        "correct": false
+      }
+    ],
+    "explanation": "Both require accurate meaning and source acknowledgement. A summary generally covers the main points more briefly.",
+    "example": null
+  },
+  {
+    "prompt": "What is the main weakness of the poor vocabulary paraphrase?",
+    "options": [
+      {
+        "text": "It follows the original structure and replaces only a few words.",
+        "correct": true
+      },
+      {
+        "text": "It omits the source citation.",
+        "correct": false
+      },
+      {
+        "text": "It changes often into always.",
+        "correct": false
+      },
+      {
+        "text": "It introduces a new topic.",
+        "correct": false
+      }
+    ],
+    "explanation": "This is patchwriting: most of the sentence structure and wording remain. Changing students to learners and long to lengthy is not enough, even with a citation.",
+    "example": 0
+  },
+  {
+    "prompt": "Why is the good vocabulary paraphrase stronger?",
+    "options": [
+      {
+        "text": "It reorganises the idea while preserving the comparison.",
+        "correct": true
+      },
+      {
+        "text": "It turns a cautious comparison into a definite promise about learning.",
+        "correct": false
+      },
+      {
+        "text": "It removes the comparison between short sessions and one long session.",
+        "correct": false
+      },
+      {
+        "text": "It keeps every phrase in the same order.",
+        "correct": false
+      }
+    ],
+    "explanation": "The idea is expressed through a different sentence structure. It keeps the comparison and the cautious claim: can improve, rather than always improves.",
+    "example": 0
+  },
+  {
+    "prompt": "Which claim would distort the vocabulary original?",
+    "options": [
+      {
+        "text": "Short sessions guarantee that every student remembers every word.",
+        "correct": true
+      },
+      {
+        "text": "Spreading study out guarantees better recall than a single session.",
+        "correct": false
+      },
+      {
+        "text": "Every student learns more from a short session than from any long session.",
+        "correct": false
+      },
+      {
+        "text": "The passage compares distributed study with one long session.",
+        "correct": false
+      }
+    ],
+    "explanation": "Guarantee, every student and every word introduce certainty and scope that the original does not claim.",
+    "example": 0
+  },
+  {
+    "prompt": "What is the main weakness of the poor bus paraphrase?",
+    "options": [
+      {
+        "text": "It makes a possible problem sound unavoidable.",
+        "correct": true
+      },
+      {
+        "text": "It uses a different sentence structure.",
+        "correct": false
+      },
+      {
+        "text": "It credits the source.",
+        "correct": false
+      },
+      {
+        "text": "It retains the hourly frequency.",
+        "correct": false
+      }
+    ],
+    "explanation": "The meaning changes. The original describes a possible wait and explains how planning may help; this version says long waits are inevitable.",
+    "example": 1
+  },
+  {
+    "prompt": "Which detail must an accurate bus paraphrase preserve?",
+    "options": [
+      {
+        "text": "Planning may reduce the risk of long waits.",
+        "correct": true
+      },
+      {
+        "text": "Planning removes the need to check when an hourly bus runs.",
+        "correct": false
+      },
+      {
+        "text": "Hourly services cause long waits regardless of careful planning.",
+        "correct": false
+      },
+      {
+        "text": "Hourly buses always arrive late.",
+        "correct": false
+      }
+    ],
+    "explanation": "The original connects careful planning to avoiding a possible long wait.",
+    "example": 1
+  },
+  {
+    "prompt": "Why can you keep the word bus in a paraphrase?",
+    "options": [
+      {
+        "text": "Necessary everyday or technical terms do not all need replacing.",
+        "correct": true
+      },
+      {
+        "text": "Everyday terms may be retained provided the original sentence order is also retained.",
+        "correct": false
+      },
+      {
+        "text": "An unchanged everyday term needs quotation marks even within a new formulation.",
+        "correct": false
+      },
+      {
+        "text": "You must keep the whole sentence whenever you keep a noun.",
+        "correct": false
+      }
+    ],
+    "explanation": "The goal is independent expression of meaning, not replacing every word.",
+    "example": 1
+  },
+  {
+    "prompt": "What is missing from the poor school-garden paraphrase?",
+    "options": [
+      {
+        "text": "A citation acknowledging the source.",
+        "correct": true
+      },
+      {
+        "text": "A statement about maintaining the garden.",
+        "correct": false
+      },
+      {
+        "text": "A reference to learning about plants.",
+        "correct": false
+      },
+      {
+        "text": "Different wording from the original.",
+        "correct": false
+      }
+    ],
+    "explanation": "This version changes the wording and preserves the meaning reasonably well, but it does not credit the source. A paraphrase still needs a citation.",
+    "example": 2
+  },
+  {
+    "prompt": "Which paraphrase best preserves both sides of the school-garden original?",
+    "options": [
+      {
+        "text": "Gardens can support practical learning but require ongoing care.",
+        "correct": true
+      },
+      {
+        "text": "Gardens support practical learning once staff take over all maintenance.",
+        "correct": false
+      },
+      {
+        "text": "Gardens can support plant learning without regular work from students.",
+        "correct": false
+      },
+      {
+        "text": "Only staff benefit from school gardens.",
+        "correct": false
+      }
+    ],
+    "explanation": "The original balances an educational benefit with a maintenance responsibility.",
+    "example": 2
+  },
+  {
+    "prompt": "You want to include an author’s exact distinctive phrase. What should you do?",
+    "options": [
+      {
+        "text": "Mark it as a quotation and cite it with the required locator.",
+        "correct": true
+      },
+      {
+        "text": "Change one word and present it as your own sentence.",
+        "correct": false
+      },
+      {
+        "text": "Keep it unchanged and cite only in the reference list.",
+        "correct": false
+      },
+      {
+        "text": "Remove quotation marks so it looks like a paraphrase.",
+        "correct": false
+      }
+    ],
+    "explanation": "Exact borrowed wording requires quotation formatting as well as source acknowledgement.",
+    "example": null
+  },
+  {
+    "prompt": "Which is the best final check for a paraphrase?",
+    "options": [
+      {
+        "text": "Check accuracy, independent wording and structure, and the citation.",
+        "correct": true
+      },
+      {
+        "text": "Check the citation and vocabulary without comparing the meaning.",
+        "correct": false
+      },
+      {
+        "text": "Check the meaning while retaining the original clause structure.",
+        "correct": false
+      },
+      {
+        "text": "Remove all words that appear in the source.",
+        "correct": false
+      }
+    ],
+    "explanation": "A successful paraphrase must be accurate, independently expressed and credited.",
+    "example": null
+  }
 ];
 const css=`.para-space{max-width:1000px;margin:auto;padding:20px;line-height:1.65}.para-space .card{margin:18px 0;padding:22px}.para-space .para-original{padding:14px;border-left:3px solid #98b9f0;background:rgba(130,160,200,.1)}.para-space .para-poor{border-left:3px solid #ffc078;padding-left:14px}.para-space .para-good{border-left:3px solid #7bdca4;padding-left:14px}.para-space iframe{width:100%;aspect-ratio:16/9;border:0}.para-space a{color:#a6ccff}.para-space button{cursor:pointer;padding:9px 14px}.para-space .para-actions{display:flex;gap:10px;flex-wrap:wrap;margin:16px 0}.para-space label{display:flex;gap:10px;align-items:flex-start;padding:12px;margin:8px 0;border:1px solid #8291a8;border-radius:8px;cursor:pointer;overflow-wrap:anywhere}.para-space input{margin-top:7px;flex-shrink:0}.para-space fieldset{border:0;padding:0;min-width:0}.para-space legend{font-weight:bold;font-size:1.15em;margin-bottom:10px}.para-space .para-feedback{padding:12px}.para-space .para-correct{border-color:#7bdca4}.para-space .para-wrong{border-color:#ffc078}.para-space summary{cursor:pointer;font-weight:bold}`;
 function exampleHTML(e){return `<article class="card"><h3>${esc(e.title)}</h3><p class="para-original"><strong>Original:</strong> ${esc(e.original)}</p><div class="para-poor"><h4>Poor paraphrase</h4><p>${esc(e.poor)}</p><p><strong>Why it is weak:</strong> ${esc(e.problem)}</p></div><div class="para-good"><h4>Good paraphrase</h4><p>${esc(e.good)}</p><p><strong>Why it works:</strong> ${esc(e.strength)}</p></div></article>`;}
