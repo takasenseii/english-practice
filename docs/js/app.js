@@ -17,7 +17,8 @@ import sourceEvaluation from "./source-evaluation.js";
 import speaking from "./speaking.js";
 import { tutorMaterials as existingTutorMaterials } from "./tutor-materials.js";
 import { voiceMaterials, renderVoiceSection, renderVoiceOverview, renderCourseOverview, renderUnitOverview } from "./a-voice-for-change.js";
-const tutorMaterials = [...existingTutorMaterials.filter(m => m.unitId !== "a-voice-for-change"), ...voiceMaterials];
+import { headlineMaterials, renderHeadlineSection, renderHeadlineOverview } from "./beyond-the-headlines.js";
+const tutorMaterials = [...existingTutorMaterials.filter(m => m.unitId !== "a-voice-for-change" && !(m.courseId === "english-2" && m.unitId === "civil-rights-movement")), ...voiceMaterials, ...headlineMaterials];
 
 
 
@@ -244,6 +245,10 @@ function renderTutorUnit(courseId, unitId) {
     renderVoiceOverview(document.getElementById("menu"));
     return;
   }
+  if (courseId === "english-2" && ["beyond-the-headlines", "civil-rights-movement"].includes(unitId)) {
+    renderHeadlineOverview(document.getElementById("menu"));
+    return;
+  }
   const resources = tutorMaterials.filter(material => material.courseId === courseId && material.unitId === unitId);
   if (!resources.length) { renderTutorCourse(courseId); return; }
   renderUnitOverview(document.getElementById("menu"), courseId, unitId, resources);
@@ -350,6 +355,11 @@ function renderTutor(root, materialId) {
   if (voiceMaterials.some(m => m.id === materialId)) {
     root.innerHTML = "";
     currentUnmount = renderVoiceSection(root, materialId);
+    return;
+  }
+  if (headlineMaterials.some(m => m.id === materialId)) {
+    root.innerHTML = "";
+    currentUnmount = renderHeadlineSection(root, materialId);
     return;
   }
   tutor.render(root, materialId);
