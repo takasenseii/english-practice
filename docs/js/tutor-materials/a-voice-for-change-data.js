@@ -82,8 +82,9 @@ export const voiceSections = [
             "prompt": "Why was Rosa Parks arrested?",
             "options": [
               "She refused to give up her seat to a white passenger.",
-              "She refused to pay the bus fare.",
-              "She tried to drive the bus."
+              "She refused to leave the bus when its route ended.",
+              "She refused to pay a second fare after changing seats.",
+              "She asked other passengers to stop paying their fares."
             ],
             "answer": 0,
             "guide": "Her refusal challenged the bus’s racial rules."
@@ -93,8 +94,9 @@ export const voiceSections = [
             "prompt": "How were passengers separated on the bus?",
             "options": [
               "White passengers sat towards the front; Black passengers towards the rear.",
-              "Children sat at the front and adults at the back.",
-              "Passengers chose seats without racial restrictions."
+              "White passengers sat to one side; Black passengers sat to the other.",
+              "White passengers sat towards the rear; Black passengers towards the front.",
+              "Passengers sat in separate buses according to their race."
             ],
             "answer": 0,
             "guide": "Parks describes racial segregation."
@@ -104,8 +106,9 @@ export const voiceSections = [
             "prompt": "How does Parks describe the incident?",
             "options": [
               "She says there was no violence or anger at that time.",
-              "She says the driver physically attacked her.",
-              "She says passengers fought with the police."
+              "She says the driver became angry but the police remained calm.",
+              "She says the police used force when she refused to stand.",
+              "She says other passengers argued while she remained silent."
             ],
             "answer": 0,
             "guide": "Use her account of this incident; this does not describe every event in the wider movement."
@@ -115,8 +118,9 @@ export const voiceSections = [
             "prompt": "Why did Parks feel she should not have to move?",
             "options": [
               "She felt she was being treated unfairly because of her race.",
-              "She had reserved that seat in advance.",
-              "She wanted to sit beside a friend."
+              "She felt that finishing work gave her priority over other passengers.",
+              "She felt that the driver had misunderstood where she wanted to go.",
+              "She felt that paying a higher fare entitled her to keep the seat."
             ],
             "answer": 0,
             "guide": "She explains that the treatment was wrong."
@@ -126,8 +130,9 @@ export const voiceSections = [
             "prompt": "What did the Black community decide to do?",
             "options": [
               "Stop using the buses as a protest.",
-              "Buy more bus tickets to help the company.",
-              "Wait without taking any action."
+              "Keep using the buses while challenging the rule in court.",
+              "Ask passengers to change bus routes during the protest.",
+              "Refuse to pay the increased fares but continue travelling."
             ],
             "answer": 0,
             "guide": "The boycott turned an individual refusal into collective action."
@@ -231,8 +236,9 @@ export const voiceSections = [
             "type": "multiple-choice",
             "options": [
               "Free school meal vouchers for children who need them.",
-              "Free football tickets for every student.",
-              "New school buildings for all families."
+              "Free school meals for every child throughout the school year.",
+              "Extra school meal vouchers during the holidays for working parents only.",
+              "Lower food prices in shops near schools during the holidays."
             ],
             "answer": 0
           },
@@ -242,8 +248,9 @@ export const voiceSections = [
             "type": "multiple-choice",
             "options": [
               "A single parent supporting five children on the minimum wage.",
-              "A parent with a high salary and no financial worries.",
-              "A parent supporting one child without a job."
+              "A single parent supporting three children on the minimum wage.",
+              "A single parent supporting five children while unable to find work.",
+              "Two parents supporting five children on the minimum wage."
             ],
             "answer": 0
           },
@@ -253,8 +260,9 @@ export const voiceSections = [
             "type": "multiple-choice",
             "options": [
               "Food had to be carefully planned to last the week.",
-              "The family could buy food without checking the cost.",
-              "The family disliked shopping at low-cost shops."
+              "The family bought food daily because there was no weekly plan.",
+              "The family saved the yoghurts for days when school meals were unavailable.",
+              "The family chose smaller packs because each child preferred a different flavour."
             ],
             "answer": 0
           },
@@ -264,8 +272,9 @@ export const voiceSections = [
             "type": "multiple-choice",
             "options": [
               "Some people lost jobs or had fewer paid working hours.",
-              "All families received higher wages.",
-              "School holidays stopped happening."
+              "Food vouchers lost value as schools charged more for lunches.",
+              "Some families had to pay for meals previously provided by employers.",
+              "Most parents had to leave their jobs to work in school kitchens."
             ],
             "answer": 0
           },
@@ -275,8 +284,9 @@ export const voiceSections = [
             "type": "multiple-choice",
             "options": [
               "The pandemic had changed families’ circumstances.",
-              "He wanted the scheme to end permanently.",
-              "He thought children only needed food during term time."
+              "The campaign had already raised enough to replace government support.",
+              "The existing policy had prevented schools from reopening safely.",
+              "The number of weeks in the summer holiday had increased."
             ],
             "answer": 0
           },
@@ -354,8 +364,9 @@ export const voiceSections = [
             "type": "multiple-choice",
             "options": [
               "The government announced a summer food fund.",
-              "The government cancelled every school meal.",
-              "The government asked footballers to stop campaigning."
+              "The government extended free meals by keeping schools open all summer.",
+              "The government asked football clubs to run the national voucher scheme.",
+              "The government replaced the voucher scheme with a permanent weekly payment."
             ],
             "answer": 0
           },
@@ -365,8 +376,9 @@ export const voiceSections = [
             "type": "multiple-choice",
             "options": [
               "It helped distribute food, supported by fundraising.",
-              "It selected players for football teams.",
-              "It decided which children could attend school."
+              "It funded schools by collecting donations from match ticket sales.",
+              "It helped distribute vouchers paid for by the Premier League.",
+              "It asked the government to replace food donations with school lunches."
             ],
             "answer": 0
           },
@@ -376,8 +388,9 @@ export const voiceSections = [
             "type": "multiple-choice",
             "options": [
               "PlayersTogether and support for the NHS and local communities.",
-              "New football kits and stadium tickets only.",
-              "A campaign to close all community programmes."
+              "PlayersTogether and a new national scheme for free football tickets.",
+              "School meal vouchers and free football coaching during the holidays.",
+              "NHS fundraising and a campaign to increase footballers’ wages."
             ],
             "answer": 0
           },
@@ -387,8 +400,9 @@ export const voiceSections = [
             "type": "multiple-choice",
             "options": [
               "It describes contributions by players, clubs and the league.",
-              "It focuses only on Rashford’s goals in football matches.",
-              "It argues that other people cannot help."
+              "It compares the results of campaigns led by Rashford and one other player.",
+              "It concentrates on how clubs selected Rashford as their spokesperson.",
+              "It explains how football organisations agreed to fund school meals together."
             ],
             "answer": 0
           },
@@ -485,8 +499,9 @@ export const voiceSections = [
             "type": "multiple-choice",
             "options": [
               "Girls’ right to education.",
-              "A right to become a professional athlete.",
-              "A right to avoid every school subject."
+              "Girls’ right to take part in national elections.",
+              "Girls’ right to choose where their families live.",
+              "Girls’ right to work without restrictions."
             ],
             "answer": 0
           },
@@ -496,8 +511,9 @@ export const voiceSections = [
             "type": "multiple-choice",
             "options": [
               "Family jokes and her school results.",
-              "Only meetings with politicians.",
-              "Only scenes of the attack."
+              "Family jokes and her plans to become a professional athlete.",
+              "School results and her experiences in a school sports team.",
+              "Family celebrations and her first part-time job."
             ],
             "answer": 0
           },
@@ -507,8 +523,9 @@ export const voiceSections = [
             "type": "multiple-choice",
             "options": [
               "Her family has a close, supportive relationship with her.",
-              "Her family is never shown or mentioned.",
-              "Her family wants her to stop learning."
+              "Her family respects her work but avoids discussing it with her.",
+              "Her family supports her schooling but asks her to stop public campaigning.",
+              "Her family leaves her to make decisions without offering advice."
             ],
             "answer": 0
           },
@@ -518,8 +535,9 @@ export const voiceSections = [
             "type": "multiple-choice",
             "options": [
               "She wants people to learn from her experience.",
-              "She refuses to discuss learning.",
-              "She says education does not matter."
+              "She says anger helped her decide which people to blame.",
+              "She says she would rather avoid discussing what happened.",
+              "She says the experience persuaded her to campaign less publicly."
             ],
             "answer": 0
           },
@@ -597,8 +615,9 @@ export const voiceSections = [
             "type": "multiple-choice",
             "options": [
               "Mingora, in Pakistan’s Swat Valley.",
-              "London, in the United Kingdom.",
-              "Stockholm, in Sweden."
+              "Karachi, on Pakistan’s southern coast.",
+              "Kabul, in Afghanistan’s Kabul Valley.",
+              "Islamabad, Pakistan’s capital city."
             ],
             "answer": 0
           },
@@ -608,8 +627,9 @@ export const voiceSections = [
             "type": "multiple-choice",
             "options": [
               "The Taliban imposed restrictions and stopped girls attending school.",
-              "Girls all chose to leave school permanently.",
-              "The school closed only for a normal summer holiday."
+              "Local authorities replaced girls’ schools with home learning.",
+              "The government raised school fees beyond many families’ means.",
+              "The Taliban restricted school attendance to younger girls only."
             ],
             "answer": 0
           },
@@ -619,8 +639,9 @@ export const voiceSections = [
             "type": "multiple-choice",
             "options": [
               "Public speaking and blogging for BBC Urdu.",
-              "Only private messages to friends.",
-              "Football matches and advertising campaigns."
+              "Radio interviews and letters to a national newspaper.",
+              "Public speaking and writing for a school newspaper.",
+              "Blogging for BBC Urdu and presenting a television news programme."
             ],
             "answer": 0
           },
@@ -630,8 +651,9 @@ export const voiceSections = [
             "type": "multiple-choice",
             "options": [
               "Attack → UN speech → Nobel Peace Prize.",
-              "Nobel Peace Prize → attack → UN speech.",
-              "UN speech → Nobel Peace Prize → attack."
+              "UN speech → attack → Nobel Peace Prize.",
+              "Attack → Nobel Peace Prize → UN speech.",
+              "Nobel Peace Prize → attack → UN speech."
             ],
             "answer": 0
           },
@@ -641,8 +663,9 @@ export const voiceSections = [
             "type": "multiple-choice",
             "options": [
               "She continued campaigning and co-founded Malala Fund.",
-              "She stopped all work on education.",
-              "She worked only on sports campaigns."
+              "She co-founded a fund that focused on medical care for injured students.",
+              "She returned to school and left campaigning to her father.",
+              "She joined the UN as an official responsible for girls’ schools."
             ],
             "answer": 0
           }
@@ -746,8 +769,9 @@ export const voiceSections = [
             "type": "multiple-choice",
             "options": [
               "By sitting outside Sweden’s parliament.",
-              "By organising a national election.",
-              "By opening a new school."
+              "By organising a student march through Stockholm.",
+              "By speaking at a meeting inside Sweden’s parliament.",
+              "By starting a petition through her school council."
             ],
             "answer": 0
           },
@@ -757,8 +781,9 @@ export const voiceSections = [
             "type": "multiple-choice",
             "options": [
               "Decisions made now affect their future.",
-              "They say the issue affects only older people.",
-              "They believe school teaches nothing useful."
+              "Their schools have asked them to organise a climate event.",
+              "Changes in school rules have limited their environmental projects.",
+              "They want environmental topics to replace other school subjects."
             ],
             "answer": 0
           },
@@ -768,8 +793,9 @@ export const voiceSections = [
             "type": "multiple-choice",
             "options": [
               "More renewable energy and no new fossil fuel projects.",
-              "More new fossil fuel projects.",
-              "An end to all scientific research."
+              "More renewable energy and lower prices for existing fossil fuels.",
+              "Less renewable energy and a slower end to fossil fuel projects.",
+              "More climate lessons and a ban on student travel abroad."
             ],
             "answer": 0
           },
@@ -779,8 +805,9 @@ export const voiceSections = [
             "type": "multiple-choice",
             "options": [
               "Students are missing school to protest.",
-              "Students are refusing to use social media.",
-              "Students are asking for longer school days."
+              "Students are protesting without asking their parents first.",
+              "Students are disrupting lessons for pupils who stay in school.",
+              "Students are asking schools to pay for their demonstrations."
             ],
             "answer": 0
           },
@@ -790,8 +817,9 @@ export const voiceSections = [
             "type": "multiple-choice",
             "options": [
               "Protecting their future makes the protest important.",
-              "They say the issue has no connection to their future.",
-              "They say they never want to learn again."
+              "They say the strikes are part of an approved school assignment.",
+              "They say the protest concerns an issue schools do not teach.",
+              "They say attending lessons can wait until the strike has succeeded."
             ],
             "answer": 0
           },
@@ -869,8 +897,9 @@ export const voiceSections = [
             "prompt": "What did Greta want politicians to do?",
             "options": [
               "Act on climate change.",
-              "Stop students from learning about the environment.",
-              "Organise a music competition."
+              "Add compulsory climate lessons to every school timetable.",
+              "Support young campaigners by allowing more school absences.",
+              "Give students a vote on each new environmental law."
             ],
             "answer": 0,
             "guide": "Her protest asked for political action."
@@ -880,8 +909,9 @@ export const voiceSections = [
             "prompt": "Which young people helped inspire her protest?",
             "options": [
               "Teenagers in Florida campaigning against gun violence.",
-              "A Swedish football team.",
-              "Students campaigning for a new library."
+              "Teenagers in Florida campaigning for stricter school attendance.",
+              "Teenagers in Sweden campaigning against gun violence.",
+              "Teenagers in Britain campaigning against university fees."
             ],
             "answer": 0,
             "guide": "The article links her action to another youth campaign."
@@ -891,8 +921,9 @@ export const voiceSections = [
             "prompt": "How did her protest reach more people?",
             "options": [
               "Media attention helped others hear about it and join.",
-              "She kept the protest secret.",
-              "Only her family could hear about it."
+              "Schools received government instructions to join the strikes.",
+              "An international organisation recruited students before her first strike.",
+              "A national election campaign invited her to represent young voters."
             ],
             "answer": 0,
             "guide": "Public attention helped the action spread."
@@ -902,8 +933,9 @@ export const voiceSections = [
             "prompt": "What happened after more people heard about Greta’s strike?",
             "options": [
               "Students in other countries joined, and campaigners organised a global climate strike.",
-              "The campaign stayed a one-person protest in Stockholm.",
-              "The students stopped asking for climate action."
+              "Campaigners organised a global strike before students outside Sweden joined.",
+              "Students joined abroad, but each group avoided coordinating with others.",
+              "Schools in other countries introduced a weekly climate lesson instead of strikes."
             ],
             "answer": 0,
             "guide": "The text shows how a local protest grew into organised action in many countries."
@@ -913,8 +945,9 @@ export const voiceSections = [
             "prompt": "Which civil rights activist does the article name as an inspiration?",
             "options": [
               "Rosa Parks.",
-              "Marcus Rashford.",
-              "Gitanjali Rao."
+              "Martin Luther King Jr.",
+              "Nelson Mandela.",
+              "Emmeline Pankhurst."
             ],
             "answer": 0,
             "guide": "This links the reading to our opening section."
@@ -1011,8 +1044,9 @@ export const voiceSections = [
             "type": "multiple-choice",
             "options": [
               "TIME’s first-ever Kid of the Year, in 2020.",
-              "The Nobel Peace Prize in 2014.",
-              "An award for winning a football tournament."
+              "TIME’s Young Scientist of the Year, in 2020.",
+              "TIME’s first-ever Kid of the Year, in 2019.",
+              "A national school invention award, in 2020."
             ],
             "answer": 0
           },
@@ -1022,8 +1056,9 @@ export const voiceSections = [
             "type": "multiple-choice",
             "options": [
               "Unsafe drinking water, including lead contamination.",
-              "The cost of school uniforms.",
-              "A shortage of sports equipment."
+              "Unsafe drinking water caused by high salt levels.",
+              "Water shortages caused by unreliable rainfall.",
+              "High water costs caused by household waste."
             ],
             "answer": 0
           },
@@ -1033,8 +1068,9 @@ export const voiceSections = [
             "type": "multiple-choice",
             "options": [
               "She runs workshops to help others develop ideas.",
-              "She keeps all her ideas secret.",
-              "She asks young people to stop trying science."
+              "She organises competitions in which students present finished inventions.",
+              "She supplies instructions for students to copy her own inventions.",
+              "She selects students to join a university research team."
             ],
             "answer": 0
           },
@@ -1123,8 +1159,9 @@ export const voiceSections = [
             "type": "multiple-choice",
             "options": [
               "She uses practical ideas to improve people’s lives.",
-              "She says science cannot help communities.",
-              "She thinks inventions are only useful for winning prizes."
+              "She studies why scientific discoveries take time to reach customers.",
+              "She develops products mainly to compete in science competitions.",
+              "She helps people by explaining discoveries made by other scientists."
             ],
             "answer": 0
           },
@@ -1134,8 +1171,9 @@ export const voiceSections = [
             "type": "multiple-choice",
             "options": [
               "Cyberbullying.",
-              "Football training.",
-              "School-meal payments."
+              "Online fraud.",
+              "Excessive screen time.",
+              "Sharing personal data online."
             ],
             "answer": 0
           },
@@ -1145,8 +1183,9 @@ export const voiceSections = [
             "type": "multiple-choice",
             "options": [
               "It can help people feel that a field is open to them.",
-              "It guarantees that everyone will have identical interests.",
-              "It means nobody has to practise or learn."
+              "It can help people decide which careers are most highly paid.",
+              "It can help people avoid careers where they might face criticism.",
+              "It can help people know which qualifications they can skip."
             ],
             "answer": 0
           },
@@ -1156,8 +1195,9 @@ export const voiceSections = [
             "type": "multiple-choice",
             "options": [
               "By running workshops and sharing her approach.",
-              "By working only alone and refusing to share ideas.",
-              "By asking schools to stop teaching science."
+              "By entering students’ projects in competitions on their behalf.",
+              "By giving students a complete invention to reproduce.",
+              "By arranging individual jobs for students in science laboratories."
             ],
             "answer": 0
           },
@@ -1167,8 +1207,9 @@ export const voiceSections = [
             "type": "multiple-choice",
             "options": [
               "It shows an everyday interest: baking.",
-              "It introduces a new government law.",
-              "It says she has no interests outside science."
+              "It shows an everyday interest: gardening.",
+              "It shows an everyday interest: drawing.",
+              "It shows an everyday interest: playing music."
             ],
             "answer": 0
           },
