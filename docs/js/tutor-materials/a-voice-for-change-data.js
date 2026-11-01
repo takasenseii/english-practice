@@ -1,7 +1,144 @@
 export const voiceSections = [
   {
+    "id": "voice-rosa",
+    "title": "1. Introduction: Rosa Parks",
+    "topic": "An unfair rule, one refusal and a community response.",
+    "question": "How can one action become a voice for change?",
+    "intro": "Start here. Meet Rosa Parks and explore the link between noticing unfair treatment, taking action and gaining support. This is a short introduction to the ideas you will use in the rest of the unit.",
+    "support": [
+      "The rule was unfair because …",
+      "Rosa refused to …",
+      "Other people supported her by …",
+      "One action can …"
+    ],
+    "seminar": [
+      "Can a rule be legal but unfair? Use the bus rule as an example.",
+      "How did Rosa’s action become more than one person’s protest?"
+    ],
+    "resources": [
+      {
+        "id": "rosa-video",
+        "title": "Resource 1 · BBC News: Rosa Parks and the power of saying no",
+        "kind": "video",
+        "url": "https://www.youtube.com/watch?v=76kS_7qanH8&t=2s",
+        "youtube": "76kS_7qanH8",
+        "embedUrl": "https://www.youtube-nocookie.com/embed/76kS_7qanH8?start=2",
+        "date": "Historical interviews about the 1955 Montgomery Bus Boycott",
+        "instruction": "Watch the short BBC clip once for the main story. Watch again to answer five multiple-choice questions. Use the supplied transcript if the older recording is difficult to hear.",
+        "transcriptText": "Teacher-supplied transcript, edited for punctuation, speaker changes and clear recognition errors. Short hesitations are omitted. The question immediately after the opening account is unclear in the supplied transcript and is marked. Speaker names beyond Rosa Parks have not been verified.\n\nRosa Parks: It was about six o’clock in the afternoon. I was arrested for refusing to give my seat to a white male passenger on the orders of the bus driver. The bus was organised with racial segregation: the white passengers to the front and the coloured to the rear. And the bus driver, of course, would move or rearrange his passengers to his wishes, would order some persons to give up their seats for white passengers who had to stand.\n\nInterviewer: [Question about the driver ordering her to move; exact wording unclear.]\n\nRosa Parks: Yes, he did.\n\nInterviewer: And then what happened?\n\nRosa Parks: When I refused to move, he had me arrested, put in jail.\n\nInterviewer: And the bus driver, was he very violent?\n\nRosa Parks: No, he wasn’t. He just called a policeman when I refused to stand up.\n\nInterviewer: And what was the attitude of the police?\n\nRosa Parks: Well, they questioned me about why I refused to give up the seat. And when I told them I didn’t believe I should have to give up the seat, they told me I was under arrest.\n\nInterviewer: It was all done quite easily, or was there violence or anger?\n\nRosa Parks: There was no violence nor anger on the part of any of us involved at that time.\n\nRosa Parks: I did this because I felt I was being violated as a human being. I had had a hard day of work on the job, and I was physically tired as well as just mentally vexed and sick of this type of thing we had to endure as a people because of our race. It did not seem right. It wasn’t right, and I felt that I was being mistreated.\n\nSecond speaker: We knew that she was going to be convicted. But what was more important than her case per se, whether or not she was convicted or not, was the fact that between the time she was arrested on Thursday and the time of the trial on Monday, the Black community had become so upset and disturbed over the bus situation and over Mrs. Parks’s arrest until we had concluded that this simply was it, the straw that broke the camel’s back, and that we were going to stay off of the buses until we could get some type of consideration.\n\nI think if there was any one point or one event in the civil rights movement that started in the fifties, you can pinpoint it to the Montgomery Bus Boycott and Mrs. Parks, who’s here, and which was symbolised by this courtroom and her conviction in it.\n\nLanguage support: “Coloured” is an outdated historical racial term used in the interview; use “Black people” today. “Vexed” means upset or annoyed. “Convicted” means found guilty by a court. A “trial” is a court hearing about whether someone is guilty. “The straw that broke the camel’s back” means the final problem that makes people feel they cannot accept a situation any longer.",
+        "vocabulary": [
+          {
+            "term": "segregation",
+            "swedish": "segregering",
+            "definition": "Keeping groups of people apart through rules or laws.",
+            "example": "Segregation separated passengers by race."
+          },
+          {
+            "term": "refuse",
+            "swedish": "vägra",
+            "definition": "To say that you will not do something.",
+            "example": "She refused to leave her seat."
+          },
+          {
+            "term": "passenger",
+            "swedish": "passagerare",
+            "definition": "Someone travelling in a vehicle without driving it.",
+            "example": "The passenger sat near the window."
+          },
+          {
+            "term": "arrest",
+            "swedish": "gripa; arrestera",
+            "definition": "When the police take someone into custody.",
+            "example": "The police arrested her."
+          },
+          {
+            "term": "unfair",
+            "swedish": "orättvis",
+            "definition": "Not treating people equally or reasonably.",
+            "example": "The rule was unfair."
+          },
+          {
+            "term": "treatment",
+            "swedish": "behandling; bemötande",
+            "definition": "The way someone behaves towards another person.",
+            "example": "Everyone deserves fair treatment."
+          },
+          {
+            "term": "boycott",
+            "swedish": "bojkott",
+            "definition": "Refusing to use or buy something as a protest.",
+            "example": "The community organised a bus boycott."
+          },
+          {
+            "term": "equality",
+            "swedish": "jämlikhet; lika rättigheter",
+            "definition": "Having the same rights and opportunities.",
+            "example": "The campaign called for equality."
+          }
+        ],
+        "questions": [
+          {
+            "type": "multiple-choice",
+            "prompt": "Why was Rosa Parks arrested?",
+            "options": [
+              "She refused to give up her seat to a white passenger.",
+              "She refused to pay the bus fare.",
+              "She tried to drive the bus."
+            ],
+            "answer": 0,
+            "guide": "Her refusal challenged the bus’s racial rules."
+          },
+          {
+            "type": "multiple-choice",
+            "prompt": "How were passengers separated on the bus?",
+            "options": [
+              "White passengers sat towards the front; Black passengers towards the rear.",
+              "Children sat at the front and adults at the back.",
+              "Passengers chose seats without racial restrictions."
+            ],
+            "answer": 0,
+            "guide": "Parks describes racial segregation."
+          },
+          {
+            "type": "multiple-choice",
+            "prompt": "How does Parks describe the incident?",
+            "options": [
+              "She says there was no violence or anger at that time.",
+              "She says the driver physically attacked her.",
+              "She says passengers fought with the police."
+            ],
+            "answer": 0,
+            "guide": "Use her account of this incident; this does not describe every event in the wider movement."
+          },
+          {
+            "type": "multiple-choice",
+            "prompt": "Why did Parks feel she should not have to move?",
+            "options": [
+              "She felt she was being treated unfairly because of her race.",
+              "She had reserved that seat in advance.",
+              "She wanted to sit beside a friend."
+            ],
+            "answer": 0,
+            "guide": "She explains that the treatment was wrong."
+          },
+          {
+            "type": "multiple-choice",
+            "prompt": "What did the Black community decide to do?",
+            "options": [
+              "Stop using the buses as a protest.",
+              "Buy more bus tickets to help the company.",
+              "Wait without taking any action."
+            ],
+            "answer": 0,
+            "guide": "The boycott turned an individual refusal into collective action."
+          }
+        ]
+      }
+    ]
+  },
+  {
     "id": "voice-rashford",
-    "title": "1. Marcus Rashford: A Voice Against Hunger",
+    "title": "2. Marcus Rashford: A Voice Against Hunger",
     "topic": "Food, fairness and working together.",
     "question": "How can personal experience inspire someone to help others?",
     "intro": "Begin with everyday needs. Explore personal motivation, then investigate how a wider community can help.",
@@ -90,27 +227,63 @@ export const voiceSections = [
         "questions": [
           {
             "prompt": "What does Rashford want the government to provide during the holidays?",
-            "guide": "Free school meal vouchers for children who need them."
+            "guide": "Free school meal vouchers for children who need them.",
+            "type": "multiple-choice",
+            "options": [
+              "Free school meal vouchers for children who need them.",
+              "Free football tickets for every student.",
+              "New school buildings for all families."
+            ],
+            "answer": 0
           },
           {
             "prompt": "How does the report describe his mother’s working and family situation?",
-            "guide": "She was a single parent supporting five children on the minimum wage."
+            "guide": "She was a single parent supporting five children on the minimum wage.",
+            "type": "multiple-choice",
+            "options": [
+              "A single parent supporting five children on the minimum wage.",
+              "A parent with a high salary and no financial worries.",
+              "A parent supporting one child without a job."
+            ],
+            "answer": 0
           },
           {
             "prompt": "What does the yoghurt example tell you about the family’s food budget?",
-            "guide": "Food had to be carefully planned and limited across the week."
+            "guide": "Food had to be carefully planned and limited across the week.",
+            "type": "multiple-choice",
+            "options": [
+              "Food had to be carefully planned to last the week.",
+              "The family could buy food without checking the cost.",
+              "The family disliked shopping at low-cost shops."
+            ],
+            "answer": 0
           },
           {
             "prompt": "How did COVID-19 make life more difficult for some families?",
-            "guide": "Job losses or reduced working hours could reduce their income."
+            "guide": "Job losses or reduced working hours could reduce their income.",
+            "type": "multiple-choice",
+            "options": [
+              "Some people lost jobs or had fewer paid working hours.",
+              "All families received higher wages.",
+              "School holidays stopped happening."
+            ],
+            "answer": 0
           },
           {
             "prompt": "What reason does Rashford give for changing the usual summer policy?",
-            "guide": "The pandemic had changed families’ circumstances."
+            "guide": "The pandemic had changed families’ circumstances.",
+            "type": "multiple-choice",
+            "options": [
+              "The pandemic had changed families’ circumstances.",
+              "He wanted the scheme to end permanently.",
+              "He thought children only needed food during term time."
+            ],
+            "answer": 0
           },
           {
             "prompt": "Why include a local parent and a school representative in this report?",
-            "guide": "Possible answer: they show how the issue affects everyday life. Identify an example from each speaker."
+            "guide": "Possible answer: they show how the issue affects everyday life. Identify an example from each speaker.",
+            "type": "written"
           }
         ],
         "youtube": "vyHZ8rbJQUQ",
@@ -177,23 +350,52 @@ export const voiceSections = [
         "questions": [
           {
             "prompt": "What changed after Rashford’s open letter?",
-            "guide": "The government announced a summer food fund."
+            "guide": "The government announced a summer food fund.",
+            "type": "multiple-choice",
+            "options": [
+              "The government announced a summer food fund.",
+              "The government cancelled every school meal.",
+              "The government asked footballers to stop campaigning."
+            ],
+            "answer": 0
           },
           {
             "prompt": "What role did FareShare play?",
-            "guide": "It helped distribute food, supported by fundraising."
+            "guide": "It helped distribute food, supported by fundraising.",
+            "type": "multiple-choice",
+            "options": [
+              "It helped distribute food, supported by fundraising.",
+              "It selected players for football teams.",
+              "It decided which children could attend school."
+            ],
+            "answer": 0
           },
           {
-            "prompt": "Find two examples of help beyond Rashford’s own campaign.",
-            "guide": "Look at PlayersTogether, NHS support and club community programmes."
+            "prompt": "Which pair gives examples of help beyond Rashford’s own campaign?",
+            "guide": "Look at PlayersTogether, NHS support and club community programmes.",
+            "type": "multiple-choice",
+            "options": [
+              "PlayersTogether and support for the NHS and local communities.",
+              "New football kits and stadium tickets only.",
+              "A campaign to close all community programmes."
+            ],
+            "answer": 0
           },
           {
             "prompt": "How is the full article about more than one footballer?",
-            "guide": "It describes wider contributions by players, clubs and the league."
+            "guide": "It describes wider contributions by players, clubs and the league.",
+            "type": "multiple-choice",
+            "options": [
+              "It describes contributions by players, clubs and the league.",
+              "It focuses only on Rashford’s goals in football matches.",
+              "It argues that other people cannot help."
+            ],
+            "answer": 0
           },
           {
             "prompt": "Does the later article change your understanding of the video? Explain.",
-            "guide": "Compare a request still awaiting change with a later reported result."
+            "guide": "Compare a request still awaiting change with a later reported result.",
+            "type": "written"
           }
         ],
         "date": "17 June 2020"
@@ -202,7 +404,7 @@ export const voiceSections = [
   },
   {
     "id": "voice-malala",
-    "title": "2. Malala Yousafzai: A Voice for Education",
+    "title": "3. Malala Yousafzai: A Voice for Education",
     "topic": "Education, courage and equal opportunities.",
     "question": "Why is education worth fighting for?",
     "intro": "Connect basic needs at school with access to school itself. Consider who supports a person who speaks up.",
@@ -279,23 +481,52 @@ export const voiceSections = [
         "questions": [
           {
             "prompt": "What right is Malala defending?",
-            "guide": "Girls’ access to education."
+            "guide": "Girls’ access to education.",
+            "type": "multiple-choice",
+            "options": [
+              "Girls’ right to education.",
+              "A right to become a professional athlete.",
+              "A right to avoid every school subject."
+            ],
+            "answer": 0
           },
           {
-            "prompt": "Find two moments showing ordinary teenage life.",
-            "guide": "Possible examples: family jokes, school results or personal interests."
+            "prompt": "Which pair shows Malala’s ordinary teenage life?",
+            "guide": "Possible examples: family jokes, school results or personal interests.",
+            "type": "multiple-choice",
+            "options": [
+              "Family jokes and her school results.",
+              "Only meetings with politicians.",
+              "Only scenes of the attack."
+            ],
+            "answer": 0
           },
           {
-            "prompt": "What does the trailer show about her relationship with her family?",
-            "guide": "Use a scene and explain what it suggests."
+            "prompt": "What relationship with her family does the trailer suggest?",
+            "guide": "Use a scene and explain what it suggests.",
+            "type": "multiple-choice",
+            "options": [
+              "Her family has a close, supportive relationship with her.",
+              "Her family is never shown or mentioned.",
+              "Her family wants her to stop learning."
+            ],
+            "answer": 0
           },
           {
             "prompt": "How does she react when asked about anger?",
-            "guide": "She says she wants people to learn from her experience."
+            "guide": "She says she wants people to learn from her experience.",
+            "type": "multiple-choice",
+            "options": [
+              "She wants people to learn from her experience.",
+              "She refuses to discuss learning.",
+              "She says education does not matter."
+            ],
+            "answer": 0
           },
           {
             "prompt": "Why combine serious events with everyday scenes?",
-            "guide": "Possible answer: to present a whole person and help viewers connect with her."
+            "guide": "Possible answer: to present a whole person and help viewers connect with her.",
+            "type": "written"
           }
         ],
         "transcriptUrl": "https://learnenglishteens.britishcouncil.org/study-break/video-zone/he-named-me-malala",
@@ -362,23 +593,58 @@ export const voiceSections = [
         "questions": [
           {
             "prompt": "Where did Malala grow up?",
-            "guide": "Mingora in Pakistan’s Swat Valley."
+            "guide": "Mingora in Pakistan’s Swat Valley.",
+            "type": "multiple-choice",
+            "options": [
+              "Mingora, in Pakistan’s Swat Valley.",
+              "London, in the United Kingdom.",
+              "Stockholm, in Sweden."
+            ],
+            "answer": 0
           },
           {
             "prompt": "What changed girls’ access to school?",
-            "guide": "Taliban control brought restrictions and a ban."
+            "guide": "Taliban control brought restrictions and a ban.",
+            "type": "multiple-choice",
+            "options": [
+              "The Taliban imposed restrictions and stopped girls attending school.",
+              "Girls all chose to leave school permanently.",
+              "The school closed only for a normal summer holiday."
+            ],
+            "answer": 0
           },
           {
-            "prompt": "Name two ways she made her experiences public.",
-            "guide": "Public speaking and blogging for BBC Urdu."
+            "prompt": "Which two methods did she use to share her experiences?",
+            "guide": "Public speaking and blogging for BBC Urdu.",
+            "type": "multiple-choice",
+            "options": [
+              "Public speaking and blogging for BBC Urdu.",
+              "Only private messages to friends.",
+              "Football matches and advertising campaigns."
+            ],
+            "answer": 0
           },
           {
-            "prompt": "Put these events in order: Nobel Prize; UN speech; attack.",
-            "guide": "Attack in 2012; UN speech in 2013; Nobel Prize in 2014."
+            "prompt": "Which order of events is correct?",
+            "guide": "Attack in 2012; UN speech in 2013; Nobel Prize in 2014.",
+            "type": "multiple-choice",
+            "options": [
+              "Attack → UN speech → Nobel Peace Prize.",
+              "Nobel Peace Prize → attack → UN speech.",
+              "UN speech → Nobel Peace Prize → attack."
+            ],
+            "answer": 0
           },
           {
             "prompt": "How did her work continue after recovery?",
-            "guide": "She continued campaigning and co-founded Malala Fund."
+            "guide": "She continued campaigning and co-founded Malala Fund.",
+            "type": "multiple-choice",
+            "options": [
+              "She continued campaigning and co-founded Malala Fund.",
+              "She stopped all work on education.",
+              "She worked only on sports campaigns."
+            ],
+            "answer": 0
           }
         ],
         "date": "Living timeline; early events 1997–2014"
@@ -387,7 +653,7 @@ export const voiceSections = [
   },
   {
     "id": "voice-greta",
-    "title": "3. Greta Thunberg: A Voice for the Future",
+    "title": "4. Greta Thunberg: A Voice for the Future",
     "topic": "Starting small, protest and collective responsibility.",
     "question": "How can young people make adults listen?",
     "intro": "Study how one action can spread. Distinguish individual choices from decisions that need governments or organisations.",
@@ -476,39 +742,195 @@ export const voiceSections = [
         "questions": [
           {
             "prompt": "How did Greta begin her protest?",
-            "guide": "By sitting outside Sweden’s parliament."
+            "guide": "By sitting outside Sweden’s parliament.",
+            "type": "multiple-choice",
+            "options": [
+              "By sitting outside Sweden’s parliament.",
+              "By organising a national election.",
+              "By opening a new school."
+            ],
+            "answer": 0
           },
           {
             "prompt": "Why do the students say the issue matters to them?",
-            "guide": "Decisions made now affect their future."
+            "guide": "Decisions made now affect their future.",
+            "type": "multiple-choice",
+            "options": [
+              "Decisions made now affect their future.",
+              "They say the issue affects only older people.",
+              "They believe school teaches nothing useful."
+            ],
+            "answer": 0
           },
           {
-            "prompt": "Find one demand the student organisers make.",
-            "guide": "Examples concern fossil fuel projects, renewable energy or support for affected workers."
+            "prompt": "Which demand do the student organisers make?",
+            "guide": "Examples concern fossil fuel projects, renewable energy or support for affected workers.",
+            "type": "multiple-choice",
+            "options": [
+              "More renewable energy and no new fossil fuel projects.",
+              "More new fossil fuel projects.",
+              "An end to all scientific research."
+            ],
+            "answer": 0
           },
           {
             "prompt": "What criticism of school strikes does the reporter raise?",
-            "guide": "Students are missing school."
+            "guide": "Students are missing school.",
+            "type": "multiple-choice",
+            "options": [
+              "Students are missing school to protest.",
+              "Students are refusing to use social media.",
+              "Students are asking for longer school days."
+            ],
+            "answer": 0
           },
           {
             "prompt": "How do students defend their choice?",
-            "guide": "They argue that protecting their future is important."
+            "guide": "They argue that protecting their future is important.",
+            "type": "multiple-choice",
+            "options": [
+              "Protecting their future makes the protest important.",
+              "They say the issue has no connection to their future.",
+              "They say they never want to learn again."
+            ],
+            "answer": 0
           },
           {
             "prompt": "What does the message about starting small suggest?",
-            "guide": "Possible answer: people can act before they have power or a large following."
+            "guide": "Possible answer: people can act before they have power or a large following.",
+            "type": "written"
           }
         ],
         "transcriptUrl": "https://learnenglishteens.britishcouncil.org/study-break/video-zone/school-strike-4-climate",
         "transcriptInstruction": "Open the resource and expand Transcript below the video. Find the passage about starting small near the end of the Greta segment.",
         "date": "Historical school-strike report (2019)",
         "embedUrl": "https://www.youtube-nocookie.com/embed/CjTtiMWjJ9g"
+      },
+      {
+        "id": "greta-text",
+        "title": "Resource 2 · National Geographic Kids: Greta Thunberg facts",
+        "kind": "text",
+        "url": "https://www.natgeokids.com/uk/kids-club/cool-kids/general-kids-club/greta-thunberg-facts/",
+        "date": "Background to her early activism, mainly 2018–2019",
+        "instruction": "Focus on points 1, 4–7 and 10. Find out what inspired Greta, what she did first, and how other people joined in. Points 2–3 and 8–9 are optional. The article describes her early activism in 2018–2019; its references to her age and “September this year” belong to that period.",
+        "vocabulary": [
+          {
+            "term": "environmental",
+            "swedish": "miljörelaterad",
+            "definition": "Connected with the natural world.",
+            "example": "The class discussed an environmental problem."
+          },
+          {
+            "term": "take action",
+            "swedish": "agera; vidta åtgärder",
+            "definition": "To do something to address a problem.",
+            "example": "They decided to take action."
+          },
+          {
+            "term": "politician",
+            "swedish": "politiker",
+            "definition": "Someone involved in making political decisions.",
+            "example": "A politician answered the students’ questions."
+          },
+          {
+            "term": "inspire",
+            "swedish": "inspirera",
+            "definition": "To encourage someone to think or act.",
+            "example": "One person’s idea can inspire others."
+          },
+          {
+            "term": "spread",
+            "swedish": "sprida sig",
+            "definition": "To reach more people or places.",
+            "example": "The news began to spread."
+          },
+          {
+            "term": "coordinate",
+            "swedish": "samordna",
+            "definition": "To organise people so they work together.",
+            "example": "The students coordinated their campaign."
+          },
+          {
+            "term": "speech",
+            "swedish": "tal",
+            "definition": "Words spoken to an audience.",
+            "example": "She gave a speech at the meeting."
+          },
+          {
+            "term": "demand",
+            "swedish": "kräva",
+            "definition": "To ask firmly for something.",
+            "example": "The group demanded better support."
+          }
+        ],
+        "questions": [
+          {
+            "type": "multiple-choice",
+            "prompt": "What did Greta want politicians to do?",
+            "options": [
+              "Act on climate change.",
+              "Stop students from learning about the environment.",
+              "Organise a music competition."
+            ],
+            "answer": 0,
+            "guide": "Her protest asked for political action."
+          },
+          {
+            "type": "multiple-choice",
+            "prompt": "Which young people helped inspire her protest?",
+            "options": [
+              "Teenagers in Florida campaigning against gun violence.",
+              "A Swedish football team.",
+              "Students campaigning for a new library."
+            ],
+            "answer": 0,
+            "guide": "The article links her action to another youth campaign."
+          },
+          {
+            "type": "multiple-choice",
+            "prompt": "How did her protest reach more people?",
+            "options": [
+              "Media attention helped others hear about it and join.",
+              "She kept the protest secret.",
+              "Only her family could hear about it."
+            ],
+            "answer": 0,
+            "guide": "Public attention helped the action spread."
+          },
+          {
+            "type": "multiple-choice",
+            "prompt": "What happened after more people heard about Greta’s strike?",
+            "options": [
+              "Students in other countries joined, and campaigners organised a global climate strike.",
+              "The campaign stayed a one-person protest in Stockholm.",
+              "The students stopped asking for climate action."
+            ],
+            "answer": 0,
+            "guide": "The text shows how a local protest grew into organised action in many countries."
+          },
+          {
+            "type": "multiple-choice",
+            "prompt": "Which civil rights activist does the article name as an inspiration?",
+            "options": [
+              "Rosa Parks.",
+              "Marcus Rashford.",
+              "Gitanjali Rao."
+            ],
+            "answer": 0,
+            "guide": "This links the reading to our opening section."
+          },
+          {
+            "type": "written",
+            "prompt": "How can inspiration pass from one person to others? Use two examples from the text.",
+            "guide": "You can connect the Florida teenagers or Rosa Parks to Greta, then explain how Greta encouraged other students to take action. Use: “Greta was inspired by …”; “Her action encouraged …”; “This shows that …”."
+          }
+        ]
       }
     ]
   },
   {
     "id": "voice-gitanjali",
-    "title": "4. Gitanjali Rao: Who Can Be a Scientist?",
+    "title": "5. Gitanjali Rao: Who Can Be a Scientist?",
     "topic": "Stereotypes, belonging and using your strengths.",
     "question": "Who can be a scientist?",
     "intro": "Before opening the resources, describe an imagined scientist. Then ask where that image comes from and whom it might leave out.",
@@ -585,19 +1007,41 @@ export const voiceSections = [
         "questions": [
           {
             "prompt": "What award does the report introduce?",
-            "guide": "TIME’s first-ever Kid of the Year, in 2020."
+            "guide": "TIME’s first-ever Kid of the Year, in 2020.",
+            "type": "multiple-choice",
+            "options": [
+              "TIME’s first-ever Kid of the Year, in 2020.",
+              "The Nobel Peace Prize in 2014.",
+              "An award for winning a football tournament."
+            ],
+            "answer": 0
           },
           {
             "prompt": "What problem does one invention address?",
-            "guide": "Her lead-testing kit addresses unsafe drinking water; the report links it to Flint, Michigan."
+            "guide": "Her lead-testing kit addresses unsafe drinking water; the report links it to Flint, Michigan.",
+            "type": "multiple-choice",
+            "options": [
+              "Unsafe drinking water, including lead contamination.",
+              "The cost of school uniforms.",
+              "A shortage of sports equipment."
+            ],
+            "answer": 0
           },
           {
-            "prompt": "What do the images help you understand?",
-            "guide": "Choose one image or scene. Explain its effect on you."
+            "prompt": "How does Gitanjali help other young people develop ideas?",
+            "guide": "The report mentions her workshops.",
+            "type": "multiple-choice",
+            "options": [
+              "She runs workshops to help others develop ideas.",
+              "She keeps all her ideas secret.",
+              "She asks young people to stop trying science."
+            ],
+            "answer": 0
           },
           {
             "prompt": "What would you like to ask Gitanjali after watching?",
-            "guide": "Write a question, then check whether the interview answers it."
+            "guide": "Write a question, then check whether the interview answers it.",
+            "type": "written"
           }
         ],
         "date": "8 December 2020",
@@ -675,27 +1119,63 @@ export const voiceSections = [
         "questions": [
           {
             "prompt": "How does Gitanjali connect science with helping people?",
-            "guide": "She wants practical ideas to improve people’s lives."
+            "guide": "She wants practical ideas to improve people’s lives.",
+            "type": "multiple-choice",
+            "options": [
+              "She uses practical ideas to improve people’s lives.",
+              "She says science cannot help communities.",
+              "She thinks inventions are only useful for winning prizes."
+            ],
+            "answer": 0
           },
           {
             "prompt": "What is Kindly intended to address?",
-            "guide": "Cyberbullying."
+            "guide": "Cyberbullying.",
+            "type": "multiple-choice",
+            "options": [
+              "Cyberbullying.",
+              "Football training.",
+              "School-meal payments."
+            ],
+            "answer": 0
           },
           {
             "prompt": "Why can seeing people like yourself matter?",
-            "guide": "Possible answer: it can make a field feel open to you."
+            "guide": "Possible answer: it can make a field feel open to you.",
+            "type": "multiple-choice",
+            "options": [
+              "It can help people feel that a field is open to them.",
+              "It guarantees that everyone will have identical interests.",
+              "It means nobody has to practise or learn."
+            ],
+            "answer": 0
           },
           {
             "prompt": "How does she help others try their own ideas?",
-            "guide": "Through workshops and sharing her approach."
+            "guide": "Through workshops and sharing her approach.",
+            "type": "multiple-choice",
+            "options": [
+              "By running workshops and sharing her approach.",
+              "By working only alone and refusing to share ideas.",
+              "By asking schools to stop teaching science."
+            ],
+            "answer": 0
           },
           {
             "prompt": "What does her final answer add to the portrait of her?",
-            "guide": "It shows an ordinary interest: baking."
+            "guide": "It shows an ordinary interest: baking.",
+            "type": "multiple-choice",
+            "options": [
+              "It shows an everyday interest: baking.",
+              "It introduces a new government law.",
+              "It says she has no interests outside science."
+            ],
+            "answer": 0
           },
           {
             "prompt": "How could a school challenge stereotypes about scientists?",
-            "guide": "Give a practical suggestion and connect it to the interview."
+            "guide": "Give a practical suggestion and connect it to the interview.",
+            "type": "written"
           }
         ],
         "date": "4 December 2020"
