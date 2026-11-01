@@ -582,11 +582,11 @@ export const voiceSections = [
         "questions": [
           {
             "prompt": "What award does the report introduce?",
-            "guide": "Identify its name and the year mentioned. Use the opening of Resource 2 to check."
+            "guide": "TIME’s first-ever Kid of the Year, in 2020."
           },
           {
             "prompt": "What problem does one invention address?",
-            "guide": "Name the problem and explain what you understand the invention is meant to do."
+            "guide": "Her lead-testing kit addresses unsafe drinking water; the report links it to Flint, Michigan."
           },
           {
             "prompt": "What do the images help you understand?",
@@ -598,7 +598,7 @@ export const voiceSections = [
           }
         ],
         "date": "8 December 2020",
-        "transcriptInstruction": "The linked CBS page does not provide a readable transcript in the material checked for this unit. Use captions if the player offers them. A supplied transcript can be pasted into the local transcript box below; the listening prompts are not a transcript."
+        "transcriptText": "Transcript from the teacher-uploaded audio. Punctuation, speaker labels and approximate timestamps are editorial. Spoken grammar is retained. The final word, science, has been confirmed by the teacher.\n\n[00:00] Presenter: TIME magazine puts a 15-year-old on the cover, a scientist who’s taking on some of the world’s biggest problems. CBS’s Adriana Diaz has been following her for years.\n\n[About 00:14] Reporter: There’s some stories you do, and you know you’ll be back for a sequel. In 2017, we introduced you to then 12-year-old Gitanjali Rao. She’d invented a lead testing kit.\n\n[About 00:25] Gitanjali (2017): Imagine living day in and day out, drinking contaminated water with dangerous substances like lead.\n\n[About 00:30] Reporter: Inspired by Flint, Michigan.\n\nInterviewer (2017): I’ve never tested my water.\n\nGitanjali (2017): That’s a big problem.\n\n[About 00:36] Reporter: We ended that 2017 piece asking, “What will she do next?” Well, this was next. She was just named TIME magazine’s first-ever Kid of the Year.\n\n[About 00:46] Gitanjali: This is so beyond exciting. Nothing I could have ever imagined.\n\n[About 00:50] Reporter: Now 15 years old, she beat out 5,000 others, not just for the lead testing kit, but she’s also created apps to fight cyberbullying and opioid addiction. And she inspires others through workshops.\n\n[About 01:03] Gitanjali: I cannot see a world filled with kindness without science and technology being involved.\n\n[About 01:08] Reporter: After a year like 2020, take comfort. Teenage scientist Gitanjali Rao is on the rise.\n\n[About 01:16] Reporter: Adriana Diaz, CBS News, Chicago.\n\n[About 01:20] Presenter: We love seeing more girls in science.\n\nLanguage note: Forms such as “There’s some stories” are spoken wording, not models of formal written grammar."
       },
       {
         "id": "gitanjali-text",
