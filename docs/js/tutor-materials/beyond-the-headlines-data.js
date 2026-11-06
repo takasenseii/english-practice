@@ -78,15 +78,15 @@ export const headlineSections = [
           },
           {
             "type": "multiple-choice",
-            "prompt": "Which note best separates argument from established fact?",
+            "prompt": "Which sentence clearly separates Hannity’s opinion from the evidence he uses to support it?",
             "options": [
-              "“Hannity disagrees with critics, so their evidence can be dismissed.”",
-              "“Hannity argues …; his supporting evidence is …”",
-              "“Hannity’s example settles the question for every military action.”",
-              "“Hannity’s view represents the position of every Israeli.”"
+              "“Hannity disagrees with his critics, so their evidence must be wrong.”",
+              "“Hannity’s opinion is …; the evidence he gives to support it is …”",
+              "“Hannity’s opinion is shared by all Israelis.”",
+              "“Hannity gives one example, so his argument must be true in every case.”"
             ],
             "answer": 1,
-            "guide": "Attribute the position and examine its support rather than assuming it is true or false."
+            "guide": "This sentence separates Hannity’s opinion from the evidence he gives. You can then check whether that evidence supports his opinion."
           },
           {
             "type": "multiple-choice",
