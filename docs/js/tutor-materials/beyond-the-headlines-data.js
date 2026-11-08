@@ -211,7 +211,7 @@ export const headlineSections = [
   },
   {
     "id": "b1-iran",
-    "title": "2. Iran · a claim meets evidence",
+    "title": "2. Minab · a claim meets evidence",
     "topic": "Compare headlines, an official response and visual investigation.",
     "question": "What changes when we look beyond an official denial?",
     "intro": "Lesson 1: compare the New York Post and Guardian headlines and introductions. Lesson 2: watch the two PBS clips and distinguish what was claimed, what evidence supports, and what remains uncertain. These sources describe reporting in March 2026 about the 28 February strike in Minab; later findings may add information.",
