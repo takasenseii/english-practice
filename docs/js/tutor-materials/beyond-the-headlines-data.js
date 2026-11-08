@@ -90,15 +90,15 @@ export const headlineSections = [
           },
           {
             "type": "multiple-choice",
-            "prompt": "Which comparison with the Hebron report is fairest?",
+            "prompt": "What does Hannity use to support his opinions in this clip?",
             "options": [
-              "Compare framing while recognising different locations and events.",
-              "Compare each statement as if it describes the same local incident.",
-              "Use the Hebron account to decide whether every Gaza operation was justified.",
-              "Compare only the speakers’ nationalities rather than their arguments."
+              "Selected examples, strong moral judgements and emotional appeals, including warnings about future attacks.",
+              "A detailed explanation of international law and how it applies to particular military actions.",
+              "A comparison of several independent investigations into the claims he discusses.",
+              "A close examination of opposing arguments, giving similar attention to the evidence for each."
             ],
             "answer": 0,
-            "guide": "The comparison concerns narrative choices, not identical events."
+            "guide": "Look at the examples he selects, his judgements about right and wrong, and his warnings about future danger. Emotional appeals try to influence feelings such as fear or anger. They can accompany factual claims, but do not by themselves prove those claims. Identify one example from the clip and consider what evidence would be needed to check it."
           },
           {
             "type": "written",
