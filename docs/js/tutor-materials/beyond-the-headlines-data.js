@@ -66,39 +66,39 @@ export const headlineSections = [
         "questions": [
           {
             "type": "multiple-choice",
-            "prompt": "What are you analysing in this resource?",
+            "prompt": "What is the main purpose of Hannity’s comments in this clip?",
             "options": [
-              "A government announcement of a new peace agreement.",
-              "A documentary tracing one soldier’s change of mind.",
-              "A commentator’s argument and presentation of Israel.",
-              "A reporter’s account of interviews with Hebron residents."
-            ],
-            "answer": 2,
-            "guide": "Hannity speaks as a commentator; identify how he presents his position."
-          },
-          {
-            "type": "multiple-choice",
-            "prompt": "Which sentence clearly separates Hannity’s opinion from the evidence he uses to support it?",
-            "options": [
-              "“Hannity disagrees with his critics, so their evidence must be wrong.”",
-              "“Hannity’s opinion is …; the evidence he gives to support it is …”",
-              "“Hannity’s opinion is shared by all Israelis.”",
-              "“Hannity gives one example, so his argument must be true in every case.”"
+              "To explain the background of the conflict.",
+              "To defend Israel’s actions and criticise its critics.",
+              "To compare Israeli and Palestinian experiences.",
+              "To explain how the International Criminal Court works."
             ],
             "answer": 1,
-            "guide": "This sentence separates Hannity’s opinion from the evidence he gives. You can then check whether that evidence supports his opinion."
+            "guide": "Hannity argues in support of Israel and challenges its critics. Distinguish his main purpose from topics he mentions along the way."
           },
           {
             "type": "multiple-choice",
-            "prompt": "What does Hannity use to support his opinions in this clip?",
+            "prompt": "What does Hannity use to support his opinions?",
             "options": [
-              "Selected examples, strong moral judgements and emotional appeals, including warnings about future attacks.",
-              "A detailed explanation of international law and how it applies to particular military actions.",
-              "A comparison of several independent investigations into the claims he discusses.",
-              "A close examination of opposing arguments, giving similar attention to the evidence for each."
+              "Detailed legal arguments about military actions.",
+              "Several independent investigations into the conflict.",
+              "Selected examples, moral judgements and emotional appeals.",
+              "A comparison of evidence supporting different viewpoints."
+            ],
+            "answer": 2,
+            "guide": "He uses selected examples, judgements about right and wrong, and appeals to feelings such as fear or anger. Emotional language can accompany factual claims, but does not by itself prove them."
+          },
+          {
+            "type": "multiple-choice",
+            "prompt": "Why does Hannity warn that America could be attacked next?",
+            "options": [
+              "To connect Israel’s security to the American audience’s own safety.",
+              "To report a confirmed plan for an attack on America.",
+              "To explain why America and Israel face identical situations.",
+              "To argue that America should avoid involvement in the conflict."
             ],
             "answer": 0,
-            "guide": "Look at the examples he selects, his judgements about right and wrong, and his warnings about future danger. Emotional appeals try to influence feelings such as fear or anger. They can accompany factual claims, but do not by themselves prove those claims. Identify one example from the clip and consider what evidence would be needed to check it."
+            "guide": "The warning connects the conflict to the audience’s own safety and can create fear or urgency. A warning about a possible attack is not evidence of a confirmed plan."
           },
           {
             "type": "written",
@@ -185,15 +185,15 @@ export const headlineSections = [
           },
           {
             "type": "multiple-choice",
-            "prompt": "Which detail is most directly about everyday life?",
+            "prompt": "What helps make the report more credible?",
             "options": [
-              "The terms negotiators would accept in a final peace agreement.",
-              "Restrictions on movement through streets and checkpoints.",
-              "The relationship between Israel and the United States.",
-              "The military reasons offered for a future operation in Gaza."
+              "The journalist’s family connection gives her a complete view of events.",
+              "The emotional scenes show that her interpretation is the only reasonable one.",
+              "The people interviewed agree on every aspect of the conflict.",
+              "It combines filmed observations with interviews with residents, former soldiers and a settler."
             ],
-            "answer": 1,
-            "guide": "Movement restrictions connect political control to daily experience."
+            "answer": 3,
+            "guide": "Filmed observations and interviews give viewers concrete material to assess. Including Israeli voices with different views broadens the range of perspectives. These methods can support credibility and a more objective account, but do not guarantee accuracy or balance. Consider how the footage and interviewees were selected, and check important claims against independent sources."
           },
           {
             "type": "written",
